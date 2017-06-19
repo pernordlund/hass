@@ -1,0 +1,328 @@
+#Group config
+  default_view:
+    view: yes
+    entities:
+      - group.welcome
+      - group.awesome_people
+      - group.security
+      - group.security_lt
+      - group.frontpage_sensors
+      - camera.generic_camera
+      - group.roger
+  welcome:
+    name: Welcome
+    view: no
+    entities:
+      - sensor.from_hass
+      - sensor.date
+      - sensor.time
+      - sensor.klisatravagen
+      - alert.front_door
+      - updater.updater
+  awesome_people:
+    name: People
+    view: no
+    entities:
+      - device_tracker.marie
+#      - device_tracker.pelle
+      - device_tracker.pelle_gps
+      - device_tracker.frida
+      - device_tracker.jenny
+      - device_tracker.albin
+  security:
+    name: Security
+    view: no
+    entities:
+      - binary_sensor.dishwasher_flood_template
+      - binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor_4_0
+      - binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_9_0
+      - binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_9_0_2
+      - binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_13_0
+      - binary_sensor.sensative_strips_sensor_30_0
+      - binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor_29_0
+  security_lt:
+    name: Security last trip
+    view: no
+    entities:
+      - sensor.last_trip_flood
+      - sensor.last_trip_allrum
+      - sensor.last_trip_alarm
+      - sensor.last_trip_ytterdorr
+      - sensor.last_trip_garagedorr
+      - sensor.last_trip_forradsdorr
+  frontpage_sensors:
+    name: Sensors
+    view: no
+    entities:
+      - sun.sun
+      - sensor.yr_symbol
+      - sensor.mqtt_status
+      - sensor.northq_nq92021_power_reader_energy_26_0
+  roger:
+    name: Roger
+    view: no
+    entities:
+      - sensor.roger_status
+      - sensor.roger_battery
+      - sensor.roger_next_src
+      - sensor.roger_next_start
+      - input_select.roger_action
+  climate:
+    name: Climate
+    view: yes
+    entities:
+      - group.climate_house
+      - group.climate_garage
+      - group.climate_outside
+  climate_house:
+    name: Climate House
+    view: no
+    entities:
+      - sensor.inne_nere_temperature
+      - sensor.inne_nere_humidity
+      - sensor.fibaro_system_fgsd002_smoke_sensor_temperature_29_1
+      - sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_4_1
+      - sensor.fibaro_system_fgms001zw5_motion_sensor_luminance_4_3
+      - sensor.inne_uppe_temperature
+      - sensor.inne_uppe_humidity
+      - sensor.vinden_temperature
+      - sensor.vinden_humidity
+  climate_garage:
+    name: Climate Garage
+    view: no
+    entities:
+      - sensor.fibaro_system_fgk101_door_opening_sensor_temperature_13_1
+      - sensor.everspring_st814_temperature_and_humidity_sensor_temperature_16_1
+      - sensor.everspring_st814_temperature_and_humidity_sensor_relative_humidity_16_5_2
+  climate_outside:
+    name: Climate Outside
+    view: no
+    entities:
+      - sensor.altan_temperature
+      - sensor.bvoutdoor
+  control:
+    name: Control
+    view: yes
+    entities:
+      - group.inside_downstairs
+      - group.inside_upstairs
+      - group.outside
+      - group.switches
+  inside_downstairs:
+    name: Downstairs
+    view: no
+    entities:
+      - light.arbrum_fonster
+      - light.arbrum_skrivbord
+      - light.fibaro_system_fgd211_universal_dimmer_500w_level_10_0
+      - light.aeotec_zw098_led_bulb_level_7_0
+      - light.byralampa
+      - light.tradfri_bulb_e14_ws_opal_400lm
+      - light.fibaro_system_fgd211_universal_dimmer_500w_level_19_0
+      - switch.fibaro_system_fgs211_switch_3kw_switch_20_0
+      - light.fibaro_system_fgd212_dimmer_2_level_6_0
+      - light.fibaro_system_fgd211_universal_dimmer_500w_level_21_0
+      - light.sovmop
+      - switch.telldus_tzwp100_plugin_switch_switch_3_0
+      - switch.fibaro_system_fgwpef_wall_plug_switch_22_0
+      - light.domitech_smart_led_retrofit_kit_ze27eu_level_28_0
+      - light.fibaro_system_fgd211_universal_dimmer_500w_level_12_0
+  inside_upstairs:
+    name: Upstairs
+    view: no
+    entities:
+      - light.fibaro_system_fgd211_universal_dimmer_500w_level_24_0
+      - switch.fibaro_system_fgs221_double_relay_switch_2x15kw_switch_23_0_2
+      - switch.fibaro_system_fgs221_double_relay_switch_2x15kw_switch_23_0
+      - light.frida_skrivbord
+      - light.fibaro_system_fgd211_universal_dimmer_500w_level_25_0
+      - light.vinden
+  outside:
+    name: Outside
+    view: no
+    entities:
+      - light.entre
+      - light.utebelysning
+      - light.ute_altan
+  switches:
+    name: Switches
+    view: no
+    entities:
+      - switch.fibaro_system_fgwpef_wall_plug_gen5_switch_2_0
+      - switch.vagg_vardrum
+      - switch.kamera
+      - switch.multifjarr6
+      - switch.multifjarr9
+      - switch.vit_fjarr_1
+      - switch.vit_fjarr_3
+      - switch.okand_0
+      - switch.sensor_badrum
+      - switch.okand_2
+      - switch.fibaro_system_fgwpef_wall_plug_gen5_switch_8_0
+      - switch.popp__duwi_zw_zsa_3500_plugin_switch_switch_17_0
+  media:
+    name: Media
+    view: yes
+    entities:
+      - group.m_players
+      - group.m_devices
+  m_players:
+    name: Media players
+    view: no
+    entities:
+      - configurator.plex_media_server
+      - media_player.nordlund_chromecast
+      - media_player.plex_web_chrome
+      - media_player.xperia_x_performance
+      - media_player.pioneer_avr
+      - media_player.samsung_tv
+  m_devices:
+    name: Media devices
+    view: no
+    entities:
+      - switch.htpc
+      - switch.fibaro_system_fgwpef_wall_plug_gen5_switch_2_0
+      - device_tracker.htpc
+      - device_tracker.hemmabio
+      - device_tracker.tv
+      - device_tracker.koksradio
+  heater:
+    name: Heater
+    view: yes
+    entities:
+      - group.heater_vals
+  heater_vals:
+    name: Values
+    view: no
+    entities:
+      - sensor.bvtime
+      - sensor.bvfree_mem
+      - binary_sensor.bvalarm
+      - sensor.bv_radiator_return
+      - sensor.bvbrine_inevaporator
+      - sensor.bvbrine_outcondenser
+      - sensor.bvheat_carrier_forwrd
+      - sensor.bvheat_carrier_return
+      - sensor.bvhot_gas__compr
+      - sensor.bvhot_water_1__top
+      - sensor.bvoutdoor
+      - sensor.bvradiator_return
+      - sensor.radiator_return
+      - binary_sensor.bvadd_heat_step_1
+      - binary_sensor.bvadd_heat_step_2
+      - binary_sensor.bvcompressor
+      - sensor.bvheat_set_1_curvel
+      - sensor.bvheat_set_3_parallel
+      - sensor.bvheating_setpoint
+      - binary_sensor.bvpump_cold_circuit
+      - binary_sensor.bvpump_heat_circuit
+      - binary_sensor.bvpump_radiator
+      - binary_sensor.bvswitch_valve_1
+  majolika:
+    name: majolika
+    view: yes
+    entities:
+      - group.majolika_status
+      - group.majolika_control
+      - group.majolika_vals
+  majolika_vals:
+    name: Values
+    view: no
+    entities:
+      - sensor.majolika_control
+      - sensor.majolika_status
+  majolika_status:
+    name: Status
+    view: no
+    entities:
+      - sensor.maj_batt_volt
+      - sensor.maj_batt_amps
+      - sensor.maj_batt_kapac
+      - sensor.maj_batt_status
+      - sensor.maj_last_amps
+      - sensor.maj_regulator_temp
+      - sensor.maj_solcell_amps
+      - sensor.maj_solcell_volt
+  majolika_control:
+    name: Control
+    view: no
+    entities:
+      - sensor.maj_dag_natt
+      - sensor.maj_enable_load_test
+      - sensor.maj_enable_man_contr
+      - sensor.maj_force_load
+      - sensor.maj_last_mode
+      - sensor.maj_over_temp
+  systems:
+    name: Systems
+    view: yes
+    entities:
+      - group.system_hass
+      - group.system_rasp3
+      - group.other_systems
+  system_hass:
+    name: Hass values
+    view: no
+    entities:
+      - sensor.average_load_1m
+      - sensor.average_load_5m
+      - sensor.average_load_15m
+      - sensor.cpu_use
+      - sensor.disk_free_home
+      - sensor.disk_use_home
+      - sensor.ram_free
+      - sensor.ram_use
+      - sensor.received_eth0
+      - sensor.sent_eth0
+      - sensor.swap_free
+      - sensor.swap_use
+      - sensor.last_boot
+  system_rasp3:
+    name: Rasp-3 values
+    view: no
+    entities:
+      - sensor.rasp3_cpu_load
+      - sensor.rasp3_disk_free
+      - sensor.rasp3_disk_use
+      - sensor.rasp3_disk_use_2
+      - sensor.rasp3_running
+      - sensor.rasp3_sleeping
+      - sensor.rasp3_ram_free
+      - sensor.rasp3_ram_use
+      - sensor.rasp3_ram_use_2
+      - sensor.rasp3_swap_free
+      - sensor.rasp3_swap_use
+      - sensor.rasp3_swap_use_2
+      - sensor.rasp3_thread
+      - sensor.rasp3_total
+  other_systems:
+    name: Other systems
+    view: no
+    entities:
+      - device_tracker.camera
+      - device_tracker.zonestorage
+      - device_tracker.storstugan
+      - device_tracker.majolika
+      - device_tracker.husdata
+  daily_sun:
+    view: no
+    entities:
+      - light.fibaro_system_fgd211_universal_dimmer_500w_level_24_0
+      - light.byralampa
+      - light.sovmop
+      - switch.telldus_tzwp100_plugin_switch_switch_3_0
+      - light.utebelysning
+      - light.ute_altan
+  lights_pelle:
+    name: Lights Pelle
+    view: no
+    entities:
+      - light.byralampa
+      - light.sovmop
+      - switch.telldus_tzwp100_plugin_switch_switch_3_0
+      - light.arbrum_fonster
+  automations:
+    name: Automations
+    view: yes
+    entities:
+      - group.all_automations

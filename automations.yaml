@@ -1,0 +1,368 @@
+- id: A001
+  alias: Notify all ytterdorr open
+  initial_state: 'off'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_9_0_2
+    from: 'off'
+    to: 'on'
+  action:
+  - service: notify.pelles_tfn
+    data:
+      message: Ytterdorr opened
+- id: A002
+  alias: Switch sofflampa on when wall switch is turned
+  trigger:
+    platform: event
+    event_type: button_pressed
+    event_data:
+      entity_id: switch.vagg_vardrum
+  action:
+  - service: homeassistant.toggle
+    entity_id: light.domitech_smart_led_retrofit_kit_ze27eu_level_28_0
+  - service: homeassistant.toggle
+    entity_id: switch.fibaro_system_fgwpef_wall_plug_switch_22_0
+- id: A003
+  alias: Switch sofflampa on when white remote no 1 is pressed
+  trigger:
+    platform: event
+    event_type: button_pressed
+    event_data:
+      entity_id: switch.vit_fjarr_1
+  action:
+  - service: homeassistant.toggle
+    entity_id: switch.fibaro_system_fgwpef_wall_plug_switch_22_0
+  - service: homeassistant.toggle
+    entity_id: light.domitech_smart_led_retrofit_kit_ze27eu_level_28_0
+- id: A004
+  alias: Switch hornlampa on when white remote no 3 is pressed
+  trigger:
+    platform: event
+    event_type: button_pressed
+    event_data:
+      entity_id: switch.vit_fjarr_3
+  action:
+  - service: homeassistant.toggle
+    entity_id: switch.telldus_tzwp100_plugin_switch_switch_3_0
+- id: A005
+  alias: Turn all lights off when multifjarr6 is pressed
+  trigger:
+    platform: event
+    event_type: button_pressed
+    event_data:
+      entity_id: switch.multifjarr6
+  action:
+  - service: scene.turn_on
+    entity_id: scene.godnatt
+- id: A006
+  alias: Turn all Pelles lights on when multifjarr9 is pressed
+  trigger:
+    platform: event
+    event_type: button_pressed
+    event_data:
+      entity_id: switch.multifjarr9
+  action:
+    service: homeassistant.turn_on
+    entity_id: group.lights_pelle
+- id: A007
+  alias: Turn all lights off when night
+  trigger:
+    platform: time
+    at: '23:30'
+  action:
+  - service: scene.turn_on
+    entity_id: scene.godnatt
+- id: A008
+  alias: Turn some lights off at sunrise
+  trigger:
+    platform: sun
+    event: sunrise
+  action:
+    service: homeassistant.turn_off
+    entity_id: group.daily_sun
+- id: A009
+  alias: Turn some lights on before sunset
+  trigger:
+    platform: sun
+    event: sunset
+    offset: -00:45:00
+  action:
+    service: homeassistant.turn_on
+    entity_id: group.daily_sun
+- id: A010
+  alias: Notifiy okand_0
+  trigger:
+    platform: event
+    event_type: button_pressed
+    event_data:
+      entity_id: switch.okand_0
+  action:
+    service: notify.pelles_tfn
+    data:
+      message: Okand 0 pressed
+- id: A011
+  alias: Notifiy okand_1
+  trigger:
+    platform: event
+    event_type: button_pressed
+    event_data:
+      entity_id: switch.okand_1
+  action:
+    service: notify.pelles_tfn
+    data:
+      message: Okand 1 pressed
+- id: A012
+  alias: Alarm activation message
+  trigger:
+    platform: state
+    entity_id: binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_9_0
+    from: 'on'
+    to: 'off'
+  action:
+  - service: notify.pelles_tfn
+    data:
+      message: Palarmning
+  - service: scene.turn_on
+    entity_id: scene.alarm_on
+- id: A013
+  alias: Alarm deactivation message
+  trigger:
+    platform: state
+    entity_id: binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_9_0
+    from: 'off'
+    to: 'on'
+  action:
+  - service: notify.pelles_tfn
+    data:
+      message: Avlarmning
+  - service: scene.turn_on
+    entity_id: scene.alarm_off
+- id: A014
+  alias: Flood alarm message
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dishwasher_flood_template
+    from: 'off'
+    to: 'on'
+  action:
+  - service: notify.pelles_tfn
+    data:
+      message: Oversvammningslarm
+- id: A015
+  alias: Smoke alarm message
+  trigger:
+    platform: state
+    entity_id: binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor_27_0
+    from: 'off'
+    to: 'on'
+  action:
+  - service: notify.pelles_tfn
+    data:
+      message: Roklarm Roklarm
+- id: A016
+  alias: Turn some lights on when Pelle in the afternoon
+  trigger:
+    platform: state
+    entity_id: device_tracker.pelle_gps
+    from: not_home
+    to: home
+  condition:
+    condition: time
+    after: '14:00:00'
+    before: '20:00:00'
+  action:
+  - service: homeassistant.turn_on
+    entity_id: group.lights_pelle
+  - service: notify.pelles_tfn
+    data:
+      message: Lyser upp for dig
+- id: A017
+  alias: Send bus schedule when Pelle leaves
+  trigger:
+    platform: state
+    entity_id: device_tracker.pelle_gps
+    from: home
+    to: not_home
+  condition:
+    condition: time
+    after: 05:00:00
+    before: '10:00:00'
+  action:
+    service: notify.pelles_tfn
+    data_template:
+      message: '{{ states("sensor.klisatravagen") }}'
+- id: A018
+  alias: Turn kitchen table on if morning and byra is turned on
+  trigger:
+    platform: event
+    event_type: button_pressed
+    event_data:
+      entity_id: light.byralampa
+  condition:
+    condition: time
+    after: 05:00:00
+    before: '10:00:00'
+  action:
+  - service: light.toggle
+    entity_id: light.fibaro_system_fgd211_universal_dimmer_500w_level_21_0
+- id: A019
+  alias: Fonsterlampan arbrum
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      object_id: fibaro_system_fgd211_universal_dimmer_500w_10
+      scene_id: 24
+  action:
+  - service: light.toggle
+    entity_id: light.arbrum_fonster
+- id: A020
+  alias: Fridas skrivbord 3-klick
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      object_id: fibaro_system_fgd211_universal_dimmer_500w_25
+      scene_id: 15
+  action:
+  - service: light.toggle
+    entity_id: light.frida_skrivbord
+- id: A021
+  alias: Fonsterlampan arbrum med 2-klick
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      object_id: fibaro_system_fgd211_universal_dimmer_500w_10
+      scene_id: 26
+  action:
+  - service: light.toggle
+    entity_id: light.arbrum_fonster
+- id: A022
+  alias: Hornlampan vardrum med 3-klick
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      object_id: fibaro_system_fgd211_universal_dimmer_500w_12
+      scene_id: 14
+  action:
+  - service: homeassistant.toggle
+    entity_id: switch.telldus_tzwp100_plugin_switch_switch_3_0
+- id: A023
+  alias: Entrelampan autoslack
+  trigger:
+    platform: time
+    minutes: /15
+    seconds: 0
+  action:
+  - service: light.turn_off
+    entity_id: light.entre
+- id: A024
+  alias: Pelle to work
+  initial_state: 'off'
+  trigger:
+    platform: state
+    entity_id: device_tracker.pelle_gps
+    to: work
+  action:
+  - service: notify.pelles_tfn
+    data:
+      message: Pelle got to work
+- id: A025
+  alias: Turn bathroom on when motion
+  trigger:
+    platform: state
+    entity_id: switch.sensor_badrum
+    to: 'on'
+  action:
+  - service: homeassistant.turn_on
+    entity_id: switch.fibaro_system_fgs221_double_relay_switch_2x15kw_switch_23_0_2
+  - delay: 1200
+  - service: homeassistant.turn_off
+    entity_id: switch.fibaro_system_fgs221_double_relay_switch_2x15kw_switch_23_0_2
+- id: A026
+  alias: Badrum triggered
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: switch.fibaro_system_fgs221_double_relay_switch_2x15kw_switch_23_0_2
+    to: 'on'
+  action:
+  - delay: 1200
+  - service: homeassistant.turn_off
+    entity_id: switch.fibaro_system_fgs221_double_relay_switch_2x15kw_switch_23_0_2
+- id: A027
+  alias: Allrum triggered
+  initial_state: 'off'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor_4_0
+    to: 'on'
+  action:
+  - service: notify.pelles_tfn
+    data:
+      message: Sensor allrum triggered
+- id: A028
+  alias: Turn klk off 5 min after on
+  trigger:
+    platform: state
+    entity_id: switch.fibaro_system_fgs211_switch_3kw_switch_20_0
+    to: 'on'
+  action:
+  - delay: 300
+  - service: homeassistant.turn_off
+    entity_id: switch.fibaro_system_fgs211_switch_3kw_switch_20_0
+- id: A029
+  alias: Turn bass speaker off when turning tv off
+  trigger:
+    platform: state
+    entity_id: media_player.samsung_tv
+    to: 'off'
+  action:
+  - service: homeassistant.turn_off
+    entity_id: switch.fibaro_system_fgwpef_wall_plug_gen5_switch_2_0
+- id: A030
+  alias: MQTT toggle
+  trigger:
+    platform: mqtt
+    topic: hass/toggle_lamp
+  action:
+  - service: homeassistant.toggle
+    data_template:
+      entity_id: '{{ trigger.payload.split("\"")[3] }}'
+- id: A031
+  alias: Start Roger
+  trigger:
+    platform: state
+    entity_id: input_select.roger_action
+    to: start
+  action:
+  - service: rest_command.roger_start
+- id: A032
+  alias: Park Roger
+  trigger:
+    platform: state
+    entity_id: input_select.roger_action
+    to: park
+  action:
+  - service: rest_command.roger_park
+- id: A033
+  alias: Stop Roger
+  trigger:
+    platform: state
+    entity_id: input_select.roger_action
+    to: stop
+  action:
+  - service: rest_command.roger_stop
+- id: A034
+  alias: Majolika alive
+  trigger:
+    platform: state
+    entity_id: device_tracker.majolika
+    from: not home
+    to: home
+  action:
+  - service: notify.pelles_tfn
+    data:
+      message: Majolika alive

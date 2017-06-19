@@ -1,0 +1,124 @@
+
+albin:
+  hide_if_away: false
+  mac:
+  name: albin
+  picture: /local/albin.jpg
+  track: true
+  vendor:
+
+frida:
+  hide_if_away: false
+  mac:
+  name: frida
+  picture: /local/frida.JPG
+  track: true
+  vendor:
+
+marie:
+  hide_if_away: false
+  mac:
+  name: marie
+  picture: /local/marie.JPG
+  track: true
+  vendor:
+
+jenny:
+  hide_if_away: false
+  mac:
+  name: jenny
+  picture: /local/jenny.JPG
+  track: true
+  vendor:
+
+pelle:
+  hide_if_away: false
+  mac:
+  name: pelle
+  picture: /local/pelle.JPG
+  track: true
+  vendor:
+
+hemmabio:
+  hide_if_away: false
+  mac:
+  name: hemmabio
+  picture:
+  track: true
+  vendor:
+
+camera:
+  hide_if_away: false
+  mac:
+  name: camera
+  consider_home: 180
+  picture:
+  track: true
+  vendor:
+
+zonestorage:
+  hide_if_away: false
+  mac:
+  name: zonestorage
+  consider_home: 180
+  picture:
+  track: true
+  vendor:
+
+tv:
+  hide_if_away: false
+  mac:
+  name: tv
+  consider_home: 180
+  picture:
+  track: true
+  vendor:
+
+htpc:
+  hide_if_away: false
+  mac:
+  name: htpc
+  consider_home: 180
+  picture:
+  track: true
+  vendor:
+
+storstugan:
+  hide_if_away: false
+  mac:
+  name: storstugan
+  picture:
+  track: true
+  vendor:
+
+koksradio:
+  hide_if_away: false
+  mac:
+  name: koksradio
+  picture:
+  track: true
+  vendor:
+
+pelle_gps:
+  hide_if_away: false
+  mac:
+  name: pelle gps
+  picture: /local/pelle.JPG
+  track: true
+  vendor:
+
+majolika:
+  hide_if_away: false
+  mac:
+  name: majolika
+  picture:
+  track: true
+  vendor:
+
+husdata:
+  hide_if_away: false
+  mac:
+  name: husdata
+  picture:
+  track: true
+  vendor:

@@ -1,0 +1,111 @@
+    sensor.from_hass:
+      friendly_name: Message
+    binary_sensor.flood_sensor_4_20:
+      friendly_name: Fuktvarning diskmaskin
+    configurator.plex_media_server:
+      hidden: true
+    camera.generic_camera:
+      friendly_name: Living room
+    light.arbrum_fonster:
+      assumed_state: false
+    light.arbrum_skrivbord:
+      assumed_state: false
+    light.byralampa:
+      assumed_state: false
+    light.frida_skrivbord:
+      assumed_state: false
+    light.sovmop:
+      assumed_state: false
+    light.entre:
+      assumed_state: false
+    light.vinden:
+      assumed_state: false
+    light.utebelysning:
+      assumed_state: false
+    light.ute_altan:
+      assumed_state: false
+    group.all_automations:
+      hidden: false
+      friendly_name: All automations
+    switch.fibaro_system_fgwpef_wall_plug_gen5_switch_2_0:
+      friendly_name: Bass speaker
+    switch.telldus_tzwp100_plugin_switch_switch_3_0:
+      friendly_name: Vardagrum hornlampa
+      icon: mdi:lightbulb
+    binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor_4_0:
+      friendly_name: Rorelse allrum
+    light.fibaro_system_fgd212_dimmer_2_level_6_0:
+      friendly_name: Koksbanken
+    light.aeotec_zw098_led_bulb_level_7_0:
+      friendly_name: Arbrum horn
+    sensor.fibaro_system_fgms001zw5_motion_sensor_luminance_4_3:
+      friendly_name: Ljus allrum
+    binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_9_0_2:
+      friendly_name: Ytterdorr oppen
+    binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_9_0:
+      friendly_name: Avlarmat
+    switch.fibaro_system_fgwpef_wall_plug_gen5_switch_8_0:
+      friendly_name: Pelles laddare
+    light.fibaro_system_fgd211_universal_dimmer_500w_level_10_0:
+      friendly_name: Arbrum tak
+    light.fibaro_system_fgd211_universal_dimmer_500w_level_12_0:
+      friendly_name: Vardrum bord
+    switch.popp__duwi_zw_zsa_3500_plugin_switch_switch_17_0:
+      friendly_name: Rogers laddare
+    sensor.everspring_st814_temperature_and_humidity_sensor_temperature_16_1:
+      friendly_name: Garagevinden temp
+    sensor.everspring_st814_temperature_and_humidity_sensor_relative_humidity_16_5_2:
+      friendly_name: Garagevinden fukt
+    binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_13_0:
+      friendly_name: Garagedorren oppen
+    binary_sensor.sensative_strips_sensor_30_0:
+      friendly_name: Forradsdorren oppen
+    sensor.fibaro_system_fgk101_door_opening_sensor_temperature_13_1:
+      friendly_name: Garage temp
+    sensor.everspring_st812_flood_detector_flood_18_5:
+      friendly_name: Oversvammning disk
+    sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_4_1:
+      friendly_name: Allrum temp
+    light.fibaro_system_fgd211_universal_dimmer_500w_level_19_0:
+      friendly_name: Hallampa
+    switch.fibaro_system_fgs211_switch_3kw_switch_20_0:
+      friendly_name: Klk nere
+      icon: mdi:lightbulb
+    light.fibaro_system_fgd211_universal_dimmer_500w_level_21_0:
+      friendly_name: Koksbord
+    switch.fibaro_system_fgwpef_wall_plug_switch_22_0:
+      friendly_name: Vardrum soffa
+      icon: mdi:lightbulb
+    switch.fibaro_system_fgs221_double_relay_switch_2x15kw_switch_23_0_2:
+      friendly_name: Badrum
+      icon: mdi:lightbulb
+    switch.fibaro_system_fgs221_double_relay_switch_2x15kw_switch_23_0:
+      friendly_name: Bastu
+      icon: mdi:lightbulb
+    light.fibaro_system_fgd211_universal_dimmer_500w_level_24_0:
+      friendly_name: Allrum
+    light.fibaro_system_fgd211_universal_dimmer_500w_level_25_0:
+      friendly_name: Frida tak
+    sensor.last_trip_allrum:
+      icon: mdi:calendar-clock
+    sensor.last_trip_alarm:
+      icon: mdi:calendar-clock
+    sensor.last_trip_forradsdorr:
+      icon: mdi:calendar-clock
+    sensor.last_trip_garagedorr:
+      icon: mdi:calendar-clock
+    sensor.last_trip_ytterdorr:
+      icon: mdi:calendar-clock
+    sensor.last_trip_flood:
+      icon: mdi:calendar-clock
+    sensor.northq_nq92021_power_reader_energy_26_0:
+      friendly_name: Elmatare
+      icon: mdi:flash-red-eye
+    binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor_29_0:
+      friendly_name: Roksensor
+    sensor.fibaro_system_fgsd002_smoke_sensor_temperature_29_1:
+      friendly_name: Vardrum temp
+    light.domitech_smart_led_retrofit_kit_ze27eu_level_28_0:
+      friendly_name: Vardrum soffa 2
+    light.tradfri_bulb_e14_ws_opal_400lm:
+      friendly_name: Tradfri e14

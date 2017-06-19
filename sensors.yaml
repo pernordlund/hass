@@ -1,0 +1,246 @@
+#Config sensors
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'date'
+      - 'date_time'
+  - platform: yr
+#  - platform: rest
+#    resource: !secret sl_resource
+#    name: Klisatravagen
+#    value_template: >
+#      {% for bus in value_json.ResponseData.Buses %}
+#      {{ bus.Destination|replace(" ", ".") }}-{{ bus.DisplayTime|replace(" ", ".") }} /// 
+#      {% endfor %}
+  - platform: template
+    sensors:
+      last_trip_allrum:
+        value_template: '{{ states.sensor.date__time.state }}'
+        friendly_name: 'Allrum trip'
+        entity_id: binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor_4_0
+      last_trip_alarm:
+        value_template: '{{ states.sensor.date__time.state }}'
+        friendly_name: 'Alarm trip'
+        entity_id: binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_9_0
+      last_trip_forradsdorr:
+        value_template: '{{ states.sensor.date__time.state }}'
+        friendly_name: 'Forradsdorr trip'
+        entity_id: binary_sensor.sensative_strips_sensor_30_0
+      last_trip_ytterdorr:
+        value_template: '{{ states.sensor.date__time.state }}'
+        friendly_name: 'Ytterdorr trip'
+        entity_id: binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_9_0_2
+      last_trip_garagedorr:
+        value_template: '{{ states.sensor.date__time.state }}'
+        friendly_name: 'Garagedorr trip'
+        entity_id: binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_13_0
+      last_trip_flood:
+        value_template: '{{ states.sensor.date__time.state }}'
+        friendly_name: 'Dishwasher trip '
+        entity_id: binary_sensor.dishwasher_flood_template
+      solar_angle:
+        value_template: '{{ "%+.1f"|format(states.sun.sun.attributes.elevation) }}'
+        friendly_name: 'Sun Angle'
+        unit_of_measurement: '°'
+      sunrise:
+        friendly_name: 'Sunrise'
+        value_template: '{{ states.sun.sun.attributes.next_rising[11:16] }}'
+  - platform: mqtt
+    state_topic: "hass/status"
+    name: "MQTT status"
+  - platform: mqtt
+    state_topic: "hass/intromessage"
+    name: "From Hass"
+  - platform: mqtt
+    state_topic: "hass/majolika/status"
+    name: "Maj Batt volt"
+    unit_of_measurement: 'V'
+    value_template: '{{ value_json.field1 }}'
+  - platform: mqtt
+    state_topic: "hass/majolika/status"
+    name: "Maj Batt amps"
+    unit_of_measurement: 'A'
+    value_template: '{{ value_json.field2 }}'
+  - platform: mqtt
+    state_topic: "hass/majolika/status"
+    name: "Maj Solcell volt"
+    unit_of_measurement: 'V'
+    value_template: '{{ value_json.field3 }}'
+  - platform: mqtt
+    state_topic: "hass/majolika/status"
+    name: "Maj Solcell amps"
+    unit_of_measurement: 'A'
+    value_template: '{{ value_json.field4 }}'
+  - platform: mqtt
+    state_topic: "hass/majolika/status"
+    name: "Maj Batt kapac"
+    unit_of_measurement: '%'
+    value_template: '{{ value_json.field5 }}'
+  - platform: mqtt
+    state_topic: "hass/majolika/status"
+    name: "Maj Regulator temp"
+    unit_of_measurement: '°C'
+    value_template: '{{ value_json.field6 }}'
+  - platform: mqtt
+    state_topic: "hass/majolika/status"
+    name: "Maj Batt status"
+    value_template: '{{ value_json.field7 }}'
+  - platform: mqtt
+    state_topic: "hass/majolika/status"
+    name: "Maj Last amps"
+    unit_of_measurement: 'A'
+    value_template: '{{ value_json.field8 }}'
+  - platform: mqtt
+    state_topic: "hass/majolika/control"
+    name: "Maj Last mode"
+    value_template: '{{ value_json.field1 }}'
+  - platform: mqtt
+    state_topic: "hass/majolika/control"
+    name: "Maj Enable man contr"
+    value_template: '{{ value_json.field2 }}'
+  - platform: mqtt
+    state_topic: "hass/majolika/control"
+    name: "Maj enable load test"
+    value_template: '{{ value_json.field3 }}'
+  - platform: mqtt
+    state_topic: "hass/majolika/control"
+    name: "Maj force load"
+    value_template: '{{ value_json.field4 }}'
+  - platform: mqtt
+    state_topic: "hass/majolika/control"
+    name: "Maj dag natt"
+    value_template: '{{ value_json.field5 }}'
+  - platform: mqtt
+    state_topic: "hass/majolika/control"
+    name: "Maj Over temp"
+    value_template: '{{ value_json.field6 }}'
+  - platform: mqtt
+    state_topic: "hass/bv/time"
+    name: "BV-time"
+  - platform: mqtt
+    state_topic: "hass/bv/freemem"
+    name: "BV-free mem"
+    unit_of_measurement: '%'
+  - platform: mqtt
+    state_topic: "hass/bv/0001"
+    name: "BV-Radiator Return"
+    unit_of_measurement: '°C'
+  - platform: mqtt
+    state_topic: "hass/bv/0003"
+    name: "BV-Heat carrier Return"
+    unit_of_measurement: '°C'
+  - platform: mqtt
+    state_topic: "hass/bv/0004"
+    name: "BV-Heat carrier Forwrd"
+    unit_of_measurement: '°C'
+  - platform: mqtt
+    state_topic: "hass/bv/0005"
+    name: "BV-Brine in/Evaporator"
+    unit_of_measurement: '°C'
+  - platform: mqtt
+    state_topic: "hass/bv/0006"
+    name: "BV-Brine out/Condenser"
+    unit_of_measurement: '°C'
+  - platform: mqtt
+    state_topic: "hass/bv/0007"
+    name: "BV-Outdoor"
+    unit_of_measurement: '°C'
+  - platform: mqtt
+    state_topic: "hass/bv/0009"
+    name: "BV-Hot water 1 / Top"
+    unit_of_measurement: '°C'
+  - platform: mqtt
+    state_topic: "hass/bv/000B"
+    name: "BV-Hot gas / Compr."
+    unit_of_measurement: '°C'
+  - platform: mqtt
+    state_topic: "hass/bv/0107"
+    name: "BV-Heating setpoint"
+    unit_of_measurement: '°C'
+  - platform: mqtt
+    state_topic: "hass/bv/2205"
+    name: "BV-Heat set 1, CurveL"
+    unit_of_measurement: 'BV'
+  - platform: mqtt
+    state_topic: "hass/bv/2207"
+    name: "BV-Heat set 3, Parallel"
+    unit_of_measurement: 'BV'
+  - platform: rfxtrx
+#    automatic_add: True
+    devices:
+      0a520201050100cf200269:
+        name: Inne nere
+        data_type:
+         - Humidity
+         - Temperature
+      0a520201fc01000d3d0079:
+        name: Vinden
+        data_type:
+         - Humidity
+         - Temperature
+      085002010e01001b69:
+        name: Altan
+        data_type:
+         - Temperature
+      0a520100a40100e11f0259:
+        name: Inne uppe
+        data_type:
+         - Humidity
+         - Temperature
+  - platform: systemmonitor
+    resources:
+#      - type: disk_use_percent
+#        arg: /home
+      - type: disk_free
+        arg: /home
+#      - type: memory_use_percent
+      - type: memory_free
+#      - type: swap_use_percent
+#      - type: swap_free
+#      - type: load_1m
+#      - type: load_5m
+      - type: load_15m
+      - type: processor_use
+#      - type: network_in
+#        arg: eth0
+#      - type: network_out
+#        arg: eth0
+      - type: last_boot
+#  - platform: glances
+#    host: 192.168.1.30
+#    name: Rasp-3
+#    resources:
+#      - 'disk_use_percent'
+#      - 'disk_use'
+#      - 'disk_free'
+#      - 'memory_use_percent'
+#      - 'memory_use'
+#      - 'memory_free'
+#      - 'swap_use_percent'
+#      - 'swap_use'
+#      - 'swap_free'
+#      - 'processor_load'
+#      - 'process_running'
+#      - 'process_total'
+#      - 'process_thread'
+#      - 'process_sleeping'
+  - platform: rest
+    resource: http://192.168.1.33:1234/status
+    name: Roger status
+    value_template: >
+      {{ value_json.mowerStatus }}
+  - platform: rest
+    resource: http://192.168.1.33:1234/status
+    name: Roger battery
+    value_template: >
+      {{ value_json.batteryPercent }}
+  - platform: rest
+    resource: http://192.168.1.33:1234/status
+    name: Roger next src
+    value_template: >
+      {{ value_json.nextStartSource }}
+  - platform: rest
+    resource: http://192.168.1.33:1234/status
+    name: Roger next start
+    value_template: >
+      {{ value_json.nextStartTimestamp | timestamp_utc }}

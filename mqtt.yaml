@@ -1,0 +1,14 @@
+#MQTT config
+  broker: 192.168.1.33
+  username: !secret mq_username
+  password: !secret mq_password
+  birth_message:
+    topic: 'hass/status'
+    payload: 'online2'
+    retain: 'true'
+  will_message:
+    topic: 'hass/status'
+    payload: 'offline2'
+    retain: 'true'
+  discovery: true
+  discovery_prefix: hass

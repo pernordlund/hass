@@ -1,0 +1,18 @@
+sensor.fibaro_system_fgwpef_wall_plug_gen5_alarm_level_2_1:
+  ignored: true
+  polling_intensity: 0
+sensor.fibaro_system_fgwpef_wall_plug_gen5_exporting_2_32:
+  ignored: true
+  polling_intensity: 0
+sensor.fibaro_system_fgwpef_wall_plug_gen5_sourcenodeid_2_2:
+  ignored: true
+  polling_intensity: 0
+sensor.fibaro_system_fgwpef_wall_plug_gen5_power_management_2_11:
+  ignored: true
+  polling_intensity: 0
+sensor.fibaro_system_fgwpef_wall_plug_gen5_power_2_8:
+  ignored: true
+  polling_intensity: 0
+sensor.fibaro_system_fgwpef_wall_plug_gen5_power_2_4:
+  ignored: true
+  polling_intensity: 0

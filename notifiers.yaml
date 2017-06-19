@@ -1,0 +1,3 @@
+  - name: pelles_tfn
+    platform: pushbullet
+    api_key: !secret pb_api_key

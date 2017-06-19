@@ -1,0 +1,37 @@
+  front_door_open_long:
+    name: Front door is open
+    entity_id: binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_9_0_2
+    state: 'on'
+    repeat: 
+      - 5
+      - 60
+      - 120
+    skip_first: True
+    can_acknowledge: true
+    notifiers:
+      - pelles_tfn
+  garage_door_open_long:
+    name: Garage door is open
+    entity_id: binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_13_0
+    state: 'on'
+    repeat: 
+      - 5
+      - 60
+      - 120
+    skip_first: True
+    can_acknowledge: true
+    notifiers:
+      - pelles_tfn
+  forrad_door_open_long:
+    name: Forrad door is open
+    entity_id: binary_sensor.sensative_strips_sensor_30_0
+    state: 'on'
+    repeat: 
+      - 5
+      - 60
+      - 120
+    skip_first: True
+    can_acknowledge: true
+    notifiers:
+      - pelles_tfn
+

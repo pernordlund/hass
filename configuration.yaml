@@ -1,0 +1,117 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret latitude
+  longitude: !secret longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 40
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Stockholm
+  #Customize
+  customize: !include customize.yaml
+
+zone:
+  name: work
+  latitude: 59.349507
+  longitude: 18.046610
+  radius: 100
+  icon: mdi:worker
+
+# Show links to resources in log and frontend
+# introduction:
+
+# Enables the frontend
+frontend:
+
+#Enable config menu
+config:
+
+zwave:
+  usb_path: /dev/ttyACM0
+
+group: !include groups.yaml
+
+http:
+  # Uncomment this to add a password (recommended!)
+  api_password: !secret http_password
+  trusted_networks:
+    - 192.168.1.0/24
+  # Uncomment this if you are using SSL or running in Docker etc
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+updater:
+  include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+#conversation:
+
+recorder: !include recorder.yaml
+
+# Enables support for tracking state changes over time.
+history:
+
+logger:
+  default: warning
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+rfxtrx:
+  device: /dev/ttyUSB0
+#  device: /dev/serial/by-id/usb-RFXCOM_RFXtrx433_08WDX6UE-if00-port0
+#  debug: True
+
+sensor: !include sensors.yaml
+
+binary_sensor: !include binary_sensors.yaml
+
+# Text to speech
+#tts:
+#  platform: google
+
+media_player: !include media_players.yaml
+
+device_tracker: !include devices.yaml
+
+mqtt: !include mqtt.yaml
+#mqtt:
+
+camera:
+  - platform: generic
+    still_image_url: http://192.168.1.47/img/snapshot.cgi?sizen=320x240&quality=Normal
+
+switch: !include switches.yaml
+
+light: !include lights.yaml
+
+automation: !include automations.yaml
+
+scene: !include scenes.yaml
+
+notify: !include notifiers.yaml
+
+alert: !include alerts.yaml
+
+rest_command: !include rest_commands.yaml
+
+#shell_command: !include shell_commands.yaml
+
+#vera: !include vera.yaml
+
+#tradfri:
+#  host: '192.168.1.45'
+#  api_key: !secret tf_api_key
+
+input_select: !include input_selects.yaml
+
+influxdb: !include influxdb.yaml

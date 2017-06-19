@@ -1,0 +1,8 @@
+  roger_action:
+    name: Roger action
+    options:
+      - "Select action"
+      - "start"
+      - "stop"
+      - "park"
+    initial: "Select action"

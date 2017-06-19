@@ -1,0 +1,17 @@
+  - name: Godnatt
+    entities:
+      group.inside_downstairs: off
+      group.inside_upstairs: off
+  - name: Pelle favourite
+    entities:
+      group.lights_pelle: on
+  - name: Alarm On
+    entities:
+      group.inside_downstairs: off
+      group.inside_upstairs: off
+      switch.fibaro_system_fgwpef_wall_plug_gen5_switch_8_0: off
+  - name: Alarm Off
+    entities:
+      light.arbrum_fonster: on
+      light.sovmop: on
+      switch.fibaro_system_fgwpef_wall_plug_gen5_switch_8_0: on

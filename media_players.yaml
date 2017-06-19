@@ -1,0 +1,10 @@
+  - platform: cast
+  - platform: pioneer
+    host: 192.168.1.55
+#    port: 8102
+  - platform: samsungtv
+    name: Samsung TV
+    timeout: 5
+    host: 192.168.1.56
+    mac: 50:85:69:54:47:76
+  - platform: plex
