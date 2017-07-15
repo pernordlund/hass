@@ -34,12 +34,12 @@
     view: no
     entities:
       - binary_sensor.dishwasher_flood_template
-      - binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor_4_0
-      - binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_9_0
-      - binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_9_0_2
-      - binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_13_0
-      - binary_sensor.sensative_strips_sensor_30_0
-      - binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor_29_0
+      - binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor
+      - binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor
+      - binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2
+      - binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor
+      - binary_sensor.sensative_strips_sensor
+      - binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor
   security_lt:
     name: Security last trip
     view: no
@@ -57,7 +57,7 @@
       - sun.sun
       - sensor.yr_symbol
       - sensor.mqtt_status
-      - sensor.northq_nq92021_power_reader_energy_26_0
+      - sensor.northq_nq92021_power_reader_energy
   roger:
     name: Roger
     view: no
@@ -80,9 +80,9 @@
     entities:
       - sensor.inne_nere_temperature
       - sensor.inne_nere_humidity
-      - sensor.fibaro_system_fgsd002_smoke_sensor_temperature_29_1
-      - sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_4_1
-      - sensor.fibaro_system_fgms001zw5_motion_sensor_luminance_4_3
+      - sensor.fibaro_system_fgsd002_smoke_sensor_temperature
+      - sensor.fibaro_system_fgms001zw5_motion_sensor_temperature
+      - sensor.fibaro_system_fgms001zw5_motion_sensor_luminance
       - sensor.inne_uppe_temperature
       - sensor.inne_uppe_humidity
       - sensor.vinden_temperature
@@ -91,9 +91,9 @@
     name: Climate Garage
     view: no
     entities:
-      - sensor.fibaro_system_fgk101_door_opening_sensor_temperature_13_1
-      - sensor.everspring_st814_temperature_and_humidity_sensor_temperature_16_1
-      - sensor.everspring_st814_temperature_and_humidity_sensor_relative_humidity_16_5_2
+      - sensor.fibaro_system_fgk101_door_opening_sensor_temperature
+      - sensor.everspring_st814_temperature_and_humidity_sensor_temperature
+      - sensor.everspring_st814_temperature_and_humidity_sensor_relative_humidity
   climate_outside:
     name: Climate Outside
     view: no
@@ -114,28 +114,28 @@
     entities:
       - light.arbrum_fonster
       - light.arbrum_skrivbord
-      - light.fibaro_system_fgd211_universal_dimmer_500w_level_10_0
-      - light.aeotec_zw098_led_bulb_level_7_0
+      - light.fibaro_system_fgd211_universal_dimmer_500w_level
+      - light.aeotec_zw098_led_bulb_level
       - light.byralampa
       - light.tradfri_bulb_e14_ws_opal_400lm
-      - light.fibaro_system_fgd211_universal_dimmer_500w_level_19_0
-      - switch.fibaro_system_fgs211_switch_3kw_switch_20_0
-      - light.fibaro_system_fgd212_dimmer_2_level_6_0
-      - light.fibaro_system_fgd211_universal_dimmer_500w_level_21_0
+      - light.fibaro_system_fgd211_universal_dimmer_500w_level_3
+      - switch.fibaro_system_fgs211_switch_3kw_switch
+      - light.fibaro_system_fgd212_dimmer_2_level
+      - light.fibaro_system_fgd211_universal_dimmer_500w_level_4
       - light.sovmop
-      - switch.telldus_tzwp100_plugin_switch_switch_3_0
-      - switch.fibaro_system_fgwpef_wall_plug_switch_22_0
-      - light.domitech_smart_led_retrofit_kit_ze27eu_level_28_0
-      - light.fibaro_system_fgd211_universal_dimmer_500w_level_12_0
+      - switch.telldus_tzwp100_plugin_switch_switch
+      - switch.fibaro_system_fgwpef_wall_plug_switch
+      - light.domitech_smart_led_retrofit_kit_ze27eu_level
+      - light.fibaro_system_fgd211_universal_dimmer_500w_level_2
   inside_upstairs:
     name: Upstairs
     view: no
     entities:
-      - light.fibaro_system_fgd211_universal_dimmer_500w_level_24_0
-      - switch.fibaro_system_fgs221_double_relay_switch_2x15kw_switch_23_0_2
-      - switch.fibaro_system_fgs221_double_relay_switch_2x15kw_switch_23_0
+      - light.fibaro_system_fgd211_universal_dimmer_500w_level_5
+      - switch.fibaro_system_fgs221_double_relay_switch_2x15kw_switch_2
+      - switch.fibaro_system_fgs221_double_relay_switch_2x15kw_switch
       - light.frida_skrivbord
-      - light.fibaro_system_fgd211_universal_dimmer_500w_level_25_0
+      - light.fibaro_system_fgd211_universal_dimmer_500w_level_6
       - light.vinden
   outside:
     name: Outside
@@ -148,7 +148,7 @@
     name: Switches
     view: no
     entities:
-      - switch.fibaro_system_fgwpef_wall_plug_gen5_switch_2_0
+      - switch.fibaro_system_fgwpef_wall_plug_gen5_switch
       - switch.vagg_vardrum
       - switch.kamera
       - switch.multifjarr6
@@ -158,8 +158,8 @@
       - switch.okand_0
       - switch.sensor_badrum
       - switch.okand_2
-      - switch.fibaro_system_fgwpef_wall_plug_gen5_switch_8_0
-      - switch.popp__duwi_zw_zsa_3500_plugin_switch_switch_17_0
+      - switch.fibaro_system_fgwpef_wall_plug_gen5_switch_2
+      - switch.popp__duwi_zw_zsa_3500_plugin_switch_switch
   media:
     name: Media
     view: yes
@@ -181,7 +181,7 @@
     view: no
     entities:
       - switch.htpc
-      - switch.fibaro_system_fgwpef_wall_plug_gen5_switch_2_0
+      - switch.fibaro_system_fgwpef_wall_plug_gen5_switch
       - device_tracker.htpc
       - device_tracker.hemmabio
       - device_tracker.tv
@@ -307,10 +307,10 @@
   daily_sun:
     view: no
     entities:
-      - light.fibaro_system_fgd211_universal_dimmer_500w_level_24_0
+      - light.fibaro_system_fgd211_universal_dimmer_500w_level_5
       - light.byralampa
       - light.sovmop
-      - switch.telldus_tzwp100_plugin_switch_switch_3_0
+      - switch.telldus_tzwp100_plugin_switch_switch
       - light.utebelysning
       - light.ute_altan
   lights_pelle:
@@ -319,7 +319,7 @@
     entities:
       - light.byralampa
       - light.sovmop
-      - switch.telldus_tzwp100_plugin_switch_switch_3_0
+      - switch.telldus_tzwp100_plugin_switch_switch
       - light.arbrum_fonster
   automations:
     name: Automations

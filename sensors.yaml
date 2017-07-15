@@ -17,23 +17,23 @@
       last_trip_allrum:
         value_template: '{{ states.sensor.date__time.state }}'
         friendly_name: 'Allrum trip'
-        entity_id: binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor_4_0
+        entity_id: binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor
       last_trip_alarm:
         value_template: '{{ states.sensor.date__time.state }}'
         friendly_name: 'Alarm trip'
-        entity_id: binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_9_0
+        entity_id: binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor
       last_trip_forradsdorr:
         value_template: '{{ states.sensor.date__time.state }}'
         friendly_name: 'Forradsdorr trip'
-        entity_id: binary_sensor.sensative_strips_sensor_30_0
+        entity_id: binary_sensor.sensative_strips_sensor
       last_trip_ytterdorr:
         value_template: '{{ states.sensor.date__time.state }}'
         friendly_name: 'Ytterdorr trip'
-        entity_id: binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_9_0_2
+        entity_id: binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2
       last_trip_garagedorr:
         value_template: '{{ states.sensor.date__time.state }}'
         friendly_name: 'Garagedorr trip'
-        entity_id: binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_13_0
+        entity_id: binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor
       last_trip_flood:
         value_template: '{{ states.sensor.date__time.state }}'
         friendly_name: 'Dishwasher trip '

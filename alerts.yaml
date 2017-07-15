@@ -1,6 +1,6 @@
   front_door_open_long:
     name: Front door is open
-    entity_id: binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_9_0_2
+    entity_id: binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2
     state: 'on'
     repeat: 
       - 5
@@ -12,7 +12,7 @@
       - pelles_tfn
   garage_door_open_long:
     name: Garage door is open
-    entity_id: binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_13_0
+    entity_id: binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor
     state: 'on'
     repeat: 
       - 5
@@ -24,7 +24,7 @@
       - pelles_tfn
   forrad_door_open_long:
     name: Forrad door is open
-    entity_id: binary_sensor.sensative_strips_sensor_30_0
+    entity_id: binary_sensor.sensative_strips_sensor
     state: 'on'
     repeat: 
       - 5
