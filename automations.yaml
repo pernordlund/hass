@@ -211,7 +211,7 @@
     platform: event
     event_type: zwave.scene_activated
     event_data:
-      object_id: fibaro_system_fgd211_universal_dimmer_500w_10
+      object_id: zwave.fibaro_system_fgd211_universal_dimmer_500w
       scene_id: 24
   action:
   - service: light.toggle
@@ -233,7 +233,7 @@
     platform: event
     event_type: zwave.scene_activated
     event_data:
-      object_id: fibaro_system_fgd211_universal_dimmer_500w_10
+      object_id: zwave.fibaro_system_fgd211_universal_dimmer_500w
       scene_id: 26
   action:
   - service: light.toggle
