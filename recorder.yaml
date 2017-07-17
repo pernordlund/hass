@@ -6,7 +6,6 @@
       - light
       - binary_sensor
       - device_tracker
-      - zwave
     entities:
       - device_tracker.albin
       - device_tracker.jenny
@@ -30,5 +29,5 @@
       - sensor.rasp3_ram_use
       - sensor.vinden_humidity
       - sensor.vinden_temperature
-#      - switch.okand_0
+      - switch.okand_0
 #      - switch.okand_1
