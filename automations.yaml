@@ -244,7 +244,8 @@
     platform: event
     event_type: zwave.scene_activated
     event_data:
-      object_id: fibaro_system_fgd211_universal_dimmer_500w_12
+#      object_id: fibaro_system_fgd211_universal_dimmer_500w_12
+      node_id: 12
       scene_id: 14
   action:
   - service: homeassistant.toggle
