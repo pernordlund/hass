@@ -211,7 +211,7 @@
     platform: event
     event_type: zwave.scene_activated
     event_data:
-      entity_id: zwave.fibaro_system_fgd211_universal_dimmer_500w
+      node_id: 10
       scene_id: 24
   action:
   - service: light.toggle
@@ -222,7 +222,7 @@
     platform: event
     event_type: zwave.scene_activated
     event_data:
-      object_id: fibaro_system_fgd211_universal_dimmer_500w_25
+      node_id: 25
       scene_id: 15
   action:
   - service: light.toggle
@@ -233,7 +233,7 @@
     platform: event
     event_type: zwave.scene_activated
     event_data:
-      object_id: zwave.fibaro_system_fgd211_universal_dimmer_500w
+      node_id: 10
       scene_id: 26
   action:
   - service: light.toggle
@@ -244,7 +244,6 @@
     platform: event
     event_type: zwave.scene_activated
     event_data:
-#      object_id: fibaro_system_fgd211_universal_dimmer_500w_12
       node_id: 12
       scene_id: 14
   action:
@@ -367,3 +366,14 @@
   - service: notify.pelles_tfn
     data:
       message: Majolika alive
+- id: A035
+  alias: Fonsterlampan arbrum med long-klick
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      node_id: 10
+      scene_id: 25
+  action:
+  - service: light.toggle
+    entity_id: light.arbrum_fonster
