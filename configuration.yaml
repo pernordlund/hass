@@ -39,8 +39,11 @@ http:
   api_password: !secret http_password
   trusted_networks:
     - 192.168.1.0/24
-  # Uncomment this if you are using SSL or running in Docker etc
-  # base_url: example.duckdns.org:8123
+#    - 10.42.21.16/24
+#    - 192.168.1.0/24
+#    - 10.42.21.16/24
+# Uncomment this if you are using SSL or running in Docker etc
+#  base_url: hass.panitco.se:8123
 
 # Checks for available updates
 updater:
