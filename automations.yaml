@@ -178,6 +178,7 @@
       message: Lyser upp for dig
 - id: A017
   alias: Send bus schedule when Pelle leaves
+  initial_state: 'off'
   trigger:
     platform: state
     entity_id: device_tracker.pelle_gps

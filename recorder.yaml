@@ -6,6 +6,7 @@
       - light
       - binary_sensor
       - device_tracker
+      - sensor
     entities:
       - device_tracker.albin
       - device_tracker.jenny
@@ -13,8 +14,8 @@
       - device_tracker.marie
       - device_tracker.pelle
       - device_tracker.pelle_gps
+      - device_tracker.tv
       - device_tracker.storstugan
-      - device_tracker.vera
       - device_tracker.zonestorage
       - light.entre
       - sensor.altan_temperature
@@ -29,5 +30,9 @@
       - sensor.rasp3_ram_use
       - sensor.vinden_humidity
       - sensor.vinden_temperature
-#      - switch.okand_0
-#      - switch.okand_1
+      - binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor
+      - binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2
+      - binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor
+      - binary_sensor.sensative_strips_sensor
+      - switch.okand_0
+
