@@ -1,2 +1,2 @@
-  stop_ozwcp: systemctl stop ozwcp.service
-  start_ozwcp: systemctl start ozwcp.service
+  log_to_okq8: 'touch /data/to_okq8_{{ as_timestamp(now()) }}'
+  log_leave_okq8: 'touch /data/leave_okq8_{{ as_timestamp(now()) }}'

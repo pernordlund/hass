@@ -378,3 +378,25 @@
   action:
   - service: light.toggle
     entity_id: light.arbrum_fonster
+- id: A036
+  alias: Log Pelle to work
+  trigger:
+    platform: state
+    entity_id: device_tracker.pelle_gps
+    to: work
+  action:
+  - service: shell_command.log_to_okq8
+  - service: notify.pelles_tfn
+    data:
+      message: Logged to OKQ8
+- id: A037
+  alias: Log Pelle leave work
+  trigger:
+    platform: state
+    entity_id: device_tracker.pelle_gps
+    from: work
+  action:
+  - service: shell_command.log_leave_okq8
+  - service: notify.pelles_tfn
+    data:
+      message: Logged leaving OKQ8

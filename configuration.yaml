@@ -107,7 +107,7 @@ alert: !include alerts.yaml
 
 rest_command: !include rest_commands.yaml
 
-#shell_command: !include shell_commands.yaml
+shell_command: !include shell_commands.yaml
 
 #vera: !include vera.yaml
 
