@@ -1,3 +1,7 @@
   - name: pelles_tfn
     platform: pushbullet
     api_key: !secret pb_api_key
+  - name: work_log
+    platform: file
+    filename: /data/a_work_log.txt
+    timestamp: True

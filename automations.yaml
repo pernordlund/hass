@@ -389,6 +389,9 @@
   - service: notify.pelles_tfn
     data:
       message: Logged to OKQ8
+  - service: notify.work_log
+    data:
+      message: Logged to OKQ8
 - id: A037
   alias: Log Pelle leave work
   trigger:
@@ -400,3 +403,6 @@
   - service: notify.pelles_tfn
     data:
       message: Logged leaving OKQ8
+  - service: notify.work_log
+    data:
+      message: Logged leave OKQ8
