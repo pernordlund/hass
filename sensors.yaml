@@ -5,13 +5,14 @@
       - 'date'
       - 'date_time'
   - platform: yr
-#  - platform: rest
-#    resource: !secret sl_resource
-#    name: Klisatravagen
-#    value_template: >
-#      {% for bus in value_json.ResponseData.Buses %}
-#      {{ bus.Destination|replace(" ", ".") }}-{{ bus.DisplayTime|replace(" ", ".") }} /// 
-#      {% endfor %}
+  - platform: rest
+    scan_interval: 60
+    resource: !secret sl_resource
+    name: Klisatravagen
+    value_template: >
+      {% for bus in value_json.ResponseData.Buses %}
+      {{ bus.Destination|replace(" ", ".") }}-{{ bus.DisplayTime|replace(" ", ".") }} /// 
+      {% endfor %}
   - platform: template
     sensors:
       last_trip_allrum:
