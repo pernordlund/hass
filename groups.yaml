@@ -114,8 +114,9 @@
     entities:
       - light.arbrum_fonster
       - light.arbrum_skrivbord
+      - light.tradfri_bulb_e27_ws_opal_980lm
       - light.fibaro_system_fgd211_universal_dimmer_500w_level
-      - light.aeotec_zw098_led_bulb_level
+#      - light.aeotec_zw098_led_bulb_level
       - light.byralampa
       - light.tradfri_bulb_e14_ws_opal_400lm
       - light.fibaro_system_fgd211_universal_dimmer_500w_level_3

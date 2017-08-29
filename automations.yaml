@@ -285,7 +285,7 @@
     entity_id: switch.fibaro_system_fgs221_double_relay_switch_2x15kw_switch_2
 - id: A026
   alias: Badrum triggered
-  initial_state: 'off'
+#  initial_state: 'off'
   trigger:
     platform: state
     entity_id: switch.fibaro_system_fgs221_double_relay_switch_2x15kw_switch_2

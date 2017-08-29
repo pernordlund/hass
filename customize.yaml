@@ -36,8 +36,8 @@
       friendly_name: Rorelse allrum
     light.fibaro_system_fgd212_dimmer_2_level:
       friendly_name: Koksbanken
-    light.aeotec_zw098_led_bulb_level:
-      friendly_name: Arbrum horn
+#    light.aeotec_zw098_led_bulb_level:
+#      friendly_name: Arbrum horn
     sensor.fibaro_system_fgms001zw5_motion_sensor_luminance:
       friendly_name: Ljus allrum
     binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2:
@@ -46,6 +46,8 @@
       friendly_name: Avlarmat
     switch.fibaro_system_fgwpef_wall_plug_gen5_switch_2:
       friendly_name: Pelles laddare
+    light.tradfri_bulb_e27_ws_opal_980lm:
+      friendly_name: Arbrum horn
     light.fibaro_system_fgd211_universal_dimmer_500w_level:
       friendly_name: Arbrum tak
     light.fibaro_system_fgd211_universal_dimmer_500w_level_2:
