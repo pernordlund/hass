@@ -52,69 +52,69 @@
   - platform: mqtt
     state_topic: "hass/intromessage"
     name: "From Hass"
-  - platform: mqtt
-    state_topic: "hass/majolika/status"
-    name: "Maj Batt volt"
-    unit_of_measurement: 'V'
-    value_template: '{{ value_json.field1 }}'
-  - platform: mqtt
-    state_topic: "hass/majolika/status"
-    name: "Maj Batt amps"
-    unit_of_measurement: 'A'
-    value_template: '{{ value_json.field2 }}'
-  - platform: mqtt
-    state_topic: "hass/majolika/status"
-    name: "Maj Solcell volt"
-    unit_of_measurement: 'V'
-    value_template: '{{ value_json.field3 }}'
-  - platform: mqtt
-    state_topic: "hass/majolika/status"
-    name: "Maj Solcell amps"
-    unit_of_measurement: 'A'
-    value_template: '{{ value_json.field4 }}'
-  - platform: mqtt
-    state_topic: "hass/majolika/status"
-    name: "Maj Batt kapac"
-    unit_of_measurement: '%'
-    value_template: '{{ value_json.field5 }}'
-  - platform: mqtt
-    state_topic: "hass/majolika/status"
-    name: "Maj Regulator temp"
-    unit_of_measurement: '°C'
-    value_template: '{{ value_json.field6 }}'
-  - platform: mqtt
-    state_topic: "hass/majolika/status"
-    name: "Maj Batt status"
-    value_template: '{{ value_json.field7 }}'
-  - platform: mqtt
-    state_topic: "hass/majolika/status"
-    name: "Maj Last amps"
-    unit_of_measurement: 'A'
-    value_template: '{{ value_json.field8 }}'
-  - platform: mqtt
-    state_topic: "hass/majolika/control"
-    name: "Maj Last mode"
-    value_template: '{{ value_json.field1 }}'
-  - platform: mqtt
-    state_topic: "hass/majolika/control"
-    name: "Maj Enable man contr"
-    value_template: '{{ value_json.field2 }}'
-  - platform: mqtt
-    state_topic: "hass/majolika/control"
-    name: "Maj enable load test"
-    value_template: '{{ value_json.field3 }}'
-  - platform: mqtt
-    state_topic: "hass/majolika/control"
-    name: "Maj force load"
-    value_template: '{{ value_json.field4 }}'
-  - platform: mqtt
-    state_topic: "hass/majolika/control"
-    name: "Maj dag natt"
-    value_template: '{{ value_json.field5 }}'
-  - platform: mqtt
-    state_topic: "hass/majolika/control"
-    name: "Maj Over temp"
-    value_template: '{{ value_json.field6 }}'
+  # - platform: mqtt
+  #   state_topic: "hass/majolika/status"
+  #   name: "Maj Batt volt"
+  #   unit_of_measurement: 'V'
+  #   value_template: '{{ value_json.field1 }}'
+  # - platform: mqtt
+  #   state_topic: "hass/majolika/status"
+  #   name: "Maj Batt amps"
+  #   unit_of_measurement: 'A'
+  #   value_template: '{{ value_json.field2 }}'
+  # - platform: mqtt
+  #   state_topic: "hass/majolika/status"
+  #   name: "Maj Solcell volt"
+  #   unit_of_measurement: 'V'
+  #   value_template: '{{ value_json.field3 }}'
+  # - platform: mqtt
+  #   state_topic: "hass/majolika/status"
+  #   name: "Maj Solcell amps"
+  #   unit_of_measurement: 'A'
+  #   value_template: '{{ value_json.field4 }}'
+  # - platform: mqtt
+  #   state_topic: "hass/majolika/status"
+  #   name: "Maj Batt kapac"
+  #   unit_of_measurement: '%'
+  #   value_template: '{{ value_json.field5 }}'
+  # - platform: mqtt
+  #   state_topic: "hass/majolika/status"
+  #   name: "Maj Regulator temp"
+  #   unit_of_measurement: '°C'
+  #   value_template: '{{ value_json.field6 }}'
+  # - platform: mqtt
+  #   state_topic: "hass/majolika/status"
+  #   name: "Maj Batt status"
+  #   value_template: '{{ value_json.field7 }}'
+  # - platform: mqtt
+  #   state_topic: "hass/majolika/status"
+  #   name: "Maj Last amps"
+  #   unit_of_measurement: 'A'
+  #   value_template: '{{ value_json.field8 }}'
+  # - platform: mqtt
+  #   state_topic: "hass/majolika/control"
+  #   name: "Maj Last mode"
+  #   value_template: '{{ value_json.field1 }}'
+  # - platform: mqtt
+  #   state_topic: "hass/majolika/control"
+  #   name: "Maj Enable man contr"
+  #   value_template: '{{ value_json.field2 }}'
+  # - platform: mqtt
+  #   state_topic: "hass/majolika/control"
+  #   name: "Maj enable load test"
+  #   value_template: '{{ value_json.field3 }}'
+  # - platform: mqtt
+  #   state_topic: "hass/majolika/control"
+  #   name: "Maj force load"
+  #   value_template: '{{ value_json.field4 }}'
+  # - platform: mqtt
+  #   state_topic: "hass/majolika/control"
+  #   name: "Maj dag natt"
+  #   value_template: '{{ value_json.field5 }}'
+  # - platform: mqtt
+  #   state_topic: "hass/majolika/control"
+  #   name: "Maj Over temp"
+  #   value_template: '{{ value_json.field6 }}'
   - platform: mqtt
     state_topic: "hass/bv/time"
     name: "BV-time"

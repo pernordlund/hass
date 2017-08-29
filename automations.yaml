@@ -1,5 +1,5 @@
 - id: A001
-  alias: Notify all ytterdorr open
+  alias: Ytterdorr open notify
   initial_state: 'off'
   trigger:
     platform: state
@@ -11,7 +11,7 @@
     data:
       message: Ytterdorr opened
 - id: A002
-  alias: Switch sofflampa on when wall switch is turned
+  alias: Vardrum sofflampa on when wall switch is turned
   trigger:
     platform: event
     event_type: button_pressed
@@ -23,7 +23,7 @@
   - service: homeassistant.toggle
     entity_id: switch.fibaro_system_fgwpef_wall_plug_switch
 - id: A003
-  alias: Switch sofflampa on when white remote no 1 is pressed
+  alias: Vardrum sofflampa on when white remote no 1 is pressed
   trigger:
     platform: event
     event_type: button_pressed
@@ -35,7 +35,7 @@
   - service: homeassistant.toggle
     entity_id: light.domitech_smart_led_retrofit_kit_ze27eu_level
 - id: A004
-  alias: Switch hornlampa on when white remote no 3 is pressed
+  alias: Vardrum hornlampa on when white remote no 3 is pressed
   trigger:
     platform: event
     event_type: button_pressed
@@ -45,7 +45,7 @@
   - service: homeassistant.toggle
     entity_id: switch.telldus_tzwp100_plugin_switch_switch
 - id: A005
-  alias: Turn all lights off when multifjarr6 is pressed
+  alias: 0 - All lights off when multifjarr6 is pressed
   trigger:
     platform: event
     event_type: button_pressed
@@ -55,7 +55,7 @@
   - service: scene.turn_on
     entity_id: scene.godnatt
 - id: A006
-  alias: Turn all Pelles lights on when multifjarr9 is pressed
+  alias: 0 - All Pelles lights on when multifjarr9 is pressed
   trigger:
     platform: event
     event_type: button_pressed
@@ -65,7 +65,7 @@
     service: homeassistant.turn_on
     entity_id: group.lights_pelle
 - id: A007
-  alias: Turn all lights off when night
+  alias: 0 - All lights off when night
   trigger:
     platform: time
     at: '23:30'
@@ -73,7 +73,7 @@
   - service: scene.turn_on
     entity_id: scene.godnatt
 - id: A008
-  alias: Turn some lights off at sunrise
+  alias: 0 - Some lights off at sunrise
   trigger:
     platform: sun
     event: sunrise
@@ -81,7 +81,7 @@
     service: homeassistant.turn_off
     entity_id: group.daily_sun
 - id: A009
-  alias: Turn some lights on before sunset
+  alias: 0 - Some lights on before sunset
   trigger:
     platform: sun
     event: sunset
@@ -90,7 +90,7 @@
     service: homeassistant.turn_on
     entity_id: group.daily_sun
 - id: A010
-  alias: Notifiy okand_0
+  alias: X - Notifiy okand_0
   trigger:
     platform: event
     event_type: button_pressed
@@ -101,7 +101,7 @@
     data:
       message: Okand 0 pressed
 - id: A011
-  alias: Notifiy okand_1
+  alias: X - Notifiy okand_1
   trigger:
     platform: event
     event_type: button_pressed
@@ -160,7 +160,7 @@
     data:
       message: Roklarm Roklarm
 - id: A016
-  alias: Turn some lights on when Pelle in the afternoon
+  alias: 0 - Some lights on when Pelle gets home in the afternoon
   trigger:
     platform: state
     entity_id: device_tracker.pelle_gps
@@ -177,7 +177,7 @@
     data:
       message: Lyser upp for dig
 - id: A017
-  alias: Send bus schedule when Pelle leaves
+  alias: X - Send bus schedule when Pelle leaves
   initial_state: 'off'
   trigger:
     platform: state
@@ -186,7 +186,7 @@
     to: not_home
   condition:
     condition: time
-    after: 05:00:00
+    after: '05:00:00'
     before: '10:00:00'
   action:
     service: notify.pelles_tfn
@@ -201,13 +201,13 @@
       entity_id: light.byralampa
   condition:
     condition: time
-    after: 05:00:00
+    after: '05:00:00'
     before: '10:00:00'
   action:
   - service: light.toggle
     entity_id: light.fibaro_system_fgd211_universal_dimmer_500w_level_4
 - id: A019
-  alias: Fonsterlampan arbrum
+  alias: Arbrum fonsterlampa from wall
   trigger:
     platform: event
     event_type: zwave.scene_activated
@@ -229,7 +229,7 @@
   - service: light.toggle
     entity_id: light.frida_skrivbord
 - id: A021
-  alias: Fonsterlampan arbrum med 2-klick
+  alias: Arbrum fonsterlampa med 2-klick
   trigger:
     platform: event
     event_type: zwave.scene_activated
@@ -240,7 +240,7 @@
   - service: light.toggle
     entity_id: light.arbrum_fonster
 - id: A022
-  alias: Hornlampan vardrum med 3-klick
+  alias: Vardrum hornlampan med 3-klick
   trigger:
     platform: event
     event_type: zwave.scene_activated
@@ -260,7 +260,7 @@
   - service: light.turn_off
     entity_id: light.entre
 - id: A024
-  alias: Pelle to work
+  alias: X - Notify Pelle to work
   initial_state: 'off'
   trigger:
     platform: state
@@ -271,8 +271,8 @@
     data:
       message: Pelle got to work
 - id: A025
-  alias: Turn bathroom on when motion
-  initial_state: 'on'
+  alias: Bathroom on for 20 mins when motion
+  initial_state: 'off'
   trigger:
     platform: state
     entity_id: switch.sensor_badrum
@@ -284,8 +284,8 @@
   - service: homeassistant.turn_off
     entity_id: switch.fibaro_system_fgs221_double_relay_switch_2x15kw_switch_2
 - id: A026
-  alias: Badrum triggered
-#  initial_state: 'off'
+  alias: Badrum auto off 20 min
+  initial_state: 'on'
   trigger:
     platform: state
     entity_id: switch.fibaro_system_fgs221_double_relay_switch_2x15kw_switch_2
@@ -295,7 +295,7 @@
   - service: homeassistant.turn_off
     entity_id: switch.fibaro_system_fgs221_double_relay_switch_2x15kw_switch_2
 - id: A027
-  alias: Allrum triggered
+  alias: Allrum triggered notify Pelle
   initial_state: 'off'
   trigger:
     platform: state
@@ -306,7 +306,7 @@
     data:
       message: Sensor allrum triggered
 - id: A028
-  alias: Turn klk off 5 min after on
+  alias: Klk off 5 min after on
   trigger:
     platform: state
     entity_id: switch.fibaro_system_fgs211_switch_3kw_switch
@@ -316,7 +316,7 @@
   - service: homeassistant.turn_off
     entity_id: switch.fibaro_system_fgs211_switch_3kw_switch
 - id: A029
-  alias: Turn bass speaker off when turning tv off
+  alias: Bass speaker off when turning tv off
   trigger:
     platform: state
     entity_id: media_player.samsung_tv
@@ -334,7 +334,7 @@
     data_template:
       entity_id: '{{ trigger.payload.split("\"")[3] }}'
 - id: A031
-  alias: Start Roger
+  alias: Roger start
   trigger:
     platform: state
     entity_id: input_select.roger_action
@@ -342,7 +342,7 @@
   action:
   - service: rest_command.roger_start
 - id: A032
-  alias: Park Roger
+  alias: Roger park
   trigger:
     platform: state
     entity_id: input_select.roger_action
@@ -350,7 +350,7 @@
   action:
   - service: rest_command.roger_park
 - id: A033
-  alias: Stop Roger
+  alias: Roger stop
   trigger:
     platform: state
     entity_id: input_select.roger_action
@@ -359,6 +359,7 @@
   - service: rest_command.roger_stop
 - id: A034
   alias: Majolika alive
+  initial_state: 'off'
   trigger:
     platform: state
     entity_id: device_tracker.majolika
@@ -369,7 +370,7 @@
     data:
       message: Majolika alive
 - id: A035
-  alias: Fonsterlampan arbrum med long-klick
+  alias: Arbrum fonsterlampa med long-klick
   trigger:
     platform: event
     event_type: zwave.scene_activated
@@ -380,7 +381,7 @@
   - service: light.toggle
     entity_id: light.arbrum_fonster
 - id: A036
-  alias: Log Pelle to work
+  alias: X - Log Pelle to work
   trigger:
     platform: state
     entity_id: device_tracker.pelle_gps
@@ -394,7 +395,7 @@
     data:
       message: Logged to OKQ8
 - id: A037
-  alias: Log Pelle leave work
+  alias: X - Log Pelle leave work
   trigger:
     platform: state
     entity_id: device_tracker.pelle_gps
