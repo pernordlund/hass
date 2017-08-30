@@ -16,7 +16,7 @@
       - sensor.from_hass
       - sensor.date
       - sensor.time
-      - sensor.klisatravagen
+#      - sensor.klisatravagen
       - alert.front_door
       - updater.updater
   awesome_people:
@@ -219,41 +219,41 @@
       - binary_sensor.bvpump_heat_circuit
       - binary_sensor.bvpump_radiator
       - binary_sensor.bvswitch_valve_1
-  # majolika:
-  #   name: majolika
-  #   view: yes
-  #   entities:
-  #     - group.majolika_status
-  #     - group.majolika_control
-  #     - group.majolika_vals
-  # majolika_vals:
-  #   name: Values
-  #   view: no
-  #   entities:
-  #     - sensor.majolika_control
-  #     - sensor.majolika_status
-  # majolika_status:
-  #   name: Status
-  #   view: no
-  #   entities:
-  #     - sensor.maj_batt_volt
-  #     - sensor.maj_batt_amps
-  #     - sensor.maj_batt_kapac
-  #     - sensor.maj_batt_status
-  #     - sensor.maj_last_amps
-  #     - sensor.maj_regulator_temp
-  #     - sensor.maj_solcell_amps
-  #     - sensor.maj_solcell_volt
-  # majolika_control:
-  #   name: Control
-  #   view: no
-  #   entities:
-  #     - sensor.maj_dag_natt
-  #     - sensor.maj_enable_load_test
-  #     - sensor.maj_enable_man_contr
-  #     - sensor.maj_force_load
-  #     - sensor.maj_last_mode
-  #     - sensor.maj_over_temp
+  majolika:
+    name: majolika
+    view: yes
+    entities:
+      - group.majolika_status
+      - group.majolika_control
+      - group.majolika_vals
+  majolika_vals:
+    name: Values
+    view: no
+    entities:
+      - sensor.majolika_control
+      - sensor.majolika_status
+  majolika_status:
+    name: Status
+    view: no
+    entities:
+      - sensor.maj_batt_volt
+      - sensor.maj_batt_amps
+      - sensor.maj_batt_kapac
+      - sensor.maj_batt_status
+      - sensor.maj_last_amps
+      - sensor.maj_regulator_temp
+      - sensor.maj_solcell_amps
+      - sensor.maj_solcell_volt
+  majolika_control:
+    name: Control
+    view: no
+    entities:
+      - sensor.maj_dag_natt
+      - sensor.maj_enable_load_test
+      - sensor.maj_enable_man_contr
+      - sensor.maj_force_load
+      - sensor.maj_last_mode
+      - sensor.maj_over_temp
   systems:
     name: Systems
     view: yes

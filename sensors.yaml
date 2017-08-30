@@ -5,14 +5,19 @@
       - 'date'
       - 'date_time'
   - platform: yr
-  - platform: rest
-    scan_interval: 60
+#  - platform: rest
+#    scan_interval: 60
+#    resource: !secret sl_resource
+#    name: Klisatravagen
+#    value_template: >
+#      {% for bus in value_json.ResponseData.Buses %}
+#      {{ bus.Destination|replace(" ", ".") }}-{{ bus.DisplayTime|replace(" ", ".") }} /// 
+#      {% endfor %}
+  - platform: jsonrest
+    scan_interval: 3600
     resource: !secret sl_resource
     name: Klisatravagen
-    value_template: >
-      {% for bus in value_json.ResponseData.Buses %}
-      {{ bus.Destination|replace(" ", ".") }}-{{ bus.DisplayTime|replace(" ", ".") }} /// 
-      {% endfor %}
+    entity_id: light.arbrum_fonster
   - platform: template
     sensors:
       last_trip_allrum:
