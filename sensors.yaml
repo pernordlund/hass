@@ -14,7 +14,7 @@
 #      {{ bus.Destination|replace(" ", ".") }}-{{ bus.DisplayTime|replace(" ", ".") }} /// 
 #      {% endfor %}
   - platform: jsonrest
-    scan_interval: 3600
+    scan_interval: 180
     resource: !secret sl_resource
     name: Klisatravagen
     entity_id: light.arbrum_fonster
@@ -51,6 +51,14 @@
       sunrise:
         friendly_name: 'Sunrise'
         value_template: '{{ states.sun.sun.attributes.next_rising[11:16] }}'
+      slussen:
+        friendly_name: 'Buss mot Slussen'
+        entity_id: sensor.klisatravagen
+        value_template: >
+Mot Slussen - {% if states.sensor.klisatravagen -%}{{ states.sensor.klisatravagen.attributes.ResponseData.LatestUpdate[11:16] }}
+{% for bus in states.sensor.klisatravagen.attributes.ResponseData.Buses %}{% if bus.Destination == 'Slussen' -%}
+{{bus.DisplayTime}}{%- endif %}{% endfor %}{%- else -%}N/A{%- endif %}
+
   - platform: mqtt
     state_topic: "hass/status"
     name: "MQTT status"
