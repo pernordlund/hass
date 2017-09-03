@@ -52,19 +52,29 @@
         friendly_name: 'Sunrise'
         value_template: '{{ states.sun.sun.attributes.next_rising[11:16] }}'
       slussen:
-        friendly_name: 'Buss mot Slussen'
+        friendly_name: 'Slussenbuss'
         entity_id: sensor.klisatravagen
         value_template: >
-Mot Slussen - {% if states.sensor.klisatravagen -%}{{ states.sensor.klisatravagen.attributes.ResponseData.LatestUpdate[11:16] }}
-{% for bus in states.sensor.klisatravagen.attributes.ResponseData.Buses %}{% if bus.Destination == 'Slussen' -%}
-{{bus.DisplayTime}}{%- endif %}{% endfor %}{%- else -%}N/A{%- endif %}
-
+          {% if states.sensor.klisatravagen -%}
+          Tid: 
+          {{ states.sensor.klisatravagen.attributes.ResponseData.LatestUpdate[11:16] }}
+           -- Kommer: 
+          {% for bus in states.sensor.klisatravagen.attributes.ResponseData.Buses %}
+          {% if bus.Destination == 'Slussen' -%}{{bus.DisplayTime}} // {%- endif %}{% endfor %}
+          {%- else -%}N/A
+          {%- endif %}
   - platform: mqtt
     state_topic: "hass/status"
     name: "MQTT status"
   - platform: mqtt
     state_topic: "hass/intromessage"
     name: "From Hass"
+  - platform: mqtt
+    state_topic: "hass/life360/pelle"
+    name: "Pelle Life360"
+  - platform: mqtt
+    state_topic: "hass/life360/home"
+    name: "Home Life360"
   # - platform: mqtt
   #   state_topic: "hass/majolika/status"
   #   name: "Maj Batt volt"

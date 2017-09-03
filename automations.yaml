@@ -191,7 +191,7 @@
   action:
     service: notify.pelles_tfn
     data_template:
-      message: '{{ states("sensor.klisatravagen") }}'
+      message: '{{ states("sensor.slussen") }}'
 - id: A018
   alias: Turn kitchen table on if morning and byra is turned on
   trigger:

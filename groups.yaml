@@ -16,7 +16,7 @@
       - sensor.from_hass
       - sensor.date
       - sensor.time
-#      - sensor.klisatravagen
+      - sensor.slussen
       - alert.front_door
       - updater.updater
   awesome_people:
@@ -24,11 +24,13 @@
     view: no
     entities:
       - device_tracker.marie
-#      - device_tracker.pelle
+      - device_tracker.pelle
       - device_tracker.pelle_gps
+      - sensor.pelle_life360
       - device_tracker.frida
       - device_tracker.jenny
       - device_tracker.albin
+      - sensor.home_life360
   security:
     name: Security
     view: no
