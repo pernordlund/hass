@@ -1,7 +1,9 @@
   - platform: cast
   - platform: pioneer
+    name: hemmabio
     host: 192.168.1.55
-#    port: 8102
+    port: 8102
+#    timeout: 40
   - platform: samsungtv
     name: Samsung TV
     timeout: 5

@@ -408,3 +408,21 @@
   - service: notify.work_log
     data:
       message: Logged leave OKQ8
+- id: A038
+  alias: Bass speaker on when Pioneer on
+  trigger:
+    platform: state
+    entity_id: media_player.hemmabio
+    to: 'on'
+  action:
+  - service: homeassistant.turn_on
+    entity_id: switch.fibaro_system_fgwpef_wall_plug_gen5_switch
+- id: A039
+  alias: Bass speaker off when Pioneer off
+  trigger:
+    platform: state
+    entity_id: media_player.hemmabio
+    from: 'on'
+  action:
+  - service: homeassistant.turn_off
+    entity_id: switch.fibaro_system_fgwpef_wall_plug_gen5_switch

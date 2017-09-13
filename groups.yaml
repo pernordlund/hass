@@ -177,7 +177,7 @@
       - media_player.nordlund_chromecast
       - media_player.plex_web_chrome
       - media_player.xperia_x_performance
-      - media_player.pioneer_avr
+      - media_player.hemmabio
       - media_player.samsung_tv
   m_devices:
     name: Media devices
@@ -186,7 +186,7 @@
       - switch.htpc
       - switch.fibaro_system_fgwpef_wall_plug_gen5_switch
       - device_tracker.htpc
-      - device_tracker.hemmabio
+#      - device_tracker.hemmabio
       - device_tracker.tv
       - device_tracker.koksradio
   heater:
@@ -223,7 +223,8 @@
       - binary_sensor.bvswitch_valve_1
   majolika:
     name: majolika
-    view: yes
+#    view: yes
+    view: no
     entities:
       - group.majolika_status
       - group.majolika_control
