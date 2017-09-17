@@ -281,6 +281,7 @@
       - sensor.swap_free
       - sensor.swap_use
       - sensor.last_boot
+      - sensor.cpu_temperature
   system_rasp3:
     name: Rasp-3 values
     view: no
