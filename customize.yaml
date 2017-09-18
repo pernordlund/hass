@@ -84,7 +84,7 @@
     switch.fibaro_system_fgs221_double_relay_switch_2x15kw_switch:
       friendly_name: Bastu
       icon: mdi:lightbulb
-    light.light.allrum_tak_level:
+    light.allrum_tak_level:
       friendly_name: Allrum
     light.frida_tak_level:
       friendly_name: Frida tak

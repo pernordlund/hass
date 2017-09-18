@@ -134,7 +134,7 @@
     name: Upstairs
     view: no
     entities:
-      - light.light.allrum_tak_level
+      - light.allrum_tak_level
       - switch.badrum_uppe_switch_2
       - switch.fibaro_system_fgs221_double_relay_switch_2x15kw_switch
       - light.frida_skrivbord
@@ -312,7 +312,7 @@
   daily_sun:
     view: no
     entities:
-      - light.light.allrum_tak_level
+      - light.allrum_tak_level
       - light.byralampa
       - light.sovmop
       - switch.telldus_tzwp100_plugin_switch_switch
