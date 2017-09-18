@@ -307,7 +307,7 @@
       - device_tracker.camera
       - device_tracker.zonestorage
       - device_tracker.storstugan
-      - device_tracker.majolika
+#      - device_tracker.majolika
       - device_tracker.husdata
   daily_sun:
     view: no
