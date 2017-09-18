@@ -117,28 +117,28 @@
       - light.arbrum_fonster
       - light.arbrum_skrivbord
       - light.tradfri_bulb_e27_ws_opal_980lm
-      - light.fibaro_system_fgd211_universal_dimmer_500w_level
+      - light.arbrum_tak_level
 #      - light.aeotec_zw098_led_bulb_level
       - light.byralampa
       - light.tradfri_bulb_e14_ws_opal_400lm
-      - light.fibaro_system_fgd211_universal_dimmer_500w_level_3
-      - switch.fibaro_system_fgs211_switch_3kw_switch
-      - light.fibaro_system_fgd212_dimmer_2_level
-      - light.fibaro_system_fgd211_universal_dimmer_500w_level_4
+      - light.hall_tak_level
+      - switch.klk_nere_switch
+      - light.koksbanken_level
+      - light.koksbord_level
       - light.sovmop
       - switch.telldus_tzwp100_plugin_switch_switch
       - switch.fibaro_system_fgwpef_wall_plug_switch
       - light.domitech_smart_led_retrofit_kit_ze27eu_level
-      - light.fibaro_system_fgd211_universal_dimmer_500w_level_2
+      - light.vardrum_bord_level
   inside_upstairs:
     name: Upstairs
     view: no
     entities:
-      - light.fibaro_system_fgd211_universal_dimmer_500w_level_5
-      - switch.fibaro_system_fgs221_double_relay_switch_2x15kw_switch_2
+      - light.light.allrum_tak_level
+      - switch.badrum_uppe_switch_2
       - switch.fibaro_system_fgs221_double_relay_switch_2x15kw_switch
       - light.frida_skrivbord
-      - light.fibaro_system_fgd211_universal_dimmer_500w_level_6
+      - light.frida_tak_level
       - light.vinden
   outside:
     name: Outside
@@ -312,7 +312,7 @@
   daily_sun:
     view: no
     entities:
-      - light.fibaro_system_fgd211_universal_dimmer_500w_level_5
+      - light.light.allrum_tak_level
       - light.byralampa
       - light.sovmop
       - switch.telldus_tzwp100_plugin_switch_switch
