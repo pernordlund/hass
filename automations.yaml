@@ -21,7 +21,7 @@
   - service: homeassistant.toggle
     entity_id: light.domitech_smart_led_retrofit_kit_ze27eu_level
   - service: homeassistant.toggle
-    entity_id: switch.fibaro_system_fgwpef_wall_plug_switch
+    entity_id: light.tradfri_bulb_e27_opal_1000lm
 - id: A003
   alias: Vardrum sofflampa on when white remote no 1 is pressed
   trigger:
@@ -31,7 +31,7 @@
       entity_id: switch.vit_fjarr_1
   action:
   - service: homeassistant.toggle
-    entity_id: switch.fibaro_system_fgwpef_wall_plug_switch
+    entity_id: light.tradfri_bulb_e27_opal_1000lm
   - service: homeassistant.toggle
     entity_id: light.domitech_smart_led_retrofit_kit_ze27eu_level
 - id: A004
@@ -216,7 +216,7 @@
       scene_id: 24
   action:
   - service: light.toggle
-    entity_id: light.arbrum_fonster
+    entity_id: light.tradfri_bulb_e27_opal_1000lm
 - id: A020
   alias: Fridas skrivbord 3-klick
   trigger:
@@ -238,7 +238,7 @@
       scene_id: 26
   action:
   - service: light.toggle
-    entity_id: light.arbrum_fonster
+    entity_id: light.tradfri_bulb_e27_opal_1000lm
 - id: A022
   alias: Vardrum hornlampan med 3-klick
   trigger:
@@ -379,7 +379,7 @@
       scene_id: 25
   action:
   - service: light.toggle
-    entity_id: light.arbrum_fonster
+    entity_id: light.tradfri_bulb_e27_opal_1000lm
 - id: A036
   alias: X - Log Pelle to work
   trigger:

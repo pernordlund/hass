@@ -6,8 +6,8 @@
       hidden: true
     camera.generic_camera:
       friendly_name: Living room
-    light.arbrum_fonster:
-      assumed_state: false
+#    light.arbrum_fonster:
+#      assumed_state: false
     light.arbrum_skrivbord:
       assumed_state: false
     light.byralampa:
@@ -37,7 +37,7 @@
     light.koksbanken_level:
       friendly_name: Koksbanken
 #    light.aeotec_zw098_led_bulb_level:
-#      friendly_name: Arbrum horn
+#      friendly_name: ??
     sensor.fibaro_system_fgms001zw5_motion_sensor_luminance:
       friendly_name: Ljus allrum
     binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2:
@@ -48,6 +48,8 @@
       friendly_name: Pelles laddare
     light.tradfri_bulb_e27_ws_opal_980lm:
       friendly_name: Arbrum horn
+    light.tradfri_bulb_e27_opal_1000lm:
+      friendly_name: Vardrum soffa
     light.arbrum_tak_level:
       friendly_name: Arbrum tak
     light.vardrum_bord_level:
@@ -75,8 +77,8 @@
       icon: mdi:lightbulb
     light.koksbord_level:
       friendly_name: Koksbord
-    switch.fibaro_system_fgwpef_wall_plug_switch:
-      friendly_name: Vardrum soffa
+    light.tradfri_bulb_e27_opal_1000lm:
+      friendly_name: Arbrum fonster
       icon: mdi:lightbulb
     switch.badrum_uppe_switch_2:
       friendly_name: Badrum

@@ -17,7 +17,6 @@
     scan_interval: 180
     resource: !secret sl_resource
     name: Klisatravagen
-    entity_id: light.arbrum_fonster
   - platform: template
     sensors:
       last_trip_allrum:

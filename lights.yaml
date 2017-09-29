@@ -2,8 +2,8 @@
 #  automatic_add: True
 #  signal_repetitions: 2
   devices:
-    '07100101420a0150':
-      name: Arbrum fonster
+#    '07100101420a0150':
+#      name: Arbrum fonster
     '0710010143030160':
       name: Arbrum skrivbord
     '0710010141030150':
