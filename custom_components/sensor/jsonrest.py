@@ -116,7 +116,8 @@ class JSONRestSensor(Entity):
             value = self._value_template.render_with_possible_json_value(
                 value, STATE_UNKNOWN)
 
-        self._state = value
+#xxx        self._state = value
+            self._state = 'TRUNCATED'
 	
         """ Parse the return text as JSON and save the json as an attribute. """
         try:
