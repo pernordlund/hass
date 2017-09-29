@@ -215,8 +215,8 @@
       node_id: 10
       scene_id: 24
   action:
-  - service: light.toggle
-    entity_id: light.tradfri_bulb_e27_opal_1000lm
+  - service: homeassistant.toggle
+    entity_id: switch.fibaro_system_fgwpef_wall_plug_switch
 - id: A020
   alias: Fridas skrivbord 3-klick
   trigger:
@@ -237,8 +237,8 @@
       node_id: 10
       scene_id: 26
   action:
-  - service: light.toggle
-    entity_id: light.tradfri_bulb_e27_opal_1000lm
+  - service: homeassistant.toggle
+    entity_id: switch.fibaro_system_fgwpef_wall_plug_switch
 - id: A022
   alias: Vardrum hornlampan med 3-klick
   trigger:
@@ -378,8 +378,8 @@
       node_id: 10
       scene_id: 25
   action:
-  - service: light.toggle
-    entity_id: light.tradfri_bulb_e27_opal_1000lm
+  - service: homeassistant.toggle
+    entity_id: switch.fibaro_system_fgwpef_wall_plug_switch
 - id: A036
   alias: X - Log Pelle to work
   trigger:

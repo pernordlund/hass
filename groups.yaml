@@ -114,7 +114,7 @@
     name: Downstairs
     view: no
     entities:
-      - light.tradfri_bulb_e27_opal_1000lm
+      - switch.fibaro_system_fgwpef_wall_plug_switch
       - light.arbrum_skrivbord
       - light.tradfri_bulb_e27_ws_opal_980lm
       - light.arbrum_tak_level
@@ -325,7 +325,7 @@
       - light.byralampa
       - light.sovmop
       - switch.telldus_tzwp100_plugin_switch_switch
-      - light.tradfri_bulb_e27_opal_1000lm
+      - switch.fibaro_system_fgwpef_wall_plug_switch
   automations:
     name: Automations
     view: yes

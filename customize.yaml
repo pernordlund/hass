@@ -48,7 +48,7 @@
       friendly_name: Pelles laddare
     light.tradfri_bulb_e27_ws_opal_980lm:
       friendly_name: Arbrum horn
-    light.tradfri_bulb_e27_opal_1000lm:
+    switch.fibaro_system_fgwpef_wall_plug_switch:
       friendly_name: Vardrum soffa
     light.arbrum_tak_level:
       friendly_name: Arbrum tak
@@ -78,6 +78,9 @@
     light.koksbord_level:
       friendly_name: Koksbord
     light.tradfri_bulb_e27_opal_1000lm:
+      friendly_name: Vardrum soffa
+      icon: mdi:lightbulb
+    switch.fibaro_system_fgwpef_wall_plug_switch:
       friendly_name: Arbrum fonster
       icon: mdi:lightbulb
     switch.badrum_uppe_switch_2:
@@ -109,7 +112,7 @@
       friendly_name: Roksensor
     sensor.fibaro_system_fgsd002_smoke_sensor_temperature:
       friendly_name: Vardrum temp
-    light.domitech_smart_led_retrofit_kit_ze27eu_level:
-      friendly_name: Vardrum soffa 2
+#    light.domitech_smart_led_retrofit_kit_ze27eu_level:
+#      friendly_name: ??
     light.tradfri_bulb_e14_ws_opal_400lm:
       friendly_name: Tradfri e14
