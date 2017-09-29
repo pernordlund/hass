@@ -128,7 +128,7 @@
       - light.sovmop
       - switch.telldus_tzwp100_plugin_switch_switch
       - light.tradfri_bulb_e27_opal_1000lm
-      - light.domitech_smart_led_retrofit_kit_ze27eu_level
+#      - light.domitech_smart_led_retrofit_kit_ze27eu_level
       - light.vardrum_bord_level
   inside_upstairs:
     name: Upstairs
