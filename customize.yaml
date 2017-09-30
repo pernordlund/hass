@@ -114,3 +114,5 @@
 #      friendly_name: ??
     light.tradfri_bulb_e14_ws_opal_400lm:
       friendly_name: Tradfri e14
+    sensor.pelle_life360:
+      entity_picture: /local/pelle.JPG
