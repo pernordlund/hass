@@ -30,7 +30,7 @@
       - device_tracker.frida
       - device_tracker.jenny
       - device_tracker.albin
-      - sensor.home_life360
+      - sensor.huset
   security:
     name: Security
     view: no
