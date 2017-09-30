@@ -116,3 +116,5 @@
       friendly_name: Tradfri e14
     sensor.pelle_life360:
       entity_picture: /local/pelle.JPG
+    sensor.huset:
+      entity_picture: /local/home.jpg
