@@ -9,6 +9,7 @@
       - group.frontpage_sensors
       - camera.generic_camera
       - group.roger
+      - group.alerts
   welcome:
     name: Welcome
     view: no
@@ -19,6 +20,14 @@
       - sensor.slussen
       - alert.front_door
       - updater.updater
+  alerts:
+    name: Alerts
+    view: no
+    entities:
+      - alert.forrad_door_open_long
+      - alert.front_door_open_long
+      - alert.garage_door_open_long
+      - alert.husdata_offline
   awesome_people:
     name: People
     view: no

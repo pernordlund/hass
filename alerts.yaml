@@ -34,4 +34,16 @@
     can_acknowledge: true
     notifiers:
       - pelles_tfn
+  husdata_offline:
+    name: Husdata notreporting
+    entity_id: sensor.bvtime
+    state: 'unknown'
+    repeat: 
+      - 5
+      - 60
+      - 1440
+    skip_first: False
+    can_acknowledge: true
+    notifiers:
+      - pelles_tfn
 
