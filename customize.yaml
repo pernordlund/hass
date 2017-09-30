@@ -118,3 +118,12 @@
       entity_picture: /local/pelle.JPG
     sensor.huset:
       entity_picture: /local/home.jpg
+    sensor.slussen:
+      icon: mdi:bus
+    sensor.roger_battery:
+      icon: mdi:battery
+    sensor.roger_next_start:
+      icon: mdi:calendar-clock
+    sensor.roger_next_src:
+      icon: mdi:clock-start
+    
