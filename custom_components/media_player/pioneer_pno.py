@@ -9,9 +9,13 @@ import telnetlib
 
 import voluptuous as vol
 
+# from homeassistant.components.media_player import (
+#     SUPPORT_PAUSE, SUPPORT_SELECT_SOURCE, MediaPlayerDevice, PLATFORM_SCHEMA,
+#     SUPPORT_TURN_OFF, SUPPORT_TURN_ON, SUPPORT_VOLUME_MUTE, SUPPORT_VOLUME_SET,
+#     SUPPORT_PLAY)
 from homeassistant.components.media_player import (
     SUPPORT_PAUSE, SUPPORT_SELECT_SOURCE, MediaPlayerDevice, PLATFORM_SCHEMA,
-    SUPPORT_TURN_OFF, SUPPORT_TURN_ON, SUPPORT_VOLUME_MUTE, SUPPORT_VOLUME_SET,
+    SUPPORT_TURN_OFF, SUPPORT_TURN_ON, SUPPORT_VOLUME_MUTE, SUPPORT_VOLUME_STEP,
     SUPPORT_PLAY)
 from homeassistant.const import (
     CONF_HOST, STATE_OFF, STATE_ON, STATE_UNKNOWN, CONF_NAME, CONF_PORT,
@@ -24,7 +28,7 @@ DEFAULT_NAME = 'Pioneer AVR'
 DEFAULT_PORT = 23   # telnet default. Some Pioneer AVRs use 8102
 DEFAULT_TIMEOUT = None
 
-SUPPORT_PIONEER = SUPPORT_PAUSE | SUPPORT_VOLUME_SET | SUPPORT_VOLUME_MUTE | \
+SUPPORT_PIONEER = SUPPORT_PAUSE | SUPPORT_VOLUME_STEP | SUPPORT_VOLUME_MUTE | \
                   SUPPORT_TURN_ON | SUPPORT_TURN_OFF | \
                   SUPPORT_SELECT_SOURCE | SUPPORT_PLAY
 
@@ -63,8 +67,8 @@ class PioneerDevice(MediaPlayerDevice):
         self._volume = 0
         self._muted = False
         self._selected_source = ''
-        self._source_name_to_number = {"TV":"05","Dator":"49"}
-        self._source_number_to_name = {"05":"TV","49":"Dator"}
+        self._source_name_to_number = {"TV":"05","Dator":"49","Spotify":"53"}
+        self._source_number_to_name = {"05":"TV","49":"Dator","53":"Spotify"}
 
     @classmethod
     def telnet_request(cls, telnet, command, expected_prefix):
