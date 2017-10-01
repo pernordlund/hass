@@ -21,6 +21,8 @@ from homeassistant.const import (
     HTTP_DIGEST_AUTHENTICATION, CONF_HEADERS)
 from homeassistant.helpers.entity import Entity
 import homeassistant.helpers.config_validation as cv
+#PNO extension
+from datetime import datetime
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -107,8 +109,13 @@ class JSONRestSensor(Entity):
     
     def update(self):
         """Get the latest data from REST API and update the state."""
-        self.rest.update()
-        value = self.rest.data
+#PNO extension only update if in the morning
+        if (not (5 <= datetime.now().hour <= 8)) \
+            or datetime.now().weekday() > 4:
+            value = None
+        else:
+            self.rest.update()
+            value = self.rest.data
 
         if value is None:
             value = STATE_UNKNOWN
@@ -116,7 +123,8 @@ class JSONRestSensor(Entity):
             value = self._value_template.render_with_possible_json_value(
                 value, STATE_UNKNOWN)
 
-#xxx        self._state = value
+#PNO extension. Do not want the whole json in state
+#            self._state = value
             self._state = 'TRUNCATED'
 	
         """ Parse the return text as JSON and save the json as an attribute. """
