@@ -14,7 +14,7 @@
 #      {{ bus.Destination|replace(" ", ".") }}-{{ bus.DisplayTime|replace(" ", ".") }} /// 
 #      {% endfor %}
   - platform: jsonrest
-    scan_interval: 180
+    scan_interval: 60
     resource: !secret sl_resource
     name: Klisatravagen
   - platform: template
@@ -54,7 +54,7 @@
         friendly_name: 'Slussenbuss'
         entity_id: sensor.klisatravagen
         value_template: >
-          {% if states.sensor.klisatravagen.state != 'unknown' -%}
+          {% if states.sensor.klisatravagen.state == 'TRUNCATED' -%}
           Tid: 
           {{ states.sensor.klisatravagen.attributes.ResponseData.LatestUpdate[11:16] }}
            -- Kommer: 
