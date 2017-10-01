@@ -9,10 +9,6 @@ import telnetlib
 
 import voluptuous as vol
 
-# from homeassistant.components.media_player import (
-#     SUPPORT_PAUSE, SUPPORT_SELECT_SOURCE, MediaPlayerDevice, PLATFORM_SCHEMA,
-#     SUPPORT_TURN_OFF, SUPPORT_TURN_ON, SUPPORT_VOLUME_MUTE, SUPPORT_VOLUME_SET,
-#     SUPPORT_PLAY)
 from homeassistant.components.media_player import (
     SUPPORT_PAUSE, SUPPORT_SELECT_SOURCE, MediaPlayerDevice, PLATFORM_SCHEMA,
     SUPPORT_TURN_OFF, SUPPORT_TURN_ON, SUPPORT_VOLUME_MUTE, SUPPORT_VOLUME_STEP,
@@ -24,8 +20,8 @@ import homeassistant.helpers.config_validation as cv
 
 _LOGGER = logging.getLogger(__name__)
 
-DEFAULT_NAME = 'Pioneer AVR'
-DEFAULT_PORT = 23   # telnet default. Some Pioneer AVRs use 8102
+DEFAULT_NAME = 'Pioneer AVR VSX-528'
+DEFAULT_PORT = 8102   # Some use other use 23 telnet default.
 DEFAULT_TIMEOUT = None
 
 SUPPORT_PIONEER = SUPPORT_PAUSE | SUPPORT_VOLUME_STEP | SUPPORT_VOLUME_MUTE | \
@@ -33,8 +29,6 @@ SUPPORT_PIONEER = SUPPORT_PAUSE | SUPPORT_VOLUME_STEP | SUPPORT_VOLUME_MUTE | \
                   SUPPORT_SELECT_SOURCE | SUPPORT_PLAY
 
 MAX_VOLUME = 185
-#xxx MAX_SOURCE_NUMBERS = 60
-MAX_SOURCE_NUMBERS = 6
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Required(CONF_HOST): cv.string,
@@ -123,21 +117,6 @@ class PioneerDevice(MediaPlayerDevice):
         muted_value = self.telnet_request(telnet, "?M", "MUT")
         self._muted = (muted_value == "MUT0") if muted_value else None
 
-        # Build the source name dictionaries if necessary
-        if not self._source_name_to_number:
-            for i in range(MAX_SOURCE_NUMBERS):
-                result = self.telnet_request(
-                    telnet, "?RGB" + str(i).zfill(2), "RGB")
-
-                if not result:
-                    continue
-
-                source_name = result[6:]
-                source_number = str(i).zfill(2)
-
-                self._source_name_to_number[source_name] = source_number
-                self._source_number_to_name[source_number] = source_name
-
         source_number = self.telnet_request(telnet, "?F", "FN")
 
         if source_number:
@@ -157,7 +136,7 @@ class PioneerDevice(MediaPlayerDevice):
     @property
     def state(self):
         """Return the state of the device."""
-        if self._pwstate == "PWR2": #XXX Different
+        if self._pwstate == "PWR2":
             return STATE_OFF
         if self._pwstate == "PWR0":
             return STATE_ON

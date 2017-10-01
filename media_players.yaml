@@ -1,5 +1,5 @@
   - platform: cast
-  - platform: pioneer_pno
+  - platform: pioneer_vsx528
     name: hemmabio
     host: 192.168.1.55
     port: 8102
