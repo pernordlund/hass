@@ -63,8 +63,8 @@ class PioneerDevice(MediaPlayerDevice):
         self._volume = 0
         self._muted = False
         self._selected_source = ''
-        self._source_name_to_number = {}
-        self._source_number_to_name = {}
+        self._source_name_to_number = {"TV":"05","Dator":"49"}
+        self._source_number_to_name = {"05":"TV","49":"Dator"}
 
     @classmethod
     def telnet_request(cls, telnet, command, expected_prefix):
@@ -72,7 +72,7 @@ class PioneerDevice(MediaPlayerDevice):
         try:
             telnet.write(command.encode("ASCII") + b"\r")
         except telnetlib.socket.timeout:
-            _LOGGER.debug("Pioneer command %s timed out", command)
+            _LOGGER.debug("Pioneer command %s timed out in telnet_request", command)
             return None
 
         # The receiver will randomly send state change updates, make sure
@@ -92,7 +92,7 @@ class PioneerDevice(MediaPlayerDevice):
                 telnet = telnetlib.Telnet(
                     self._host, self._port, self._timeout)
             except (ConnectionRefusedError, OSError):
-                _LOGGER.warning("Pioneer %s refused connection", self._name)
+                _LOGGER.warning("Pioneer %s refused connection in command", self._name)
                 return
             telnet.write(command.encode("ASCII") + b"\r")
             telnet.read_very_eager()  # skip response
@@ -106,7 +106,7 @@ class PioneerDevice(MediaPlayerDevice):
         try:
             telnet = telnetlib.Telnet(self._host, self._port, self._timeout)
         except (ConnectionRefusedError, OSError):
-            _LOGGER.warning("Pioneer %s refused connection", self._name)
+            _LOGGER.warning("Pioneer %s refused connection in update", self._name)
             return False
 
         pwstate = self.telnet_request(telnet, "?P", "PWR")
@@ -153,13 +153,12 @@ class PioneerDevice(MediaPlayerDevice):
     @property
     def state(self):
         """Return the state of the device."""
-        if self._pwstate == "PWR1":
+        if self._pwstate == "PWR2": #XXX Different
             return STATE_OFF
         if self._pwstate == "PWR0":
             return STATE_ON
 
-        return STATE_OFF
-#XXX        return STATE_UNKNOWN
+        return STATE_UNKNOWN
 
     @property
     def volume_level(self):
