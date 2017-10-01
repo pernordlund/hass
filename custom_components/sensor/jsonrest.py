@@ -110,23 +110,21 @@ class JSONRestSensor(Entity):
     def update(self):
         """Get the latest data from REST API and update the state."""
 #PNO extension only update if in the morning
-        if (not (5 <= datetime.now().hour <= 8)) \
+        if (not (0 <= datetime.now().hour <= 8)) \
             or datetime.now().weekday() > 4:
             value = None
         else:
             self.rest.update()
             value = self.rest.data
+            self._state = 'TRUNCATED' #Do not want the whole json in state
 
         if value is None:
             value = STATE_UNKNOWN
         elif self._value_template is not None:
             value = self._value_template.render_with_possible_json_value(
                 value, STATE_UNKNOWN)
+            self._state = value
 
-#PNO extension. Do not want the whole json in state
-#            self._state = value
-            self._state = 'TRUNCATED'
-	
         """ Parse the return text as JSON and save the json as an attribute. """
         try:
             self._attributes = json.loads(value)

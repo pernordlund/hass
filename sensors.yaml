@@ -54,7 +54,7 @@
         friendly_name: 'Slussenbuss'
         entity_id: sensor.klisatravagen
         value_template: >
-          {% if states.sensor.klisatravagen -%}
+          {% if states.sensor.klisatravagen.state != 'unknown' -%}
           Tid: 
           {{ states.sensor.klisatravagen.attributes.ResponseData.LatestUpdate[11:16] }}
            -- Kommer: 
