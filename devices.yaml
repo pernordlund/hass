@@ -18,3 +18,4 @@
 #      majolika: rp3-msb.panitco.se
       storstugan: storstugan.dyndns-server.com
   - platform: gpslogger
+  - platform: owntracks
