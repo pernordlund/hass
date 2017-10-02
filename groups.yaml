@@ -40,6 +40,11 @@
       - device_tracker.jenny
       - device_tracker.albin
       - sensor.huset
+      - device_tracker.marie_marie
+      - device_tracker.per_per
+      - device_tracker.frida_frida
+      - device_tracker.jenny_jenny
+      - device_tracker.albin_albin
   security:
     name: Security
     view: no
