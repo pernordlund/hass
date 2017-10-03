@@ -81,7 +81,6 @@
     username: !secret life_username
     password: !secret life_password
     mqtt_topic: hass/life360/test
-    value_template: 'See device_trackers'
   # - platform: mqtt
   #   state_topic: "hass/majolika/status"
   #   name: "Maj Batt volt"
