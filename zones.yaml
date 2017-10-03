@@ -53,4 +53,9 @@
     longitude: 18.179107
     radius: 100
     icon: mdi:baby
+  - name: Borggarden
+    latitude: 59.334690
+    longitude: 18.081019
+    radius: 100
+    icon: mdi:worker
 
