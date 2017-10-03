@@ -7,7 +7,7 @@
   badrum_timer:
     name: Badrum timer
     initial: 20
-    min: 1
+    min: 2
     max: 60
     step: 2
   
