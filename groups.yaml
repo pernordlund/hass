@@ -151,7 +151,7 @@
     entities:
       - light.allrum_tak_level
       - switch.badrum_uppe_switch_2
-      - switch.fibaro_system_fgs221_double_relay_switch_2x15kw_switch
+      - switch.badrum_uppe_switch
       - light.frida_skrivbord
       - light.frida_tak_level
       - light.vinden

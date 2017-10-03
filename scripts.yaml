@@ -31,4 +31,4 @@
     sequence:
       - delay: '00:{{ states.input_slider.badrum_timer.state | int }}:00'
       - service: homeassistant.turn_off
-        entity_id: switch.badrum_nere_switch
+        entity_id: switch.badrum_uppe_switch_2
