@@ -161,6 +161,7 @@
       message: Roklarm Roklarm
 - id: A016
   alias: 0 - Some lights on when Pelle gets home in the afternoon
+  initial_state: 'on'
   trigger:
     platform: state
     entity_id: device_tracker.pelle_gps
@@ -173,9 +174,9 @@
   action:
   - service: homeassistant.turn_on
     entity_id: group.lights_pelle
-  - service: notify.pelles_tfn
-    data:
-      message: Lyser upp for dig
+  # - service: notify.pelles_tfn
+  #   data:
+  #     message: Lyser upp for dig
 - id: A017
   alias: X - Send bus schedule when Pelle leaves
   initial_state: 'off'
@@ -272,7 +273,7 @@
       message: Pelle got to work
 - id: A025
   alias: Badrum on when motion timer
-  initial_state: 'off'
+  initial_state: 'on'
   trigger:
     platform: state
     entity_id: switch.sensor_badrum
