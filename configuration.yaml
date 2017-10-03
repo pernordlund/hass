@@ -13,12 +13,7 @@ homeassistant:
   #Customize
   customize: !include customize.yaml
 
-zone:
-  name: work
-  latitude: 59.349507
-  longitude: 18.046610
-  radius: 100
-  icon: mdi:worker
+zone: !include zones.yaml
 
 # Show links to resources in log and frontend
 # introduction:

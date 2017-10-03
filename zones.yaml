@@ -1,0 +1,31 @@
+  - name: OKQ8
+    latitude: 59.349507
+    longitude: 18.046610
+    radius: 100
+    icon: mdi:worker
+  - name: VRG
+    latitude: 59.343877
+    longitude: 18.050619
+    radius: 200
+    icon: mdi:school
+  - name: KS
+    latitude: 59.309611
+    longitude: 18.143184
+    radius: 200
+    icon: mdi:school
+  - name: Sida
+    latitude: 59.339309
+    longitude: 18.102119
+    radius: 150
+    icon: mdi:worker
+  - name: Sickla
+    latitude: 59.305061
+    longitude: 18.128598
+    radius: 400
+    icon: mdi:food
+  - name: Dalhallen
+    latitude: 59.234699
+    longitude: 18.240613
+    radius: 100
+    icon: mdi: mdi:baby
+
