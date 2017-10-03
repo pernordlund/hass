@@ -271,7 +271,7 @@
     data:
       message: Pelle got to work
 - id: A025
-  alias: Bathroom on for 20 mins when motion
+  alias: Badrum on when motion timer
   initial_state: 'off'
   trigger:
     platform: state
@@ -281,7 +281,7 @@
     service: homeassistant.turn_on
     entity_id: script.timed_badrum
 - id: A026
-  alias: Badrum auto off 20 min
+  alias: Badrum auto off timer
   initial_state: 'on'
   trigger:
     platform: state
