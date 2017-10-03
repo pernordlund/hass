@@ -125,16 +125,16 @@ husdata:
 
 per_per:
   hide_if_away: false
-  icon:
+  picture: /local/pelle.JPG
   mac:
-  name: per
+  name: Pelle
   picture:
   track: true
   vendor:
 
 marie_marie:
   hide_if_away: false
-  icon:
+  picture: /local/marie.JPG
   mac:
   name: marie
   picture:
@@ -143,7 +143,7 @@ marie_marie:
 
 albin_albin:
   hide_if_away: false
-  icon:
+  icon: /local/albin.jpg
   mac:
   name: albin
   picture:
@@ -152,7 +152,7 @@ albin_albin:
 
 frida_frida:
   hide_if_away: false
-  icon:
+  picture: /local/frida.JPG
   mac:
   name: frida
   picture:
@@ -161,7 +161,7 @@ frida_frida:
 
 jenny_jenny:
   hide_if_away: false
-  icon:
+  picture: /local/jenny.JPG
   mac:
   name: jenny
   picture:
