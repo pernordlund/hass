@@ -63,4 +63,9 @@
     longitude: 18.2197875
     radius: 100
     icon: mdi:baby
+  - name: Slussen
+    latitude: 59.319870
+    longitude: 18.074032
+    radius: 100
+    icon: mdi:bus
 
