@@ -156,7 +156,7 @@ class Life360SensorData(object):
             payload = self.exec_shell_command( self.COMMAND_MEMBERS )
 
             if payload != None:
-                #self.save_payload_to_mqtt ( self.mqtt_topic, payload ) #Very big state
+                self.save_payload_to_mqtt ( self.mqtt_topic, "running" ) #Very big state else
                 data = json.loads ( payload )
                 for member in data["members"]:
                     topic = StringBuilder()
