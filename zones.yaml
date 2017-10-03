@@ -28,4 +28,29 @@
     longitude: 18.240613
     radius: 100
     icon: mdi:baby
+  - name: Wättingehallen
+    latitude: 59.234860
+    longitude: 18.237148
+    radius: 100
+    icon: mdi:baby
+  - name: Bollmorahallen
+    latitude: 59.245443
+    longitude: 18.227669
+    radius: 100
+    icon: mdi:baby
+  - name: Dansstudion
+    latitude: 59.2426843
+    longitude: 18.209064
+    radius: 100
+    icon: mdi:baby
+  - name: Tennishallen
+    latitude: 59.264271
+    longitude: 18.177111
+    radius: 100
+    icon: mdi:baby
+  - name: Stavan
+    latitude: 59.258719
+    longitude: 18.179107
+    radius: 100
+    icon: mdi:baby
 
