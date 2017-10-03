@@ -122,3 +122,48 @@ husdata:
   picture:
   track: true
   vendor:
+
+per_per:
+  hide_if_away: false
+  icon:
+  mac:
+  name: per
+  picture:
+  track: true
+  vendor:
+
+marie_marie:
+  hide_if_away: false
+  icon:
+  mac:
+  name: marie
+  picture:
+  track: true
+  vendor:
+
+albin_albin:
+  hide_if_away: false
+  icon:
+  mac:
+  name: albin
+  picture:
+  track: true
+  vendor:
+
+frida_frida:
+  hide_if_away: false
+  icon:
+  mac:
+  name: frida
+  picture:
+  track: true
+  vendor:
+
+jenny_jenny:
+  hide_if_away: false
+  icon:
+  mac:
+  name: jenny
+  picture:
+  track: true
+  vendor:
