@@ -128,7 +128,6 @@ per_per:
   picture: /local/pelle.JPG
   mac:
   name: Pelle
-  picture:
   track: true
   vendor:
 
@@ -137,16 +136,14 @@ marie_marie:
   picture: /local/marie.JPG
   mac:
   name: marie
-  picture:
   track: true
   vendor:
 
 albin_albin:
   hide_if_away: false
-  icon: /local/albin.jpg
+  picture: /local/albin.jpg
   mac:
   name: albin
-  picture:
   track: true
   vendor:
 
@@ -155,7 +152,6 @@ frida_frida:
   picture: /local/frida.JPG
   mac:
   name: frida
-  picture:
   track: true
   vendor:
 
@@ -164,6 +160,5 @@ jenny_jenny:
   picture: /local/jenny.JPG
   mac:
   name: jenny
-  picture:
   track: true
   vendor:
