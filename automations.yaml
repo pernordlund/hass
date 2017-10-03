@@ -280,7 +280,7 @@
     to: 'on'
   action:
     service: homeassistant.turn_on
-    entity_id: script.timed_badrum
+    entity_id: switch.badrum_uppe_switch_2
 - id: A026
   alias: Badrum auto off timer
   initial_state: 'on'
