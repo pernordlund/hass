@@ -112,4 +112,8 @@ tradfri:
 
 input_select: !include input_selects.yaml
 
+input_slider: !include input_sliders.yaml
+
 influxdb: !include influxdb.yaml
+
+script: !include scripts.yaml

@@ -1,0 +1,17 @@
+  timed_klk:
+    alias: "Set Klk Timer"
+    sequence:
+      # Cancel ev. old timer
+      - service: script.turn_off
+        data:
+          entity_id: script.timer_klk_off
+      # Set new timer
+      - service: script.turn_on
+        data:
+          entity_id: script.timer_klk_off
+  timer_klk_off:
+    alias: "Turn Off Klk"
+    sequence:
+      - delay: '00:{{ states.input_slider.klk_timer.state | int }}:00'
+      - service: homeassistant.turn_off
+        entity_id: switch.klk_nere_switch

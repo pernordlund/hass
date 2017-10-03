@@ -124,6 +124,7 @@
       - group.inside_upstairs
       - group.outside
       - group.switches
+      - group.timers
   inside_downstairs:
     name: Downstairs
     view: no
@@ -177,6 +178,11 @@
       - switch.okand_2
       - switch.fibaro_system_fgwpef_wall_plug_gen5_switch_2
       - switch.popp__duwi_zw_zsa_3500_plugin_switch_switch
+  timers:
+    name: Timers
+    view: no
+    entities:
+      - input_slider.klk_timer
   media:
     name: Media
     view: yes
