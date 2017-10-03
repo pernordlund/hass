@@ -58,4 +58,9 @@
     longitude: 18.081019
     radius: 100
     icon: mdi:worker
+  - name: Bergfoten
+    latitude: 59.23728074
+    longitude: 18.2197875
+    radius: 100
+    icon: mdi:baby
 
