@@ -278,11 +278,8 @@
     entity_id: switch.sensor_badrum
     to: 'on'
   action:
-  - service: homeassistant.turn_on
-    entity_id: switch.badrum_uppe_switch_2
-  - delay: 00:20:00
-  - service: homeassistant.turn_off
-    entity_id: switch.badrum_uppe_switch_2
+    service: homeassistant.turn_on
+    entity_id: script.timed_badrum
 - id: A026
   alias: Badrum auto off 20 min
   initial_state: 'on'
@@ -291,9 +288,8 @@
     entity_id: switch.badrum_uppe_switch_2
     to: 'on'
   action:
-  - delay: 00:20:00
-  - service: homeassistant.turn_off
-    entity_id: switch.badrum_uppe_switch_2
+    service: homeassistant.turn_on
+    entity_id: script.timed_badrum
 - id: A027
   alias: Allrum triggered notify Pelle
   initial_state: 'off'

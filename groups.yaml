@@ -183,6 +183,7 @@
     view: no
     entities:
       - input_slider.klk_timer
+      - input_slider.badrum_timer
   media:
     name: Media
     view: yes

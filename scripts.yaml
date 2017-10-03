@@ -15,3 +15,20 @@
       - delay: '00:{{ states.input_slider.klk_timer.state | int }}:00'
       - service: homeassistant.turn_off
         entity_id: switch.klk_nere_switch
+  timed_badrum:
+    alias: "Set Badrum Timer"
+    sequence:
+      # Cancel ev. old timer
+      - service: script.turn_off
+        data:
+          entity_id: script.timer_badrum_off
+      # Set new timer
+      - service: script.turn_on
+        data:
+          entity_id: script.timer_badrum_off
+  timer_badrum_off:
+    alias: "Turn Off badrum"
+    sequence:
+      - delay: '00:{{ states.input_slider.badrum_timer.state | int }}:00'
+      - service: homeassistant.turn_off
+        entity_id: switch.badrum_nere_switch
