@@ -117,3 +117,5 @@ input_slider: !include input_sliders.yaml
 influxdb: !include influxdb.yaml
 
 script: !include scripts.yaml
+
+python_script:

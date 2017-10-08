@@ -32,3 +32,9 @@
       - delay: '00:{{ states.input_slider.badrum_timer.state | int }}:00'
       - service: homeassistant.turn_off
         entity_id: switch.badrum_uppe_switch_2
+  daily_midnight:
+    alias: "Daily midnight scripts"
+    sequence:
+      - service: notify.pelles_tfn
+        data:
+          message: Daily mignight scripts

@@ -32,13 +32,13 @@
     name: People
     view: no
     entities:
-      - device_tracker.marie
-      - device_tracker.pelle
-      - device_tracker.pelle_gps
-      - sensor.pelle_life360
-      - device_tracker.frida
-      - device_tracker.jenny
-      - device_tracker.albin
+#      - device_tracker.marie
+#      - device_tracker.pelle
+#      - device_tracker.pelle_gps
+#      - sensor.pelle_life360
+#      - device_tracker.frida
+#      - device_tracker.jenny
+#      - device_tracker.albin
       - sensor.huset
       - device_tracker.marie_marie
       - device_tracker.per_per

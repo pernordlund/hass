@@ -21,10 +21,10 @@
     sensors:
       last_restart_hass:
         value_template: '{{ states.sensor.date__time.state }}'
-        friendly_name: 'Allrum trip'
+        friendly_name: 'Last restart'
         entity_id: binary_sensor.dummy
       last_trip_allrum:
-        value_template: '{{ states.sensor.date__time.state }}'
+        value_template: '{{ states.sensor.time.state }}'
         friendly_name: 'Allrum trip'
         entity_id: binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor
       last_trip_alarm:
@@ -36,7 +36,7 @@
         friendly_name: 'Forradsdorr trip'
         entity_id: binary_sensor.sensative_strips_sensor
       last_trip_ytterdorr:
-        value_template: '{{ states.sensor.date__time.state }}'
+        value_template: '{{ states.sensor.time.state }}'
         friendly_name: 'Ytterdorr trip'
         entity_id: binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2
       last_trip_garagedorr:

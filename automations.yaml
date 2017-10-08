@@ -422,3 +422,21 @@
   action:
   - service: homeassistant.turn_off
     entity_id: switch.fibaro_system_fgwpef_wall_plug_gen5_switch
+#- id: A040
+#  alias: Daily python scripts midnight
+#  trigger:
+#    platform: state
+#    entity_id: sensor.date
+#  action:
+#  - service: python_script.turn_on
+#    data: 
+#      entity_id: daily_midnight
+- id: A041
+  alias: Daily scripts midnight
+  trigger:
+    platform: state
+    entity_id: sensor.date
+  action:
+  - service: script.turn_on
+    data: 
+      entity_id: script.daily_midnight
