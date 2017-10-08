@@ -60,12 +60,12 @@
     name: Security last trip
     view: no
     entities:
-      - sensor.last_trip_flood
       - sensor.last_trip_allrum
-      - sensor.last_trip_alarm
       - sensor.last_trip_ytterdorr
+      - sensor.last_trip_alarm
       - sensor.last_trip_garagedorr
       - sensor.last_trip_forradsdorr
+      - sensor.last_trip_flood
   frontpage_sensors:
     name: Sensors
     view: no
@@ -167,15 +167,14 @@
     view: no
     entities:
       - switch.fibaro_system_fgwpef_wall_plug_gen5_switch
-      - switch.vagg_vardrum
+#      - switch.vagg_vardrum
       - switch.kamera
-      - switch.multifjarr6
-      - switch.multifjarr9
-      - switch.vit_fjarr_1
-      - switch.vit_fjarr_3
-      - switch.okand_0
+#      - switch.multifjarr6
+#      - switch.multifjarr9
+#      - switch.vit_fjarr_1
+#      - switch.vit_fjarr_3
+#      - switch.okand_0
       - switch.sensor_badrum
-      - switch.okand_2
       - switch.fibaro_system_fgwpef_wall_plug_gen5_switch_2
       - switch.popp__duwi_zw_zsa_3500_plugin_switch_switch
   timers:
