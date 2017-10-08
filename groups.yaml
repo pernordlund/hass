@@ -18,8 +18,8 @@
       - sensor.date
       - sensor.time
       - sensor.slussen
-      - alert.front_door
       - updater.updater
+      - sensor.last_restart_hass
   alerts:
     name: Alerts
     view: no
