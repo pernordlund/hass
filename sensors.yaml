@@ -28,7 +28,7 @@
           {% if (as_timestamp(now()) - as_timestamp(states.sensor.last_trip_allrum.last_changed))/3600 > 24 -%}
             >24hr
           {%- else -%}
-            {{ states.sensor.time.state }}
+            {{ as_timestamp(states.sensor.last_trip_allrum.last_changed) | timestamp_custom('%H:%M') }}
           {%- endif %}
         friendly_name: 'Allrum trip'
         entity_id: 
@@ -39,7 +39,7 @@
           {% if (as_timestamp(now()) - as_timestamp(states.sensor.last_trip_alarm.last_changed))/3600 > 72 -%}
             >72hr
           {%- else -%}
-            {{ states.sensor.date__time.state }}
+            {{ as_timestamp(states.sensor.last_trip_alarm.last_changed) | timestamp_custom('%Y-%m-%d %H:%M') }}
           {%- endif %}
         friendly_name: 'Alarm trip'
         entity_id: 
@@ -50,7 +50,7 @@
           {% if (as_timestamp(now()) - as_timestamp(states.sensor.last_trip_forradsdorr.last_changed))/3600 > 72 -%}
             >72hr
           {%- else -%}
-            {{ states.sensor.date__time.state }}
+            {{ as_timestamp(states.sensor.last_trip_forradsdorr.last_changed) | timestamp_custom('%Y-%m-%d %H:%M') }}
           {%- endif %}
         friendly_name: 'Forradsdorr trip'
         entity_id: 
@@ -61,7 +61,7 @@
           {% if (as_timestamp(now()) - as_timestamp(states.sensor.last_trip_ytterdorr.last_changed))/3600 > 24 -%}
             >24hr
           {%- else -%}
-            {{ states.sensor.time.state }}
+            {{ as_timestamp(states.sensor.last_trip_ytterdorr.last_changed) | timestamp_custom('%H:%M') }}
           {%- endif %}
         friendly_name: 'Ytterdorr trip'
         entity_id: 
@@ -72,7 +72,7 @@
           {% if (as_timestamp(now()) - as_timestamp(states.sensor.last_trip_garagedorr.last_changed))/3600 > 72 -%}
             >72hr
           {%- else -%}
-            {{ states.sensor.date__time.state }}
+            {{ as_timestamp(states.sensor.last_trip_garagedorr.last_changed) | timestamp_custom('%Y-%m-%d %H:%M') }}
           {%- endif %}
         friendly_name: 'Garagedorr trip'
         entity_id: 
@@ -83,7 +83,7 @@
           {% if (as_timestamp(now()) - as_timestamp(states.sensor.last_trip_flood.last_changed))/3600 > 72 -%}
             >72hr
           {%- else -%}
-            {{ states.sensor.date__time.state }}
+            {{ as_timestamp(states.sensor.last_trip_flood.last_changed) | timestamp_custom('%Y-%m-%d %H:%M') }}
           {%- endif %}
         friendly_name: 'Dishwasher trip '
         entity_id: 
