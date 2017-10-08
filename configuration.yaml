@@ -38,7 +38,7 @@ http:
 #    - 192.168.1.0/24
 #    - 10.42.21.16/24
 # Uncomment this if you are using SSL or running in Docker etc
-  base_url: hass.panitco.se
+#  base_url: hass.panitco.se
 
 # Checks for available updates
 updater:
