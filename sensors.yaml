@@ -25,10 +25,10 @@
         entity_id: binary_sensor.dummy
       last_trip_allrum:
         value_template: >-
-          {% if (as_timestamp(now()) - as_timestamp(states.sensor.last_trip_allrum.last_changed))/3600 > 24 -%}
+          {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor.last_changed))/3600 > 24 -%}
             >24hr
           {%- else -%}
-            {{ as_timestamp(states.sensor.last_trip_allrum.last_changed) | timestamp_custom('%H:%M') }}
+            {{ as_timestamp(states.binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor.last_changed) | timestamp_custom('%H:%M') }}
           {%- endif %}
         friendly_name: 'Allrum trip'
         entity_id: 
@@ -36,10 +36,10 @@
           - sensor.time
       last_trip_alarm:
         value_template: >-
-          {% if (as_timestamp(now()) - as_timestamp(states.sensor.last_trip_alarm.last_changed))/3600 > 72 -%}
+          {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor.last_changed))/3600 > 72 -%}
             >72hr
           {%- else -%}
-            {{ as_timestamp(states.sensor.last_trip_alarm.last_changed) | timestamp_custom('%Y-%m-%d %H:%M') }}
+            {{ as_timestamp(states.binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor.last_changed) | timestamp_custom('%Y-%m-%d %H:%M') }}
           {%- endif %}
         friendly_name: 'Alarm trip'
         entity_id: 
@@ -47,10 +47,10 @@
           - sensor.date
       last_trip_forradsdorr:
         value_template: >-
-          {% if (as_timestamp(now()) - as_timestamp(states.sensor.last_trip_forradsdorr.last_changed))/3600 > 72 -%}
+          {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.sensative_strips_sensor.last_changed))/3600 > 72 -%}
             >72hr
           {%- else -%}
-            {{ as_timestamp(states.sensor.last_trip_forradsdorr.last_changed) | timestamp_custom('%Y-%m-%d %H:%M') }}
+            {{ as_timestamp(states.binary_sensor.sensative_strips_sensor.last_changed) | timestamp_custom('%Y-%m-%d %H:%M') }}
           {%- endif %}
         friendly_name: 'Forradsdorr trip'
         entity_id: 
@@ -58,10 +58,10 @@
           - sensor.date
       last_trip_ytterdorr:
         value_template: >-
-          {% if (as_timestamp(now()) - as_timestamp(states.sensor.last_trip_ytterdorr.last_changed))/3600 > 24 -%}
+          {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2.last_changed))/3600 > 24 -%}
             >24hr
           {%- else -%}
-            {{ as_timestamp(states.sensor.last_trip_ytterdorr.last_changed) | timestamp_custom('%H:%M') }}
+            {{ as_timestamp(states.binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2.last_changed) | timestamp_custom('%H:%M') }}
           {%- endif %}
         friendly_name: 'Ytterdorr trip'
         entity_id: 
@@ -69,10 +69,10 @@
           - sensor.time
       last_trip_garagedorr:
         value_template: >-
-          {% if (as_timestamp(now()) - as_timestamp(states.sensor.last_trip_garagedorr.last_changed))/3600 > 72 -%}
+          {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor.last_changed))/3600 > 72 -%}
             >72hr
           {%- else -%}
-            {{ as_timestamp(states.sensor.last_trip_garagedorr.last_changed) | timestamp_custom('%Y-%m-%d %H:%M') }}
+            {{ as_timestamp(states.binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor.last_changed) | timestamp_custom('%Y-%m-%d %H:%M') }}
           {%- endif %}
         friendly_name: 'Garagedorr trip'
         entity_id: 
@@ -80,10 +80,10 @@
           - sensor.date
       last_trip_flood:
         value_template: >-
-          {% if (as_timestamp(now()) - as_timestamp(states.sensor.last_trip_flood.last_changed))/3600 > 72 -%}
+          {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.dishwasher_flood_template.last_changed))/3600 > 72 -%}
             >72hr
           {%- else -%}
-            {{ as_timestamp(states.sensor.last_trip_flood.last_changed) | timestamp_custom('%Y-%m-%d %H:%M') }}
+            {{ as_timestamp(states.binary_sensor.dishwasher_flood_template.last_changed) | timestamp_custom('%Y-%m-%d %H:%M') }}
           {%- endif %}
         friendly_name: 'Dishwasher trip '
         entity_id: 
