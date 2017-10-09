@@ -6,7 +6,7 @@
   - name: VRG
     latitude: 59.343877
     longitude: 18.050619
-    radius: 200
+    radius: 250
     icon: mdi:school
   - name: KS
     latitude: 59.309611
