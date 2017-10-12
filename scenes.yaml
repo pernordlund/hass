@@ -2,6 +2,7 @@
     entities:
       group.inside_downstairs: off
       group.inside_upstairs: off
+      light.vardrum_bord_level: off
   - name: Pelle favourite
     entities:
       group.lights_pelle: on

@@ -72,6 +72,8 @@
   action:
   - service: scene.turn_on
     entity_id: scene.godnatt
+  - service: homeassistant.turn_off
+    entity_id: light.vardrum_bord_level
 - id: A008
   alias: 0 - Some lights off at sunrise
   trigger:
