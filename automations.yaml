@@ -209,6 +209,9 @@
   action:
   - service: light.toggle
     entity_id: light.koksbord_level
+  - service: notify.pelles_tfn
+    data:
+      message: Byraaa
 - id: A019
   alias: Arbrum fonsterlampa from wall
   trigger:
