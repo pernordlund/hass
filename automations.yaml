@@ -205,10 +205,10 @@
   condition:
     condition: time
     after: '05:00:00'
-    before: '08:00:00'
+    before: '20:00:00'
   action:
-  - service: light.toggle
-    entity_id: light.koksbord_level
+#  - service: light.toggle
+#    entity_id: light.koksbord_level
   - service: notify.pelles_tfn
     data:
       message: Byraaa
