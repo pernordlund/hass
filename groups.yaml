@@ -134,7 +134,7 @@
       - light.tradfri_bulb_e27_ws_opal_980lm
       - light.arbrum_tak_level
 #      - light.aeotec_zw098_led_bulb_level
-      - light.byralampa
+      - switch.swiid_switch
       - light.tradfri_bulb_e14_ws_opal_400lm
       - light.hall_tak_level
       - switch.klk_nere_switch
@@ -333,7 +333,7 @@
     view: no
     entities:
       - light.allrum_tak_level
-      - light.byralampa
+      - switch.swiid_switch
       - light.sovmop
       - switch.telldus_tzwp100_plugin_switch_switch
       - light.utebelysning
@@ -342,7 +342,7 @@
     name: Lights Pelle
     view: no
     entities:
-      - light.byralampa
+      - switch.swiid_switch
       - light.sovmop
       - switch.telldus_tzwp100_plugin_switch_switch
       - switch.fibaro_system_fgwpef_wall_plug_switch

@@ -199,13 +199,13 @@
   alias: Turn kitchen table on if morning and byra is turned on
   trigger:
     platform: event
-    event_type: button_pressed
+    event_type: zwave.node_event
     event_data:
-      entity_id: light.byralampa
+      entity_id: zwave.swiid
   condition:
     condition: time
     after: '05:00:00'
-    before: '10:00:00'
+    before: '08:00:00'
   action:
   - service: light.toggle
     entity_id: light.koksbord_level

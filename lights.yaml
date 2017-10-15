@@ -6,9 +6,9 @@
 #      name: Arbrum fonster
     '0710010143030160':
       name: Arbrum skrivbord
-    '0710010141030150':
-      name: Byralampa
-      fire_event: True
+#    '0710010141030150':
+#      name: Byralampa
+#      fire_event: True
     '0710010142020170':
       name: Sov-MoP
     '0710010042050160':

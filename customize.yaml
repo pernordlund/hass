@@ -10,8 +10,8 @@
 #      assumed_state: false
     light.arbrum_skrivbord:
       assumed_state: false
-    light.byralampa:
-      assumed_state: false
+#    switch.swiid_switch:
+#      assumed_state: false
     light.frida_skrivbord:
       assumed_state: false
     light.sovmop:
@@ -29,6 +29,9 @@
       friendly_name: All automations
     switch.fibaro_system_fgwpef_wall_plug_gen5_switch:
       friendly_name: Bass speaker
+    switch.swiid_switch:
+      friendly_name: Byralampa
+      icon: mdi:lightbulb
     switch.telldus_tzwp100_plugin_switch_switch:
       friendly_name: Vardagrum hornlampa
       icon: mdi:lightbulb
