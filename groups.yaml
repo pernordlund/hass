@@ -199,6 +199,7 @@
       - media_player.xperia_x_performance
       - media_player.hemmabio
       - media_player.samsung_tv
+      - media_player.spotify
   m_devices:
     name: Media devices
     view: no
