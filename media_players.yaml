@@ -13,3 +13,6 @@
   - platform: spotify
     client_id: !secret spotify_id
     client_secret: !secret spotify_secret
+    aliases:
+      ea2bd6a656f028cc0a980babab4c5309af0f3825: 'Living Room'
+      3283cb55eb8a225c65fa15d1aab757dc47ea0a30: 'Jennys mobil'
