@@ -181,8 +181,8 @@
     name: Timers
     view: no
     entities:
-      - input_slider.klk_timer
-      - input_slider.badrum_timer
+      - input_number.klk_timer
+      - input_number.badrum_timer
   media:
     name: Media
     view: yes
