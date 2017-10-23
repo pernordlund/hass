@@ -24,6 +24,9 @@ frontend:
 #Enable config menu
 config:
 
+#Enable map
+map:
+
 zwave:
   usb_path: /dev/ttyACM0
 
