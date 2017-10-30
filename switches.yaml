@@ -1,6 +1,6 @@
   - platform: rfxtrx
-#    automatic_add: True
-#    signal_repetitions: 2
+    automatic_add: True
+    signal_repetitions: 2
     devices:
       '0710010042060150':
         name: Multifjarr6
