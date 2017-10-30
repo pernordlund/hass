@@ -1,6 +1,6 @@
   platform: rfxtrx
-#  automatic_add: True
-#  signal_repetitions: 2
+  automatic_add: True
+  signal_repetitions: 2
   devices:
 #    '07100101420a0150':
 #      name: Arbrum fonster
