@@ -111,7 +111,7 @@ shell_command: !include shell_commands.yaml
 
 tradfri:
   host: '192.168.1.45'
-  api_key: !secret tf_api_key
+#  api_key: !secret tf_api_key
 
 input_select: !include input_selects.yaml
 
