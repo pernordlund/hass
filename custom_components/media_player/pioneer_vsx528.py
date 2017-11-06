@@ -141,7 +141,8 @@ class PioneerDevice(MediaPlayerDevice):
         if self._pwstate == "PWR0":
             return STATE_ON
 
-        return STATE_UNKNOWN
+        # return STATE_UNKNOWN
+        return STATE_OFF
 
     @property
     def volume_level(self):
