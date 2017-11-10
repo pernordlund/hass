@@ -455,3 +455,14 @@
   action:
   - service: light.turn_on
     entity_id: light.entre
+- id: A043
+  alias: Marie leaving Slussen
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: device_tracker.marie_marie
+    from: 'slussen'
+  action:
+  - service: notify.pelles_tfn
+    data:
+      message: Marie left Slussen
