@@ -383,7 +383,7 @@
   trigger:
     platform: state
     entity_id: device_tracker.pelle_gps
-    to: work
+    to: OKQ8
   action:
   - service: shell_command.log_to_okq8
   - service: notify.pelles_tfn
@@ -397,7 +397,7 @@
   trigger:
     platform: state
     entity_id: device_tracker.pelle_gps
-    from: work
+    from: OKQ8
   action:
   - service: shell_command.log_leave_okq8
   - service: notify.pelles_tfn
@@ -466,3 +466,25 @@
   - service: notify.pelles_tfn
     data:
       message: Marie left Slussen
+- id: A044
+  alias: X - Log Pelle to work - Life
+  trigger:
+    platform: state
+    entity_id: device_tracker.per_per
+    to: OKQ8
+  action:
+  - service: shell_command.log_to_okq8
+  - service: notify.work_log
+    data:
+      message: Logged to OKQ8
+- id: A045
+  alias: X - Log Pelle leave work - Life
+  trigger:
+    platform: state
+    entity_id: device_tracker.per_per
+    from: OKQ8
+  action:
+  - service: shell_command.log_leave_okq8
+  - service: notify.work_log
+    data:
+      message: Logged leave OKQ8
