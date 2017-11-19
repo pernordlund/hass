@@ -123,3 +123,7 @@ script: !include scripts.yaml
 python_script:
 
 google_assistant: !include google_assistant.yaml
+
+system_log:
+
+frontend:

@@ -4,4 +4,4 @@
   exposed_domains:
     - switch
     - light
-    - group
+    - media_player
