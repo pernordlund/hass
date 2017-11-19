@@ -1,6 +1,6 @@
   project_id: hass-assistant-e6ca2
-  client_id: IJcTRuC7Gssau6mYrHo2tLzMCGafusigxJ54KOEuURl6UEWJZVD8SXPsTDcmDyeSAv7O3Xdib3Hg6OTp
-  access_token: KEk1qB8kSsLOO3pFkihsNOjsTT547zTM7kg4ufbwMG2apyu3H3yj0Jnlb7i2Z1cHvEA26eLBNvWzvs5Y
+  client_id: !secret ga_client_id
+  access_token: !secret ga_access_token
   exposed_domains:
     - switch
     - light
