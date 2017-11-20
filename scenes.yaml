@@ -16,3 +16,13 @@
       light.tradfri_bulb_e27_opal_1000lm: on
       light.sovmop: on
       switch.fibaro_system_fgwpef_wall_plug_gen5_switch_2: on
+  - name: Guest room on
+    entities:
+      light.arbrum_skrivbord: on
+      light.tradfri_bulb_e27_ws_opal_980lm: on
+      switch.fibaro_system_fgwpef_wall_plug_switch: on
+  - name: Guest room off
+    entities:
+      light.arbrum_skrivbord: off
+      light.tradfri_bulb_e27_ws_opal_980lm: off
+      switch.fibaro_system_fgwpef_wall_plug_switch: off

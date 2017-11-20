@@ -39,7 +39,25 @@
         data:
           message: Daily mignight scripts
   turn_tv_volume_up:
-    alias: "Increase TV volume"
+    alias: "TV volume up"
     sequence:
       - service: media_player.volume_up
         entity_id: media_player.tv
+  turn_tv_volume_down:
+    alias: "TV volume down"
+    sequence:
+      - service: media_player.volume_down
+        entity_id: media_player.tv
+  mute_tv:
+    alias: "Mute TV"
+    sequence:
+      - service: media_player.volume_down
+        entity_id: media_player.tv
+        is_volume_muted: true
+  unmute_tv:
+    alias: "Unmute TV"
+    sequence:
+      - service: media_player.volume_down
+        entity_id: media_player.tv
+        is_volume_muted: false
+

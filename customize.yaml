@@ -129,7 +129,11 @@
       icon: mdi:calendar-clock
     sensor.roger_next_src:
       icon: mdi:clock-start
-    group.outside:
+    scene.godnatt:
       google_assistant: true
-      google_assistant_name: Outside lights
+      google_assistant_name: Good night
+      google_assistant_type: light
+    scene.pelle_favourite:
+      google_assistant: true
+      google_assistant_name: My favourites
       google_assistant_type: light
