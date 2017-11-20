@@ -38,3 +38,8 @@
       - service: notify.pelles_tfn
         data:
           message: Daily mignight scripts
+  turn_tv_volume_up:
+    alias: "Increase TV volume"
+    sequence:
+      - service: media_player.volume_up
+        entity_id: media_player.tv
