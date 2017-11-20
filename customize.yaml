@@ -92,6 +92,9 @@
       icon: mdi:lightbulb
     light.allrum_tak_level:
       friendly_name: Allrum
+      aliases:
+        - Playroom ceiling
+      google_assistant_type: switch
     light.frida_tak_level:
       friendly_name: Frida tak
     sensor.last_trip_allrum:
