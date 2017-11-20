@@ -410,7 +410,7 @@
   alias: Bass speaker on when Pioneer on
   trigger:
     platform: state
-    entity_id: media_player.hemmabio
+    entity_id: media_player.home_theatre
     to: 'on'
   action:
   - service: homeassistant.turn_on
@@ -419,7 +419,7 @@
   alias: Bass speaker off when Pioneer off
   trigger:
     platform: state
-    entity_id: media_player.hemmabio
+    entity_id: media_player.home_theatre
     from: 'on'
   action:
   - service: homeassistant.turn_off

@@ -10,7 +10,7 @@
       albin: 192.168.1.65
       camera: 192.168.1.47
       zonestorage: 192.168.1.49
-#      hemmabio: 192.168.1.55
+#      home_theatre: 192.168.1.55
       tv: 192.168.1.56
       htpc: 192.168.1.57
       koksradio: 192.168.1.58

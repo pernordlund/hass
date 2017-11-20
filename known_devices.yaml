@@ -39,10 +39,10 @@ pelle:
   track: true
   vendor:
 
-hemmabio:
+home_theatre:
   hide_if_away: false
   mac:
-  name: hemmabio
+  name: home_theatre
   picture:
   track: true
   vendor:

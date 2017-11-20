@@ -129,4 +129,7 @@
       icon: mdi:calendar-clock
     sensor.roger_next_src:
       icon: mdi:clock-start
-    
+    group.outside:
+      google_assistant: true
+      google_assistant_name: Outside lights
+      google_assistant_type: light

@@ -197,7 +197,7 @@
       - media_player.nordlund_chromecast
       - media_player.plex_web_chrome
       - media_player.xperia_x_performance
-      - media_player.hemmabio
+      - media_player.home_theatre
       - media_player.samsung_tv
       - media_player.spotify
   m_devices:
@@ -207,7 +207,7 @@
       - switch.htpc
       - switch.fibaro_system_fgwpef_wall_plug_gen5_switch
       - device_tracker.htpc
-#      - device_tracker.hemmabio
+#      - device_tracker.home_theatre
       - device_tracker.tv
       - device_tracker.koksradio
   heater:
