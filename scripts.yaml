@@ -51,14 +51,14 @@
   mute_tv:
     alias: "Mute TV"
     sequence:
-      - service: media_player.volume_down
+      - service: media_player.volume_mute
         data:
           entity_id: media_player.tv
           is_volume_muted: true
   unmute_tv:
     alias: "Unmute TV"
     sequence:
-      - service: media_player.volume_down
+      - service: media_player.volume_mute
         data:
           entity_id: media_player.tv
           is_volume_muted: false
