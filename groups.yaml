@@ -198,7 +198,7 @@
       - media_player.plex_web_chrome
       - media_player.xperia_x_performance
       - media_player.home_theatre
-      - media_player.samsung_tv
+      - media_player.tv
       - media_player.spotify
   m_devices:
     name: Media devices

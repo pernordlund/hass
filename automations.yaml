@@ -317,7 +317,7 @@
   alias: Bass speaker off when turning tv off
   trigger:
     platform: state
-    entity_id: media_player.samsung_tv
+    entity_id: media_player.tv
     to: 'off'
   action:
   - service: homeassistant.turn_off
