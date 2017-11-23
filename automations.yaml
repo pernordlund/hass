@@ -461,7 +461,7 @@
   trigger:
     platform: state
     entity_id: device_tracker.marie_marie
-    from: 'slussen'
+    from: 'Slussen'
   action:
   - service: notify.pelles_tfn
     data:
