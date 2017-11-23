@@ -43,16 +43,12 @@
     sequence:
       - service: media_player.volume_up
         entity_id: media_player.tv
-      - delay: 00:00:01
       - service: media_player.volume_up
         entity_id: media_player.tv
-      - delay: 00:00:01
       - service: media_player.volume_up
         entity_id: media_player.tv
-      - delay: 00:00:01
       - service: media_player.volume_up
         entity_id: media_player.tv
-      - delay: 00:00:01
       - service: media_player.volume_up
         entity_id: media_player.tv
   turn_tv_volume_down:
@@ -60,16 +56,12 @@
     sequence:
       - service: media_player.volume_down
         entity_id: media_player.tv
-      - delay: 00:00:01
       - service: media_player.volume_down
         entity_id: media_player.tv
-      - delay: 00:00:01
       - service: media_player.volume_down
         entity_id: media_player.tv
-      - delay: 00:00:01
       - service: media_player.volume_down
         entity_id: media_player.tv
-      - delay: 00:00:01
       - service: media_player.volume_down
         entity_id: media_player.tv
   mute_tv:
