@@ -38,3 +38,15 @@
     host: 192.168.1.57
     turn_off:
       service: rest_command.turn_htpc_off
+  - platform: template
+    switches:
+      outside:
+        value_template: "{{ is_state('group.outside', 'on') }}"
+        turn_on:
+          service: homeassistant.turn_on
+          data:
+            entity_id: group.outside
+        turn_off:
+          service: homeassistant.turn_off
+          data:
+            entity_id: group.outside
