@@ -20,7 +20,7 @@ def setup(hass, config):
     def handle_turn_off(call):
         safe_map_call(call, MAPPED_SERVICE_OFF)
 
-hass.services.register(DOMAIN, MAPPED_SERVICE_ON, handle_turn_on)
-hass.services.register(DOMAIN, MAPPED_SERVICE_OFF, handle_turn_off)
+    hass.services.register(DOMAIN, MAPPED_SERVICE_ON, handle_turn_on)
+    hass.services.register(DOMAIN, MAPPED_SERVICE_OFF, handle_turn_off)
 
-return True
+    return True
