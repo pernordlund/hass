@@ -38,6 +38,9 @@
     switch.telldus_tzwp100_plugin_switch_switch:
       friendly_name: Vardagrum hornlampa
       icon: mdi:lightbulb
+      google_assistant: true
+      google_assistant_name: Living room corner
+      google_assistant_type: light
     binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor:
       friendly_name: Rorelse allrum
     light.koksbanken_level:
@@ -61,6 +64,9 @@
       friendly_name: Arbrum tak
     light.vardrum_bord_level:
       friendly_name: Vardrum bord
+      google_assistant: true
+      google_assistant_name: Living room table
+      google_assistant_type: light
     switch.popp__duwi_zw_zsa_3500_plugin_switch_switch:
       friendly_name: Rogers laddare
     sensor.everspring_st814_temperature_and_humidity_sensor_temperature:
@@ -90,6 +96,9 @@
     light.tradfri_bulb_e27_opal_1000lm:
       friendly_name: Vardrum soffa
       icon: mdi:lightbulb
+      google_assistant: true
+      google_assistant_name: Living room sofa
+      google_assistant_type: light
     switch.fibaro_system_fgwpef_wall_plug_switch:
       friendly_name: Arbrum fonster
       icon: mdi:lightbulb
@@ -154,7 +163,15 @@
       google_assistant: true
       google_assistant_name: Guest room
       google_assistant_type: light
+    switch.living_room:
+      google_assistant: true
+      google_assistant_name: Living room
+      google_assistant_type: light
     switch.kamera:
       google_assistant: true
       google_assistant_name: Camera
       google_assistant_type: light
+    media_player.nordlund_chromecast:
+      google_assistant: true
+      google_assistant_name: Chromecast
+      google_assistant_type: media_player
