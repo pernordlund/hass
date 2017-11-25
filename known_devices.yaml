@@ -39,10 +39,10 @@ pelle:
   track: true
   vendor:
 
-home_theatre:
+stereo:
   hide_if_away: false
   mac:
-  name: home_theatre
+  name: stereo
   picture:
   track: true
   vendor:
