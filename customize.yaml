@@ -15,6 +15,9 @@
     light.frida_skrivbord:
       assumed_state: false
     light.sovmop:
+      google_assistant: true
+      google_assistant_name: Bedroom
+      google_assistant_type: light
       assumed_state: false
     light.entre:
       assumed_state: false
@@ -39,6 +42,9 @@
       friendly_name: Rorelse allrum
     light.koksbanken_level:
       friendly_name: Koksbanken
+      google_assistant: true
+      google_assistant_name: Kitchen bench
+      google_assistant_type: light
 #    light.aeotec_zw098_led_bulb_level:
 #      friendly_name: ??
     sensor.fibaro_system_fgms001zw5_motion_sensor_luminance:
@@ -78,6 +84,9 @@
       icon: mdi:lightbulb
     light.koksbord_level:
       friendly_name: Koksbord
+      google_assistant: true
+      google_assistant_name: Kitchen table
+      google_assistant_type: light
     light.tradfri_bulb_e27_opal_1000lm:
       friendly_name: Vardrum soffa
       icon: mdi:lightbulb
@@ -144,4 +153,8 @@
     switch.guest_room:
       google_assistant: true
       google_assistant_name: Guest room
+      google_assistant_type: light
+    switch.kamera:
+      google_assistant: true
+      google_assistant_name: Camera
       google_assistant_type: light
