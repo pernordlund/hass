@@ -14,7 +14,7 @@
 #      assumed_state: false
     light.frida_tak_level:
       google_assistant: true
-      google_assistant_name: Frida desk
+      google_assistant_name: Frida ceiling
       google_assistant_type: light
     light.frida_skrivbord:
       google_assistant: true
