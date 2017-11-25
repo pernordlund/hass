@@ -131,3 +131,6 @@ google_assistant: !include google_assistant.yaml
 system_log:
 
 intent_script: !include intent_scripts.yaml
+
+google_assistant_group_fix:
+
