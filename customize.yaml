@@ -6,8 +6,10 @@
       hidden: true
     camera.generic_camera:
       friendly_name: Living room
-#    light.arbrum_fonster:
-#      assumed_state: false
+    light.arbrum_tak_level:
+      google_assistant: true
+      google_assistant_name: Guest room ceiling
+      google_assistant_type: light
     light.arbrum_skrivbord:
       assumed_state: false
 #    switch.swiid_switch:
@@ -26,6 +28,10 @@
       google_assistant_name: Bedroom
       google_assistant_type: light
       assumed_state: false
+    light.allrum_tak_level:
+      google_assistant: true
+      google_assistant_name: Play room ceiling
+      google_assistant_type: light
     light.entre:
       assumed_state: false
     light.vinden:
