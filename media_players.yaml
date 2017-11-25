@@ -17,3 +17,5 @@
     aliases:
       ea2bd6a656f028cc0a980babab4c5309af0f3825: 'Living Room'
       3283cb55eb8a225c65fa15d1aab757dc47ea0a30: 'Jennys mobil'
+  - platform: dlna_dmr
+    url: http://192.168.1.58:8080/DeviceDescription.xml

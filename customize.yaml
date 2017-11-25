@@ -141,3 +141,7 @@
       google_assistant: true
       google_assistant_name: Outside lights
       google_assistant_type: light
+    switch.guest_room:
+      google_assistant: true
+      google_assistant_name: Guest room
+      google_assistant_type: light

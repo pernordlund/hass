@@ -352,3 +352,12 @@
     view: yes
     entities:
       - group.all_automations
+
+# Groups for Google home connection
+  guest_room:
+    name: Guest room
+    view: no
+    entities:
+      - light.arbrum_skrivbord
+      - light.tradfri_bulb_e27_ws_opal_980lm
+      - switch.fibaro_system_fgwpef_wall_plug_switch
