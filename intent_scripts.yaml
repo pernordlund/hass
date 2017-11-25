@@ -1,0 +1,7 @@
+  GetTemperature:  # Intent type
+    speech:
+      text: We have {{states.sensor.altan_temperature.state}} degrees outside
+    action:
+      service: notify.pelles_tfn
+      data:
+        message: Hello from an intent!

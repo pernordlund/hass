@@ -52,6 +52,7 @@ discovery:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 #conversation:
+dialogflow:
 
 recorder: !include recorder.yaml
 
@@ -128,3 +129,5 @@ python_script:
 google_assistant: !include google_assistant.yaml
 
 system_log:
+
+intent_script: !include intent_scripts.yaml
