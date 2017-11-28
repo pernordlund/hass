@@ -160,18 +160,25 @@
     scene.godnatt:
       google_assistant: true
       google_assistant_name: Good night
-      google_assistant_type: light
-    scene.pelle_favourite:
-      google_assistant: true
-      google_assistant_name: My favourites
-      google_assistant_type: light
     group.outside:
       google_assistant: true
       google_assistant_name: Outside lights
       google_assistant_type: light
+    group.inside_downstairs:
+      google_assistant: true
+      google_assistant_name: Downstairs
+      google_assistant_type: light
+    group.inside_upstairs:
+      google_assistant: true
+      google_assistant_name: Upstairs
+      google_assistant_type: light
     group.guest_room:
       google_assistant: true
       google_assistant_name: Guest room
+      google_assistant_type: light
+    group.lights_pelle:
+      google_assistant: true
+      google_assistant_name: Pelles lights
       google_assistant_type: light
     group.living_room:
       google_assistant: true
