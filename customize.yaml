@@ -185,7 +185,7 @@
       google_assistant: true
       google_assistant_name: Camera
       google_assistant_type: light
-    media_player.nordlund_chromecast:
-      google_assistant: true
-      google_assistant_name: Chromecast
-      google_assistant_type: media_player
+#    media_player.nordlund_chromecast:
+#      google_assistant: true
+#      google_assistant_name: Chromecast
+#      google_assistant_type: media_player
