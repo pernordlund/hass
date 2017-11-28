@@ -492,3 +492,21 @@
   - service: notify.work_log
     data:
       message: Logged leave OKQ8
+- id: A046
+  alias: Garage light on when door opens
+  trigger:
+    platform: state
+    entity_id: binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor
+    to: 'on'
+  action:
+  - service: homeassistant.turn_on
+    entity_id: switch.popp__duwi_zw_zsa_3500_plugin_switch_switch
+- id: A047
+  alias: Garage light off when door closes
+  trigger:
+    platform: state
+    entity_id: binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor
+    to: 'off'
+  action:
+  - service: homeassistant.turn_off
+    entity_id: switch.popp__duwi_zw_zsa_3500_plugin_switch_switch
