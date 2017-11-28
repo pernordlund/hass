@@ -78,6 +78,18 @@
         data:
           entity_id: media_player.tv
           is_volume_muted: false
+  turn_on_stereo:
+    alias: "Turn on Stereo"
+    sequence:
+      - service: media_player.turn_on
+        data:
+          entity_id: media_player.stereo
+  turn_off_tv:
+    alias: "Turn off TV"
+    sequence:
+      - service: media_player.turn_off
+        data:
+          entity_id: media_player.tv
   good_night:
     alias: "Good night"
     sequence:
