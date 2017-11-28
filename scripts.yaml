@@ -78,4 +78,10 @@
         data:
           entity_id: media_player.tv
           is_volume_muted: false
+  good_night:
+    alias: "Good night"
+    sequence:
+      - service: scene.turn_on
+        data:
+          entity_id: scene.godnatt
 
