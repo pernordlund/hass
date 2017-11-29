@@ -12,7 +12,7 @@
       - pelles_tfn
   garage_door_open_long:
     name: Garage door is open
-    entity_id: binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor
+    entity_id: binary_sensor.garage_door_sensor
     state: 'on'
     repeat: 
       - 5

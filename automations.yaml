@@ -496,7 +496,7 @@
   alias: Garage light on when door opens
   trigger:
     platform: state
-    entity_id: binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor
+    entity_id: binary_sensor.garage_door_sensor
     to: 'on'
   action:
   - service: homeassistant.turn_on
@@ -505,7 +505,7 @@
   alias: Garage light off when door closes
   trigger:
     platform: state
-    entity_id: binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor
+    entity_id: binary_sensor.garage_door_sensor
     to: 'off'
   action:
   - service: homeassistant.turn_off

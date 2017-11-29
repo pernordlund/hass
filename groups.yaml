@@ -53,7 +53,7 @@
       - binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor
       - binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor
       - binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2
-      - binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor
+      - binary_sensor.garage_door_sensor
       - binary_sensor.sensative_strips_sensor
       - binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor
   security_lt:
@@ -107,7 +107,7 @@
     name: Climate Garage
     view: no
     entities:
-      - sensor.fibaro_system_fgk101_door_opening_sensor_temperature
+      - sensor.garage_door_temperature
       - sensor.everspring_st814_temperature_and_humidity_sensor_temperature
       - sensor.everspring_st814_temperature_and_humidity_sensor_relative_humidity
   climate_outside:

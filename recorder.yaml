@@ -33,7 +33,7 @@
 #      - sensor.vinden_temperature
 #      - binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor
 #      - binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2
-#      - binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor
+#      - binary_sensor.garage_door_sensor
 #      - binary_sensor.sensative_strips_sensor
 #      - switch.okand_0
 
