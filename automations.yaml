@@ -8,8 +8,8 @@
     to: 'on'
   action:
   - service: notify.pelles_tfn
-    data:
-      message: Ytterdorr opened
+    data_template:
+      message: '{{ states("sensor.time") }} - Ytterdorr opened'
   - service: tts.google_say
     data:
       entity_id: media_player.living_room_speaker
