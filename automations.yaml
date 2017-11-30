@@ -126,8 +126,8 @@
     to: 'off'
   action:
   - service: notify.pelles_tfn
-    data:
-      message: Palarmning
+    data_template:
+      message: '{{ states("sensor.time") }} - Palarmning'
   - service: scene.turn_on
     entity_id: scene.alarm_on
 - id: A013
@@ -139,8 +139,8 @@
     to: 'on'
   action:
   - service: notify.pelles_tfn
-    data:
-      message: Avlarmning
+    data_template:
+      message: '{{ states("sensor.time") }} -  Avlarmning'
   - service: scene.turn_on
     entity_id: scene.alarm_off
 - id: A014
@@ -152,8 +152,8 @@
     to: 'on'
   action:
   - service: notify.pelles_tfn
-    data:
-      message: Oversvammningslarm
+    data_template:
+      message: '{{ states("sensor.time") }} - Oversvammningslarm'
 - id: A015
   alias: Smoke alarm message
   trigger:
@@ -163,8 +163,8 @@
     to: 'on'
   action:
   - service: notify.pelles_tfn
-    data:
-      message: Roklarm Roklarm
+    data_template:
+      message: '{{ states("sensor.time") }} - Roklarm Roklarm'
 - id: A016
   alias: 0 - Some lights on when Pelle gets home in the afternoon
   initial_state: 'on'
@@ -275,8 +275,8 @@
     to: work
   action:
   - service: notify.pelles_tfn
-    data:
-      message: Pelle got to work
+    data_template:
+      message: '{{ states("sensor.time") }} - Pelle got to work'
 - id: A025
   alias: Badrum on when motion timer
   initial_state: 'on'
@@ -306,8 +306,8 @@
     to: 'on'
   action:
   - service: notify.pelles_tfn
-    data:
-      message: Sensor allrum triggered
+    data_template:
+      message: '{{ states("sensor.time") }} - Sensor allrum triggered'
 - id: A028
   alias: Klk off 5 min after on
   trigger:
@@ -391,8 +391,8 @@
   action:
   - service: shell_command.log_to_okq8
   - service: notify.pelles_tfn
-    data:
-      message: Logged to OKQ8
+    data_template:
+      message: '{{ states("sensor.time") }} - Logged to OKQ8'
   - service: notify.work_log
     data:
       message: Logged to OKQ8
@@ -405,8 +405,8 @@
   action:
   - service: shell_command.log_leave_okq8
   - service: notify.pelles_tfn
-    data:
-      message: Logged leaving OKQ8
+    data_template:
+      message: '{{ states("sensor.time") }} - Logged leaving OKQ8'
   - service: notify.work_log
     data:
       message: Logged leave OKQ8
@@ -468,8 +468,8 @@
     from: 'Slussen'
   action:
   - service: notify.pelles_tfn
-    data:
-      message: Marie left Slussen
+    data_template:
+      message: '{{ states("sensor.time") }} - Marie left Slussen'
 - id: A044
   alias: X - Log Pelle to work - Life
   trigger:
