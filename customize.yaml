@@ -189,3 +189,7 @@
 #      google_assistant: true
 #      google_assistant_name: Chromecast
 #      google_assistant_type: media_player
+    sensor.altan_temperature:
+      google_assistant: true
+      google_assistant_name: Outside temperature
+#      google_assistant_type: light
