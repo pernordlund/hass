@@ -394,8 +394,8 @@
     data_template:
       message: '{{ states("sensor.time") }} - Logged to OKQ8'
   - service: notify.work_log
-    data:
-      message: Logged to OKQ8
+    data_template:
+      message: '{{ states("sensor.time") }} - Logged to OKQ8'
 - id: A037
   alias: X - Log Pelle leave work
   trigger:
@@ -408,8 +408,8 @@
     data_template:
       message: '{{ states("sensor.time") }} - Logged leaving OKQ8'
   - service: notify.work_log
-    data:
-      message: Logged leave OKQ8
+    data_template:
+      message: '{{ states("sensor.time") }} - Logged leave OKQ8'
 - id: A038
   alias: Bass speaker on when Pioneer on
   trigger:
