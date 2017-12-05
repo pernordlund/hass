@@ -339,6 +339,9 @@
       - switch.telldus_tzwp100_plugin_switch_switch
       - light.utebelysning
       - light.ute_altan
+      - light.tradfri_bulb_e27_ws_opal_980lm
+      - light.koksbanken_level
+      - light.tradfri_bulb_e27_opal_1000lm
   lights_pelle:
     name: Lights Pelle
     view: no

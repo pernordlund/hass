@@ -93,8 +93,11 @@
     event: sunset
     offset: -00:45:00
   action:
-    service: homeassistant.turn_on
+  - service: homeassistant.turn_on
     entity_id: group.daily_sun
+  - service: notify.pelles_tfn
+    data_template:
+      message: '{{ states("sensor.time") }} - Daily sunset triggered'
 - id: A010
   alias: X - Notifiy okand_0
   trigger:
