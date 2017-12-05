@@ -481,6 +481,9 @@
   - service: notify.work_log
     data_template:
       message: '{{ states("sensor.time") }} - Logged to OKQ8 - Life'
+  - service: notify.pelles_tfn
+    data_template:
+      message: '{{ states("sensor.time") }} - Logged to OKQ8 - Life'
 - id: A045
   alias: X - Log Pelle leave work - Life
   trigger:
@@ -490,6 +493,9 @@
   action:
   - service: shell_command.log_leave_okq8
   - service: notify.work_log
+    data_template:
+      message: '{{ states("sensor.time") }} - Logged leave OKQ8 - Life'
+  - service: notify.pelles_tfn
     data_template:
       message: '{{ states("sensor.time") }} - Logged leave OKQ8 - Life'
 - id: A046
