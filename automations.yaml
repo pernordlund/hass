@@ -395,10 +395,10 @@
   - service: shell_command.log_to_okq8
   - service: notify.pelles_tfn
     data_template:
-      message: '{{ states("sensor.time") }} - Logged to OKQ8'
+      message: '{{ states("sensor.time") }} - Logged to OKQ8 - GPS'
   - service: notify.work_log
-    data:
-      message: Logged to OKQ8
+    data_template:
+      message: '{{ states("sensor.time") }} - Logged to OKQ8 - GPS'
 - id: A037
   alias: X - Log Pelle leave work
   trigger:
@@ -409,10 +409,10 @@
   - service: shell_command.log_leave_okq8
   - service: notify.pelles_tfn
     data_template:
-      message: '{{ states("sensor.time") }} - Logged leaving OKQ8'
+      message: '{{ states("sensor.time") }} - Logged leaving OKQ8 - GPS'
   - service: notify.work_log
-    data:
-      message: Logged leave OKQ8
+    data_template:
+      message: '{{ states("sensor.time") }} - Logged leave OKQ8 - GPS'
 - id: A038
   alias: Bass speaker on when Pioneer on
   trigger:
@@ -482,8 +482,11 @@
   action:
   - service: shell_command.log_to_okq8
   - service: notify.work_log
-    data:
-      message: Logged to OKQ8
+    data_template:
+      message: '{{ states("sensor.time") }} - Logged to OKQ8 - Life'
+  - service: notify.pelles_tfn
+    data_template:
+      message: '{{ states("sensor.time") }} - Logged to OKQ8 - Life'
 - id: A045
   alias: X - Log Pelle leave work - Life
   trigger:
@@ -493,8 +496,11 @@
   action:
   - service: shell_command.log_leave_okq8
   - service: notify.work_log
-    data:
-      message: Logged leave OKQ8
+    data_template:
+      message: '{{ states("sensor.time") }} - Logged leave OKQ8 - Life'
+  - service: notify.pelles_tfn
+    data_template:
+      message: '{{ states("sensor.time") }} - Logged leave OKQ8 - Life'
 - id: A046
   alias: Garage light on when door opens
   trigger:
