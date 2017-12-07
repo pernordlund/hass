@@ -56,6 +56,7 @@
       - binary_sensor.garage_door_sensor
       - binary_sensor.sensative_strips_sensor
       - binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor
+      - lock.locked
   security_lt:
     name: Security last trip
     view: no
