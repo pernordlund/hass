@@ -519,3 +519,29 @@
   action:
   - service: homeassistant.turn_off
     entity_id: switch.popp__duwi_zw_zsa_3500_plugin_switch_switch
+- id: A047
+  alias: X - Log Jenny leaving home - Life
+  trigger:
+    platform: state
+    entity_id: device_tracker.jenny_jenny
+    from: home
+  action:
+  - service: notify.jenny_log
+    data_template:
+      message: '{{ states("sensor.time") }} - Jenny left home - Life'
+  - service: notify.pelles_tfn
+    data_template:
+      message: '{{ states("sensor.time") }} - Jenny left home - Life'
+- id: A048
+  alias: X - Log Jenny leaving home - WLAN
+  trigger:
+    platform: state
+    entity_id: device_tracker.jenny
+    from: home
+  action:
+  - service: notify.jenny_log
+    data_template:
+      message: '{{ states("sensor.time") }} - Jenny left home - WLAN'
+  - service: notify.pelles_tfn
+    data_template:
+      message: '{{ states("sensor.time") }} - Jenny left home - WLAN'
