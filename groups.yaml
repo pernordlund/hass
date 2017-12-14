@@ -8,7 +8,7 @@
       - group.security_lt
       - group.frontpage_sensors
       - camera.generic_camera
-      - group.roger
+#      - group.roger
       - group.alerts
   welcome:
     name: Welcome

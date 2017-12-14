@@ -13,10 +13,10 @@
 #      {% for bus in value_json.ResponseData.Buses %}
 #      {{ bus.Destination|replace(" ", ".") }}-{{ bus.DisplayTime|replace(" ", ".") }} /// 
 #      {% endfor %}
-#  - platform: jsonrest
-#    scan_interval: 60
-#    resource: !secret sl_resource
-#    name: Klisatravagen
+  - platform: jsonrest
+    scan_interval: 60
+    resource: !secret sl_resource
+    name: Klisatravagen
   - platform: template
     sensors:
       last_restart_hass:
@@ -300,26 +300,26 @@
 #      - 'process_total'
 #      - 'process_thread'
 #      - 'process_sleeping'
-  - platform: rest
-    resource: http://192.168.1.33:1234/status
-    name: Roger status
-    value_template: >
-      {{ value_json.mowerStatus }}
-  - platform: rest
-    resource: http://192.168.1.33:1234/status
-    name: Roger battery
-    value_template: >
-      {{ value_json.batteryPercent }}
-  - platform: rest
-    resource: http://192.168.1.33:1234/status
-    name: Roger next src
-    value_template: >
-      {{ value_json.nextStartSource }}
-  - platform: rest
-    resource: http://192.168.1.33:1234/status
-    name: Roger next start
-    value_template: >
-      {{ value_json.nextStartTimestamp | timestamp_utc }}
+#  - platform: rest
+#    resource: http://192.168.1.33:1234/status
+#    name: Roger status
+#    value_template: >
+#      {{ value_json.mowerStatus }}
+#  - platform: rest
+#    resource: http://192.168.1.33:1234/status
+#    name: Roger battery
+#    value_template: >
+#      {{ value_json.batteryPercent }}
+#  - platform: rest
+#    resource: http://192.168.1.33:1234/status
+#    name: Roger next src
+#    value_template: >
+#      {{ value_json.nextStartSource }}
+#  - platform: rest
+#    resource: http://192.168.1.33:1234/status
+#    name: Roger next start
+#    value_template: >
+#      {{ value_json.nextStartTimestamp | timestamp_utc }}
   - platform: command_line
     name: CPU Temperature
     command: "cat /sys/class/thermal/thermal_zone0/temp"
