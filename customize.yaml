@@ -82,7 +82,7 @@
       google_assistant_name: Living room table
       google_assistant_type: light
     switch.popp__duwi_zw_zsa_3500_plugin_switch_switch:
-      friendly_name: Rogers laddare
+      friendly_name: Garage el Rogers laddare
     sensor.everspring_st814_temperature_and_humidity_sensor_temperature:
       friendly_name: Garagevinden temp
     sensor.everspring_st814_temperature_and_humidity_sensor_relative_humidity:
