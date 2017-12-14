@@ -101,9 +101,9 @@
         entity_id: sensor.klisatravagen
         value_template: >
           {% if states.sensor.klisatravagen.state == 'TRUNCATED' -%}
-          Tid: 
+          Time: 
           {{ states.sensor.klisatravagen.attributes.ResponseData.LatestUpdate[11:16] }}
-           -- Kommer: 
+           -- Coming: 
           {% for bus in states.sensor.klisatravagen.attributes.ResponseData.Buses %}
           {% if bus.Destination == 'Slussen' -%}{{bus.DisplayTime}} // {%- endif %}{% endfor %}
           {%- else -%}N/A

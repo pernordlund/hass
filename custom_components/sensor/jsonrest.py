@@ -110,7 +110,7 @@ class JSONRestSensor(Entity):
     def update(self):
         """Get the latest data from REST API and update the state."""
 #PNO extension only update if in the morning
-        if (not (5 <= datetime.now().hour <= 88)) \
+        if (not (5 <= datetime.now().hour <= 8)) \
             or datetime.now().weekday() > 4:
             value = None
         else:
