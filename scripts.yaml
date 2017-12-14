@@ -100,8 +100,8 @@
     alias: "Next bus"
     sequence:
     - service: tts.google_say
-      data:
-        entity_id: media_player.living_room_speaker
-        message_template: {{ states.sensor.slussen.state }}
+      entity_id: media_player.living_room_speaker
+      data_template:
+        message: "{{ states.sensor.slussen.state }}"
 
 
