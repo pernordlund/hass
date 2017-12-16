@@ -128,7 +128,7 @@ class JSONRestSensor(Entity):
 
         """ Parse the return text as JSON and save the json as an attribute. """
         try:
-            self._attributes = json.loads(value)['ResponseData']['Buses']
+            self._attributes = json.loads(value) #['ResponseData']['Buses']
         except json.JSONDecodeError:
             self._attributes = []
             pass
