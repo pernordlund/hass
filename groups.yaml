@@ -185,6 +185,7 @@
     entities:
       - input_number.klk_timer
       - input_number.badrum_timer
+      - script.mute_tv
   media:
     name: Media
     view: yes
