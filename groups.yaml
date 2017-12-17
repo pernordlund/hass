@@ -126,6 +126,7 @@
       - group.outside
       - group.switches
       - group.timers
+      - group.all_scripts
   inside_downstairs:
     name: Downstairs
     view: no
