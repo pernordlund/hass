@@ -57,7 +57,7 @@ class PioneerDevice(MediaPlayerDevice):
         self._host = host
         self._port = port
         self._timeout = timeout
-        self._pwstate = 'PWR1'
+        self._pwstate = 'PWR2'
         self._volume = 0
         self._muted = False
         self._selected_source = ''
@@ -91,6 +91,7 @@ class PioneerDevice(MediaPlayerDevice):
                     self._host, self._port, self._timeout)
             except (ConnectionRefusedError, OSError):
                 _LOGGER.warning("Pioneer %s refused connection in command", self._name)
+                telnet.close()
                 return
             telnet.write(command.encode("ASCII") + b"\r")
             telnet.read_very_eager()  # skip response
@@ -98,6 +99,7 @@ class PioneerDevice(MediaPlayerDevice):
         except telnetlib.socket.timeout:
             _LOGGER.debug(
                 "Pioneer %s command %s timed out", self._name, command)
+            telnet.close()
 
     def update(self):
         """Get the latest details from the device."""
@@ -105,6 +107,7 @@ class PioneerDevice(MediaPlayerDevice):
             telnet = telnetlib.Telnet(self._host, self._port, self._timeout)
         except (ConnectionRefusedError, OSError):
             _LOGGER.warning("Pioneer %s refused connection in update", self._name)
+            telnet.close()
             return False
 
         pwstate = self.telnet_request(telnet, "?P", "PWR")
