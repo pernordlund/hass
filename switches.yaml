@@ -70,6 +70,3 @@
           service: homeassistant.turn_off
           data:
             entity_id: group.living_room
-  - platform: rest
-    resource: !secret sl_resource
-    is_on_template: '{{value_json}}'
