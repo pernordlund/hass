@@ -4,7 +4,7 @@
     name: Stereo
     host: 192.168.1.55
     port: 8102
-#    timeout: 5
+#    timeout: 1
   - platform: samsungtv
     name: TV
     timeout: 1
