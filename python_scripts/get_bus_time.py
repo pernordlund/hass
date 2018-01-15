@@ -25,9 +25,9 @@ else:
 
 #print (message)
 
-payload = '{"state": "Klisatra", "attributes": {"Bus 1": \"' + message + '\",' + \
+payload = '{"state": "ssKlisatra", "attributes": {"Bus 1": \"' + message + '\",' + \
     '"Bus2": \"' + str(datetime.now()) + '\"}}'
 resp = requests.post(resourceHA, data=payload)
-print (payload)
-print (resp.text)
+#print (payload)
+#print (resp.text)
 #hass.services.call('notify', 'pelles_tfn', { "message" : resource })
