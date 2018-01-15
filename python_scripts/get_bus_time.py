@@ -4,9 +4,8 @@ Script to retrieve bus time from SL-API
 import json
 import requests
 from datetime import datetime
-message = 'default'
 
-resourceSL = 'http://api.sl.se/api2/realtimedeparturesv4.json?key=14df1b5b39e744c0ba9d78f0abb89bdc&siteid=4612&timewindow=15'
+resourceSL = 'http://api.sl.se/api2/realtimedeparturesv4.json?key=14df1b5b39e744c0ba9d78f0abb89bdc&siteid=4612&timewindow=30'
 resourceHA = 'http://192.168.1.33:8123/api/states/sensor.slussen'
 
 resp = requests.get(resourceSL)
@@ -22,6 +21,9 @@ else:
 
 #payload = '{"state": "ssKlisatra", "attributes": {"Bus 1": \"' + message + '\",' + \
 #    '"Bus2": \"' + str(datetime.now()) + '\"}}'
-payload = json.dumps(jsonData)
+fn = {"friendly_name": "Slussenbuss"} 
+payload = json.dumps({"state": message, "attributes": {**jsonData,**fn}})
 
 resp = requests.post(resourceHA, data=payload)
+#print (resp.text)
+#print (payload)
