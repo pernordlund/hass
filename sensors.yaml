@@ -13,10 +13,10 @@
 #      {% for bus in value_json.ResponseData.Buses %}
 #      {{ bus.Destination|replace(" ", ".") }}-{{ bus.DisplayTime|replace(" ", ".") }} /// 
 #      {% endfor %}
-  - platform: jsonrest
-    scan_interval: 60
-    resource: !secret sl_resource
-    name: Klisatravagen
+#  - platform: jsonrest
+#    scan_interval: 60
+#    resource: !secret sl_resource
+#    name: Klisatravagen
   - platform: template
     sensors:
       last_restart_hass:
@@ -96,21 +96,21 @@
       sunrise:
         friendly_name: 'Sunrise'
         value_template: '{{ states.sun.sun.attributes.next_rising[11:16] }}'
-      slussen:
-        friendly_name: 'Slussenbuss'
-        entity_id: sensor.klisatravagen
-        value_template: >
-          {% if states.sensor.klisatravagen.state == 'TRUNCATED' -%}
-          {% if states.sensor.klisatravagen.attributes.ResponseData -%}
-          Time: 
-          {{ states.sensor.klisatravagen.attributes.ResponseData.LatestUpdate[11:16] }}
-           -- Coming: 
-          {% for bus in states.sensor.klisatravagen.attributes.ResponseData.Buses %}
-          {% if bus.Destination == 'Slussen' -%}{{bus.DisplayTime}} // {%- endif %}{% endfor %}
-          {%- else -%}Error
-          {%- endif %}
-          {%- else -%}N/A
-          {%- endif %}
+#      slussen:
+#        friendly_name: 'Slussenbuss'
+#        entity_id: sensor.klisatravagen
+#        value_template: >
+#          {% if states.sensor.klisatravagen.state == 'TRUNCATED' -%}
+#          {% if states.sensor.klisatravagen.attributes.ResponseData -%}
+#          Time: 
+#          {{ states.sensor.klisatravagen.attributes.ResponseData.LatestUpdate[11:16] }}
+#           -- Coming: 
+#          {% for bus in states.sensor.klisatravagen.attributes.ResponseData.Buses %}
+#          {% if bus.Destination == 'Slussen' -%}{{bus.DisplayTime}} // {%- endif %}{% endfor %}
+#          {%- else -%}Error
+#          {%- endif %}
+#          {%- else -%}N/A
+#          {%- endif %}
   - platform: mqtt
     state_topic: "hass/status"
     name: "MQTT status"
