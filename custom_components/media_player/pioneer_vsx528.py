@@ -22,7 +22,7 @@ _LOGGER = logging.getLogger(__name__)
 
 DEFAULT_NAME = 'Pioneer AVR VSX-528'
 DEFAULT_PORT = 8102   # Some use other use 23 telnet default.
-DEFAULT_TIMEOUT = None
+DEFAULT_TIMEOUT = 0.5
 
 SUPPORT_PIONEER = SUPPORT_PAUSE | SUPPORT_VOLUME_STEP | SUPPORT_VOLUME_MUTE | \
                   SUPPORT_TURN_ON | SUPPORT_TURN_OFF | \
