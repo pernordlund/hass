@@ -111,8 +111,11 @@
       data_template:
         message: >
           Marie: {{ states.device_tracker.marie_marie.state }}
+
           Frida: {{ states.device_tracker.frida_frida.state }}
+
           Jenny: {{ states.device_tracker.jenny_jenny.state }}
+          
           Albin: {{ states.device_tracker.albin_albin.state }}
   update_next_bus:
     alias: "Update next bus"
