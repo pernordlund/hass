@@ -126,6 +126,7 @@
       - group.outside
       - group.switches
       - group.timers
+      - group.scripts
   inside_downstairs:
     name: Downstairs
     view: no
@@ -184,6 +185,12 @@
     entities:
       - input_number.klk_timer
       - input_number.badrum_timer
+  scripts:
+    name: Scripts
+    view: no
+    entities:
+      - script.update_next_bus
+      - script.next_bus
   media:
     name: Media
     view: yes
