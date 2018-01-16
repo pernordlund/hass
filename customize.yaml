@@ -193,3 +193,11 @@
 #      google_assistant: true
 #      google_assistant_name: Outside temperature
 #      google_assistant_type: light
+    switch.frida_at_school:
+      google_assistant: true
+      google_assistant_name: Frida at school
+      google_assistant_type: light
+    switch.frida_at_home:
+      google_assistant: true
+      google_assistant_name: Frida at home
+      google_assistant_type: light

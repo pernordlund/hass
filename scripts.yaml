@@ -103,5 +103,18 @@
       entity_id: media_player.living_room_speaker
       data_template:
         message: "{{ states.sensor.slussen.state }}"
-
+  where_is_my_family:
+    alias: "Where is my family"
+    sequence:
+      - service: notify.pelles_tfn
+      data_template:
+        message: >
+          Marie: 
+          {{ states.device_tracker.marie_marie.state }}
+            Frida: 
+          {{ states.device_tracker.frida_frida.state }}
+            Jenny: 
+          {{ states.device_tracker.jenny_jenny.state }}
+            Albin: 
+          {{ states.device_tracker.albin_albin.state }}
 
