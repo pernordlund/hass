@@ -107,7 +107,7 @@
   where_is_my_family:
     alias: "Where is my family"
     sequence:
-      - service: notify.pelles_tfn
+    - service: notify.pelles_tfn
       data_template:
         message: >
           Marie: 
