@@ -4,13 +4,13 @@ Script to retrieve bus time from SL-API
 import json
 import requests
 from datetime import datetime
-message = 'default'
 
-resourceSL = 'http://api.sl.se/api2/realtimedeparturesv4.json?key=14df1b5b39e744c0ba9d78f0abb89bdc&siteid=4612&timewindow=15'
-resourceHA = 'http://192.168.1.33:8123/api/states/sensor.xxxx'
-
-#resource = data.get('url','not given')
-#logger.warning("url {}".format(resource))
+timewindow = '30'
+resourceSL = 'http://api.sl.se/api2/realtimedeparturesv4.json?key=14df1b5b39e744c0ba9d78f0abb89bdc&siteid=4612&timewindow=' + timewindow
+resourceHA = 'http://192.168.1.33:8123/api/states/sensor.slussen'
+fn = {"friendly_name": "Slussenbuss"} 
+errMsg = 'Error calling SL'
+noBusMsg = 'No buses for Slussen within ' + timewindow + ' minutes'
 
 resp = requests.get(resourceSL)
 jsonData = json.loads(resp.text)
@@ -19,15 +19,13 @@ if (resp.status_code == 200) and ('ResponseData' in jsonData):
         if bus['Destination'] == 'Slussen':
             message = message + bus['DisplayTime'] + chr(10)
     if not message:
-	    message = 'No buses for Slussen within 30 minutes'
+	    message = noBusMsg
 else:
-   message = 'Error calling SL-api'
+    time = datetime.now()
+    message = time.strftime("%H:%M") + ': ' + errMsg
 
-#print (message)
+payload = json.dumps({"state": message, "attributes": {**jsonData,**fn}})
 
-payload = '{"state": "ssKlisatra", "attributes": {"Bus 1": \"' + message + '\",' + \
-    '"Bus2": \"' + str(datetime.now()) + '\"}}'
 resp = requests.post(resourceHA, data=payload)
-#print (payload)
 #print (resp.text)
-#hass.services.call('notify', 'pelles_tfn', { "message" : resource })
+#print (payload)
