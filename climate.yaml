@@ -1,0 +1,5 @@
+  - platform: generic_thermostat
+    name: outside
+    heater: switch.compressor
+    target_sensor: sensor.bvoutdoor
+    
