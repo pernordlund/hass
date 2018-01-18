@@ -2,4 +2,12 @@
     name: outside
     heater: switch.compressor
     target_sensor: sensor.bvoutdoor
+  - platform: generic_thermostat
+    name: upstairs
+    heater: switch.compressor
+    target_sensor: sensor.fibaro_system_fgms001zw5_motion_sensor_temperature
+  - platform: generic_thermostat
+    name: downstairs
+    heater: switch.compressor
+    target_sensor: sensor.inne_nere_temperature
     
