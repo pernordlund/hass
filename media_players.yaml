@@ -1,10 +1,10 @@
   - platform: cast
-#  - platform: pioneer_vsx528
-##  - platform: pioneer
-#    name: Stereo
-#    host: 192.168.1.55
-#    port: 8102
-##    timeout: 1
+  - platform: pioneer_vsx528
+#  - platform: pioneer
+    name: Stereo
+    host: 192.168.1.55
+    port: 8102
+#    timeout: 1
   - platform: samsungtv
     name: TV
     timeout: 1
