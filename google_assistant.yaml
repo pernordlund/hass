@@ -50,7 +50,7 @@
       type: light
     switch.frida_at_school:
       name: Frida at school
-      google_assistant_type: light
+      type: light
     switch.frida_at_home:
       name: Frida at home
       type: light
