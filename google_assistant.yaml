@@ -16,9 +16,6 @@
       name: Bedroom
     light.allrum_tak_level:
       name: Play room ceiling
-    switch.telldus_tzwp100_plugin_switch_switch:
-      name: Living room corner
-      type: light
     light.koksbanken_level:
       name: Kitchen bench
     switch.telldus_tzwp100_plugin_switch_switch:
