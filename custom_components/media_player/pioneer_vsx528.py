@@ -109,9 +109,7 @@ class PioneerDevice(MediaPlayerDevice):
             telnet = telnetlib.Telnet(self._host, self._port, self._timeout)
         except (ConnectionRefusedError, OSError):
             _LOGGER.warning("Pioneer %s refused connection in update", self._name)
-            if telnet:
-                telnet.close()
-            return False
+            return True
 
         pwstate = self.telnet_request(telnet, "?P", "PWR")
         if pwstate:
