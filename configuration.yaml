@@ -132,6 +132,6 @@ system_log:
 
 intent_script: !include intent_scripts.yaml
 
-google_assistant_group_fix:
+#google_assistant_group_fix:
 
 climate: !include climate.yaml
