@@ -20,7 +20,7 @@
       - sensor.slussen
       - sensor.time_to_work
       - updater.updater
-      - sensor.last_restart_hass
+      - sensor.uptime
   alerts:
     name: Alerts
     view: no
@@ -73,6 +73,7 @@
     view: no
     entities:
       - sun.sun
+      - sun.sunrise
       - sensor.yr_symbol
       - sensor.mqtt_status
       - sensor.northq_nq92021_power_reader_energy
@@ -301,7 +302,7 @@
       - sensor.average_load_1m
       - sensor.average_load_5m
       - sensor.average_load_15m
-      - sensor.cpu_use
+      - sensor.cpu_used
       - sensor.disk_free_home
       - sensor.disk_use_home
       - sensor.ram_free

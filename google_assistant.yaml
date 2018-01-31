@@ -7,6 +7,8 @@
     - script
     - climate
     - light
+    - switch
+    - group
   entity_config:
     light.arbrum_tak_level:
       name: Guest room ceiling
