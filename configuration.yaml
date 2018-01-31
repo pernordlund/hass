@@ -91,9 +91,7 @@ device_tracker: !include devices.yaml
 mqtt: !include mqtt.yaml
 #mqtt:
 
-#camera:
-#  - platform: generic
-#    still_image_url: !secret camera_url
+camera: !include cameras.yaml
 
 switch: !include switches.yaml
 

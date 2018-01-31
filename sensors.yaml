@@ -329,3 +329,8 @@
     # If errors occur, remove degree symbol below
     unit_of_measurement: "°C"
     value_template: '{{ value | multiply(0.001) }}'
+  - platform: google_travel_time
+    name: Time to work
+    api_key: !secret gd_api_key
+    origin: place_id:ChIJncjNW9x4X0YRAAuGGtz9Snk
+    destination: place_id:ChIJWbo6qXOdX0YRhuGHD2V6uck
