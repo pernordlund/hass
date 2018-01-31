@@ -18,6 +18,7 @@
       - sensor.date
       - sensor.time
       - sensor.slussen
+      - sensor.time_to_work
       - updater.updater
       - sensor.last_restart_hass
   alerts:
