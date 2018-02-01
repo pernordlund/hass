@@ -48,22 +48,22 @@ updater:
   include_used_components: true
 
 # Discover some devices automatically
-discovery:
+#discovery:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 #conversation:
-dialogflow:
+#dialogflow:
 
-recorder: !include recorder.yaml
+#recorder: !include recorder.yaml
 
 # Enables support for tracking state changes over time.
-history:
+#history:
 
 logger:
   default: warning
 
 # View all events in a logbook
-logbook:
+#logbook:
 
 # Track the sun
 sun:
