@@ -24,9 +24,15 @@ if (resp.status_code == 200) and ('ResponseData' in jsonData):
 else:
     time = datetime.now()
     message = time.strftime("%H:%M") + ': ' + errMsg
-payload = json.dumps({"state": message, "attributes": {**jsonData,**fn}})
+payload = json.dumps({"state": message, "attributes": fn})
+#payload = json.dumps({"state": message, "attributes": {**jsonData,**fn}})
+
 print(payload)
 
-resp = requests.post(resourceHA, data=payload, timeout=1)
+try:
+    resp = requests.post(resourceHA, data=payload, timeout=1)
+except requests.exceptions.RequestException as e:
+    print(e)
+
 #print (resp.text)
 #print (payload)
