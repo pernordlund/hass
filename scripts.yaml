@@ -99,11 +99,23 @@
   next_bus:
     alias: "Next bus"
     sequence:
-    - service: shell_command.update_bus
+      - service: shell_command.update_bus
+      - service: tts.google_say
+        entity_id: media_player.living_room_speaker
+        data:
+          message: 'Buses for Slussen'
+      - delay: 00:00:01
+      - service: tts.google_say
+        entity_id: media_player.living_room_speaker
+        data_template:
+          message: "{{ states.sensor.slussen.state }}"
+  next_bus_debug:
+    alias: "Next bus debug"
+    sequence:
     - service: tts.google_say
       entity_id: media_player.living_room_speaker
-      data_template:
-        message: "{{ states.sensor.slussen.state }}"
+      data:
+        message: 'Buses for Slussen'
   where_is_my_family:
     alias: "Where is my family"
     sequence:

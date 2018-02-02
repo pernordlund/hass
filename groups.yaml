@@ -193,6 +193,7 @@
     entities:
       - script.update_next_bus
       - script.next_bus
+      - script.next_bus_debug
   media:
     name: Media
     view: yes

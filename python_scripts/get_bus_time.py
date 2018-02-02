@@ -11,21 +11,32 @@ resourceHA = 'http://192.168.1.33:8123/api/states/sensor.slussen'
 fn = {"friendly_name": "Slussenbuss"} 
 errMsg = 'Error calling SL'
 noBusMsg = 'No buses for Slussen within ' + timewindow + ' minutes'
+message = ''
+maxBuses = 2
 
 resp = requests.get(resourceSL)
 jsonData = json.loads(resp.text)
 if (resp.status_code == 200) and ('ResponseData' in jsonData):
     for bus in jsonData['ResponseData']['Buses']:
         if bus['Destination'] == 'Slussen':
-            message = message + bus['DisplayTime'] + chr(10)
+            message = message + bus['DisplayTime'].replace('Nu','Now') + chr(10)
+            maxBuses -= 1
+        if maxBuses == 0:
+            break
     if not message:
 	    message = noBusMsg
 else:
     time = datetime.now()
     message = time.strftime("%H:%M") + ': ' + errMsg
+payload = json.dumps({"state": message, "attributes": fn})
+#payload = json.dumps({"state": message, "attributes": {**jsonData,**fn}})
 
-payload = json.dumps({"state": message, "attributes": {**jsonData,**fn}})
+print(payload)
 
-resp = requests.post(resourceHA, data=payload)
+try:
+    resp = requests.post(resourceHA, data=payload, timeout=1)
+except requests.exceptions.RequestException as e:
+    print(e)
+
 #print (resp.text)
 #print (payload)
