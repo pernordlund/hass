@@ -11,14 +11,22 @@ resourceHA = 'http://192.168.1.33:8123/api/states/sensor.slussen'
 fn = {"friendly_name": "Slussenbuss"} 
 errMsg = 'Error calling SL'
 noBusMsg = 'No buses for Slussen within ' + timewindow + ' minutes'
+introBusMsg = 'Buses for Slussen!!!           ... ...'
 message = ''
+maxBuses = 2
+firstBus = maxBuses
 
 resp = requests.get(resourceSL)
 jsonData = json.loads(resp.text)
 if (resp.status_code == 200) and ('ResponseData' in jsonData):
     for bus in jsonData['ResponseData']['Buses']:
         if bus['Destination'] == 'Slussen':
-            message = message + bus['DisplayTime'] + chr(10)
+            if firstBus == maxBuses:
+                message = message + introBusMsg
+            message = message + bus['DisplayTime'].replace('Nu','Now') + chr(10)
+            maxBuses -= 1
+        if maxBuses == 0:
+            break
     if not message:
 	    message = noBusMsg
 else:
