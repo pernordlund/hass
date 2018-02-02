@@ -102,6 +102,12 @@
     - service: shell_command.update_bus
     - service: tts.google_say
       entity_id: media_player.living_room_speaker
+      data:
+        message: "Buses for Slussen"
+    - delay:
+      seconds: 1
+    - service: tts.google_say
+      entity_id: media_player.living_room_speaker
       data_template:
         message: "{{ states.sensor.slussen.state }}"
   where_is_my_family:
