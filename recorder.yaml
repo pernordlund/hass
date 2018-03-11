@@ -1,12 +1,12 @@
   purge_interval: 1
   purge_keep_days: 3
   db_url: !secret rc_db_url
-#  include:
-#    domains:
-#      - switch
-#      - light
-#      - binary_sensor
-#      - device_tracker
+  include:
+    domains:
+      - switch
+      - light
+      - binary_sensor
+      - device_tracker
 #      - sensor
 #    entities:
 #      - device_tracker.albin

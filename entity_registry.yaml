@@ -382,3 +382,7 @@ switch.swiid_switch:
   name:
   platform: zwave
   unique_id: 31-72057594562822144
+media_player.nordlund_chromecast:
+  name:
+  platform: cast
+  unique_id: f62ca0b2-6e26-bb5d-5710-d037a96da6b0

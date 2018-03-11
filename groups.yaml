@@ -1,5 +1,6 @@
 #Group config
   default_view:
+    name: Overview
     view: yes
     entities:
       - group.welcome
