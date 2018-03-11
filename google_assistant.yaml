@@ -24,7 +24,7 @@
       name: Kitchen bench
     switch.telldus_tzwp100_plugin_switch_switch:
       name: Living room corner
-      type: light
+#      type: light
     light.vardrum_bord_level:
       name: Living room table
     light.koksbord_level:
@@ -33,28 +33,28 @@
       name: Living room sofa
     group.outside:
       name: Outside lights
-      type: light
+#      type: light
     group.inside_downstairs:
       name: Downstairs
-      type: light
+#      type: light
     group.inside_upstairs:
       name: Upstairs
-      type: light
+#      type: light
     group.guest_room:
       name: Guest room
-      type: light
+#      type: light
     group.lights_pelle:
       name: Pelles lights
-      type: light
+#      type: light
     group.living_room:
       name: Living room
-      type: light
+#      type: light
     group.kamera:
       name: Camera
-      type: light
+#      type: light
     switch.frida_at_school:
       name: Frida at school
-      type: light
+#      type: light
     switch.frida_at_home:
       name: Frida at home
-      type: light
+#      type: light
