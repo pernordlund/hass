@@ -230,3 +230,155 @@ sensor.everspring_st812_flood_detector_alarm_level:
   name:
   platform: zwave
   unique_id: 18-72057594345963537
+media_player.xperia_xz1_compact:
+  name:
+  platform: plex
+  unique_id: 50ebdee9db7292ee-com-plexapp-android
+sensor.everspring_st812_flood_detector_flood:
+  name:
+  platform: zwave
+  unique_id: 18-72057594346668113
+light.hall_tak_level:
+  name:
+  platform: zwave
+  unique_id: 19-72057594361511937
+switch.klk_nere_switch:
+  name:
+  platform: zwave
+  unique_id: 20-72057594378272768
+switch.klk_nere_switch_2:
+  name:
+  platform: zwave
+  unique_id: 20-144115188416200704
+switch.klk_nere_switch_3:
+  name:
+  platform: zwave
+  unique_id: 20-216172782454128640
+light.koksbord_level:
+  name:
+  platform: zwave
+  unique_id: 21-72057594395066369
+switch.fibaro_system_fgwpef_wall_plug_switch:
+  name:
+  platform: zwave
+  unique_id: 22-72057594411827200
+sensor.fibaro_system_fgwpef_wall_plug_power:
+  name:
+  platform: zwave
+  unique_id: 22-72057594412023874
+sensor.fibaro_system_fgwpef_wall_plug_energy:
+  name:
+  platform: zwave
+  unique_id: 22-72057594412040194
+sensor.fibaro_system_fgwpef_wall_plug_power_2:
+  name:
+  platform: zwave
+  unique_id: 22-72057594412040322
+sensor.fibaro_system_fgwpef_wall_plug_exporting:
+  name:
+  platform: zwave
+  unique_id: 22-72057594412040704
+switch.badrum_uppe_switch:
+  name:
+  platform: zwave
+  unique_id: 23-72057594428604416
+switch.badrum_uppe_switch_2:
+  name:
+  platform: zwave
+  unique_id: 23-144115188466532352
+light.allrum_tak_level:
+  name:
+  platform: zwave
+  unique_id: 24-72057594445398017
+light.frida_tak_level:
+  name:
+  platform: zwave
+  unique_id: 25-72057594462175233
+sensor.northq_nq92021_power_reader_energy:
+  name:
+  platform: zwave
+  unique_id: 26-72057594479149058
+light.domitech_smart_led_retrofit_kit_ze27eu_level:
+  name:
+  platform: zwave
+  unique_id: 28-72057594512506881
+binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor:
+  name:
+  platform: zwave
+  unique_id: 29-72057594529447936
+sensor.fibaro_system_fgsd002_smoke_sensor_temperature:
+  name:
+  platform: zwave
+  unique_id: 29-72057594529464338
+sensor.fibaro_system_fgsd002_smoke_sensor_alarm_type:
+  name:
+  platform: zwave
+  unique_id: 29-72057594530512897
+sensor.fibaro_system_fgsd002_smoke_sensor_alarm_level:
+  name:
+  platform: zwave
+  unique_id: 29-72057594530512913
+sensor.fibaro_system_fgsd002_smoke_sensor_sourcenodeid:
+  name:
+  platform: zwave
+  unique_id: 29-72057594530512929
+sensor.fibaro_system_fgsd002_smoke_sensor_smoke:
+  name:
+  platform: zwave
+  unique_id: 29-72057594530512961
+sensor.fibaro_system_fgsd002_smoke_sensor_heat:
+  name:
+  platform: zwave
+  unique_id: 29-72057594530513009
+sensor.fibaro_system_fgsd002_smoke_sensor_burglar:
+  name:
+  platform: zwave
+  unique_id: 29-72057594530513057
+sensor.fibaro_system_fgsd002_smoke_sensor_power_management:
+  name:
+  platform: zwave
+  unique_id: 29-72057594530513073
+sensor.fibaro_system_fgsd002_smoke_sensor_system:
+  name:
+  platform: zwave
+  unique_id: 29-72057594530513089
+sensor.fibaro_system_fgsd002_smoke_sensor_general:
+  name:
+  platform: zwave
+  unique_id: 29-72057594531217409
+sensor.fibaro_system_fgsd002_smoke_sensor_smoke_2:
+  name:
+  platform: zwave
+  unique_id: 29-72057594531217425
+sensor.fibaro_system_fgsd002_smoke_sensor_heat_2:
+  name:
+  platform: zwave
+  unique_id: 29-72057594531217473
+binary_sensor.sensative_strips_sensor:
+  name:
+  platform: zwave
+  unique_id: 30-72057594546225152
+sensor.sensative_strips_alarm_type:
+  name:
+  platform: zwave
+  unique_id: 30-72057594547290113
+sensor.sensative_strips_alarm_level:
+  name:
+  platform: zwave
+  unique_id: 30-72057594547290129
+sensor.sensative_strips_sourcenodeid:
+  name:
+  platform: zwave
+  unique_id: 30-72057594547290145
+sensor.sensative_strips_access_control:
+  name:
+  platform: zwave
+  unique_id: 30-72057594547290257
+sensor.sensative_strips_burglar:
+  name:
+  platform: zwave
+  unique_id: 30-72057594547290273
+switch.swiid_switch:
+  name:
+  platform: zwave
+  unique_id: 31-72057594562822144
