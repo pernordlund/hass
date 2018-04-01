@@ -386,3 +386,7 @@ media_player.nordlund_chromecast:
   name:
   platform: cast
   unique_id: f62ca0b2-6e26-bb5d-5710-d037a96da6b0
+media_player.my_mz601:
+  name:
+  platform: plex
+  unique_id: bc11dde8165250c7-com-plexapp-android
