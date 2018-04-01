@@ -54,16 +54,16 @@ updater:
 #conversation:
 #dialogflow:
 
-#recorder: !include recorder.yaml
+recorder: !include recorder.yaml
 
 # Enables support for tracking state changes over time.
-#history:
+history:
 
 logger:
   default: warning
 
 # View all events in a logbook
-#logbook:
+logbook:
 
 # Track the sun
 sun:
@@ -128,8 +128,8 @@ google_assistant: !include google_assistant.yaml
 
 system_log:
 
-intent_script: !include intent_scripts.yaml
+#intent_script: !include intent_scripts.yaml
 
-google_assistant_group_fix:
+#google_assistant_group_fix:
 
 climate: !include climate.yaml

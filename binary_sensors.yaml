@@ -3,8 +3,6 @@
       dishwasher_flood_template:
         value_template: '{{ states.sensor.everspring_st812_flood_detector_flood.state != "0" }}'
         friendly_name: 'Dishwasher flood warning'
-        entity_id: 
-          - sensor.everspring_st812_flood_detector_flood
   - platform: mqtt
     state_topic: "hass/bv/1A01"
     name: "BV-Compressor"

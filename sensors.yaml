@@ -19,10 +19,6 @@
 #    name: Klisatravagen
   - platform: template
     sensors:
-      last_restart_hass:
-        value_template: '{{ states.sensor.date__time.state }}'
-        friendly_name: 'Last restart'
-        entity_id: binary_sensor.dummy
       last_trip_allrum:
         value_template: >-
           {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor.last_changed))/3600 > 24 -%}
@@ -31,9 +27,6 @@
             {{ as_timestamp(states.binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor.last_changed) | timestamp_custom('%H:%M') }}
           {%- endif %}
         friendly_name: 'Allrum trip'
-        entity_id: 
-          - binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor
-          - sensor.time
       last_trip_alarm:
         value_template: >-
           {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor.last_changed))/3600 > 72 -%}
@@ -42,9 +35,6 @@
             {{ as_timestamp(states.binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor.last_changed) | timestamp_custom('%Y-%m-%d %H:%M') }}
           {%- endif %}
         friendly_name: 'Alarm trip'
-        entity_id: 
-          - binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor
-          - sensor.date
       last_trip_forradsdorr:
         value_template: >-
           {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.sensative_strips_sensor.last_changed))/3600 > 72 -%}
@@ -53,9 +43,6 @@
             {{ as_timestamp(states.binary_sensor.sensative_strips_sensor.last_changed) | timestamp_custom('%Y-%m-%d %H:%M') }}
           {%- endif %}
         friendly_name: 'Forradsdorr trip'
-        entity_id: 
-          - binary_sensor.sensative_strips_sensor
-          - sensor.date
       last_trip_ytterdorr:
         value_template: >-
           {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2.last_changed))/3600 > 24 -%}
@@ -64,9 +51,6 @@
             {{ as_timestamp(states.binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2.last_changed) | timestamp_custom('%H:%M') }}
           {%- endif %}
         friendly_name: 'Ytterdorr trip'
-        entity_id: 
-          - binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2
-          - sensor.time
       last_trip_garagedorr:
         value_template: >-
           {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_door_sensor.last_changed))/3600 > 72 -%}
@@ -75,9 +59,6 @@
             {{ as_timestamp(states.binary_sensor.garage_door_sensor.last_changed) | timestamp_custom('%Y-%m-%d %H:%M') }}
           {%- endif %}
         friendly_name: 'Garagedorr trip'
-        entity_id: 
-          - binary_sensor.garage_door_sensor
-          - sensor.date
       last_trip_flood:
         value_template: >-
           {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.dishwasher_flood_template.last_changed))/3600 > 72 -%}
@@ -86,9 +67,6 @@
             {{ as_timestamp(states.binary_sensor.dishwasher_flood_template.last_changed) | timestamp_custom('%Y-%m-%d %H:%M') }}
           {%- endif %}
         friendly_name: 'Dishwasher trip '
-        entity_id: 
-          - binary_sensor.dishwasher_flood_template
-          - sensor.date
       solar_angle:
         value_template: '{{ "%+.1f"|format(states.sun.sun.attributes.elevation) }}'
         friendly_name: 'Sun Angle'
@@ -334,3 +312,4 @@
     api_key: !secret gd_api_key
     origin: place_id:ChIJncjNW9x4X0YRAAuGGtz9Snk
     destination: place_id:ChIJWbo6qXOdX0YRhuGHD2V6uck
+  - platform: uptime

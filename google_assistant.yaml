@@ -2,6 +2,59 @@
   client_id: !secret ga_client_id
   access_token: !secret ga_access_token
   api_key: !secret ga_api_key
+  expose_by_default: false
   exposed_domains:
     - script
     - climate
+    - light
+    - switch
+    - group
+  entity_config:
+    light.arbrum_tak_level:
+      name: Guest room ceiling
+    light.frida_tak_level:
+      name: Frida ceiling
+    light.frida_skrivbord:
+      name: Frida desk
+    light.sovmop:
+      name: Bedroom
+    light.allrum_tak_level:
+      name: Play room ceiling
+    light.koksbanken_level:
+      name: Kitchen bench
+    switch.telldus_tzwp100_plugin_switch_switch:
+      name: Living room corner
+#      type: light
+    light.vardrum_bord_level:
+      name: Living room table
+    light.koksbord_level:
+      name: Kitchen table
+    light.tradfri_bulb_e27_opal_1000lm:
+      name: Living room sofa
+    group.outside:
+      name: Outside lights
+#      type: light
+    group.inside_downstairs:
+      name: Downstairs
+#      type: light
+    group.inside_upstairs:
+      name: Upstairs
+#      type: light
+    group.guest_room:
+      name: Guest room
+#      type: light
+    group.lights_pelle:
+      name: Pelles lights
+#      type: light
+    group.living_room:
+      name: Living room
+#      type: light
+    group.kamera:
+      name: Camera
+#      type: light
+    switch.frida_at_school:
+      name: Frida at school
+#      type: light
+    switch.frida_at_home:
+      name: Frida at home
+#      type: light

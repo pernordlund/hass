@@ -8,33 +8,18 @@
       friendly_name: Living room
     light.arbrum_tak_level:
       friendly_name: Arbrum tak
-      google_assistant: true
-      google_assistant_name: Guest room ceiling
-      google_assistant_type: light
     light.arbrum_skrivbord:
       assumed_state: false
 #    switch.swiid_switch:
 #      assumed_state: false
     light.frida_tak_level:
       friendly_name: Frida tak
-      google_assistant: true
-      google_assistant_name: Frida ceiling
-      google_assistant_type: light
     light.frida_skrivbord:
-      google_assistant: true
-      google_assistant_name: Frida desk
-      google_assistant_type: light
       assumed_state: false
     light.sovmop:
-      google_assistant: true
-      google_assistant_name: Bedroom
-      google_assistant_type: light
       assumed_state: false
     light.allrum_tak_level:
       friendly_name: Allrum
-      google_assistant: true
-      google_assistant_name: Play room ceiling
-      google_assistant_type: light
     light.entre:
       assumed_state: false
     light.vinden:
@@ -54,16 +39,10 @@
     switch.telldus_tzwp100_plugin_switch_switch:
       friendly_name: Vardagrum hornlampa
       icon: mdi:lightbulb
-      google_assistant: true
-      google_assistant_name: Living room corner
-      google_assistant_type: light
     binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor:
       friendly_name: Rorelse allrum
     light.koksbanken_level:
       friendly_name: Koksbanken
-      google_assistant: true
-      google_assistant_name: Kitchen bench
-      google_assistant_type: light
 #    light.aeotec_zw098_led_bulb_level:
 #      friendly_name: ??
     sensor.fibaro_system_fgms001zw5_motion_sensor_luminance:
@@ -78,9 +57,6 @@
       friendly_name: Arbrum horn
     light.vardrum_bord_level:
       friendly_name: Vardrum bord
-      google_assistant: true
-      google_assistant_name: Living room table
-      google_assistant_type: light
     switch.popp__duwi_zw_zsa_3500_plugin_switch_switch:
       friendly_name: Garage el Rogers laddare
     sensor.everspring_st814_temperature_and_humidity_sensor_temperature:
@@ -104,15 +80,9 @@
       icon: mdi:lightbulb
     light.koksbord_level:
       friendly_name: Koksbord
-      google_assistant: true
-      google_assistant_name: Kitchen table
-      google_assistant_type: light
     light.tradfri_bulb_e27_opal_1000lm:
       friendly_name: Vardrum soffa
       icon: mdi:lightbulb
-      google_assistant: true
-      google_assistant_name: Living room sofa
-      google_assistant_type: light
     switch.fibaro_system_fgwpef_wall_plug_switch:
       friendly_name: Arbrum fonster
       icon: mdi:lightbulb
@@ -157,47 +127,3 @@
       icon: mdi:calendar-clock
     sensor.roger_next_src:
       icon: mdi:clock-start
-    group.outside:
-      google_assistant: true
-      google_assistant_name: Outside lights
-      google_assistant_type: light
-    group.inside_downstairs:
-      google_assistant: true
-      google_assistant_name: Downstairs
-      google_assistant_type: light
-    group.inside_upstairs:
-      google_assistant: true
-      google_assistant_name: Upstairs
-      google_assistant_type: light
-    group.guest_room:
-      google_assistant: true
-      google_assistant_name: Guest room
-      google_assistant_type: light
-    group.lights_pelle:
-      google_assistant: true
-      google_assistant_name: Pelles lights
-      google_assistant_type: light
-    group.living_room:
-      google_assistant: true
-      google_assistant_name: Living room
-      google_assistant_type: light
-    group.kamera:
-      google_assistant: true
-      google_assistant_name: Camera
-      google_assistant_type: light
-#    media_player.nordlund_chromecast:
-#      google_assistant: true
-#      google_assistant_name: Chromecast
-#      google_assistant_type: media_player
-#    sensor.altan_temperature:
-#      google_assistant: true
-#      google_assistant_name: Outside temperature
-#      google_assistant_type: light
-    switch.frida_at_school:
-      google_assistant: true
-      google_assistant_name: Frida at school
-      google_assistant_type: light
-    switch.frida_at_home:
-      google_assistant: true
-      google_assistant_name: Frida at home
-      google_assistant_type: light
