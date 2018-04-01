@@ -23,3 +23,13 @@
       - sensor.everspring_st814_temperature_and_humidity_sensor_relative_humidity
       - sensor.altan_temperature
       - sensor.bvoutdoor
+      - sensor.bvbrine_inevaporator
+      - sensor.bvbrine_outcondenser
+      - sensor.bvfree_mem
+      - sensor.bvheat_carrier_forwrd
+      - sensor.bvheat_carrier_return
+      - sensor.bvheating_setpoint
+      - sensor.bvhot_gas__compr
+      - sensor.bvhot_water_1__top
+      - sensor.bvradiator_return
+      - sensor.cpu_temperature
