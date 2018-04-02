@@ -301,18 +301,14 @@
     name: Hass values
     view: no
     entities:
-      - sensor.average_load_1m
-      - sensor.average_load_5m
-      - sensor.average_load_15m
-      - sensor.cpu_used
+      - sensor.load_1m
+      - sensor.load_5m
+      - sensor.load_15m
+      - sensor.memory_free
+      - sensor.processor_use
       - sensor.disk_free_home
-      - sensor.disk_use_home
-      - sensor.ram_free
-      - sensor.ram_use
-      - sensor.received_eth0
-      - sensor.sent_eth0
-      - sensor.swap_free
-      - sensor.swap_use
+#      - sensor.network_in_eth0
+#      - sensor.network_out_eth0
       - sensor.last_boot
       - sensor.cpu_temperature
   system_rasp3:

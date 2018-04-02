@@ -258,10 +258,10 @@
       - type: load_5m
       - type: load_15m
       - type: processor_use
-      - type: network_in
-        arg: eth0
-      - type: network_out
-        arg: eth0
+#      - type: network_in
+#        arg: eth0
+#      - type: network_out
+#        arg: eth0
       - type: last_boot
 #  - platform: glances
 #    host: 192.168.1.30
