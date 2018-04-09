@@ -33,3 +33,10 @@
       - sensor.bvhot_water_1__top
       - sensor.bvradiator_return
       - sensor.cpu_temperature
+      - sensor.load_1m
+      - sensor.load_5m
+      - sensor.load_15m
+      - sensor.memory_free
+      - sensor.processor_use
+      - sensor.disk_free_home
+      - sensor.last_boot
