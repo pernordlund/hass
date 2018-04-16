@@ -68,4 +68,8 @@
     longitude: 18.074032
     radius: 100
     icon: mdi:bus
-
+  - name: Capio
+    latitude: 59.422322
+    longitude: 17.845970
+    radius: 100
+    icon: mdi:baby
