@@ -390,3 +390,11 @@ media_player.my_mz601:
   name:
   platform: plex
   unique_id: bc11dde8165250c7-com-plexapp-android
+sensor.alarm_type:
+  name:
+  platform: zwave
+  unique_id: 22-72057594413072385
+sensor.alarm_level:
+  name:
+  platform: zwave
+  unique_id: 22-72057594413072401
