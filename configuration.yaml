@@ -54,7 +54,7 @@ updater:
 #conversation:
 #dialogflow:
 
-#recorder: !include recorder.yaml
+recorder: !include recorder.yaml
 
 # Enables support for tracking state changes over time.
 #history:
