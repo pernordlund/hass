@@ -131,3 +131,5 @@ system_log:
 #google_assistant_group_fix:
 
 climate: !include climate.yaml
+
+automower: !include automower.yaml
