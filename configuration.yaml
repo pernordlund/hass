@@ -59,11 +59,11 @@ recorder: !include recorder.yaml
 # Enables support for tracking state changes over time.
 history:
 
-#logger:
-#  default: warning
+logger:
+  default: warning
 
 # View all events in a logbook
-#logbook:
+logbook:
 
 # Track the sun
 sun:
@@ -108,8 +108,6 @@ alert: !include alerts.yaml
 rest_command: !include rest_commands.yaml
 
 shell_command: !include shell_commands.yaml
-
-#vera: !include vera.yaml
 
 tradfri:
   host: '192.168.1.45'
