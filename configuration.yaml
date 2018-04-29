@@ -57,7 +57,7 @@ updater:
 recorder: !include recorder.yaml
 
 # Enables support for tracking state changes over time.
-#history:
+history:
 
 #logger:
 #  default: warning
@@ -88,8 +88,8 @@ media_player: !include media_players.yaml
 
 device_tracker: !include devices.yaml
 
-#mqtt: !include mqtt.yaml
-mqtt:
+mqtt: !include mqtt.yaml
+#mqtt:
 
 camera: !include cameras.yaml
 
