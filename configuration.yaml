@@ -55,16 +55,16 @@ updater:
 #conversation:
 #dialogflow:
 
-#recorder: !include recorder.yaml
+recorder: !include recorder.yaml
 
 # Enables support for tracking state changes over time.
-#history:
+history:
 
-#logger:
-#  default: warning
+logger:
+  default: warning
 
 # View all events in a logbook
-#logbook:
+logbook:
 
 # Track the sun
 sun:
@@ -89,8 +89,8 @@ media_player: !include media_players.yaml
 
 device_tracker: !include devices.yaml
 
-#mqtt: !include mqtt.yaml
-mqtt:
+mqtt: !include mqtt.yaml
+#mqtt:
 
 camera: !include cameras.yaml
 
@@ -109,8 +109,6 @@ alert: !include alerts.yaml
 rest_command: !include rest_commands.yaml
 
 shell_command: !include shell_commands.yaml
-
-#vera: !include vera.yaml
 
 tradfri:
   host: '192.168.1.45'
@@ -134,3 +132,5 @@ system_log:
 #google_assistant_group_fix:
 
 climate: !include climate.yaml
+
+automower: !include automower.yaml

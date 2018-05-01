@@ -10,6 +10,7 @@
       - group.frontpage_sensors
       - camera.generic_camera
 #      - group.roger
+      - vacuum.roger
       - group.alerts
   welcome:
     name: Welcome

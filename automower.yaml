@@ -1,0 +1,2 @@
+  username: !secret automower_username
+  password: !secret automower_password
