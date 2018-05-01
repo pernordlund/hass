@@ -162,3 +162,12 @@ jenny_jenny:
   name: jenny
   track: true
   vendor:
+
+automower_k_170504968170332295:
+  hide_if_away: false
+  icon:
+  mac:
+  name: Roger
+  picture:
+  track: true
+  vendor:
