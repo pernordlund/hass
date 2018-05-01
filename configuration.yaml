@@ -29,6 +29,7 @@ map:
 
 zwave:
   usb_path: /dev/ttyACM0
+  network_key: !secret zw_network_key
 
 group: !include groups.yaml
 
