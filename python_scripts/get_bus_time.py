@@ -7,7 +7,7 @@ from datetime import datetime
 
 timewindow = '30'
 resourceSL = 'http://api.sl.se/api2/realtimedeparturesv4.json?key=14df1b5b39e744c0ba9d78f0abb89bdc&siteid=4612&timewindow=' + timewindow
-resourceHA = 'http://192.168.1.33:8123/api/states/sensor.slussen'
+resourceHA = 'http://localhost:8123/api/states/sensor.slussen'
 fn = {"friendly_name": "Slussenbuss"} 
 errMsg = 'Error calling SL'
 noBusMsg = 'No buses for Slussen within ' + timewindow + ' minutes'
