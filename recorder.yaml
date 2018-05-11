@@ -41,3 +41,4 @@
       - sensor.disk_free_home
       - sensor.last_boot
       - sensor.roger_status
+      - sensor.roger_battery
