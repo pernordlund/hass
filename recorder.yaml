@@ -40,3 +40,4 @@
       - sensor.processor_use
       - sensor.disk_free_home
       - sensor.last_boot
+      - sensor.roger_status

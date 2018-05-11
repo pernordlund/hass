@@ -10,7 +10,6 @@
       - group.frontpage_sensors
       - camera.generic_camera
 #      - group.roger
-      - vacuum.roger
       - group.alerts
   welcome:
     name: Welcome
@@ -19,6 +18,7 @@
       - sensor.from_hass
       - sensor.date
       - sensor.time
+      - sensor.roger_status
       - sensor.slussen
       - sensor.time_to_work
       - updater.updater
@@ -79,15 +79,6 @@
       - sensor.yr_symbol
       - sensor.mqtt_status
       - sensor.northq_nq92021_power_reader_energy
-  roger:
-    name: Roger
-    view: no
-    entities:
-      - sensor.roger_status
-      - sensor.roger_battery
-      - sensor.roger_next_src
-      - sensor.roger_next_start
-      - input_select.roger_action
   climate:
     name: Climate
     view: yes
@@ -131,6 +122,7 @@
       - group.switches
       - group.timers
       - group.scripts
+      - vacuum.roger
   inside_downstairs:
     name: Downstairs
     view: no
@@ -196,6 +188,15 @@
       - script.update_next_bus
       - script.next_bus
       - script.next_bus_debug
+  roger:
+    name: Roger
+    view: no
+    entities:
+      - sensor.roger_status
+      - sensor.roger_battery
+      - sensor.roger_next_src
+      - sensor.roger_next_start
+      - input_select.roger_action
   media:
     name: Media
     view: yes
