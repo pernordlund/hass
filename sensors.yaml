@@ -75,11 +75,12 @@
         friendly_name: 'Sunrise'
         value_template: '{{ states.sun.sun.attributes.next_rising[11:16] }}'
       roger_status:
-        friendly_name: 'Status'
+        friendly_name: 'Roger status'
         value_template: '{{ states.vacuum.roger.attributes.status }}'
       roger_battery:
-        friendly_name: 'Battery level'
+        friendly_name: 'Roger battery level'
         value_template: '{{ states.vacuum.roger.attributes.battery_level }}'
+        unit_of_measurement: '%'
 #      slussen:
 #        friendly_name: 'Slussenbuss'
 #        entity_id: sensor.klisatravagen

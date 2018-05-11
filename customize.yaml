@@ -127,3 +127,5 @@
       icon: mdi:calendar-clock
     sensor.roger_next_src:
       icon: mdi:clock-start
+    sensor.roger_status:
+      icon: mdi:robot
