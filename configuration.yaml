@@ -118,7 +118,7 @@ input_select: !include input_selects.yaml
 
 input_number: !include input_numbers.yaml
 
-#influxdb: !include influxdb.yaml
+influxdb: !include influxdb.yaml
 
 script: !include scripts.yaml
 
