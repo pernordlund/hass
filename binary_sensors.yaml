@@ -43,8 +43,8 @@
     name: "BV-Alarm"
     payload_on: "1"
     payload_off: "0"
-  - platform: mqtt
-    state_topic: "hass/bv/3104"
-    name: "BV-Add heat status"
-    payload_on: "1"
-    payload_off: "0"
+#  - platform: mqtt
+#    state_topic: "hass/bv/3104"
+#    name: "BV-Add heat status"
+#    payload_on: "1"
+#    payload_off: "0"
