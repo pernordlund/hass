@@ -1,0 +1,53 @@
+  google_actions:
+    filter:
+      include_entities:
+        - light.kitchen
+        - light.kitchen_left
+      include_domains:
+        - script
+        - climate
+        - light
+        - switch
+    entity_config:
+      light.arbrum_tak_level:
+        name: Guest room ceiling
+        room: Guest room
+      light.frida_tak_level:
+        name: Frida ceiling
+        room: Fridas
+      light.frida_skrivbord:
+        name: Frida desk
+        room: Fridas
+      light.sovmop:
+        name: Bedroom
+        room: Bedroom
+      light.allrum_tak_level:
+        name: Play room ceiling
+        room: Play room
+      light.koksbanken_level:
+        name: Kitchen bench
+        room: Kitchen
+      switch.telldus_tzwp100_plugin_switch_switch:
+        name: Living room corner
+        room: Living room
+      light.vardrum_bord_level:
+        name: Living room table
+        room: Living room
+      light.koksbord_level:
+        name: Kitchen table
+        room: Kitchen
+      light.tradfri_bulb_e27_opal_1000lm:
+        name: Living room sofa
+        room: Living room
+      group.outside:
+        name: Outside lights
+      group.inside_downstairs:
+        name: Downstairs
+      group.inside_upstairs:
+        name: Upstairs
+      group.guest_room:
+        name: Guest room
+      group.lights_pelle:
+        name: Pelles lights
+      group.living_room:
+        name: Living room
