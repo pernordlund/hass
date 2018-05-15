@@ -8,10 +8,49 @@
         - climate
         - light
         - switch
+      exclude_entities:
+        - script.daily_midnight
+        - light.koksbanken_level_2
+        - switch.klk_nere_switch_2
+        - switch.klk_nere_switch_3
+        - switch.kamera
+        - switch.kamera_mf4
+        - light.aeotec_zw098_led_bulb_level
+        - light.domitech_smart_led_retrofit_kit_ze27eu_level
+        - switch.multifjarr6
+        - switch.multifjarr9
+        - switch.okand_0
+        - switch.sensor_badrum
+        - script.timed_badrum
+        - script.timed_klk
+        - script.timer_badrum_off
+        - script.timer_klk_off
+        - light.tradfri_group
+        - switch.vagg_vardrum
+        - switch.vit_fjarr_1
+        - switch.vit_fjarr_3
     entity_config:
+      light.arbrum_skrivbord:
+        name: Guest room desk
+        room: Guest room
       light.arbrum_tak_level:
         name: Guest room ceiling
         room: Guest room
+      light.tradfri_bulb_e27_ws_opal_980lm:
+        name: Guest room corner
+        room: Guest room
+      switch.badrum_uppe_switch_2:
+        name: Bathroom ceiling
+        room: Bathroom upstairs
+      switch.badrum_uppe_switch:
+        name: Sauna
+        room: Bathroom upstairs
+      light.entre:
+        name: Front door
+        room: Outside front
+      light.hall_tak_level:
+        name: Entrance ceiling
+        room: Entrance
       light.frida_tak_level:
         name: Frida ceiling
         room: Fridas
@@ -39,15 +78,11 @@
       light.tradfri_bulb_e27_opal_1000lm:
         name: Living room sofa
         room: Living room
-      group.outside:
-        name: Outside lights
-      group.inside_downstairs:
-        name: Downstairs
-      group.inside_upstairs:
-        name: Upstairs
-      group.guest_room:
-        name: Guest room
-      group.lights_pelle:
-        name: Pelles lights
-      group.living_room:
-        name: Living room
+      light.ute_altan:
+        name: Porch
+        room: Outside
+      light.utebelysning:
+        name: Tree
+        room: Outside front
+      light.vinden:
+        name: Attic
