@@ -43,7 +43,7 @@ http:
 #    - 192.168.1.0/24
 #    - 10.42.21.16/24
 # Uncomment this if you are using SSL or running in Docker etc
-#  base_url: hass.panitco.se
+  base_url: hass.panitco.se
 
 # Checks for available updates
 updater:
@@ -83,8 +83,8 @@ binary_sensor: !include binary_sensors.yaml
 tts:
   - platform: google
     cache: true
-    cache_dir: /tmp
-    time_memory: 57600
+    cache_dir: /tmp/tts
+    time_memory: 300
 
 media_player: !include media_players.yaml
 
