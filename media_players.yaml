@@ -1,6 +1,9 @@
   - platform: cast
-  - platform: pioneer_vsx528
+    host: 192.168.1.59
+  - platform: cast
+    host: 192.168.1.54
 #  - platform: pioneer
+  - platform: pioneer_vsx528
     name: Stereo
     host: 192.168.1.55
     port: 8102
@@ -10,7 +13,7 @@
     timeout: 1
     host: 192.168.1.56
     mac: 50:85:69:54:47:76
-  - platform: plex
+#  - platform: plex
 #  - platform: spotify
 #    client_id: !secret spotify_id
 #    client_secret: !secret spotify_secret
