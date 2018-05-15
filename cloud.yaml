@@ -39,6 +39,12 @@
       light.tradfri_bulb_e27_ws_opal_980lm:
         name: Guest room corner
         room: Guest room
+      switch.fibaro_system_fgwpef_wall_plug_switch:
+        name: Guest room window
+        room: Guest room
+      switch.swiid_switch:
+        name: Entrance drawer
+        room: Entrance
       switch.badrum_uppe_switch_2:
         name: Bathroom ceiling
         room: Bathroom upstairs
