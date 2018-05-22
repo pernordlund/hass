@@ -295,11 +295,11 @@
     name: Systems
     view: yes
     entities:
-      - group.system_hass
+      - group.system_macmini
       - group.system_rasp3
       - group.other_systems
-  system_hass:
-    name: Hass values
+  system_macmini:
+    name: Macmini values
     view: no
     entities:
       - sensor.load_1m
@@ -308,8 +308,8 @@
       - sensor.memory_free
       - sensor.processor_use
       - sensor.disk_free_home
-#      - sensor.network_in_eth0
-#      - sensor.network_out_eth0
+      - sensor.network_in_eth0
+      - sensor.network_out_eth0
       - sensor.last_boot
       - sensor.cpu_temperature
   system_rasp3:
@@ -339,6 +339,7 @@
       - device_tracker.storstugan
 #      - device_tracker.majolika
       - device_tracker.husdata
+      - sensor.nodered_mqtt_status
   daily_sun:
     view: no
     entities:

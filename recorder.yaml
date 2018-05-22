@@ -36,6 +36,8 @@
       - sensor.load_1m
       - sensor.load_5m
       - sensor.load_15m
+      - sensor.network_out_eth0
+      - sensor.network_in_eth0
       - sensor.memory_free
       - sensor.processor_use
       - sensor.disk_free_home
