@@ -111,6 +111,9 @@
   - platform: mqtt
     state_topic: "hass/life360/test"
     name: "Life Api"
+  - platform: mqtt
+    state_topic: "/hass/mqttclients/nodered"
+    name: "Nodered mqtt status"
   - platform: life360
     username: !secret life_username
     password: !secret life_password
