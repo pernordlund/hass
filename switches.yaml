@@ -70,16 +70,20 @@
 #          service: homeassistant.turn_off
 #          data:
 #            entity_id: group.living_room
-#      frida_at_school:
-#        value_template: "{{ is_state('device_tracker.frida_frida', 'VRG') }}"
-#        turn_on:
-#          service: homeassistant.turn_on
-#          data:
-#            entity_id: switch.frida_at_home
-#        turn_off:
-#          service: homeassistant.turn_off
-#          data:
-#            entity_id: switch.frida_at_home
+  - platform: template
+    switches:
+      frida_at_school:
+        value_template: "{{ is_state('device_tracker.frida_frida', 'VRG') }}"
+        turn_on:
+          service: mqtt.publish
+          data:
+            topic: hass/switchdummy
+            payload: Frida at VRG
+        turn_off:
+          service: mqtt.publish
+          data:
+            topic: hass/switchdummy
+            payload: Frida at VRG
 #      frida_at_home:
 #        value_template: "{{ is_state('device_tracker.frida_frida', 'home') }}"
 #        turn_on:
