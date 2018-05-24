@@ -7,6 +7,7 @@
       - light
       - binary_sensor
       - device_tracker
+      - input_number
 #      - sensor
     entities:
       - sensor.inne_nere_temperature
