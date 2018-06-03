@@ -39,13 +39,13 @@
     switch.telldus_tzwp100_plugin_switch_switch:
       friendly_name: Vardagrum hornlampa
       icon: mdi:lightbulb
-    binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor:
+    binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor_2:
       friendly_name: Rorelse allrum
     light.koksbanken_level:
       friendly_name: Koksbanken
 #    light.aeotec_zw098_led_bulb_level:
 #      friendly_name: ??
-    sensor.fibaro_system_fgms001zw5_motion_sensor_luminance:
+    sensor.fibaro_system_fgms001zw5_motion_sensor_luminance_2:
       friendly_name: Ljus allrum
     binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2:
       friendly_name: Ytterdorr oppen
@@ -71,7 +71,7 @@
       friendly_name: Garage temp
     sensor.everspring_st812_flood_detector_flood:
       friendly_name: Oversvammning disk
-    sensor.fibaro_system_fgms001zw5_motion_sensor_temperature:
+    sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_2:
       friendly_name: Allrum temp
     light.hall_tak_level:
       friendly_name: Hallampa

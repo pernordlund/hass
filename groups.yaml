@@ -61,7 +61,7 @@
     view: no
     entities:
       - binary_sensor.dishwasher_flood_template
-      - binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor
+      - binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor_2
       - binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor
       - binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2
       - binary_sensor.garage_door_sensor
@@ -101,8 +101,8 @@
       - sensor.inne_nere_temperature
       - sensor.inne_nere_humidity
       - sensor.fibaro_system_fgsd002_smoke_sensor_temperature
-      - sensor.fibaro_system_fgms001zw5_motion_sensor_temperature
-      - sensor.fibaro_system_fgms001zw5_motion_sensor_luminance
+      - sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_2
+      - sensor.fibaro_system_fgms001zw5_motion_sensor_luminance_2
       - sensor.inne_uppe_temperature
       - sensor.inne_uppe_humidity
       - sensor.vinden_temperature

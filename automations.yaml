@@ -305,7 +305,7 @@
   initial_state: 'off'
   trigger:
     platform: state
-    entity_id: binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor
+    entity_id: binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor_2
     to: 'on'
   action:
   - service: notify.pelles_tfn
