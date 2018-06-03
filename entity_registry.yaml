@@ -498,3 +498,51 @@ zwave.swiid_swiidinter:
   name:
   platform: zwave
   unique_id: node-31
+zwave.__3:
+  name:
+  platform: zwave
+  unique_id: node-13
+zwave._:
+  name:
+  platform: zwave
+  unique_id: node-4
+zwave.fibaro_system_fgms001zw5_motion_sensor:
+  name:
+  platform: zwave
+  unique_id: node-33
+binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor_2:
+  name:
+  platform: zwave
+  unique_id: 33-72057594596556800
+sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_2:
+  name:
+  platform: zwave
+  unique_id: 33-72057594596573202
+sensor.fibaro_system_fgms001zw5_motion_sensor_luminance_2:
+  name:
+  platform: zwave
+  unique_id: 33-72057594596573234
+sensor.fibaro_system_fgms001zw5_motion_sensor_seismic_intensity_2:
+  name:
+  platform: zwave
+  unique_id: 33-72057594596573586
+sensor.fibaro_system_fgms001zw5_motion_sensor_sourcenodeid_2:
+  name:
+  platform: zwave
+  unique_id: 33-72057594597621793
+sensor.fibaro_system_fgms001zw5_motion_sensor_burglar_2:
+  name:
+  platform: zwave
+  unique_id: 33-72057594597621921
+sensor.fibaro_system_fgms001zw5_motion_sensor_general_2:
+  name:
+  platform: zwave
+  unique_id: 33-72057594598326273
+sensor.fibaro_system_fgms001zw5_motion_sensor_alarm_type_2:
+  name:
+  platform: zwave
+  unique_id: 33-72057594597621761
+sensor.fibaro_system_fgms001zw5_motion_sensor_alarm_level_2:
+  name:
+  platform: zwave
+  unique_id: 33-72057594597621777
