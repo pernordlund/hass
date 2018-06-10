@@ -85,7 +85,6 @@
       - sun.sun
       - sun.sunrise
       - sensor.yr_symbol
-      - sensor.mqtt_status
       - sensor.northq_nq92021_power_reader_energy
   climate:
     name: Climate
@@ -339,6 +338,7 @@
       - device_tracker.storstugan
 #      - device_tracker.majolika
       - device_tracker.husdata
+      - sensor.hass_mqtt_status
       - sensor.nodered_mqtt_status
   daily_sun:
     view: no

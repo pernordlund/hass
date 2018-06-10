@@ -97,8 +97,8 @@
 #          {%- else -%}N/A
 #          {%- endif %}
   - platform: mqtt
-    state_topic: "hass/status"
-    name: "MQTT status"
+    state_topic: "hass/mqttclients/hass"
+    name: "Hass mqtt status"
   - platform: mqtt
     state_topic: "hass/intromessage"
     name: "From Hass"

@@ -3,12 +3,10 @@
   username: !secret mq_username
   password: !secret mq_password
   birth_message:
-    topic: 'hass/status'
-    payload: 'online2'
-    retain: 'true'
+    topic: 'hass/mqttclients/hass'
+    payload: 'Hass mqtt online'
   will_message:
-    topic: 'hass/status'
-    payload: 'offline2'
-    retain: 'true'
+    topic: 'hass/mqttclients/hass'
+    payload: 'Hass mqtt offline'
   discovery: true
   discovery_prefix: hass
