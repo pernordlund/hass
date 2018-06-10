@@ -546,3 +546,7 @@ sensor.fibaro_system_fgms001zw5_motion_sensor_alarm_level_2:
   name:
   platform: zwave
   unique_id: 33-72057594597621777
+zwave.unknown_node_28:
+  name:
+  platform: zwave
+  unique_id: node-28
