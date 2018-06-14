@@ -547,4 +547,3 @@
   - service: notify.pelles_tfn
     data_template:
       message: '{{ states("sensor.time") }} - Jenny left home - WLAN'
-
