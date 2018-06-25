@@ -1,12 +1,12 @@
   klk_timer:
     name: Klk timer
-#    initial: 5
+    initial: 5
     min: 1
     max: 30
     step: 1
   badrum_timer:
     name: Badrum timer
-#    initial: 20
+    initial: 26
     min: 2
     max: 60
     step: 2
