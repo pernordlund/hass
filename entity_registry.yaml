@@ -550,3 +550,7 @@ zwave.unknown_node_28:
   name:
   platform: zwave
   unique_id: node-28
+zwave.unknown_node_7:
+  name:
+  platform: zwave
+  unique_id: node-7
