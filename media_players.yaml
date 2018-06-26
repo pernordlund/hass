@@ -1,7 +1,3 @@
-  - platform: cast
-    host: 192.168.1.59
-  - platform: cast
-    host: 192.168.1.54
 #  - platform: pioneer
   - platform: pioneer_vsx528
     name: Stereo
