@@ -68,8 +68,13 @@
     longitude: 18.074032
     radius: 100
     icon: mdi:bus
-  - name: Capio
+  - name: Capio Jakobsberg
     latitude: 59.422322
     longitude: 17.845970
+    radius: 100
+    icon: mdi:baby
+  - name: Capio Sollentuna
+    latitude: 59.430875
+    longitude: 17.950168
     radius: 100
     icon: mdi:baby
