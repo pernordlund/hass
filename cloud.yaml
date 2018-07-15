@@ -95,3 +95,9 @@
         room: Outside front
       light.vinden:
         name: Attic
+        room: Attic
+      switch.fibaro_system_fgwpef_wall_plug_gen5_switch:
+        room: Media devices
+      climate.downstairs:
+        name: Downstairs temperature
+        room: Climate devices
