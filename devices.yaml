@@ -10,12 +10,8 @@
 #      albin: 192.168.1.65
       camera: 192.168.1.47
       zonestorage: 192.168.1.49
-#      stereo: 192.168.1.55
       tv: 192.168.1.56
       htpc: 192.168.1.57
-#      koksradio: 192.168.1.58
       husdata: 192.168.1.46
-#      majolika: rp3-msb.panitco.se
       storstugan: storstugan.dyndns-server.com
-#  - platform: gpslogger
   - platform: owntracks
