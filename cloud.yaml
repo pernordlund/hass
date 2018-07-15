@@ -42,6 +42,9 @@
       switch.fibaro_system_fgwpef_wall_plug_switch:
         name: Guest room window
         room: Guest room
+      switch.guest_room:
+        name: Guest room lights
+        room: Guest room
       switch.swiid_switch:
         name: Entrance drawer
         room: Entrance
