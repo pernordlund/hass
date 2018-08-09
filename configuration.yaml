@@ -50,22 +50,22 @@ updater:
   include_used_components: true
 
 # Discover some devices automatically
-discovery:
+#discovery:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 #conversation:
 #dialogflow:
 
-recorder: !include recorder.yaml
+#recorder: !include recorder.yaml
 
 # Enables support for tracking state changes over time.
-history:
+#history:
 
 logger:
   default: warning
 
 # View all events in a logbook
-logbook:
+#logbook:
 
 # Track the sun
 sun:
@@ -90,8 +90,8 @@ media_player: !include media_players.yaml
 
 device_tracker: !include devices.yaml
 
-mqtt: !include mqtt.yaml
-#mqtt:
+#mqtt: !include mqtt.yaml
+mqtt:
 
 camera: !include cameras.yaml
 
@@ -118,7 +118,7 @@ input_select: !include input_selects.yaml
 
 input_number: !include input_numbers.yaml
 
-influxdb: !include influxdb.yaml
+#influxdb: !include influxdb.yaml
 
 script: !include scripts.yaml
 
@@ -138,3 +138,5 @@ climate: !include climate.yaml
 automower: !include automower.yaml
 
 cast: !include cast.yaml
+
+netatmo: !include netatmo.yaml

@@ -323,3 +323,12 @@
     origin: place_id:ChIJncjNW9x4X0YRAAuGGtz9Snk
     destination: place_id:ChIJWbo6qXOdX0YRhuGHD2V6uck
   - platform: uptime
+  - platform: netatmo
+    modules:
+      Indoor:
+        - temperature
+        - co2
+      noname:
+        - temperature
+        - battery_vp
+        - pressure
