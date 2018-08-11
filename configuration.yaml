@@ -138,3 +138,5 @@ climate: !include climate.yaml
 automower: !include automower.yaml
 
 cast: !include cast.yaml
+
+netatmo: !include netatmo.yaml

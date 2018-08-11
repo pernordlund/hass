@@ -1,556 +1,695 @@
 media_player.chrome:
+  config_entry_id:
   name:
   platform: plex
   unique_id: wqu7686cryswmzq5cgy9djlg
 switch.fibaro_system_fgwpef_wall_plug_gen5_switch:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 2-72057594076282880
 sensor.fibaro_system_fgwpef_wall_plug_gen5_power:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 2-72057594076479554
 sensor.fibaro_system_fgwpef_wall_plug_gen5_energy:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 2-72057594076495874
 sensor.fibaro_system_fgwpef_wall_plug_gen5_power_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 2-72057594076496002
 sensor.fibaro_system_fgwpef_wall_plug_gen5_exporting:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 2-72057594076496384
 sensor.fibaro_system_fgwpef_wall_plug_gen5_alarm_type:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 2-72057594077528065
 sensor.fibaro_system_fgwpef_wall_plug_gen5_alarm_level:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 2-72057594077528081
 sensor.fibaro_system_fgwpef_wall_plug_gen5_sourcenodeid:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 2-72057594077528097
 sensor.fibaro_system_fgwpef_wall_plug_gen5_power_management:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 2-72057594077528241
 switch.telldus_tzwp100_plugin_switch_switch:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 3-72057594093060096
 binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 4-72057594110017536
 sensor.fibaro_system_fgms001zw5_motion_sensor_temperature:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 4-72057594110033938
 sensor.fibaro_system_fgms001zw5_motion_sensor_luminance:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 4-72057594110033970
 sensor.fibaro_system_fgms001zw5_motion_sensor_seismic_intensity:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 4-72057594110034322
 sensor.fibaro_system_fgms001zw5_motion_sensor_alarm_type:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 4-72057594111082497
 sensor.fibaro_system_fgms001zw5_motion_sensor_alarm_level:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 4-72057594111082513
 sensor.fibaro_system_fgms001zw5_motion_sensor_sourcenodeid:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 4-72057594111082529
 sensor.fibaro_system_fgms001zw5_motion_sensor_burglar:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 4-72057594111082657
 sensor.fibaro_system_fgms001zw5_motion_sensor_general:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 4-72057594111787009
 light.koksbanken_level:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 6-72057594143408129
 light.koksbanken_level_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 6-144115188181336065
 sensor.koksbanken_power:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 6-72057594143588418
 sensor.koksbanken_energy:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 6-72057594143604738
 sensor.koksbanken_power_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 6-72057594143604866
 sensor.koksbanken_exporting:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 6-72057594143605248
 sensor.koksbanken_alarm_type:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 6-72057594144636929
 sensor.koksbanken_alarm_level:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 6-72057594144636945
 sensor.koksbanken_sourcenodeid:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 6-72057594144636961
 sensor.koksbanken_heat:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 6-72057594144637041
 sensor.koksbanken_power_management:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 6-72057594144637105
 sensor.koksbanken_system:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 6-72057594144637121
 light.aeotec_zw098_led_bulb_level:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 7-72057594160185345
 switch.fibaro_system_fgwpef_wall_plug_gen5_switch_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 8-72057594176946176
 sensor.fibaro_system_fgwpef_wall_plug_gen5_power_3:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 8-72057594177142850
 sensor.fibaro_system_fgwpef_wall_plug_gen5_velocity:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 8-72057594177142882
 sensor.fibaro_system_fgwpef_wall_plug_gen5_energy_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 8-72057594177159170
 sensor.fibaro_system_fgwpef_wall_plug_gen5_power_4:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 8-72057594177159298
 sensor.fibaro_system_fgwpef_wall_plug_gen5_exporting_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 8-72057594177159680
 media_player.living_room_speaker:
+  config_entry_id: d939df0722c7439d8e94a360649b7e75
   name:
   platform: cast
   unique_id: 0db61b9a-1549-0e04-2943-823d41175bad
 sensor.fibaro_system_fgwpef_wall_plug_gen5_alarm_type_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 8-72057594178191361
 sensor.fibaro_system_fgwpef_wall_plug_gen5_alarm_level_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 8-72057594178191377
 sensor.fibaro_system_fgwpef_wall_plug_gen5_sourcenodeid_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 8-72057594178191393
 sensor.fibaro_system_fgwpef_wall_plug_gen5_power_management_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 8-72057594178191537
 binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 9-72057594193903616
 binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 9-144115188231831552
 light.arbrum_tak_level:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 10-72057594210516993
 light.vardrum_bord_level:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 12-72057594244071425
 binary_sensor.garage_door_sensor:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 13-72057594261012480
 binary_sensor.garage_door_sensor_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 13-144115188298940416
 binary_sensor.garage_door_sensor_3:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 13-216172782336868352
 sensor.garage_door_temperature:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 13-72057594261028882
 sensor.everspring_st814_temperature_and_humidity_sensor_temperature:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 16-72057594311360530
 sensor.everspring_st814_temperature_and_humidity_sensor_relative_humidity:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 16-72057594311360594
 sensor.everspring_st814_temperature_and_humidity_sensor_relative_humidity_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 16-144115188349288530
 switch.popp__duwi_zw_zsa_3500_plugin_switch_switch:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 17-72057594327941120
 sensor.everspring_st812_flood_detector_alarm_type:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 18-72057594345963521
 sensor.everspring_st812_flood_detector_alarm_level:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 18-72057594345963537
 media_player.xperia_xz1_compact:
+  config_entry_id:
   name:
   platform: plex
   unique_id: 50ebdee9db7292ee-com-plexapp-android
 sensor.everspring_st812_flood_detector_flood:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 18-72057594346668113
 light.hall_tak_level:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 19-72057594361511937
 switch.klk_nere_switch:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 20-72057594378272768
 switch.klk_nere_switch_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 20-144115188416200704
 switch.klk_nere_switch_3:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 20-216172782454128640
 light.koksbord_level:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 21-72057594395066369
 switch.fibaro_system_fgwpef_wall_plug_switch:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 22-72057594411827200
 sensor.fibaro_system_fgwpef_wall_plug_power:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 22-72057594412023874
 sensor.fibaro_system_fgwpef_wall_plug_energy:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 22-72057594412040194
 sensor.fibaro_system_fgwpef_wall_plug_power_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 22-72057594412040322
 sensor.fibaro_system_fgwpef_wall_plug_exporting:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 22-72057594412040704
 switch.badrum_uppe_switch:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 23-72057594428604416
 switch.badrum_uppe_switch_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 23-144115188466532352
 light.allrum_tak_level:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 24-72057594445398017
 light.frida_tak_level:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 25-72057594462175233
 sensor.northq_nq92021_power_reader_energy:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 26-72057594479149058
 light.domitech_smart_led_retrofit_kit_ze27eu_level:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 28-72057594512506881
 binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 29-72057594529447936
 sensor.fibaro_system_fgsd002_smoke_sensor_temperature:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 29-72057594529464338
 sensor.fibaro_system_fgsd002_smoke_sensor_alarm_type:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 29-72057594530512897
 sensor.fibaro_system_fgsd002_smoke_sensor_alarm_level:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 29-72057594530512913
 sensor.fibaro_system_fgsd002_smoke_sensor_sourcenodeid:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 29-72057594530512929
 sensor.fibaro_system_fgsd002_smoke_sensor_smoke:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 29-72057594530512961
 sensor.fibaro_system_fgsd002_smoke_sensor_heat:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 29-72057594530513009
 sensor.fibaro_system_fgsd002_smoke_sensor_burglar:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 29-72057594530513057
 sensor.fibaro_system_fgsd002_smoke_sensor_power_management:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 29-72057594530513073
 sensor.fibaro_system_fgsd002_smoke_sensor_system:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 29-72057594530513089
 sensor.fibaro_system_fgsd002_smoke_sensor_general:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 29-72057594531217409
 sensor.fibaro_system_fgsd002_smoke_sensor_smoke_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 29-72057594531217425
 sensor.fibaro_system_fgsd002_smoke_sensor_heat_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 29-72057594531217473
 binary_sensor.sensative_strips_sensor:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 30-72057594546225152
 sensor.sensative_strips_alarm_type:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 30-72057594547290113
 sensor.sensative_strips_alarm_level:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 30-72057594547290129
 sensor.sensative_strips_sourcenodeid:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 30-72057594547290145
 sensor.sensative_strips_access_control:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 30-72057594547290257
 sensor.sensative_strips_burglar:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 30-72057594547290273
 switch.swiid_switch:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 31-72057594562822144
 media_player.nordlund_chromecast:
+  config_entry_id:
   name:
   platform: cast
   unique_id: f62ca0b2-6e26-bb5d-5710-d037a96da6b0
 media_player.my_mz601:
+  config_entry_id:
   name:
   platform: plex
   unique_id: bc11dde8165250c7-com-plexapp-android
 sensor.alarm_type:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 22-72057594413072385
 sensor.alarm_level:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 22-72057594413072401
 light.tradfri_bulb_e27_opal_1000lm:
+  config_entry_id:
   name:
   platform: tradfri
   unique_id: light-7e12115204400086-65538
 light.tradfri_bulb_e27_ws_opal_980lm:
+  config_entry_id:
   name:
   platform: tradfri
   unique_id: light-7e12115204400086-65537
 light.tradfri_group:
+  config_entry_id:
   name:
   platform: tradfri
   unique_id: group-7e12115204400086-137628
 zwave.aeotec_zw090_zstick_gen5_eu:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-1
 zwave.fibaro_system_fgwpef_wall_plug_gen5:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-2
 zwave.telldus_tzwp100_plugin_switch:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-3
 zwave.fibaro_system_fgd212_dimmer_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-6
 zwave.fibaro_system_fgwpef_wall_plug_gen5_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-8
 zwave.fibaro_system_fgbs001_universal_binary_sensor:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-9
 zwave.fibaro_system_fgd211_universal_dimmer_500w:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-10
 zwave.fibaro_system_fgd211_universal_dimmer_500w_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-12
 zwave.everspring_st814_temperature_and_humidity_sensor:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-16
 zwave.popp__duwi_zw_zsa_3500_plugin_switch:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-17
 zwave.everspring_st812_flood_detector:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-18
 zwave.fibaro_system_fgd211_universal_dimmer_500w_3:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-19
 zwave.fibaro_system_fgs211_switch_3kw:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-20
 zwave.fibaro_system_fgd211_universal_dimmer_500w_4:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-21
 zwave.fibaro_system_fgwpef_wall_plug:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-22
 zwave.fibaro_system_fgs221_double_relay_switch_2x15kw:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-23
 zwave.fibaro_system_fgd211_universal_dimmer_500w_5:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-24
 zwave.fibaro_system_fgd211_universal_dimmer_500w_6:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-25
 zwave.northq_nq92021_power_reader:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-26
 zwave.fibaro_system_fgsd002_smoke_sensor:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-29
 zwave.sensative_strips:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-30
 zwave.swiid_swiidinter:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-31
 zwave.__3:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-13
 zwave._:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-4
 zwave.fibaro_system_fgms001zw5_motion_sensor:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-33
 binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 33-72057594596556800
 sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 33-72057594596573202
 sensor.fibaro_system_fgms001zw5_motion_sensor_luminance_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 33-72057594596573234
 sensor.fibaro_system_fgms001zw5_motion_sensor_seismic_intensity_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 33-72057594596573586
 sensor.fibaro_system_fgms001zw5_motion_sensor_sourcenodeid_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 33-72057594597621793
 sensor.fibaro_system_fgms001zw5_motion_sensor_burglar_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 33-72057594597621921
 sensor.fibaro_system_fgms001zw5_motion_sensor_general_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 33-72057594598326273
 sensor.fibaro_system_fgms001zw5_motion_sensor_alarm_type_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 33-72057594597621761
 sensor.fibaro_system_fgms001zw5_motion_sensor_alarm_level_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 33-72057594597621777
 zwave.unknown_node_28:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-28
 zwave.unknown_node_7:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-7
