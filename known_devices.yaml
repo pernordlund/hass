@@ -171,3 +171,11 @@ automower_k_170504968170332295:
   picture:
   track: true
   vendor:
+
+tradfri:
+  hide_if_away: false
+  icon:
+  mac:
+  name: tradfri
+  picture:
+  track: true

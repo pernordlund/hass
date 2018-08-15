@@ -12,6 +12,7 @@
       zonestorage: 192.168.1.49
       tv: 192.168.1.56
       htpc: 192.168.1.57
+      tradfri: 192.168.1.45
       husdata: 192.168.1.46
       storstugan: storstugan.dyndns-server.com
   - platform: owntracks

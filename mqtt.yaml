@@ -5,8 +5,12 @@
   birth_message:
     topic: 'hass/mqttclients/hass'
     payload: 'Hass mqtt online'
+    qos: 2
+    retain: True
   will_message:
     topic: 'hass/mqttclients/hass'
     payload: 'Hass mqtt offline'
+    qos: 2
+    retain: True
   discovery: true
   discovery_prefix: hass

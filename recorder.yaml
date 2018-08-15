@@ -45,3 +45,12 @@
       - sensor.last_boot
       - sensor.roger_status
       - sensor.roger_battery
+      - sensor.netatmo_ind_co2
+      - sensor.netatmo_ind_humidity
+      - sensor.netatmo_ind_noise
+      - sensor.netatmo_ind_pressure
+      - sensor.netatmo_ind_temperature
+      - sensor.netatmo_outdoor_battery
+      - sensor.netatmo_outdoor_humidity
+      - sensor.netatmo_outdoor_radio
+      - sensor.netatmo_outdoor_temperature

@@ -479,7 +479,7 @@ switch.swiid_switch:
   platform: zwave
   unique_id: 31-72057594562822144
 media_player.nordlund_chromecast:
-  config_entry_id:
+  config_entry_id: d939df0722c7439d8e94a360649b7e75
   name:
   platform: cast
   unique_id: f62ca0b2-6e26-bb5d-5710-d037a96da6b0
@@ -693,3 +693,8 @@ zwave.unknown_node_7:
   name:
   platform: zwave
   unique_id: node-7
+light.tradfri_group_2:
+  config_entry_id:
+  name:
+  platform: tradfri
+  unique_id: group-7e12115204400086-131073

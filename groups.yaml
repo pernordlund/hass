@@ -96,6 +96,10 @@
       - sensor.inne_uppe_humidity
       - sensor.vinden_temperature
       - sensor.vinden_humidity
+      - sensor.netatmo_ind_temperature
+      - sensor.netatmo_ind_pressure
+      - sensor.netatmo_ind_humidity
+      - sensor.netatmo_ind_co2
   climate_garage:
     name: Climate Garage
     view: no
@@ -109,6 +113,8 @@
     entities:
       - sensor.altan_temperature
       - sensor.bvoutdoor
+      - sensor.netatmo_outdoor_humidity
+      - sensor.netatmo_outdoor_temperature
   control:
     name: Control
     view: yes
@@ -315,6 +321,7 @@
       - device_tracker.storstugan
 #      - device_tracker.majolika
       - device_tracker.husdata
+      - device_tracker.tradfri
       - sensor.hass_mqtt_status
       - sensor.nodered_mqtt_status
   daily_sun:

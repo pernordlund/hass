@@ -313,7 +313,7 @@
 #      {{ value_json.nextStartTimestamp | timestamp_utc }}
   - platform: command_line
     name: CPU Temperature
-    command: "cat /sys/class/thermal/thermal_zone0/temp"
+    command: "cat /sys/class/thermal/thermal_zone2/temp"
     # If errors occur, remove degree symbol below
     unit_of_measurement: "°C"
     value_template: '{{ value | multiply(0.001) }}'
@@ -325,10 +325,10 @@
   - platform: uptime
   - platform: netatmo
     modules:
-      Indoor:
+      indoor:
         - temperature
         - co2
-      noname:
+      outdoor:
         - temperature
         - battery_vp
         - pressure
