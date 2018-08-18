@@ -13,8 +13,8 @@
       - sensor.inne_nere_temperature
       - sensor.inne_nere_humidity
       - sensor.fibaro_system_fgsd002_smoke_sensor_temperature
-      - sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_2
-      - sensor.fibaro_system_fgms001zw5_motion_sensor_luminance_2
+      - sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_4
+      - sensor.fibaro_system_fgms001zw5_motion_sensor_luminance_4
       - sensor.inne_uppe_temperature
       - sensor.inne_uppe_humidity
       - sensor.vinden_temperature

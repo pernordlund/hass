@@ -21,10 +21,10 @@
     sensors:
       last_trip_allrum:
         value_template: >-
-          {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor_2.last_changed))/3600 > 24 -%}
+          {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor_4.last_changed))/3600 > 24 -%}
             >24hr
           {%- else -%}
-            {{ as_timestamp(states.binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor_2.last_changed) | timestamp_custom('%H:%M') }}
+            {{ as_timestamp(states.binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor_4.last_changed) | timestamp_custom('%H:%M') }}
           {%- endif %}
         friendly_name: 'Allrum trip'
       last_trip_alarm:
