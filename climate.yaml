@@ -5,7 +5,7 @@
   - platform: generic_thermostat
     name: upstairs
     heater: switch.compressor
-    target_sensor: sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_2
+    target_sensor: sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_4
   - platform: generic_thermostat
     name: downstairs
     heater: switch.compressor
