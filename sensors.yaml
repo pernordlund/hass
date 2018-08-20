@@ -325,10 +325,13 @@
   - platform: uptime
   - platform: netatmo
     modules:
-      indoor:
+      Ind:
         - temperature
         - co2
-      outdoor:
+      Outdoor:
         - temperature
         - battery_vp
         - pressure
+      Rain:
+        - sum_rain_1
+        - sum_rain_24

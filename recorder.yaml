@@ -54,3 +54,5 @@
       - sensor.netatmo_outdoor_humidity
       - sensor.netatmo_outdoor_radio
       - sensor.netatmo_outdoor_temperature
+      - sensor.netatmo_rain_sum_rain_1
+      - sensor.netatmo_rain_sum_rain_24

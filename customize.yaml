@@ -129,3 +129,9 @@
       icon: mdi:clock-start
     sensor.roger_status:
       icon: mdi:robot
+    sensor.load_15m:
+      unit_of_measurement: CPU
+    sensor.load_5m:
+      unit_of_measurement: CPU
+    sensor.load_1m:
+      unit_of_measurement: CPU
