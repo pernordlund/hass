@@ -547,3 +547,18 @@
   - service: notify.pelles_tfn
     data_template:
       message: '{{ states("sensor.time") }} - Jenny left home - WLAN'
+- id: A049
+  alias: Ytterdorr open turn on byrå
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2
+    from: 'off'
+    to: 'on'
+  condition:
+    condition: time
+    after: '23:00:00'
+    before: '05:00:00'
+  action:
+  - service: light.turn_on
+    entity_id: switch.swiid_switch
