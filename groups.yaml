@@ -195,11 +195,12 @@
     name: Media players
     view: no
     entities:
-#      - media_player.nordlund_chromecast
+      - media_player.nordlund_chromecast
       - media_player.stereo
       - media_player.tv
 #      - media_player.spotify
-#      - media_player.living_room_speaker
+      - media_player.living_room_speaker
+      - media_player.kitchen_speaker
   m_devices:
     name: Media devices
     view: no
