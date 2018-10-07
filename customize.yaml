@@ -1,137 +1,135 @@
-    sensor.from_hass:
-      friendly_name: Message
-    binary_sensor.flood_sensor_4_20:
-      friendly_name: Fuktvarning diskmaskin
-    configurator.plex_media_server:
-      hidden: true
-    camera.generic_camera:
-      friendly_name: Living room
-    light.arbrum_tak_level:
-      friendly_name: Arbrum tak
-    light.arbrum_skrivbord:
-      assumed_state: false
-#    switch.swiid_switch:
-#      assumed_state: false
-    light.frida_tak_level:
-      friendly_name: Frida tak
-    light.frida_skrivbord:
-      assumed_state: false
-    light.sovmop:
-      assumed_state: false
-    light.allrum_tak_level:
-      friendly_name: Allrum
-    light.entre:
-      assumed_state: false
-    light.vinden:
-      assumed_state: false
-    light.utebelysning:
-      assumed_state: false
-    light.ute_altan:
-      assumed_state: false
-    group.all_automations:
-      hidden: false
-      friendly_name: All automations
-    switch.fibaro_system_fgwpef_wall_plug_gen5_switch:
-      friendly_name: Bass speaker
-    switch.swiid_switch:
-      friendly_name: Byralampa
-      icon: mdi:lightbulb
-    switch.telldus_tzwp100_plugin_switch_switch:
-      friendly_name: Vardagrum hornlampa
-      icon: mdi:lightbulb
-    binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor_4:
-      friendly_name: Rorelse allrum
-    light.koksbanken_level:
-      friendly_name: Koksbanken
-#    light.aeotec_zw098_led_bulb_level:
-#      friendly_name: ??
-    sensor.fibaro_system_fgms001zw5_motion_sensor_luminance_4:
-      friendly_name: Ljus allrum
-    binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2:
-      friendly_name: Ytterdorr oppen
-    binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor:
-      friendly_name: Avlarmat
-    switch.fibaro_system_fgwpef_wall_plug_gen5_switch_2:
-      friendly_name: Pelles laddare
-    light.tradfri_bulb_e27_ws_opal_980lm:
-      friendly_name: Arbrum horn
-    light.vardrum_bord_level:
-      friendly_name: Vardrum bord
-    switch.popp__duwi_zw_zsa_3500_plugin_switch_switch:
-      friendly_name: Garage el Rogers laddare
-    sensor.everspring_st814_temperature_and_humidity_sensor_temperature:
-      friendly_name: Garagevinden temp
-    sensor.everspring_st814_temperature_and_humidity_sensor_relative_humidity:
-      friendly_name: Garagevinden fukt
-    binary_sensor.garage_door_sensor:
-      friendly_name: Garagedorren oppen
-    binary_sensor.sensative_strips_sensor:
-      friendly_name: Forradsdorren oppen
-    sensor.garage_door_temperature:
-      friendly_name: Garage temp
-    sensor.everspring_st812_flood_detector_flood:
-      friendly_name: Oversvammning disk
-    sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_4:
-      friendly_name: Allrum temp
-    light.hall_tak_level:
-      friendly_name: Hallampa
-    switch.klk_nere_switch:
-      friendly_name: Klk nere
-      icon: mdi:lightbulb
-    light.koksbord_level:
-      friendly_name: Koksbord
-    light.tradfri_bulb_e27_opal_1000lm:
-      friendly_name: Vardrum soffa
-      icon: mdi:lightbulb
-    switch.fibaro_system_fgwpef_wall_plug_switch:
-      friendly_name: Arbrum fonster
-      icon: mdi:lightbulb
-    switch.badrum_uppe_switch_2:
-      friendly_name: Badrum
-      icon: mdi:lightbulb
-    switch.badrum_uppe_switch:
-      friendly_name: Bastu
-      icon: mdi:lightbulb
-    sensor.last_trip_allrum:
-      icon: mdi:calendar-clock
-    sensor.last_trip_alarm:
-      icon: mdi:calendar-clock
-    sensor.last_trip_forradsdorr:
-      icon: mdi:calendar-clock
-    sensor.last_trip_garagedorr:
-      icon: mdi:calendar-clock
-    sensor.last_trip_ytterdorr:
-      icon: mdi:calendar-clock
-    sensor.last_trip_flood:
-      icon: mdi:calendar-clock
-    sensor.northq_nq92021_power_reader_energy:
-      friendly_name: Elmatare
-      icon: mdi:flash-red-eye
-    binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor:
-      friendly_name: Roksensor
-    sensor.fibaro_system_fgsd002_smoke_sensor_temperature:
-      friendly_name: Vardrum temp
-#    light.domitech_smart_led_retrofit_kit_ze27eu_level:
-#      friendly_name: ??
-    light.tradfri_bulb_e14_ws_opal_400lm:
-      friendly_name: Tradfri e14
-    sensor.pelle_life360:
-      entity_picture: /local/pelle.JPG
-    sensor.huset:
-      entity_picture: /local/home.jpg
-    sensor.slussen:
-      icon: mdi:bus
-    sensor.roger_battery:
-      icon: mdi:battery
-    sensor.roger_next_start:
-      icon: mdi:calendar-clock
-    sensor.roger_next_src:
-      icon: mdi:clock-start
-    sensor.roger_status:
-      icon: mdi:robot
-    sensor.load_15m:
-      unit_of_measurement: CPU
-    sensor.load_5m:
-      unit_of_measurement: CPU
-    sensor.load_1m:
-      unit_of_measurement: CPU
+sensor.from_hass:
+  friendly_name: Message
+binary_sensor.flood_sensor_4_20:
+  friendly_name: Fuktvarning diskmaskin
+configurator.plex_media_server:
+  hidden: true
+camera.generic_camera:
+  friendly_name: Living room
+light.arbrum_tak_level:
+  friendly_name: Arbrum tak
+light.arbrum_skrivbord:
+  assumed_state: false
+light.frida_tak_level:
+  friendly_name: Frida tak
+light.frida_skrivbord:
+  assumed_state: false
+light.sovmop:
+  assumed_state: false
+light.allrum_tak_level:
+  friendly_name: Allrum
+light.entre:
+  assumed_state: false
+light.vinden:
+  assumed_state: false
+light.utebelysning:
+  assumed_state: false
+light.ute_altan:
+  assumed_state: false
+group.all_automations:
+  hidden: false
+  friendly_name: All automations
+switch.fibaro_system_fgwpef_wall_plug_gen5_switch:
+  friendly_name: Bass speaker
+switch.swiid_switch:
+  friendly_name: Byralampa
+  icon: mdi:lightbulb
+switch.telldus_tzwp100_plugin_switch_switch:
+  friendly_name: Vardagrum hornlampa
+  icon: mdi:lightbulb
+binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor_4:
+  friendly_name: Rorelse allrum
+light.koksbanken_level:
+  friendly_name: Koksbanken
+sensor.fibaro_system_fgms001zw5_motion_sensor_luminance_4:
+  friendly_name: Ljus allrum
+binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2:
+  friendly_name: Ytterdorr oppen
+binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor:
+  friendly_name: Avlarmat
+switch.fibaro_system_fgwpef_wall_plug_gen5_switch_2:
+  friendly_name: Pelles laddare
+light.tradfri_bulb_e27_ws_opal_980lm:
+  friendly_name: Arbrum horn
+light.vardrum_bord_level:
+  friendly_name: Vardrum bord
+switch.popp__duwi_zw_zsa_3500_plugin_switch_switch:
+  friendly_name: Garage el Rogers laddare
+sensor.everspring_st814_temperature_and_humidity_sensor_temperature:
+  friendly_name: Garagevinden temp
+sensor.everspring_st814_temperature_and_humidity_sensor_relative_humidity:
+  friendly_name: Garagevinden fukt
+binary_sensor.garage_door_sensor:
+  friendly_name: Garagedorren oppen
+binary_sensor.sensative_strips_sensor:
+  friendly_name: Forradsdorren oppen
+sensor.everspring_st812_flood_detector_flood:
+  friendly_name: Oversvammning disk
+sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_4:
+  friendly_name: Allrum temp
+light.hall_tak_level:
+  friendly_name: Hallampa
+switch.klk_nere_switch:
+  friendly_name: Klk nere
+  icon: mdi:lightbulb
+light.koksbord_level:
+  friendly_name: Koksbord
+light.tradfri_bulb_e27_opal_1000lm:
+  friendly_name: Vardrum soffa
+  icon: mdi:lightbulb
+switch.fibaro_system_fgwpef_wall_plug_switch:
+  friendly_name: Arbrum fonster
+  icon: mdi:lightbulb
+switch.badrum_uppe_switch_2:
+  friendly_name: Badrum
+  icon: mdi:lightbulb
+switch.badrum_uppe_switch:
+  friendly_name: Bastu
+  icon: mdi:lightbulb
+sensor.last_trip_allrum:
+  icon: mdi:calendar-clock
+sensor.last_trip_alarm:
+  icon: mdi:calendar-clock
+sensor.last_trip_forradsdorr:
+  icon: mdi:calendar-clock
+sensor.last_trip_garagedorr:
+  icon: mdi:calendar-clock
+sensor.last_trip_ytterdorr:
+  icon: mdi:calendar-clock
+sensor.last_trip_flood:
+  icon: mdi:calendar-clock
+sensor.northq_nq92021_power_reader_energy:
+  friendly_name: Elmatare
+  icon: mdi:flash-red-eye
+binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor:
+  friendly_name: Roksensor
+sensor.fibaro_system_fgsd002_smoke_sensor_temperature:
+  friendly_name: Vardrum temp
+light.tradfri_bulb_e14_ws_opal_400lm:
+  friendly_name: Tradfri e14
+sensor.pelle_life360:
+  entity_picture: /local/pelle.JPG
+sensor.huset:
+  entity_picture: /local/home.jpg
+sensor.slussen:
+  icon: mdi:bus
+sensor.roger_battery:
+  icon: mdi:battery
+sensor.roger_next_start:
+  icon: mdi:calendar-clock
+sensor.roger_next_src:
+  icon: mdi:clock-start
+sensor.roger_status:
+  icon: mdi:robot
+sensor.load_15m:
+  unit_of_measurement: CPU
+sensor.load_5m:
+  unit_of_measurement: CPU
+sensor.load_1m:
+  unit_of_measurement: CPU
+sensor.fibaro_system_fgk101_door_opening_sensor_temperature:
+  friendly_name: Garage door temperature
+zwave.fibaro_system_fgk101_door_opening_sensor:
+  friendly_name: Garage Door
+binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor:
+  friendly_name: Garage door open
