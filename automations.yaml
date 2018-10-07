@@ -503,7 +503,7 @@
       message: '{{ states("sensor.time") }} - Logged leave OKQ8 - Life'
 - id: A046
   alias: Garage light on when door opens
-  initial_state: 'off'
+  initial_state: 'on'
   trigger:
     platform: state
     entity_id: binary_sensor.garage_door_sensor
@@ -513,7 +513,7 @@
     entity_id: switch.popp__duwi_zw_zsa_3500_plugin_switch_switch
 - id: A047
   alias: Garage light off when door closes
-  initial_state: 'off'
+  initial_state: 'on'
   trigger:
     platform: state
     entity_id: binary_sensor.garage_door_sensor
