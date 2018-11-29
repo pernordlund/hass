@@ -323,15 +323,15 @@
     origin: place_id:ChIJncjNW9x4X0YRAAuGGtz9Snk
     destination: place_id:ChIJWbo6qXOdX0YRhuGHD2V6uck
   - platform: uptime
-  - platform: netatmo
-    modules:
-      Ind:
-        - temperature
-        - co2
-      Outdoor:
-        - temperature
-        - battery_vp
-        - pressure
-      Rain:
-        - sum_rain_1
-        - sum_rain_24
+  # - platform: netatmo
+  #   modules:
+  #     Ind:
+  #       - temperature
+  #       - co2
+  #     Outdoor:
+  #       - temperature
+  #       - battery_vp
+  #       - pressure
+  #     Rain:
+  #       - sum_rain_1
+  #       - sum_rain_24

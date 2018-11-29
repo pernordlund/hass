@@ -139,4 +139,4 @@ automower: !include automower.yaml
 
 cast: !include cast.yaml
 
-netatmo: !include netatmo.yaml
+#netatmo: !include netatmo.yaml
