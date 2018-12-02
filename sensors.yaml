@@ -254,12 +254,12 @@
         data_type:
          - Humidity
          - Temperature
-      0a5209018700005e300159_temperature:
+      0a5209018700005e300159:
         name: Kylen
         data_type:
          - Humidity
          - Temperature
-      0a520902c700002f1d0259_temperature:
+      0a520902c700002f1d0259:
         name: Frysen
         data_type:
          - Humidity
