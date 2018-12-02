@@ -100,6 +100,10 @@
       - sensor.netatmo_ind_pressure
       - sensor.netatmo_ind_humidity
       - sensor.netatmo_ind_co2
+      - sensor.kylen_temperature
+      - sensor.kylen_humidity
+      - sensor.frysen_temperature
+      - sensor.frysen_humidity
   climate_garage:
     name: Climate Garage
     view: no

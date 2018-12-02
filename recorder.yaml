@@ -19,6 +19,10 @@
       - sensor.inne_uppe_humidity
       - sensor.vinden_temperature
       - sensor.vinden_humidity
+      - sensor.kylen_temperature
+      - sensor.kylen_humidity
+      - sensor.frysen_temperature
+      - sensor.frysen_humidity
       - sensor.fibaro_system_fgk101_door_opening_sensor_temperature
       - sensor.everspring_st814_temperature_and_humidity_sensor_temperature
       - sensor.everspring_st814_temperature_and_humidity_sensor_relative_humidity

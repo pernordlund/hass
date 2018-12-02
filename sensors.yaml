@@ -233,7 +233,7 @@
     name: "BV-Heat set 3, Parallel"
     unit_of_measurement: 'BV'
   - platform: rfxtrx
-    automatic_add: True
+    # automatic_add: True
     devices:
       0a520201050100cf200269:
         name: Inne nere
@@ -251,6 +251,16 @@
          - Temperature
       0a520100a40100e11f0259:
         name: Inne uppe
+        data_type:
+         - Humidity
+         - Temperature
+      0a5209018700005e300159_temperature:
+        name: Kylen
+        data_type:
+         - Humidity
+         - Temperature
+      0a520902c700002f1d0259_temperature:
+        name: Frysen
         data_type:
          - Humidity
          - Temperature
