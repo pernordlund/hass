@@ -346,3 +346,4 @@
         - sum_rain_1
         - sum_rain_24
   - platform: google_wifi
+    host: 192.168.86.1
