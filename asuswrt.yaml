@@ -1,0 +1,3 @@
+  host: !secret aw_ip
+  username: aw_username
+  password: aw_password
