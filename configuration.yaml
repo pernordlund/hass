@@ -142,3 +142,5 @@ cast: !include cast.yaml
 netatmo: !include netatmo.yaml
 
 #asuswrt: !include asuswrt.yaml
+
+timer: !include timers.yaml
