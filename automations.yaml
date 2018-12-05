@@ -574,6 +574,3 @@
   - data:
       entity_id: light.tradfri_bulb_e27_ws_opal_980lm
     service: homeassistant.turn_on
-  - data:
-      message: Rorelse i arbetsrum
-    service: notify.pelles_tfn
