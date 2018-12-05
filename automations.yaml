@@ -183,9 +183,6 @@
   action:
   - service: homeassistant.turn_on
     entity_id: group.lights_pelle
-  # - service: notify.pelles_tfn
-  #   data:
-  #     message: Lyser upp for dig
 - id: A017
   alias: X - Send bus schedule when Pelle leaves
   initial_state: 'off'
@@ -196,7 +193,7 @@
     to: not_home
   condition:
     condition: time
-    after: '05:00:00'
+    after: 05:00:00
     before: '10:00:00'
   action:
     service: notify.pelles_tfn
@@ -211,8 +208,8 @@
       entity_id: zwave.swiid
   condition:
     condition: time
-    after: '05:00:00'
-    before: '08:00:00'
+    after: 05:00:00
+    before: 08:00:00
   action:
   - service: light.toggle
     entity_id: light.koksbord_level
@@ -439,7 +436,7 @@
     entity_id: sensor.date
   action:
   - service: python_script.turn_on
-    data: 
+    data:
       entity_id: daily_midnight
 - id: A041
   alias: Daily scripts midnight
@@ -449,7 +446,7 @@
     entity_id: sensor.date
   action:
   - service: script.turn_on
-    data: 
+    data:
       entity_id: script.daily_midnight
 - id: A042
   alias: Entre on when door opens
@@ -468,7 +465,7 @@
   trigger:
     platform: state
     entity_id: device_tracker.marie_marie
-    from: 'Slussen'
+    from: Slussen
   action:
   - service: notify.pelles_tfn
     data_template:
@@ -558,7 +555,25 @@
   condition:
     condition: time
     after: '23:00:00'
-    before: '05:00:00'
+    before: 05:00:00
   action:
   - service: switch.turn_on
     entity_id: switch.swiid_switch
+- id: '1544037641675'
+  alias: Arbrum on motion
+  trigger:
+  - entity_id: binary_sensor.philio_technology_corporation_psp05_pirmotion_sensor
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      entity_id: light.arbrum_skrivbord
+    service: homeassistant.turn_on
+  - data:
+      entity_id: light.tradfri_bulb_e27_ws_opal_980lm
+    service: homeassistant.turn_on
+  - data:
+      message: Rörelse i arbetsrum
+    service: notify.pelles_tfn
