@@ -57,6 +57,7 @@
       - binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor
       - binary_sensor.sensative_strips_sensor
       - binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor
+      - binary_sensor.philio_technology_corporation_psp05_pirmotion_sensor
       - lock.locked
   security_lt:
     name: Security last trip
