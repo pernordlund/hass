@@ -71,8 +71,8 @@
       - sensor.last_trip_alarm
       - sensor.last_trip_garagedorr
       - sensor.last_trip_forradsdorr
-      - sensor.sensor.last_arlozonefront
-      - sensor.sensor.last_arlozoneinside
+      - sensor.last_arlozonefront
+      - sensor.last_arlozoneinside
   frontpage_sensors:
     name: Sensors
     view: no
