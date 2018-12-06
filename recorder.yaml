@@ -60,3 +60,5 @@
       - sensor.netatmo_outdoor_temperature
       - sensor.netatmo_rain_sum_rain_1
       - sensor.netatmo_rain_sum_rain_24
+      - sensor.time_to_work
+      - sensor.northq_nq92021_power_reader_energy
