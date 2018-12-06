@@ -144,3 +144,10 @@ netatmo: !include netatmo.yaml
 #asuswrt: !include asuswrt.yaml
 
 timer: !include timers.yaml
+
+arlo:
+  username: !secret ar_username
+  password: !secret ar_password
+
+alarm_control_panel:
+  - platform: arlo

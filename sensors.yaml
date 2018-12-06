@@ -347,3 +347,5 @@
         - sum_rain_24
   # - platform: google_wifi
   #   host: 192.168.86.1
+
+  - platform: arlo
