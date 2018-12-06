@@ -566,13 +566,13 @@
     from: 'off'
     platform: state
     to: 'on'
-  condition: []
+  condition:
+  - condition: state
+    entity_id: timer.arbrum_motion
+    state: idle
   action:
   - data:
       entity_id: light.arbrum_skrivbord
-    service: homeassistant.turn_on
-  - data:
-      entity_id: light.tradfri_bulb_e27_ws_opal_980lm
     service: homeassistant.turn_on
   - data:
       entity_id: timer.arbrum_motion
