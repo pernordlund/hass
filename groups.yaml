@@ -11,6 +11,8 @@
       - camera.generic_camera
       - group.roger
       - group.alerts
+      - camera.arlozonefront
+      - camera.arlozoneinside
   welcome:
     name: Welcome
     view: no
@@ -58,7 +60,8 @@
       - binary_sensor.sensative_strips_sensor
       - binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor
       - binary_sensor.philio_technology_corporation_psp05_pirmotion_sensor
-      - lock.locked
+      - sensor.captured_today_arlozonefront
+      - sensor.captured_today_arlozoneinside
   security_lt:
     name: Security last trip
     view: no
@@ -68,7 +71,8 @@
       - sensor.last_trip_alarm
       - sensor.last_trip_garagedorr
       - sensor.last_trip_forradsdorr
-      - sensor.last_trip_flood
+      - sensor.sensor.last_arlozonefront
+      - sensor.sensor.last_arlozoneinside
   frontpage_sensors:
     name: Sensors
     view: no
@@ -133,6 +137,12 @@
       - group.timers
       - group.scripts
       - vacuum.roger
+      - group.arlo_alarm
+  arlo_alarm:
+    name: Arlo alarm
+    view: no
+    entities:
+      - alarm_control_panel.arlozone
   inside_downstairs:
     name: Downstairs
     view: no
@@ -288,6 +298,7 @@
       - group.system_macmini
 #      - group.system_rasp3
       - group.other_systems
+      - group.batteries
   system_macmini:
     name: Macmini values
     view: no
@@ -332,6 +343,13 @@
       - device_tracker.tradfri
       - sensor.hass_mqtt_status
       - sensor.nodered_mqtt_status
+      - sensor.signal_strength_arlozonefront
+      - sensor.signal_strength_arlozoneinside
+  batteries:
+    view: no
+    entities:
+      - sensor.battery_level_arlozonefront
+      - sensor.battery_level_arlozoneinside
   daily_sun:
     view: no
     entities:
