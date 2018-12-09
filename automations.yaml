@@ -567,8 +567,6 @@
     platform: state
     to: 'on'
   condition:
-    condition: and
-    conditions:
     - condition: state
       entity_id: timer.arbrum_motion
       state: idle
