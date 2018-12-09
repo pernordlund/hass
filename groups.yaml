@@ -373,6 +373,7 @@
   lights_alarm_on:
     name: Lights alarm on
     view: no
+    entities:
       - light.arbrum_skrivbord
       - light.tradfri_bulb_e27_ws_opal_980lm
       - light.arbrum_tak_level
