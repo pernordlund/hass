@@ -193,7 +193,7 @@
     to: not_home
   condition:
     condition: time
-    after: 05:00:00
+    after: '05:00:00'
     before: '10:00:00'
   action:
     service: notify.pelles_tfn
@@ -208,8 +208,8 @@
       entity_id: zwave.swiid
   condition:
     condition: time
-    after: 05:00:00
-    before: 08:00:00
+    after: '05:00:00'
+    before: '08:00:00'
   action:
   - service: light.toggle
     entity_id: light.koksbord_level
@@ -555,7 +555,7 @@
   condition:
     condition: time
     after: '23:00:00'
-    before: 05:00:00
+    before: '05:00:00'
   action:
   - service: switch.turn_on
     entity_id: switch.swiid_switch
@@ -567,9 +567,14 @@
     platform: state
     to: 'on'
   condition:
-  - condition: state
-    entity_id: timer.arbrum_motion
-    state: idle
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: timer.arbrum_motion
+      state: idle
+    - condition: time
+      after: '14:00:00'
+      before: '23:00:00'
   action:
   - data:
       entity_id: light.arbrum_skrivbord
