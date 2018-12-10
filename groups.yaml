@@ -101,10 +101,10 @@
       - sensor.inne_uppe_humidity
       - sensor.vinden_temperature
       - sensor.vinden_humidity
-      - sensor.netatmo_ind_temperature
-      - sensor.netatmo_ind_pressure
-      - sensor.netatmo_ind_humidity
-      - sensor.netatmo_ind_co2
+      - sensor.netatmo_indoor_temperature
+      - sensor.netatmo_indoor_pressure
+      - sensor.netatmo_indoor_humidity
+      - sensor.netatmo_indoor_co2
       - sensor.kylen_temperature
       - sensor.kylen_humidity
       - sensor.frysen_temperature
@@ -345,11 +345,17 @@
       - sensor.nodered_mqtt_status
       - sensor.signal_strength_arlozonefront
       - sensor.signal_strength_arlozoneinside
+      - sensor.netatmo_indoor_wifi
+      - sensor.netatmo_outdoor_radio
+      - sensor.netatmo_rain_radio
   batteries:
+    name: Batteries
     view: no
     entities:
       - sensor.battery_level_arlozonefront
       - sensor.battery_level_arlozoneinside
+      - sensor.netatmo_outdoor_battery
+      - sensor.netatmo_rain_battery
   daily_sun:
     view: no
     entities:
