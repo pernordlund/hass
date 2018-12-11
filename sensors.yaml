@@ -87,16 +87,24 @@
         unit_of_measurement: '%'
       philio_battery:
         friendly_name: 'Philio battery level'
-        value_template: '{{ states.zwave.philio_technology_corporation_psp05_pirmotion.battery_level }}'
+        value_template: '{{ states.zwave.philio_technology_corporation_psp05_pirmotion.attributes.battery_level }}'
         unit_of_measurement: '%'
       philio_battery:
         friendly_name: 'Smoke sensor battery level'
-        value_template: '{{ states.zwave.fibaro_system_fgsd002_smoke_sensor.battery_level }}'
+        value_template: '{{ states.zwave.fibaro_system_fgsd002_smoke_sensor.attributes.battery_level }}'
         unit_of_measurement: '%'
       allrum_battery:
         friendly_name: 'Allrum sensor battery level'
-        value_template: '{{ states.zwave.fibaro_system_fgms001zw5_motion_sensor_3.battery_level }}'
+        value_template: '{{ states.zwave.fibaro_system_fgms001zw5_motion_sensor_3.attributes.battery_level }}'
         unit_of_measurement: '%'
+      frysen_battery:
+        friendly_name: 'Frysen sensor battery level'
+        value_template: '{{states.sensor.frysen_humidity.attributes['Battery numeric']}}'
+        unit_of_measurement: '1-9'
+      oregon_f_battery:
+        friendly_name: 'Oregon F sensor battery level'
+        value_template: '{{states.sensor.inne_nere_humidity.attributes['Battery numeric']}}'
+        unit_of_measurement: '1-9'
 #      slussen:
 #        friendly_name: 'Slussenbuss'
 #        entity_id: sensor.klisatravagen
