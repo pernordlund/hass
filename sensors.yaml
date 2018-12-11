@@ -99,11 +99,11 @@
         unit_of_measurement: '%'
       frysen_battery:
         friendly_name: 'Frysen sensor battery level'
-        value_template: '{{states.sensor.frysen_humidity.attributes['Battery numeric']}}'
+        value_template: "{{states.sensor.frysen_humidity.attributes['Battery numeric']}}"
         unit_of_measurement: '1-9'
       oregon_f_battery:
         friendly_name: 'Oregon F sensor battery level'
-        value_template: '{{states.sensor.inne_nere_humidity.attributes['Battery numeric']}}'
+        value_template: "{{states.sensor.inne_nere_humidity.attributes['Battery numeric']}}"
         unit_of_measurement: '1-9'
 #      slussen:
 #        friendly_name: 'Slussenbuss'
