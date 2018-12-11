@@ -356,6 +356,12 @@
       - sensor.battery_level_arlozoneinside
       - sensor.netatmo_outdoor_battery
       - sensor.netatmo_rain_battery
+      - sensor.sensative_battery
+      - sensor.philio_battery
+      - sensor.smoke_battery
+      - sensor.allrum_battery
+      - sensor.frysen_battery
+      - sensor.oregon_f_battery
   daily_sun:
     view: no
     entities:

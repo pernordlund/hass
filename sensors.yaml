@@ -89,7 +89,7 @@
         friendly_name: 'Philio battery level'
         value_template: '{{ states.zwave.philio_technology_corporation_psp05_pirmotion.attributes.battery_level }}'
         unit_of_measurement: '%'
-      philio_battery:
+      smoke_battery:
         friendly_name: 'Smoke sensor battery level'
         value_template: '{{ states.zwave.fibaro_system_fgsd002_smoke_sensor.attributes.battery_level }}'
         unit_of_measurement: '%'
