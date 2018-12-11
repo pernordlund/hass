@@ -362,6 +362,11 @@
       - sensor.allrum_battery
       - sensor.frysen_battery
       - sensor.oregon_f_battery
+      - sensor.tradfri_remote_control
+      - sensor.vinden_battery
+      - sensor.flood_battery
+      - sensor.garage_vind_battery
+      - sensor.garage_door_battery
   daily_sun:
     view: no
     entities:

@@ -82,29 +82,45 @@
         value_template: '{{ states.vacuum.roger.attributes.battery_level }}'
         unit_of_measurement: '%'
       sensative_battery:
-        friendly_name: 'Sensative battery level'
+        friendly_name: 'Sensative battery'
         value_template: '{{ states.zwave.sensative_strips.attributes.battery_level }}'
         unit_of_measurement: '%'
       philio_battery:
-        friendly_name: 'Philio battery level'
+        friendly_name: 'Philio battery'
         value_template: '{{ states.zwave.philio_technology_corporation_psp05_pirmotion.attributes.battery_level }}'
         unit_of_measurement: '%'
       smoke_battery:
-        friendly_name: 'Smoke sensor battery level'
+        friendly_name: 'Smoke sensor battery'
         value_template: '{{ states.zwave.fibaro_system_fgsd002_smoke_sensor.attributes.battery_level }}'
         unit_of_measurement: '%'
       allrum_battery:
-        friendly_name: 'Allrum sensor battery level'
+        friendly_name: 'Allrum sensor battery'
         value_template: '{{ states.zwave.fibaro_system_fgms001zw5_motion_sensor_3.attributes.battery_level }}'
         unit_of_measurement: '%'
       frysen_battery:
-        friendly_name: 'Frysen sensor battery level'
+        friendly_name: 'Frysen sensor battery'
         value_template: "{{states.sensor.frysen_humidity.attributes['Battery numeric']}}"
-        unit_of_measurement: '1-9'
+        unit_of_measurement: 'of 9'
       oregon_f_battery:
-        friendly_name: 'Oregon F sensor battery level'
+        friendly_name: 'Oregon F sensor battery'
         value_template: "{{states.sensor.inne_nere_humidity.attributes['Battery numeric']}}"
-        unit_of_measurement: '1-9'
+        unit_of_measurement: 'of 9'
+      vinden_battery:
+        friendly_name: 'Vinden sensor battery'
+        value_template: "{{states.sensor.vinden_temperature.attributes['Battery numeric']}}"
+        unit_of_measurement: 'of 9'
+      flood_battery:
+        friendly_name: 'Flood sensor battery'
+        value_template: '{{ states.zwave.everspring_st812_flood_detector.attributes.battery_level }}'
+        unit_of_measurement: '%'
+      garage_vind_battery:
+        friendly_name: 'Garage vind sensor battery'
+        value_template: '{{ states.zwave.everspring_st814_temperature_and_humidity_sensor.attributes.battery_level }}'
+        unit_of_measurement: '%'
+      garage_door_battery:
+        friendly_name: 'Garage door sensor battery'
+        value_template: '{{ states.zwave.fibaro_system_fgk101_door_opening_sensor.attributes.battery_level }}'
+        unit_of_measurement: '%'
 #      slussen:
 #        friendly_name: 'Slussenbuss'
 #        entity_id: sensor.klisatravagen
