@@ -31,10 +31,10 @@ group.all_automations:
   friendly_name: All automations
 switch.fibaro_system_fgwpef_wall_plug_gen5_switch:
   friendly_name: Bass speaker
-switch.swiid_switch:
+light.entre_byra:
   friendly_name: Byralampa
   icon: mdi:lightbulb
-switch.telldus_tzwp100_plugin_switch_switch:
+light.livingroom_corner:
   friendly_name: Vardagrum hornlampa
   icon: mdi:lightbulb
 binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor_4:
@@ -77,7 +77,7 @@ light.koksbord_level:
 light.tradfri_bulb_e27_opal_1000lm:
   friendly_name: Vardrum soffa
   icon: mdi:lightbulb
-switch.fibaro_system_fgwpef_wall_plug_switch:
+light.arbrum_fonster:
   friendly_name: Arbrum fonster
   icon: mdi:lightbulb
 switch.badrum_uppe_switch_2:

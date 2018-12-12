@@ -1,23 +1,32 @@
-  platform: rfxtrx
-#  automatic_add: True
-  signal_repetitions: 2
-  devices:
-#    '07100101420a0150':
-#      name: Arbrum fonster
-    '0710010143030160':
-      name: Arbrum skrivbord
-#    '0710010141030150':
-#      name: Byralampa
-#      fire_event: True
-    '0710010142020170':
-      name: Sov-MoP
-    '0710010042050160':
-      name: Entre
-    '0710010144040060':
-      name: Frida skrivbord
-    '0710010143010170':
-      name: Vinden
-    '0710010142010150':
-      name: Utebelysning
-    '0710010042080150':
-      name: Ute altan
+  - platform: rfxtrx
+    automatic_add: True
+    signal_repetitions: 2
+    devices:
+  #    '07100101420a0150':
+  #      name: Arbrum fonster
+      '0710010143030160':
+        name: Arbrum skrivbord
+  #    '0710010141030150':
+  #      name: Byralampa
+  #      fire_event: True
+      '0710010142020170':
+        name: Sov-MoP
+      '0710010042050160':
+        name: Entre
+      '0710010144040060':
+        name: Frida skrivbord
+      '0710010143010170':
+        name: Vinden
+      '0710010142010150':
+        name: Utebelysning
+      '0710010042080150':
+        name: Ute altan
+  - platform: switch
+    name: arbrum_fonster
+    entity_id: switch.fibaro_system_fgwpef_wall_plug_switch
+  - platform: switch
+    name: entre_byra
+    entity_id: switch.swiid_switch
+  - platform: switch
+    name: livingroom_corner
+    entity_id: switch.telldus_tzwp100_plugin_switch_switch

@@ -39,13 +39,13 @@
       light.tradfri_bulb_e27_ws_opal_980lm:
         name: Guest room corner
         room: Guest room
-      switch.fibaro_system_fgwpef_wall_plug_switch:
+      light.arbrum_fonster:
         name: Guest room window
         room: Guest room
       switch.guest_room:
         name: Guest room lights
         room: Guest room
-      switch.swiid_switch:
+      light.entre_byra:
         name: Entrance drawer
         room: Entrance
       switch.badrum_uppe_switch_2:
@@ -75,7 +75,7 @@
       light.koksbanken_level:
         name: Kitchen bench
         room: Kitchen
-      switch.telldus_tzwp100_plugin_switch_switch:
+      light.livingroom_corner:
         name: Living room corner
         room: Living room
       light.vardrum_bord_level:
