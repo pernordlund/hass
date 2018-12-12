@@ -15,4 +15,4 @@
       tradfri: 192.168.1.45
       husdata: 192.168.1.46
       storstugan: storstugan.dyndns-server.com
-  - platform: owntracks
+#  - platform: owntracks
