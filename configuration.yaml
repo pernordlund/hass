@@ -35,9 +35,10 @@ group: !include groups.yaml
 
 http:
   # Uncomment this to add a password (recommended!)
-  api_password: !secret http_password
+  # api_password: !secret http_password
   trusted_networks:
     - 192.168.1.0/24
+    - 192.168.86.0/24
     - 127.0.0.1
 #    - 10.42.21.16/24
 #    - 192.168.1.0/24
@@ -151,3 +152,5 @@ arlo:
 
 alarm_control_panel:
   - platform: arlo
+
+owntracks:
