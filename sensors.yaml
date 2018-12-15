@@ -105,6 +105,10 @@
         friendly_name: 'Oregon F sensor battery'
         value_template: "{{states.sensor.inne_nere_humidity.attributes['Battery numeric']}}"
         unit_of_measurement: 'of 9'
+      oregon_nd_battery:
+        friendly_name: 'Oregon ND sensor battery'
+        value_template: "{{states.sensor.oregon_no_disp_humidity.attributes['Battery numeric']}}"
+        unit_of_measurement: 'of 9'
       vinden_battery:
         friendly_name: 'Vinden sensor battery'
         value_template: "{{states.sensor.vinden_temperature.attributes['Battery numeric']}}"
@@ -289,8 +293,8 @@
         name: Altan
         data_type:
          - Temperature
-      0a520100a40100e11f0259:
-        name: Inne uppe
+      0a520156ac0100d7220269:
+        name: Oregon no disp
         data_type:
          - Humidity
          - Temperature

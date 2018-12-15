@@ -367,6 +367,7 @@
       - sensor.flood_battery
       - sensor.garage_vind_battery
       - sensor.garage_door_battery
+      - sensor.oregon_nd_battery
   daily_sun:
     view: no
     entities:
