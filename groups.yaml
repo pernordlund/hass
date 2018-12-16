@@ -417,7 +417,7 @@
       - group.all_alerts
   all_alerts:
     name: All alerts
-    view: yes
+    view: no
     entities:
       - alert.forrad_door_open_long
       - alert.front_door_open_long
