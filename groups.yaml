@@ -414,6 +414,15 @@
     view: yes
     entities:
       - group.all_automations
+      - group.all_alerts
+  all_alerts:
+    name: All alerts
+    view: yes
+    entities:
+      - alert.forrad_door_open_long
+      - alert.front_door_open_long
+      - alert.garage_door_open_long
+      - alert.husdata_offline
 
 # Groups for Google home connection
   guest_room:
