@@ -92,13 +92,13 @@
     name: Climate House
     view: no
     entities:
-      - sensor.inne_nere_temperature
-      - sensor.inne_nere_humidity
+      - sensor.oregon_w_disp_temperature
+      - sensor.oregon_w_disp_humidity
       - sensor.fibaro_system_fgsd002_smoke_sensor_temperature
       - sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_4
       - sensor.fibaro_system_fgms001zw5_motion_sensor_luminance_4
-      - sensor.inne_uppe_temperature
-      - sensor.inne_uppe_humidity
+      - sensor.oregon_no_disp_temperature
+      - sensor.oregon_no_disp_humidity
       - sensor.vinden_temperature
       - sensor.vinden_humidity
       - sensor.netatmo_indoor_temperature
@@ -361,13 +361,13 @@
       - sensor.smoke_battery
       - sensor.allrum_battery
       - sensor.frysen_battery
-      - sensor.oregon_f_battery
+      - sensor.oregon_wd_battery
+      - sensor.oregon_nd_battery
       - sensor.tradfri_remote_control
       - sensor.vinden_battery
       - sensor.flood_battery
       - sensor.garage_vind_battery
       - sensor.garage_door_battery
-      - sensor.oregon_nd_battery
   daily_sun:
     view: no
     entities:

@@ -101,9 +101,9 @@
         friendly_name: 'Frysen sensor battery'
         value_template: "{{states.sensor.frysen_humidity.attributes['Battery numeric']}}"
         unit_of_measurement: 'of 9'
-      oregon_f_battery:
-        friendly_name: 'Oregon F sensor battery'
-        value_template: "{{states.sensor.inne_nere_humidity.attributes['Battery numeric']}}"
+      oregon_wd_battery:
+        friendly_name: 'Oregon WD sensor battery'
+        value_template: "{{states.sensor.oregon_w_disp.attributes['Battery numeric']}}"
         unit_of_measurement: 'of 9'
       oregon_nd_battery:
         friendly_name: 'Oregon ND sensor battery'
@@ -280,7 +280,7 @@
     automatic_add: True
     devices:
       0a520201050100cf200269:
-        name: Inne nere
+        name: Oregon w disp
         data_type:
          - Humidity
          - Temperature
