@@ -293,8 +293,13 @@
         name: Altan
         data_type:
          - Temperature
-      0a520156ac0100d7220269:
+      0a5201963a0100de200279:
         name: Oregon no disp
+        data_type:
+         - Humidity
+         - Temperature
+      0a52019ae60100e3200279:
+        name: Oregon no disp 2
         data_type:
          - Humidity
          - Temperature

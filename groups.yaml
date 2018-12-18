@@ -99,6 +99,8 @@
       - sensor.fibaro_system_fgms001zw5_motion_sensor_luminance_4
       - sensor.oregon_no_disp_temperature
       - sensor.oregon_no_disp_humidity
+      - sensor.oregon_no_disp_2_temperature
+      - sensor.oregon_no_disp_2_humidity
       - sensor.vinden_temperature
       - sensor.vinden_humidity
       - sensor.netatmo_indoor_temperature
