@@ -53,7 +53,7 @@ light.tradfri_bulb_e27_ws_opal_980lm:
   friendly_name: Arbrum horn
 light.vardrum_bord_level:
   friendly_name: Vardrum bord
-switch.popp__duwi_zw_zsa_3500_plugin_switch_switch:
+switch.popp_duwi_zw_zsa_3500_plugin_switch_switch:
   friendly_name: Garage el Rogers laddare
 sensor.everspring_st814_temperature_and_humidity_sensor_temperature:
   friendly_name: Garagevinden temp

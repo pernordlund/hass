@@ -188,7 +188,7 @@
       - switch.kamera
       - switch.sensor_badrum
       - switch.fibaro_system_fgwpef_wall_plug_gen5_switch_2
-      - switch.popp__duwi_zw_zsa_3500_plugin_switch_switch
+      - switch.popp_duwi_zw_zsa_3500_plugin_switch_switch
   timers:
     name: Timers
     view: no
@@ -243,8 +243,8 @@
       - sensor.bvbrine_outcondenser
       - sensor.bvheat_carrier_forwrd
       - sensor.bvheat_carrier_return
-      - sensor.bvhot_gas__compr
-      - sensor.bvhot_water_1__top
+      - sensor.bvhot_gas_compr
+      - sensor.bvhot_water_1_top
       - sensor.bvoutdoor
       - sensor.bvradiator_return
       - sensor.radiator_return
