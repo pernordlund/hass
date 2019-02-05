@@ -39,10 +39,6 @@ http:
   trusted_networks:
     - 192.168.1.0/24
     - 192.168.86.0/24
-    - 127.0.0.1
-#    - 10.42.21.16/24
-#    - 192.168.1.0/24
-#    - 10.42.21.16/24
 # Uncomment this if you are using SSL or running in Docker etc
   base_url: hass.panitco.se
 
@@ -91,7 +87,7 @@ media_player: !include media_players.yaml
 
 device_tracker: !include devices.yaml
 
-mqtt: !include mqtt.yaml
+#mqtt: !include mqtt.yaml
 #mqtt:
 
 camera: !include cameras.yaml
