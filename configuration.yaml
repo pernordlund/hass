@@ -151,3 +151,5 @@ alarm_control_panel:
     home_mode_name: Home
 
 owntracks:
+
+system_health:
