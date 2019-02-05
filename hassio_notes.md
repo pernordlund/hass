@@ -18,6 +18,6 @@ systemctl stop hassio-supervisor.service
 # Start (not needed first time)
 
 ```bash
-systemctl start hassio-apparmor.service
+systemctl start hassio-apparmor.service && \
 systemctl start hassio-supervisor.service
 ```
