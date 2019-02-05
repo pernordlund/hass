@@ -257,15 +257,15 @@
   action:
   - service: homeassistant.toggle
     entity_id: switch.telldus_tzwp100_plugin_switch_switch
-- id: A023
-  alias: Entrelampan autoslack
-  trigger:
-    platform: time
-    minutes: /15
-    seconds: 0
-  action:
-  - service: light.turn_off
-    entity_id: light.entre
+# - id: A023
+#   alias: Entrelampan autoslack
+#   trigger:
+#     platform: time
+#     minutes: /15
+#     seconds: 0
+#   action:
+#   - service: light.turn_off
+#     entity_id: light.entre
 - id: A024
   alias: X - Notify Pelle to work
   initial_state: 'off'
