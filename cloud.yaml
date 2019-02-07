@@ -1,8 +1,5 @@
   google_actions:
     filter:
-      include_entities:
-        - light.kitchen
-        - light.kitchen_left
       include_domains:
         - script
         - climate
@@ -29,11 +26,14 @@
         - switch.vagg_vardrum
         - switch.vit_fjarr_1
         - switch.vit_fjarr_3
+        - switch.telldus_tzwp_100_plug_in_switch_switch
     entity_config:
+
+#Guest room
       light.arbrum_skrivbord:
         name: Guest room desk
         room: Guest room
-      light.arbrum_tak_level:
+      light.fibaro_system_fgd211_universal_dimmer_500w_level:
         name: Guest room ceiling
         room: Guest room
       light.tradfri_bulb_e27_ws_opal_980lm:
@@ -42,25 +42,24 @@
       light.arbrum_fonster:
         name: Guest room window
         room: Guest room
-      switch.guest_room:
-        name: Guest room lights
-        room: Guest room
-      light.entre_byra:
-        name: Entrance drawer
-        room: Entrance
+
       switch.badrum_uppe_switch_2:
         name: Bathroom ceiling
         room: Bathroom upstairs
       switch.badrum_uppe_switch:
         name: Sauna
         room: Bathroom upstairs
-      light.entre:
-        name: Front door
-        room: Outside front
-      light.hall_tak_level:
+
+#Entrance
+      light.fibaro_system_fgd211_universal_dimmer_500w_level_3:
         name: Entrance ceiling
         room: Entrance
-      light.frida_tak_level:
+      light.entre_byra:
+        name: Entrance drawer
+        room: Entrance
+
+#Frida
+      light.fibaro_system_fgd211_universal_dimmer_500w_level_6:
         name: Frida ceiling
         room: Fridas
       light.frida_skrivbord:
@@ -69,35 +68,57 @@
       light.sovmop:
         name: Bedroom
         room: Bedroom
-      light.allrum_tak_level:
+
+#Play room
+      light.fibaro_system_fgd211_universal_dimmer_500w_level_5:
         name: Play room ceiling
         room: Play room
-      light.koksbanken_level:
-        name: Kitchen bench
-        room: Kitchen
+
+#Living room
       light.livingroom_corner:
         name: Living room corner
         room: Living room
-      light.vardrum_bord_level:
+      light.fibaro_system_fgd211_universal_dimmer_500w_level_2:
         name: Living room table
         room: Living room
-      light.koksbord_level:
-        name: Kitchen table
-        room: Kitchen
-      light.tradfri_bulb_e27_opal_1000lm:
+      light.sofa:
         name: Living room sofa
         room: Living room
+
+#Kitchen
+      light.fibaro_system_fgd211_universal_dimmer_500w_level_4:
+        name: Kitchen table
+        room: Kitchen
+
+#Porch
       light.ute_altan:
         name: Porch
         room: Outside
+
+#Outside front
       light.utebelysning:
         name: Tree
         room: Outside front
+      light.entre:
+        name: Front door
+        room: Outside front
+
+#Attic
       light.vinden:
         name: Attic
         room: Attic
+
+#Media
       switch.fibaro_system_fgwpef_wall_plug_gen5_switch:
         room: Media devices
+
+#Climate
       climate.downstairs:
         name: Downstairs temperature
+        room: Climate devices
+      climate.outside:
+        name: Outside temperature
+        room: Climate devices
+      climate.upstairs:
+        name: Upstairs temperature
         room: Climate devices
