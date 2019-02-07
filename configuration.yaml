@@ -53,16 +53,16 @@ discovery:
 #conversation:
 #dialogflow:
 
-#recorder: !include recorder.yaml
+recorder: !include recorder.yaml
 
 # Enables support for tracking state changes over time.
-#history:
+history:
 
 logger:
   default: warning
 
 # View all events in a logbook
-#logbook:
+logbook:
 
 # Track the sun
 sun:
@@ -115,7 +115,8 @@ input_select: !include input_selects.yaml
 
 input_number: !include input_numbers.yaml
 
-influxdb: !include influxdb.yaml
+influxdb:
+#influxdb: !include influxdb.yaml
 
 script: !include scripts.yaml
 
@@ -152,4 +153,4 @@ alarm_control_panel:
 
 owntracks:
 
-system_health:
+#system_health:
