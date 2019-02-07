@@ -133,3 +133,11 @@ zwave.fibaro_system_fgk101_door_opening_sensor:
   friendly_name: Garage Door
 binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor:
   friendly_name: Garage door open
+binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor:
+  friendly_name: Allrum rorelse
+binary_sensor.philio_technology_corporation_psp05_pir_motion_sensor:
+  friendly_name: Guest room motion
+zwave.fibaro_system_fgd211_universal_dimmer_500w:
+  friendly_name: Guest room ceiling
+light.fibaro_system_fgd211_universal_dimmer_500w_level:
+  friendly_name: Guest room ceiling
