@@ -193,7 +193,7 @@
     to: not_home
   condition:
     condition: time
-    after: '05:00:00'
+    after: 05:00:00
     before: '10:00:00'
   action:
     service: notify.pelles_tfn
@@ -208,8 +208,8 @@
       entity_id: zwave.swiid
   condition:
     condition: time
-    after: '05:00:00'
-    before: '08:00:00'
+    after: 05:00:00
+    before: 08:00:00
   action:
   - service: light.toggle
     entity_id: light.koksbord_level
@@ -257,15 +257,6 @@
   action:
   - service: homeassistant.toggle
     entity_id: switch.telldus_tzwp100_plugin_switch_switch
-# - id: A023
-#   alias: Entrelampan autoslack
-#   trigger:
-#     platform: time
-#     minutes: /15
-#     seconds: 0
-#   action:
-#   - service: light.turn_off
-#     entity_id: light.entre
 - id: A024
   alias: X - Notify Pelle to work
   initial_state: 'off'
@@ -555,24 +546,24 @@
   condition:
     condition: time
     after: '23:00:00'
-    before: '05:00:00'
+    before: 05:00:00
   action:
   - service: switch.turn_on
     entity_id: switch.swiid_switch
 - id: '1544037641675'
   alias: Arbrum on motion
   trigger:
-  - entity_id: binary_sensor.philio_technology_corporation_psp05_pirmotion_sensor
+  - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor
     from: 'off'
     platform: state
     to: 'on'
   condition:
-    - condition: state
-      entity_id: timer.arbrum_motion
-      state: idle
-    - condition: time
-      after: '14:00:00'
-      before: '23:00:00'
+  - condition: state
+    entity_id: timer.arbrum_motion
+    state: idle
+  - after: '14:00:00'
+    before: '23:00:00'
+    condition: time
   action:
   - data:
       entity_id: light.arbrum_skrivbord
