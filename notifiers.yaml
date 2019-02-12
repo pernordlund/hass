@@ -3,9 +3,9 @@
     api_key: !secret pb_api_key
   - name: work_log
     platform: file
-    filename: /data/a_work_log.txt
+    filename: /share/a_work_log.txt
     timestamp: True
   - name: jenny_log
     platform: file
-    filename: /data/b_jenny_log.txt
+    filename: /share/b_jenny_log.txt
     timestamp: True
