@@ -29,15 +29,17 @@
 - id: A003
   alias: Vardrum sofflampa on when white remote no 1 is pressed
   trigger:
-    platform: event
-    event_type: button_pressed
-    event_data:
+  - event_data:
       entity_id: switch.vit_fjarr_1
+    event_type: button_pressed
+    platform: event
   action:
-  - service: homeassistant.toggle
-    entity_id: light.tradfri_bulb_e27_opal_1000lm
-  - service: homeassistant.toggle
+  - entity_id: light.tradfri_bulb_e27_opal_1000lm
+    service: homeassistant.toggle
+  - data:
+      entity_id: light.sofa
     entity_id: light.domitech_smart_led_retrofit_kit_ze27eu_level
+    service: homeassistant.toggle
 - id: A004
   alias: Vardrum hornlampa on when white remote no 3 is pressed
   trigger:
@@ -475,20 +477,6 @@
   - service: notify.pelles_tfn
     data_template:
       message: '{{ states("sensor.time") }} - Logged to OKQ8 - Life'
-# - id: A044
-#   alias: X - Log Pelle to work - Life
-#   trigger:
-#     platform: state
-#     entity_id: device_tracker.per_per
-#     to: OKQ8
-#   action:
-#   - service: shell_command.log_to_okq8
-#   - service: notify.work_log
-#     data_template:
-#       message: '{{ states("sensor.time") }} - Logged to OKQ8 - Life'
-#   - service: notify.pelles_tfn
-#     data_template:
-#       message: '{{ states("sensor.time") }} - Logged to OKQ8 - Life'
 - id: A045
   alias: X - Log Pelle leave work - Life
   trigger:
