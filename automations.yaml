@@ -34,11 +34,8 @@
     event_type: button_pressed
     platform: event
   action:
-  - entity_id: light.tradfri_bulb_e27_opal_1000lm
-    service: homeassistant.toggle
   - data:
       entity_id: light.sofa
-    entity_id: light.domitech_smart_led_retrofit_kit_ze27eu_level
     service: homeassistant.toggle
 - id: A004
   alias: Vardrum hornlampa on when white remote no 3 is pressed
