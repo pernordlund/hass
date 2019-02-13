@@ -14,18 +14,6 @@
     data:
       entity_id: media_player.living_room_speaker
       message: Front door opened
-- id: A002
-  alias: Vardrum sofflampa on when wall switch is turned
-  trigger:
-    platform: event
-    event_type: button_pressed
-    event_data:
-      entity_id: switch.vagg_vardrum
-  action:
-  - service: homeassistant.toggle
-    entity_id: light.domitech_smart_led_retrofit_kit_ze27eu_level
-  - service: homeassistant.toggle
-    entity_id: light.tradfri_bulb_e27_opal_1000lm
 - id: A003
   alias: Vardrum sofflampa on when white remote no 1 is pressed
   trigger:
@@ -46,7 +34,8 @@
       entity_id: switch.vit_fjarr_3
   action:
   - service: homeassistant.toggle
-    entity_id: switch.telldus_tzwp100_plugin_switch_switch
+    data:
+      entity_id: light.livingroom_corner
 - id: A005
   alias: 0 - All lights off when multifjarr6 is pressed
   trigger:
