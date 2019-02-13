@@ -10,10 +10,6 @@
   - service: notify.pelles_tfn
     data_template:
       message: '{{ states("sensor.time") }} - Ytterdorr opened'
-  - service: tts.google_say
-    data:
-      entity_id: media_player.living_room_speaker
-      message: Front door opened
 - id: A003
   alias: Vardrum sofflampa on when white remote no 1 is pressed
   trigger:
@@ -36,26 +32,26 @@
   - service: homeassistant.toggle
     data:
       entity_id: light.livingroom_corner
-- id: A005
-  alias: 0 - All lights off when multifjarr6 is pressed
-  trigger:
-    platform: event
-    event_type: button_pressed
-    event_data:
-      entity_id: switch.multifjarr6
-  action:
-  - service: scene.turn_on
-    entity_id: scene.godnatt
-- id: A006
-  alias: 0 - All Pelles lights on when multifjarr9 is pressed
-  trigger:
-    platform: event
-    event_type: button_pressed
-    event_data:
-      entity_id: switch.multifjarr9
-  action:
-    service: homeassistant.turn_on
-    entity_id: group.lights_pelle
+# - id: A005
+#   alias: 0 - All lights off when multifjarr6 is pressed
+#   trigger:
+#     platform: event
+#     event_type: button_pressed
+#     event_data:
+#       entity_id: switch.multifjarr6
+#   action:
+#   - service: scene.turn_on
+#     entity_id: scene.godnatt
+# - id: A006
+#   alias: 0 - All Pelles lights on when multifjarr9 is pressed
+#   trigger:
+#     platform: event
+#     event_type: button_pressed
+#     event_data:
+#       entity_id: switch.multifjarr9
+#   action:
+#     service: homeassistant.turn_on
+#     entity_id: group.lights_pelle
 - id: A007
   alias: 0 - All lights off when night
   trigger:
@@ -64,8 +60,6 @@
   action:
   - service: scene.turn_on
     entity_id: scene.godnatt
-  - service: homeassistant.turn_off
-    entity_id: light.vardrum_bord_level
 - id: A008
   alias: 0 - Some lights off at sunrise
   trigger:

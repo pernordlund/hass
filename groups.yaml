@@ -1,3 +1,9 @@
+#Groups to check
+#inside_downstairs
+#inside_upstairs
+#lights_pelle
+#lights_alarm_on
+
 #Group config
   default_view:
     name: Overview
