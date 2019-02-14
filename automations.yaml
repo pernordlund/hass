@@ -80,28 +80,6 @@
   - service: notify.pelles_tfn
     data_template:
       message: '{{ states("sensor.time") }} - Daily sunset triggered'
-- id: A010
-  alias: X - Notifiy okand_0
-  trigger:
-    platform: event
-    event_type: button_pressed
-    event_data:
-      entity_id: switch.okand_0
-  action:
-    service: notify.pelles_tfn
-    data:
-      message: Okand 0 pressed
-- id: A011
-  alias: X - Notifiy okand_1
-  trigger:
-    platform: event
-    event_type: button_pressed
-    event_data:
-      entity_id: switch.okand_1
-  action:
-    service: notify.pelles_tfn
-    data:
-      message: Okand 1 pressed
 - id: A012
   alias: Alarm activation message
   trigger:
@@ -476,7 +454,7 @@
   initial_state: 'on'
   trigger:
     platform: state
-    entity_id: binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor
+    entity_id: binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_2
     to: 'on'
   action:
   - service: homeassistant.turn_on
@@ -486,7 +464,7 @@
   initial_state: 'on'
   trigger:
     platform: state
-    entity_id: binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor
+    entity_id: binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_2
     to: 'off'
   action:
   - service: homeassistant.turn_off
