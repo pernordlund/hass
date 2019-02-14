@@ -6,17 +6,17 @@ configurator.plex_media_server:
   hidden: true
 camera.generic_camera:
   friendly_name: Living room
-light.arbrum_tak_level:
+light.fibaro_system_fgd211_universal_dimmer_500w_level:
   friendly_name: Arbrum tak
 light.arbrum_skrivbord:
   assumed_state: false
-light.frida_tak_level:
+light.fibaro_system_fgd211_universal_dimmer_500w_level_6:
   friendly_name: Frida tak
 light.frida_skrivbord:
   assumed_state: false
-light.sovmop:
+light.sov_mop:
   assumed_state: false
-light.allrum_tak_level:
+light.fibaro_system_fgd211_universal_dimmer_500w_level_5:
   friendly_name: Allrum
 light.entre:
   assumed_state: false
@@ -49,9 +49,9 @@ binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor:
   friendly_name: Avlarmat
 switch.fibaro_system_fgwpef_wall_plug_gen5_switch_2:
   friendly_name: Pelles laddare
-light.tradfri_bulb_e27_ws_opal_980lm:
+light.guestroom_red:
   friendly_name: Arbrum horn
-light.vardrum_bord_level:
+light.fibaro_system_fgd211_universal_dimmer_500w_level_2:
   friendly_name: Vardrum bord
 switch.popp_duwi_zw_zsa_3500_plugin_switch_switch:
   friendly_name: Garage el Rogers laddare
@@ -67,23 +67,23 @@ sensor.everspring_st812_flood_detector_flood:
   friendly_name: Oversvammning disk
 sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_4:
   friendly_name: Allrum temp
-light.hall_tak_level:
+light.fibaro_system_fgd211_universal_dimmer_500w_level_3:
   friendly_name: Hallampa
-switch.klk_nere_switch:
+switch.fibaro_system_fgs211_switch_3kw_switch:
   friendly_name: Klk nere
   icon: mdi:lightbulb
-light.koksbord_level:
+light.fibaro_system_fgd211_universal_dimmer_500w_level_4:
   friendly_name: Koksbord
-light.tradfri_bulb_e27_opal_1000lm:
+light.sofa:
   friendly_name: Vardrum soffa
   icon: mdi:lightbulb
 light.arbrum_fonster:
   friendly_name: Arbrum fonster
   icon: mdi:lightbulb
-switch.badrum_uppe_switch_2:
+switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch_2:
   friendly_name: Badrum
   icon: mdi:lightbulb
-switch.badrum_uppe_switch:
+switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch:
   friendly_name: Bastu
   icon: mdi:lightbulb
 sensor.last_trip_allrum:

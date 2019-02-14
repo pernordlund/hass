@@ -194,7 +194,7 @@
     before: 08:00:00
   action:
   - service: light.toggle
-    entity_id: light.koksbord_level
+    entity_id: light.fibaro_system_fgd211_universal_dimmer_500w_level_4
 - id: A019
   alias: Arbrum fonsterlampa from wall
   trigger:
@@ -259,13 +259,13 @@
     to: 'on'
   action:
     service: homeassistant.turn_on
-    entity_id: switch.badrum_uppe_switch_2
+    entity_id: switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch_2
 - id: A026
   alias: Badrum auto off timer
   initial_state: 'on'
   trigger:
     platform: state
-    entity_id: switch.badrum_uppe_switch_2
+    entity_id: switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch_2
     to: 'on'
   action:
     service: homeassistant.turn_on
@@ -285,7 +285,7 @@
   alias: Klk off 5 min after on
   trigger:
     platform: state
-    entity_id: switch.klk_nere_switch
+    entity_id: switch.fibaro_system_fgs211_switch_3kw_switch
     to: 'on'
   action:
     service: homeassistant.turn_on
@@ -531,7 +531,7 @@
     before: 05:00:00
   action:
   - service: switch.turn_on
-    entity_id: switch.swiid_switch
+    entity_id: switch.swiid_swiidinter_switch
 - id: '1544037641675'
   alias: Arbrum on motion
   trigger:

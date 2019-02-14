@@ -1,7 +1,4 @@
 #Groups to check
-#inside_downstairs
-#inside_upstairs
-#lights_pelle
 #lights_alarm_on
 
 #Group config
@@ -157,27 +154,25 @@
     entities:
       - light.arbrum_fonster
       - light.arbrum_skrivbord
-      - light.tradfri_bulb_e27_ws_opal_980lm
-      - light.arbrum_tak_level
+      - light.guestroom_red
+      - light.fibaro_system_fgd211_universal_dimmer_500w_level
       - light.entre_byra
-      - light.tradfri_bulb_e14_ws_opal_400lm
-      - light.hall_tak_level
-      - switch.klk_nere_switch
-      - light.koksbanken_level
-      - light.koksbord_level
-      - light.sovmop
+      - light.fibaro_system_fgd211_universal_dimmer_500w_level_3
+      - switch.fibaro_system_fgs211_switch_3kw_switch
+      - light.fibaro_system_fgd211_universal_dimmer_500w_level_4
+      - light.sov_mop
       - light.livingroom_corner
-      - light.tradfri_bulb_e27_opal_1000lm
-      - light.vardrum_bord_level
+      - light.sofa
+      - light.fibaro_system_fgd211_universal_dimmer_500w_level_2
   inside_upstairs:
     name: Upstairs
     view: no
     entities:
-      - light.allrum_tak_level
-      - switch.badrum_uppe_switch_2
-      - switch.badrum_uppe_switch
+      - light.fibaro_system_fgd211_universal_dimmer_500w_level_5
+      - switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch_2
+      - switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch
       - light.frida_skrivbord
-      - light.frida_tak_level
+      - light.fibaro_system_fgd211_universal_dimmer_500w_level_6
       - light.vinden
   outside:
     name: Outside
@@ -379,21 +374,20 @@
   daily_sun:
     view: no
     entities:
-      - light.allrum_tak_level
-      - switch.swiid_switch
-      - light.sovmop
+      - light.fibaro_system_fgd211_universal_dimmer_500w_level_5
+      - switch.swiid_swiidinter_switch
+      - light.sov_mop
       - switch.telldus_tzwp100_plugin_switch_switch
       - light.utebelysning
       - light.ute_altan
-      - light.tradfri_bulb_e27_ws_opal_980lm
-      - light.koksbanken_level
-      - light.tradfri_bulb_e27_opal_1000lm
+      - light.guestroom_red
+      - light.sofa
   lights_pelle:
     name: Lights Pelle
     view: no
     entities:
-      - switch.swiid_switch
-      - light.sovmop
+      - switch.swiid_swiidinter_switch
+      - light.sov_mop
       - switch.telldus_tzwp100_plugin_switch_switch
       - switch.fibaro_system_fgwpef_wall_plug_switch
   lights_alarm_on:
@@ -401,21 +395,21 @@
     view: no
     entities:
       - light.arbrum_skrivbord
-      - light.tradfri_bulb_e27_ws_opal_980lm
-      - light.arbrum_tak_level
-      - switch.swiid_switch
+      - light.guestroom_red
+      - light.fibaro_system_fgd211_universal_dimmer_500w_level
+      - switch.swiid_swiidinter_switch
       - light.tradfri_bulb_e14_ws_opal_400lm
-      - light.hall_tak_level
-      - switch.klk_nere_switch
-      - light.koksbord_level
-      - light.sovmop
-      - light.tradfri_bulb_e27_opal_1000lm
-      - light.vardrum_bord_level
-      - light.allrum_tak_level
-      - switch.badrum_uppe_switch_2
-      - switch.badrum_uppe_switch
+      - light.fibaro_system_fgd211_universal_dimmer_500w_level_3
+      - switch.fibaro_system_fgs211_switch_3kw_switch
+      - light.fibaro_system_fgd211_universal_dimmer_500w_level_4
+      - light.sov_mop
+      - light.sofa
+      - light.fibaro_system_fgd211_universal_dimmer_500w_level_2
+      - light.fibaro_system_fgd211_universal_dimmer_500w_level_5
+      - switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch_2
+      - switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch
       - light.frida_skrivbord
-      - light.frida_tak_level
+      - light.fibaro_system_fgd211_universal_dimmer_500w_level_6
       - light.vinden
   automations:
     name: Automations
@@ -438,12 +432,12 @@
     view: no
     entities:
       - light.arbrum_skrivbord
-      - light.tradfri_bulb_e27_ws_opal_980lm
+      - light.guestroom_red
       - switch.fibaro_system_fgwpef_wall_plug_switch
   living_room:
     name: Living room
     view: no
     entities:
-      - light.vardrum_bord_level
+      - light.fibaro_system_fgd211_universal_dimmer_500w_level_2
       - switch.telldus_tzwp100_plugin_switch_switch
-      - light.tradfri_bulb_e27_opal_1000lm
+      - light.sofa
