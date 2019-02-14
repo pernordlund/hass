@@ -87,7 +87,7 @@
         unit_of_measurement: '%'
       philio_battery:
         friendly_name: 'Philio battery'
-        value_template: '{{ states.zwave.philio_technology_corporation_psp05_pirmotion.attributes.battery_level }}'
+        value_template: '{{ states.zwave.philio_technology_corporation_psp05_pir_motion.attributes.battery_level }}'
         unit_of_measurement: '%'
       smoke_battery:
         friendly_name: 'Smoke sensor battery'
@@ -95,7 +95,7 @@
         unit_of_measurement: '%'
       allrum_battery:
         friendly_name: 'Allrum sensor battery'
-        value_template: '{{ states.zwave.fibaro_system_fgms001zw5_motion_sensor_3.attributes.battery_level }}'
+        value_template: '{{ states.zwave.fibaro_system_fgms001_zw5_motion_sensor.attributes.battery_level }}'
         unit_of_measurement: '%'
       frysen_battery:
         friendly_name: 'Frysen sensor battery'
@@ -103,7 +103,7 @@
         unit_of_measurement: 'of 9'
       oregon_wd_battery:
         friendly_name: 'Oregon WD sensor battery'
-        value_template: "{{states.sensor.oregon_w_disp.attributes['Battery numeric']}}"
+        value_template: "{{states.sensor.oregon_w_disp_temperature.attributes['Battery numeric']}}"
         unit_of_measurement: 'of 9'
       oregon_nd_battery:
         friendly_name: 'Oregon ND sensor battery'
