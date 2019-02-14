@@ -25,7 +25,7 @@ views:
         # The picture entity card will represent an entity with a picture
       - type: picture-entity
         image: https://www.home-assistant.io/images/default-social.png
-        entity: light.sovmop
+        entity: light.sov_mop
 
     # Specify a tab icon if you want the view tab to be an icon.
   - icon: mdi:home-assistant
@@ -39,9 +39,9 @@ views:
         # The entities here will be shown in the same order as specified.
         # Each entriy is an entity ID or a map with extra options.
         entities:
-          - light.vardrum_bord_level
+          - light.fibaro_system_fgd211_universal_dimmer_500w_level_2
           - light.arbrum_skrivbord
-          - entity: light.vardrum_bord_level
+          - entity: light.fibaro_system_fgd211_universal_dimmer_500w_level_2
             # Override the name to use
             name: Living room table
 

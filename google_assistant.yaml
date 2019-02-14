@@ -10,25 +10,25 @@
     - switch
     - group
   entity_config:
-    light.arbrum_tak_level:
+    light.fibaro_system_fgd211_universal_dimmer_500w_level:
       name: Guest room ceiling
-    light.frida_tak_level:
+    light.fibaro_system_fgd211_universal_dimmer_500w_level_6:
       name: Frida ceiling
     light.frida_skrivbord:
       name: Frida desk
-    light.sovmop:
+    light.sov_mop:
       name: Bedroom
-    light.allrum_tak_level:
+    light.fibaro_system_fgd211_universal_dimmer_500w_level_5:
       name: Play room ceiling
     light.koksbanken_level:
       name: Kitchen bench
     switch.telldus_tzwp100_plugin_switch_switch:
       name: Living room corner
-    light.vardrum_bord_level:
+    light.fibaro_system_fgd211_universal_dimmer_500w_level_2:
       name: Living room table
-    light.koksbord_level:
+    light.fibaro_system_fgd211_universal_dimmer_500w_level_4:
       name: Kitchen table
-    light.tradfri_bulb_e27_opal_1000lm:
+    light.sofa:
       name: Living room sofa
     group.outside:
       name: Outside lights

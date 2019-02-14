@@ -14,7 +14,7 @@
     sequence:
       - delay: '00:{{ states.input_number.klk_timer.state | int }}:00'
       - service: homeassistant.turn_off
-        entity_id: switch.klk_nere_switch
+        entity_id: switch.fibaro_system_fgs211_switch_3kw_switch
   timed_badrum:
     alias: "Set Badrum Timer"
     sequence:
@@ -31,7 +31,7 @@
     sequence:
       - delay: '00:{{ states.input_number.badrum_timer.state | int }}:00'
       - service: homeassistant.turn_off
-        entity_id: switch.badrum_uppe_switch_2
+        entity_id: switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch_2
   daily_midnight:
     alias: "Daily midnight scripts"
     sequence:
