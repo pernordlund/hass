@@ -60,6 +60,8 @@ history:
 
 logger:
   default: warning
+#  logs:
+#    homeassistant.components.zwave: debug
 
 # View all events in a logbook
 logbook:
