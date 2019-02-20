@@ -10,11 +10,13 @@
       - input_number
 #      - sensor
     entities:
-      - sensor.inne_nere_temperature
-      - sensor.inne_nere_humidity
+      - sensor.oregon_w_disp_temperature
+      - sensor.oregon_w_disp_humidity
+      - sensor.oregon_no_disp_humidity
+      - sensor.oregon_no_disp_temperature
       - sensor.fibaro_system_fgsd002_smoke_sensor_temperature
       - sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_4
-      - sensor.fibaro_system_fgms001zw5_motion_sensor_luminance_4
+      - sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance
       - sensor.inne_uppe_temperature
       - sensor.inne_uppe_humidity
       - sensor.vinden_temperature
@@ -27,7 +29,7 @@
       - sensor.everspring_st814_temperature_and_humidity_sensor_temperature
       - sensor.everspring_st814_temperature_and_humidity_sensor_relative_humidity
       - sensor.altan_temperature
-      - sensor.bvoutdoor
+      - sensor.bv_outdoor
       - sensor.bvbrine_inevaporator
       - sensor.bvbrine_outcondenser
       - sensor.bvfree_mem

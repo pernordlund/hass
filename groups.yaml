@@ -126,7 +126,7 @@
     view: no
     entities:
       - sensor.altan_temperature
-      - sensor.bvoutdoor
+      - sensor.bv_outdoor
       - sensor.netatmo_outdoor_humidity
       - sensor.netatmo_outdoor_temperature
       - sensor.netatmo_rain_sum_rain_1
@@ -246,7 +246,7 @@
       - sensor.bvheat_carrier_return
       - sensor.bvhot_gas_compr
       - sensor.bvhot_water_1_top
-      - sensor.bvoutdoor
+      - sensor.bv_outdoor
       - sensor.bvradiator_return
       - sensor.radiator_return
       - binary_sensor.bvadd_heat_step_1
