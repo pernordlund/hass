@@ -133,7 +133,7 @@
   initial_state: 'on'
   trigger:
     platform: state
-    entity_id: device_tracker.pelle_gps
+    entity_id: device_tracker.per_per
     from: not_home
     to: home
   condition:
@@ -141,8 +141,9 @@
     after: '14:00:00'
     before: '20:00:00'
   action:
-  - service: homeassistant.turn_on
-    entity_id: group.lights_pelle
+  - data:
+      entity_id: group.lights_pelle
+    service: homeassistant.turn_on
 - id: A017
   alias: X - Send bus schedule when Pelle leaves
   initial_state: 'off'
