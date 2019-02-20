@@ -32,26 +32,6 @@
   - service: homeassistant.toggle
     data:
       entity_id: light.livingroom_corner
-# - id: A005
-#   alias: 0 - All lights off when multifjarr6 is pressed
-#   trigger:
-#     platform: event
-#     event_type: button_pressed
-#     event_data:
-#       entity_id: switch.multifjarr6
-#   action:
-#   - service: scene.turn_on
-#     entity_id: scene.godnatt
-# - id: A006
-#   alias: 0 - All Pelles lights on when multifjarr9 is pressed
-#   trigger:
-#     platform: event
-#     event_type: button_pressed
-#     event_data:
-#       entity_id: switch.multifjarr9
-#   action:
-#     service: homeassistant.turn_on
-#     entity_id: group.lights_pelle
 - id: A007
   alias: 0 - All lights off when night
   trigger:
@@ -544,3 +524,21 @@
   - data:
       message: No motion in arbrum
     service: notify.pelles_tfn
+- id: '1550438266481'
+  alias: Allrum on when dark
+  trigger:
+  - below: '6'
+    entity_id: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance
+    platform: numeric_state
+  - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - after: '15:00:00'
+    before: '23:00:00'
+    condition: time
+  action:
+  - data:
+      entity_id: light.fibaro_system_fgd211_universal_dimmer_500w_level_5
+    service: light.turn_on
