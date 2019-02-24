@@ -432,24 +432,26 @@
       message: '{{ states("sensor.time") }} - Logged leave OKQ8 - Life'
 - id: A046
   alias: Garage light on when door opens
-  initial_state: 'on'
   trigger:
+  - entity_id: binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_2
     platform: state
-    entity_id: binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_2
     to: 'on'
   action:
-  - service: homeassistant.turn_on
-    entity_id: switch.popp_duwi_zw_zsa_3500_plugin_switch_switch
+  - data:
+      entity_id: switch.popp_duwi_zw_zsa_3500_plugin_switch_switch
+    service: homeassistant.turn_on
+  initial_state: 'on'
 - id: A047
   alias: Garage light off when door closes
-  initial_state: 'on'
   trigger:
+  - entity_id: binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_2
     platform: state
-    entity_id: binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_2
     to: 'off'
   action:
-  - service: homeassistant.turn_off
-    entity_id: switch.popp_duwi_zw_zsa_3500_plugin_switch_switch
+  - data:
+      entity_id: switch.popp_duwi_zw_zsa_3500_plugin_switch_switch
+    service: homeassistant.turn_off
+  initial_state: 'on'
 - id: A047
   alias: X - Log Jenny leaving home - Life
   trigger:
