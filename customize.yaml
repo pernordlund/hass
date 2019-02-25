@@ -131,7 +131,7 @@ sensor.fibaro_system_fgk101_door_opening_sensor_temperature:
   friendly_name: Garage door temperature
 zwave.fibaro_system_fgk101_door_opening_sensor:
   friendly_name: Garage Door
-binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor:
+binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_2:
   friendly_name: Garage door open
 binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor:
   friendly_name: Allrum rorelse
