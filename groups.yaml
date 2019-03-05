@@ -172,6 +172,7 @@
       - switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch_2
       - switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch
       - light.frida_skrivbord
+      - light.fridas_bed
       - light.fibaro_system_fgd211_universal_dimmer_500w_level_6
       - light.vinden
   outside:
@@ -409,6 +410,7 @@
       - switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch_2
       - switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch
       - light.frida_skrivbord
+      - light.fridas_bed
       - light.fibaro_system_fgd211_universal_dimmer_500w_level_6
       - light.vinden
   automations:
@@ -425,19 +427,3 @@
       - alert.front_door_open_long
       - alert.garage_door_open_long
       - alert.husdata_offline
-
-# Groups for Google home connection
-  guest_room:
-    name: Guest room
-    view: no
-    entities:
-      - light.arbrum_skrivbord
-      - light.guestroom_red
-      - switch.fibaro_system_fgwpef_wall_plug_switch
-  living_room:
-    name: Living room
-    view: no
-    entities:
-      - light.fibaro_system_fgd211_universal_dimmer_500w_level_2
-      - switch.telldus_tzwp100_plugin_switch_switch
-      - light.sofa

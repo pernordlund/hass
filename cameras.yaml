@@ -1,6 +1,6 @@
-  - platform: generic
-    still_image_url: !secret camera_url
-    username: !secret camera_username
-    password: !secret camera_pwd
+#  - platform: generic
+#    still_image_url: !secret camera_url
+#    username: !secret camera_username
+#    password: !secret camera_pwd
   - platform: arlo
     ffmpeg_arguments: '-pred 1 -q:v 2'

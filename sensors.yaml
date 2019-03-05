@@ -101,6 +101,10 @@
         friendly_name: 'Frysen sensor battery'
         value_template: "{{states.sensor.frysen_humidity.attributes['Battery numeric']}}"
         unit_of_measurement: 'of 9'
+      kylen_battery:
+        friendly_name: 'Kylen sensor battery'
+        value_template: "{{states.sensor.kylen_humidity.attributes['Battery numeric']}}"
+        unit_of_measurement: 'of 9'
       oregon_wd_battery:
         friendly_name: 'Oregon WD sensor battery'
         value_template: "{{states.sensor.oregon_w_disp_temperature.attributes['Battery numeric']}}"
