@@ -179,3 +179,27 @@ tradfri:
   name: tradfri
   picture:
   track: true
+
+192_168_86_38_78_07_b8_77_8d_88:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 78 07 b8 77 8d 88
+  picture:
+  track: true
+
+192_168_86_38_7e_fc_13_4b_51_59:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 7e fc 13 4b 51 59
+  picture:
+  track: true
+
+192_168_86_38_d4_38_9c_12_22_4b:
+  hide_if_away: false
+  icon:
+  mac:
+  name: Pelles Xperia
+  picture:
+  track: true

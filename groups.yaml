@@ -391,6 +391,7 @@
       - light.sov_mop
       - switch.telldus_tzwp100_plugin_switch_switch
       - switch.fibaro_system_fgwpef_wall_plug_switch
+      - light.arbrum_fonster
   lights_alarm_on:
     name: Lights alarm on
     view: no

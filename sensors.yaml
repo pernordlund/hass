@@ -382,5 +382,5 @@
     destination: place_id:ChIJWbo6qXOdX0YRhuGHD2V6uck
   - platform: uptime
   - platform: arlo
-  # - platform: google_wifi
-  #   host: 192.168.86.1
+  - platform: google_wifi
+    host: 192.168.86.1
