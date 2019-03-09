@@ -53,10 +53,10 @@
         friendly_name: 'Ytterdorr trip'
       last_trip_garagedorr:
         value_template: >-
-          {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor.last_changed))/3600 > 72 -%}
+          {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_2.last_changed))/3600 > 72 -%}
             >72hr
           {%- else -%}
-            {{ as_timestamp(states.binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor.last_changed) | timestamp_custom('%Y-%m-%d %H:%M') }}
+            {{ as_timestamp(states.binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_2.last_changed) | timestamp_custom('%Y-%m-%d %H:%M') }}
           {%- endif %}
         friendly_name: 'Garagedorr trip'
       last_trip_flood:
@@ -100,6 +100,10 @@
       frysen_battery:
         friendly_name: 'Frysen sensor battery'
         value_template: "{{states.sensor.frysen_humidity.attributes['Battery numeric']}}"
+        unit_of_measurement: 'of 9'
+      kylen_battery:
+        friendly_name: 'Kylen sensor battery'
+        value_template: "{{states.sensor.kylen_humidity.attributes['Battery numeric']}}"
         unit_of_measurement: 'of 9'
       oregon_wd_battery:
         friendly_name: 'Oregon WD sensor battery'
@@ -378,5 +382,5 @@
     destination: place_id:ChIJWbo6qXOdX0YRhuGHD2V6uck
   - platform: uptime
   - platform: arlo
-  # - platform: google_wifi
-  #   host: 192.168.86.1
+  - platform: google_wifi
+    host: 192.168.86.1

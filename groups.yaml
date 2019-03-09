@@ -59,7 +59,7 @@
       - binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor_4
       - binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor
       - binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2
-      - binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor
+      - binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_2
       - binary_sensor.sensative_strips_sensor
       - binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor
       - binary_sensor.philio_technology_corporation_psp05_pirmotion_sensor
@@ -172,6 +172,7 @@
       - switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch_2
       - switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch
       - light.frida_skrivbord
+      - light.fridas_bed
       - light.fibaro_system_fgd211_universal_dimmer_500w_level_6
       - light.vinden
   outside:
@@ -390,6 +391,7 @@
       - light.sov_mop
       - switch.telldus_tzwp100_plugin_switch_switch
       - switch.fibaro_system_fgwpef_wall_plug_switch
+      - light.arbrum_fonster
   lights_alarm_on:
     name: Lights alarm on
     view: no
@@ -409,6 +411,7 @@
       - switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch_2
       - switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch
       - light.frida_skrivbord
+      - light.fridas_bed
       - light.fibaro_system_fgd211_universal_dimmer_500w_level_6
       - light.vinden
   automations:
@@ -425,19 +428,3 @@
       - alert.front_door_open_long
       - alert.garage_door_open_long
       - alert.husdata_offline
-
-# Groups for Google home connection
-  guest_room:
-    name: Guest room
-    view: no
-    entities:
-      - light.arbrum_skrivbord
-      - light.guestroom_red
-      - switch.fibaro_system_fgwpef_wall_plug_switch
-  living_room:
-    name: Living room
-    view: no
-    entities:
-      - light.fibaro_system_fgd211_universal_dimmer_500w_level_2
-      - switch.telldus_tzwp100_plugin_switch_switch
-      - light.sofa

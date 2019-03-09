@@ -32,26 +32,6 @@
   - service: homeassistant.toggle
     data:
       entity_id: light.livingroom_corner
-# - id: A005
-#   alias: 0 - All lights off when multifjarr6 is pressed
-#   trigger:
-#     platform: event
-#     event_type: button_pressed
-#     event_data:
-#       entity_id: switch.multifjarr6
-#   action:
-#   - service: scene.turn_on
-#     entity_id: scene.godnatt
-# - id: A006
-#   alias: 0 - All Pelles lights on when multifjarr9 is pressed
-#   trigger:
-#     platform: event
-#     event_type: button_pressed
-#     event_data:
-#       entity_id: switch.multifjarr9
-#   action:
-#     service: homeassistant.turn_on
-#     entity_id: group.lights_pelle
 - id: A007
   alias: 0 - All lights off when night
   trigger:
@@ -130,20 +110,20 @@
       message: '{{ states("sensor.time") }} - Roklarm Roklarm'
 - id: A016
   alias: 0 - Some lights on when Pelle gets home in the afternoon
-  initial_state: 'on'
   trigger:
-    platform: state
-    entity_id: device_tracker.per_per
+  - entity_id: device_tracker.per_per
     from: not_home
+    platform: state
     to: home
   condition:
+  - after: '14:00:00'
+    before: '21:00:00'
     condition: time
-    after: '14:00:00'
-    before: '20:00:00'
   action:
   - data:
       entity_id: group.lights_pelle
     service: homeassistant.turn_on
+  initial_state: 'on'
 - id: A017
   alias: X - Send bus schedule when Pelle leaves
   initial_state: 'off'
@@ -452,24 +432,26 @@
       message: '{{ states("sensor.time") }} - Logged leave OKQ8 - Life'
 - id: A046
   alias: Garage light on when door opens
-  initial_state: 'on'
   trigger:
+  - entity_id: binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_2
     platform: state
-    entity_id: binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_2
     to: 'on'
   action:
-  - service: homeassistant.turn_on
-    entity_id: switch.popp_duwi_zw_zsa_3500_plugin_switch_switch
+  - data:
+      entity_id: switch.popp_duwi_zw_zsa_3500_plugin_switch_switch
+    service: homeassistant.turn_on
+  initial_state: 'on'
 - id: A047
   alias: Garage light off when door closes
-  initial_state: 'on'
   trigger:
+  - entity_id: binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_2
     platform: state
-    entity_id: binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_2
     to: 'off'
   action:
-  - service: homeassistant.turn_off
-    entity_id: switch.popp_duwi_zw_zsa_3500_plugin_switch_switch
+  - data:
+      entity_id: switch.popp_duwi_zw_zsa_3500_plugin_switch_switch
+    service: homeassistant.turn_off
+  initial_state: 'on'
 - id: A047
   alias: X - Log Jenny leaving home - Life
   trigger:
@@ -545,3 +527,21 @@
   - data:
       message: No motion in arbrum
     service: notify.pelles_tfn
+- id: '1550438266481'
+  alias: Allrum on when dark
+  trigger:
+  - below: '6'
+    entity_id: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance
+    platform: numeric_state
+  - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - after: '15:00:00'
+    before: '23:00:00'
+    condition: time
+  action:
+  - data:
+      entity_id: light.fibaro_system_fgd211_universal_dimmer_500w_level_5
+    service: light.turn_on

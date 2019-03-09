@@ -60,11 +60,16 @@
 
 #Frida
       light.fibaro_system_fgd211_universal_dimmer_500w_level_6:
-        name: Frida ceiling
+        name: Fridas ceiling
         room: Fridas
       light.frida_skrivbord:
-        name: Frida desk
+        name: Fridas desk
         room: Fridas
+      light.fridas_bed:
+        name: Fridas bed
+        room: Fridas
+
+#Bedroom Marie and Pelle
       light.sov_mop:
         name: Bedroom
         room: Bedroom
