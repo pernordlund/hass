@@ -1,9 +1,5 @@
 homeassistant:
-  auth_providers:
-    - type: homeassistant
-    - type: trusted_networks
-      trusted_networks:
-        - 192.168.86.0/24  # Name of the location where Home Assistant is running
+  # Name of the location where Home Assistant is running
   name: Home
   # Location required to calculate the time the sun rises and sets
   latitude: !secret latitude
@@ -16,6 +12,11 @@ homeassistant:
   time_zone: Europe/Stockholm
   #Customize
   customize: !include customize.yaml
+  auth_providers:
+    - type: homeassistant
+#    - type: trusted_networks
+#      trusted_networks:
+#        - 192.168.86.0/24  
 
 zone: !include zones.yaml
 
