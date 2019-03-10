@@ -379,3 +379,11 @@ tradfri:
   name: 192 168 86 38 7e b2 50 e0 d2 dd
   picture:
   track: true
+
+192_168_86_38_59_87_2b_3c_7e_e1:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 59 87 2b 3c 7e e1
+  picture:
+  track: true
