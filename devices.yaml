@@ -3,15 +3,10 @@
     interval_seconds: 12
     consider_home: 600
     hosts:
-#      marie: 192.168.1.61
-#      pelle: 192.168.1.62
-#      frida: 192.168.1.63
-#      jenny: 192.168.1.64
-#      albin: 192.168.1.65
-#      camera: 192.168.1.47
-      zonestorage: 192.168.1.49
-      tv: 192.168.1.56
-      htpc: 192.168.1.57
-      tradfri: 192.168.1.45
-      husdata: 192.168.1.46
+      camera: 192.168.86.64
+      zonestorage: 192.168.86.77
+      tv: 192.168.86.55
+#      htpc: 192.168.1.57
+      tradfri: 192.168.86.81
+      husdata: 192.168.86.79
       storstugan: storstugan.dyndns-server.com

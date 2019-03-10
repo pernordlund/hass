@@ -203,3 +203,179 @@ tradfri:
   name: Pelles Xperia
   picture:
   track: true
+
+192_168_86_38_41_e6_67_56_16_f1:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 41 e6 67 56 16 f1
+  picture:
+  track: true
+
+192_168_86_38_4a_90_ed_e9_b4_53:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 4a 90 ed e9 b4 53
+  picture:
+  track: true
+
+192_168_86_38_48_8a_cb_e0_b5_48:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 48 8a cb e0 b5 48
+  picture:
+  track: true
+
+192_168_86_38_7a_8f_e8_27_5f_1c:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 7a 8f e8 27 5f 1c
+  picture:
+  track: true
+
+192_168_86_38_6e_e8_75_73_2b_31:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 6e e8 75 73 2b 31
+  picture:
+  track: true
+
+192_168_86_38_61_bc_e5_a0_da_0a:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 61 bc e5 a0 da 0a
+  picture:
+  track: true
+
+192_168_86_38_5c_30_df_fb_b2_c6:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 5c 30 df fb b2 c6
+  picture:
+  track: true
+
+192_168_86_38_5d_ed_7e_0a_ea_34:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 5d ed 7e 0a ea 34
+  picture:
+  track: true
+
+192_168_86_38_54_05_16_1d_c2_1a:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 54 05 16 1d c2 1a
+  picture:
+  track: true
+
+192_168_86_38_73_3b_f9_b0_e8_c1:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 73 3b f9 b0 e8 c1
+  picture:
+  track: true
+
+192_168_86_38_7e_34_9b_c2_6e_b5:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 7e 34 9b c2 6e b5
+  picture:
+  track: true
+
+192_168_86_38_6f_b0_63_88_cf_df:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 6f b0 63 88 cf df
+  picture:
+  track: true
+
+192_168_86_38_54_b8_06_1d_7d_bf:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 54 b8 06 1d 7d bf
+  picture:
+  track: true
+
+192_168_86_38_7c_a0_e7_59_70_61:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 7c a0 e7 59 70 61
+  picture:
+  track: true
+
+192_168_86_38_4b_0a_d0_df_8f_27:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 4b 0a d0 df 8f 27
+  picture:
+  track: true
+
+192_168_86_38_60_0d_ff_cf_af_2d:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 60 0d ff cf af 2d
+  picture:
+  track: true
+
+192_168_86_38_75_61_f4_b2_32_7c:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 75 61 f4 b2 32 7c
+  picture:
+  track: true
+
+192_168_86_38_48_62_41_ac_2f_b3:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 48 62 41 ac 2f b3
+  picture:
+  track: true
+
+192_168_86_38_6f_e9_ea_12_5d_27:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 6f e9 ea 12 5d 27
+  picture:
+  track: true
+
+192_168_86_38_40_c4_58_fe_0a_5f:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 40 c4 58 fe 0a 5f
+  picture:
+  track: true
+
+192_168_86_38_63_a6_1e_a4_94_a9:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 63 a6 1e a4 94 a9
+  picture:
+  track: true
+
+192_168_86_38_7e_b2_50_e0_d2_dd:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 7e b2 50 e0 d2 dd
+  picture:
+  track: true

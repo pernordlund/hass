@@ -1,5 +1,9 @@
 homeassistant:
-  # Name of the location where Home Assistant is running
+  auth_providers:
+    - type: homeassistant
+    - type: trusted_networks
+      trusted_networks:
+        - 192.168.86.0/24  # Name of the location where Home Assistant is running
   name: Home
   # Location required to calculate the time the sun rises and sets
   latitude: !secret latitude
@@ -34,11 +38,6 @@ zwave:
 group: !include groups.yaml
 
 http:
-  # Uncomment this to add a password (recommended!)
-  # api_password: !secret http_password
-  trusted_networks:
-    - 192.168.1.0/24
-    - 192.168.86.0/24
 # Uncomment this if you are using SSL or running in Docker etc
   base_url: hass.panitco.se
 
