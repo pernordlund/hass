@@ -12,6 +12,11 @@ homeassistant:
   time_zone: Europe/Stockholm
   #Customize
   customize: !include customize.yaml
+  auth_providers:
+    - type: homeassistant
+#    - type: trusted_networks
+#      trusted_networks:
+#        - 192.168.86.0/24  
 
 zone: !include zones.yaml
 
@@ -34,11 +39,6 @@ zwave:
 group: !include groups.yaml
 
 http:
-  # Uncomment this to add a password (recommended!)
-  # api_password: !secret http_password
-  trusted_networks:
-    - 192.168.1.0/24
-    - 192.168.86.0/24
 # Uncomment this if you are using SSL or running in Docker etc
   base_url: hass.panitco.se
 
@@ -135,7 +135,7 @@ system_log:
 
 climate: !include climate.yaml
 
-automower: !include automower.yaml
+#automower: !include automower.yaml
 
 cast: !include cast.yaml
 
