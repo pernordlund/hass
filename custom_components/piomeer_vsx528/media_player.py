@@ -20,6 +20,8 @@ import homeassistant.helpers.config_validation as cv
 
 _LOGGER = logging.getLogger(__name__)
 
+DEPENDENCIES = ['media_player']
+
 DEFAULT_NAME = 'Pioneer AVR VSX-528'
 DEFAULT_PORT = 8102   # Some use other use 23 telnet default.
 DEFAULT_TIMEOUT = 0.5
