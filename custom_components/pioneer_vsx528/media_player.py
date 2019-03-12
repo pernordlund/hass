@@ -10,9 +10,10 @@ import telnetlib
 import voluptuous as vol
 
 from homeassistant.components.media_player import (
-    SUPPORT_PAUSE, SUPPORT_SELECT_SOURCE, MediaPlayerDevice, PLATFORM_SCHEMA,
-    SUPPORT_TURN_OFF, SUPPORT_TURN_ON, SUPPORT_VOLUME_MUTE, SUPPORT_VOLUME_STEP,
-    SUPPORT_PLAY)
+    MediaPlayerDevice, PLATFORM_SCHEMA)
+from homeassistant.components.media_player.const import (
+    SUPPORT_PAUSE, SUPPORT_PLAY, SUPPORT_SELECT_SOURCE, SUPPORT_VOLUME_STEP,
+    SUPPORT_TURN_OFF, SUPPORT_TURN_ON, SUPPORT_VOLUME_MUTE, SUPPORT_VOLUME_SET)
 from homeassistant.const import (
     CONF_HOST, STATE_OFF, STATE_ON, STATE_UNKNOWN, CONF_NAME, CONF_PORT,
     CONF_TIMEOUT)
@@ -20,7 +21,6 @@ import homeassistant.helpers.config_validation as cv
 
 _LOGGER = logging.getLogger(__name__)
 
-DEPENDENCIES = ['media_player']
 
 DEFAULT_NAME = 'Pioneer AVR VSX-528'
 DEFAULT_PORT = 8102   # Some use other use 23 telnet default.
@@ -40,14 +40,14 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
 })
 
 
-def setup_platform(hass, config, add_devices, discovery_info=None):
+def setup_platform(hass, config, add_entities, discovery_info=None):
     """Set up the Pioneer platform."""
     pioneer = PioneerDevice(
         config.get(CONF_NAME), config.get(CONF_HOST), config.get(CONF_PORT),
         config.get(CONF_TIMEOUT))
 
     if pioneer.update():
-        add_devices([pioneer])
+        add_entities([pioneer])
 
 
 class PioneerDevice(MediaPlayerDevice):
