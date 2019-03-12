@@ -635,3 +635,19 @@ tradfri:
   name: 192 168 86 38 79 fc 5d 70 f1 29
   picture:
   track: true
+
+192_168_86_38_f0_0f_ec_14_01_89:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 f0 0f ec 14 01 89
+  picture:
+  track: true
+
+192_168_86_38_5a_c5_2c_27_de_bb:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 5a c5 2c 27 de bb
+  picture:
+  track: true
