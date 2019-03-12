@@ -651,3 +651,11 @@ tradfri:
   name: 192 168 86 38 5a c5 2c 27 de bb
   picture:
   track: true
+
+192_168_86_38_4e_b1_8a_48_57_72:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 4e b1 8a 48 57 72
+  picture:
+  track: true
