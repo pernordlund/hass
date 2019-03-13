@@ -1,0 +1,893 @@
+{
+    "data": {
+        "config": {
+            "title": "Nordlunds",
+            "views": [
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.date"
+                                },
+                                {
+                                    "entity": "sensor.time"
+                                },
+                                {
+                                    "entity": "sensor.time_to_work"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Welcome",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "device_tracker.marie_marie"
+                                },
+                                {
+                                    "entity": "device_tracker.per_per"
+                                },
+                                {
+                                    "entity": "device_tracker.frida_frida"
+                                },
+                                {
+                                    "entity": "device_tracker.jenny_jenny"
+                                },
+                                {
+                                    "entity": "device_tracker.albin_albin"
+                                },
+                                {
+                                    "entity": "device_tracker.192_168_86_38_d4_38_9c_12_22_4b"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Family",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.dishwasher_flood_template"
+                                },
+                                {
+                                    "entity": "binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor"
+                                },
+                                {
+                                    "entity": "binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor"
+                                },
+                                {
+                                    "entity": "binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2"
+                                },
+                                {
+                                    "entity": "binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_2"
+                                },
+                                {
+                                    "entity": "binary_sensor.philio_technology_corporation_psp05_pir_motion_sensor"
+                                },
+                                {
+                                    "entity": "binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor"
+                                },
+                                {
+                                    "entity": "sensor.captured_today_arlozonefront"
+                                },
+                                {
+                                    "entity": "sensor.captured_today_arlozoneinside"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Security",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.last_trip_allrum"
+                                },
+                                {
+                                    "entity": "sensor.last_trip_ytterdorr"
+                                },
+                                {
+                                    "entity": "sensor.last_trip_alarm"
+                                },
+                                {
+                                    "entity": "sensor.last_trip_garagedorr"
+                                },
+                                {
+                                    "entity": "sensor.last_arlozonefront"
+                                },
+                                {
+                                    "entity": "sensor.last_arlozoneinside"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Security last trip",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sun.sun"
+                                },
+                                {
+                                    "entity": "sensor.yr_symbol"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Sensors",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.roger_status",
+                                "sensor.roger_battery"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Roger",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "alert.front_door_open_long"
+                                },
+                                {
+                                    "entity": "alert.garage_door_open_long"
+                                },
+                                {
+                                    "entity": "alert.husdata_offline"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Alerts",
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "camera.generic_camera",
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entity": "camera.arlozonefront",
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entity": "camera.arlozoneinside",
+                            "type": "picture-entity"
+                        }
+                    ],
+                    "path": "default_view",
+                    "title": "Overview"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.oregon_w_disp_temperature"
+                                },
+                                {
+                                    "entity": "sensor.oregon_w_disp_humidity"
+                                },
+                                {
+                                    "entity": "sensor.fibaro_system_fgsd002_smoke_sensor_temperature"
+                                },
+                                {
+                                    "entity": "sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance"
+                                },
+                                {
+                                    "entity": "sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature"
+                                },
+                                {
+                                    "entity": "sensor.vinden_temperature"
+                                },
+                                {
+                                    "entity": "sensor.vinden_humidity"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_indoor_temperature"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_indoor_pressure"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_indoor_humidity"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_indoor_co2"
+                                },
+                                {
+                                    "entity": "sensor.kylen_temperature"
+                                },
+                                {
+                                    "entity": "sensor.kylen_humidity"
+                                },
+                                {
+                                    "entity": "sensor.frysen_temperature"
+                                },
+                                {
+                                    "entity": "sensor.frysen_humidity"
+                                }
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Climate House",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.fibaro_system_fgk101_door_opening_sensor_temperature",
+                                "sensor.everspring_st814_temperature_and_humidity_sensor_temperature",
+                                "sensor.everspring_st814_temperature_and_humidity_sensor_relative_humidity"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Climate Garage",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.bv_outdoor"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_outdoor_humidity"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_outdoor_temperature"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_rain_rain"
+                                }
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Climate Outside",
+                            "type": "entities"
+                        }
+                    ],
+                    "path": "climate",
+                    "title": "Climate"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "light.arbrum_fonster"
+                                },
+                                {
+                                    "entity": "light.arbrum_skrivbord"
+                                },
+                                {
+                                    "entity": "light.guestroom_red"
+                                },
+                                {
+                                    "entity": "light.fibaro_system_fgd211_universal_dimmer_500w_level"
+                                },
+                                {
+                                    "entity": "light.entre_byra"
+                                },
+                                {
+                                    "entity": "light.fibaro_system_fgd211_universal_dimmer_500w_level_3"
+                                },
+                                {
+                                    "entity": "switch.fibaro_system_fgs211_switch_3kw_switch"
+                                },
+                                {
+                                    "entity": "light.fibaro_system_fgd211_universal_dimmer_500w_level_4"
+                                },
+                                {
+                                    "entity": "light.sov_mop"
+                                },
+                                {
+                                    "entity": "light.livingroom_corner"
+                                },
+                                {
+                                    "entity": "light.sofa"
+                                },
+                                {
+                                    "entity": "light.fibaro_system_fgd211_universal_dimmer_500w_level_2"
+                                }
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Downstairs",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "light.fibaro_system_fgd211_universal_dimmer_500w_level_5"
+                                },
+                                {
+                                    "entity": "switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch_2"
+                                },
+                                {
+                                    "entity": "switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch"
+                                },
+                                {
+                                    "entity": "light.frida_skrivbord"
+                                },
+                                {
+                                    "entity": "light.fibaro_system_fgd211_universal_dimmer_500w_level_6"
+                                },
+                                {
+                                    "entity": "light.vinden"
+                                },
+                                {
+                                    "entity": "light.fridas_bed"
+                                }
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Upstairs",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "light.entre",
+                                "light.utebelysning",
+                                "light.ute_altan"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Outside",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "switch.fibaro_system_fgwpe_f_wall_plug_gen5_switch"
+                                },
+                                {
+                                    "entity": "switch.kamera"
+                                },
+                                {
+                                    "entity": "switch.sensor_badrum"
+                                },
+                                {
+                                    "entity": "switch.fibaro_system_fgwpe_f_wall_plug_gen5_switch_2"
+                                },
+                                {
+                                    "entity": "switch.popp_duwi_zw_zsa_3500_plugin_switch_switch"
+                                }
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Switches",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "input_number.klk_timer"
+                                },
+                                {
+                                    "entity": "input_number.badrum_timer"
+                                },
+                                {
+                                    "entity": "timer.arbrum_motion"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Timers",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "script.update_next_bus",
+                                "script.next_bus",
+                                "script.next_bus_debug"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Scripts",
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "alarm_control_panel.arlozone",
+                            "type": "alarm-panel"
+                        },
+                        {
+                            "entities": [
+                                "vacuum.roger"
+                            ],
+                            "title": "Vacuum",
+                            "type": "entities"
+                        }
+                    ],
+                    "path": "control",
+                    "title": "Control"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entity": "media_player.tv",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.nordlund_chromecast",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.living_room_speaker",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.kitchen_display",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.guest_room_speaker",
+                            "type": "media-control"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "switch.htpc"
+                                },
+                                {
+                                    "entity": "switch.fibaro_system_fgwpe_f_wall_plug_gen5_switch"
+                                },
+                                {
+                                    "entity": "device_tracker.htpc"
+                                },
+                                {
+                                    "entity": "device_tracker.tv"
+                                }
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Media devices",
+                            "type": "entities"
+                        }
+                    ],
+                    "panel": false,
+                    "path": "media",
+                    "title": "Media"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.bv_time"
+                                },
+                                {
+                                    "entity": "sensor.bv_free_mem"
+                                },
+                                {
+                                    "entity": "binary_sensor.bv_alarm"
+                                },
+                                {
+                                    "entity": "sensor.bv_radiator_return"
+                                },
+                                {
+                                    "entity": "sensor.bv_brine_in_evaporator"
+                                },
+                                {
+                                    "entity": "sensor.bv_brine_out_condenser"
+                                },
+                                {
+                                    "entity": "sensor.bv_heat_carrier_forwrd"
+                                },
+                                {
+                                    "entity": "sensor.bv_heat_carrier_return"
+                                },
+                                {
+                                    "entity": "sensor.bv_hot_gas_compr"
+                                },
+                                {
+                                    "entity": "sensor.bv_hot_water_1_top"
+                                },
+                                {
+                                    "entity": "sensor.bv_outdoor"
+                                },
+                                {
+                                    "entity": "binary_sensor.bv_add_heat_step_1"
+                                },
+                                {
+                                    "entity": "binary_sensor.bv_add_heat_step_2"
+                                },
+                                {
+                                    "entity": "binary_sensor.bv_compressor"
+                                },
+                                {
+                                    "entity": "sensor.bv_heat_set_1_curvel"
+                                },
+                                {
+                                    "entity": "sensor.bv_heat_set_3_parallel"
+                                },
+                                {
+                                    "entity": "sensor.bv_heating_setpoint"
+                                },
+                                {
+                                    "entity": "binary_sensor.bv_pump_cold_circuit"
+                                },
+                                {
+                                    "entity": "binary_sensor.bv_pump_heat_circuit"
+                                },
+                                {
+                                    "entity": "binary_sensor.bv_pump_radiator"
+                                },
+                                {
+                                    "entity": "binary_sensor.bv_switch_valve_1"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Values",
+                            "type": "entities"
+                        }
+                    ],
+                    "path": "heater",
+                    "title": "Heater"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                "sensor.load_1m",
+                                "sensor.load_5m",
+                                "sensor.load_15m",
+                                "sensor.memory_free",
+                                "sensor.processor_use",
+                                "sensor.disk_free_home",
+                                "sensor.network_in_eth0",
+                                "sensor.network_out_eth0",
+                                "sensor.last_boot",
+                                "sensor.cpu_temperature"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "NUC values",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "device_tracker.zonestorage"
+                                },
+                                {
+                                    "entity": "device_tracker.storstugan"
+                                },
+                                {
+                                    "entity": "device_tracker.husdata"
+                                },
+                                {
+                                    "entity": "device_tracker.tradfri"
+                                },
+                                {
+                                    "entity": "sensor.hass_mqtt_status"
+                                },
+                                {
+                                    "entity": "sensor.nodered_mqtt_status"
+                                },
+                                {
+                                    "entity": "sensor.signal_strength_arlozonefront"
+                                },
+                                {
+                                    "entity": "sensor.signal_strength_arlozoneinside"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_indoor_wifi"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_outdoor_radio"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_rain_radio"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Other systems",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.battery_level_arlozonefront"
+                                },
+                                {
+                                    "entity": "sensor.battery_level_arlozoneinside"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_outdoor_battery"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_rain_battery"
+                                },
+                                {
+                                    "entity": "sensor.sensative_battery"
+                                },
+                                {
+                                    "entity": "sensor.philio_battery"
+                                },
+                                {
+                                    "entity": "sensor.smoke_battery"
+                                },
+                                {
+                                    "entity": "sensor.allrum_battery"
+                                },
+                                {
+                                    "entity": "sensor.frysen_battery"
+                                },
+                                {
+                                    "entity": "sensor.oregon_wd_battery"
+                                },
+                                {
+                                    "entity": "sensor.tradfri_remote_control"
+                                },
+                                {
+                                    "entity": "sensor.vinden_battery"
+                                },
+                                {
+                                    "entity": "sensor.flood_battery"
+                                },
+                                {
+                                    "entity": "sensor.garage_vind_battery"
+                                },
+                                {
+                                    "entity": "sensor.garage_door_battery"
+                                },
+                                {
+                                    "entity": "sensor.kylen_battery"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Batteries",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.google_wifi_current_version"
+                                },
+                                {
+                                    "entity": "sensor.google_wifi_last_restart"
+                                },
+                                {
+                                    "entity": "sensor.google_wifi_local_ip"
+                                },
+                                {
+                                    "entity": "sensor.google_wifi_new_version"
+                                },
+                                {
+                                    "entity": "sensor.google_wifi_status"
+                                },
+                                {
+                                    "entity": "sensor.google_wifi_uptime"
+                                },
+                                {
+                                    "entity": "sensor.onhub_kbyte_sec_received"
+                                },
+                                {
+                                    "entity": "sensor.onhub_kbyte_sec_sent"
+                                },
+                                {
+                                    "entity": "sensor.onhub_packets_sec_received"
+                                }
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Google Wifi",
+                            "type": "entities"
+                        }
+                    ],
+                    "path": "systems",
+                    "title": "Systems"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "automation.0_all_lights_off_when_night"
+                                },
+                                {
+                                    "entity": "automation.0_some_lights_off_at_sunrise"
+                                },
+                                {
+                                    "entity": "automation.0_some_lights_on_before_sunset"
+                                },
+                                {
+                                    "entity": "automation.0_some_lights_on_when_pelle_gets_home_in_the_afternoon"
+                                },
+                                {
+                                    "entity": "automation.alarm_activation_message"
+                                },
+                                {
+                                    "entity": "automation.alarm_deactivation_message"
+                                },
+                                {
+                                    "entity": "automation.allrum_triggered_notify_pelle"
+                                },
+                                {
+                                    "entity": "automation.arbrum_fonsterlampa_from_wall"
+                                },
+                                {
+                                    "entity": "automation.arbrum_fonsterlampa_med_2_klick"
+                                },
+                                {
+                                    "entity": "automation.arbrum_fonsterlampa_med_long_klick"
+                                },
+                                {
+                                    "entity": "automation.arbrum_on_motion"
+                                },
+                                {
+                                    "entity": "automation.badrum_auto_off_timer"
+                                },
+                                {
+                                    "entity": "automation.badrum_on_when_motion_timer"
+                                },
+                                {
+                                    "entity": "automation.bass_speaker_off_when_pioneer_off"
+                                },
+                                {
+                                    "entity": "automation.bass_speaker_off_when_turning_tv_off"
+                                },
+                                {
+                                    "entity": "automation.bass_speaker_on_when_pioneer_on"
+                                },
+                                {
+                                    "entity": "automation.daily_python_scripts_midnight"
+                                },
+                                {
+                                    "entity": "automation.daily_scripts_midnight"
+                                },
+                                {
+                                    "entity": "automation.entre_on_when_door_opens"
+                                },
+                                {
+                                    "entity": "automation.flood_alarm_message"
+                                },
+                                {
+                                    "entity": "automation.fridas_skrivbord_3_klick"
+                                },
+                                {
+                                    "entity": "automation.garage_light_off_when_door_closes"
+                                },
+                                {
+                                    "entity": "automation.garage_light_on_when_door_opens"
+                                },
+                                {
+                                    "entity": "automation.klk_off_5_min_after_on"
+                                },
+                                {
+                                    "entity": "automation.mqtt_toggle"
+                                },
+                                {
+                                    "entity": "automation.majolika_alive"
+                                },
+                                {
+                                    "entity": "automation.marie_leaving_slussen"
+                                },
+                                {
+                                    "entity": "automation.roger_park"
+                                },
+                                {
+                                    "entity": "automation.roger_start"
+                                },
+                                {
+                                    "entity": "automation.roger_stop"
+                                },
+                                {
+                                    "entity": "automation.smoke_alarm_message"
+                                },
+                                {
+                                    "entity": "automation.turn_kitchen_table_on_if_morning_and_byra_is_turned_on"
+                                },
+                                {
+                                    "entity": "automation.vardrum_hornlampa_on_when_white_remote_no_3_is_pressed"
+                                },
+                                {
+                                    "entity": "automation.vardrum_hornlampan_med_3_klick"
+                                },
+                                {
+                                    "entity": "automation.vardrum_sofflampa_on_when_white_remote_no_1_is_pressed"
+                                },
+                                {
+                                    "entity": "automation.x_log_jenny_leaving_home_life"
+                                },
+                                {
+                                    "entity": "automation.x_log_jenny_leaving_home_wlan"
+                                },
+                                {
+                                    "entity": "automation.x_log_pelle_leave_work"
+                                },
+                                {
+                                    "entity": "automation.x_log_pelle_leave_work_life"
+                                },
+                                {
+                                    "entity": "automation.x_log_pelle_to_work"
+                                },
+                                {
+                                    "entity": "automation.x_log_pelle_to_work_life"
+                                },
+                                {
+                                    "entity": "automation.x_notify_pelle_to_work"
+                                },
+                                {
+                                    "entity": "automation.x_send_bus_schedule_when_pelle_leaves"
+                                },
+                                {
+                                    "entity": "automation.xx_test_timer_arbrum"
+                                },
+                                {
+                                    "entity": "automation.ytterdorr_open_notify"
+                                },
+                                {
+                                    "entity": "automation.ytterdorr_open_turn_on_byra"
+                                },
+                                {
+                                    "entity": "automation.allrum_on_when_dark"
+                                }
+                            ],
+                            "show_header_toggle": true,
+                            "title": "All automations",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "alert.front_door_open_long"
+                                },
+                                {
+                                    "entity": "alert.garage_door_open_long"
+                                },
+                                {
+                                    "entity": "alert.husdata_offline"
+                                }
+                            ],
+                            "show_header_toggle": true,
+                            "title": "All alerts",
+                            "type": "entities"
+                        }
+                    ],
+                    "path": "automations",
+                    "title": "Automations"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.bv_outdoor"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_outdoor_temperature"
+                                }
+                            ],
+                            "title": "Glance",
+                            "type": "glance"
+                        },
+                        {
+                            "default_zoom": 12,
+                            "entities": [
+                                {
+                                    "entity": "device_tracker.marie_marie"
+                                }
+                            ],
+                            "title": "Marie",
+                            "type": "map"
+                        },
+                        {
+                            "entity": "sensor.netatmo_indoor_temperature",
+                            "max": 40,
+                            "min": 0,
+                            "name": "Temp",
+                            "severity": {
+                                "green": 17,
+                                "red": 27,
+                                "yellow": 21
+                            },
+                            "theme": "default",
+                            "type": "gauge"
+                        }
+                    ],
+                    "theme": "Backend-selected",
+                    "title": "Test UI"
+                }
+            ]
+        }
+    },
+    "key": "lovelace",
+    "version": 1
+}

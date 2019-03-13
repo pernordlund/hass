@@ -803,3 +803,11 @@ tradfri:
   name: 192 168 86 38 5d 15 23 1f e9 ae
   picture:
   track: true
+
+192_168_86_38_46_c5_eb_14_1c_4b:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 46 c5 eb 14 1c 4b
+  picture:
+  track: true
