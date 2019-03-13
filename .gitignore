@@ -15,6 +15,7 @@ secrets.yaml
 *.conf
 pyozw.sqlite
 .*
+!/.storage/lovelace
 !/.gitignore
 !/.travis.yml
 html5_push_registrations.conf

@@ -659,3 +659,147 @@ tradfri:
   name: 192 168 86 38 4e b1 8a 48 57 72
   picture:
   track: true
+
+192_168_86_38_54_1e_7c_a3_76_69:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 54 1e 7c a3 76 69
+  picture:
+  track: true
+
+192_168_86_38_62_fe_27_7b_ef_c0:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 62 fe 27 7b ef c0
+  picture:
+  track: true
+
+192_168_86_38_78_95_2e_b9_ba_8f:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 78 95 2e b9 ba 8f
+  picture:
+  track: true
+
+192_168_86_38_45_dd_a1_43_95_b7:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 45 dd a1 43 95 b7
+  picture:
+  track: true
+
+192_168_86_38_51_88_d0_96_51_09:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 51 88 d0 96 51 09
+  picture:
+  track: true
+
+192_168_86_38_59_03_61_bd_7d_c0:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 59 03 61 bd 7d c0
+  picture:
+  track: true
+
+192_168_86_38_46_94_1e_85_d2_08:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 46 94 1e 85 d2 08
+  picture:
+  track: true
+
+192_168_86_38_73_80_5f_19_d1_76:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 73 80 5f 19 d1 76
+  picture:
+  track: true
+
+192_168_86_38_5e_05_13_00_11_f2:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 5e 05 13 00 11 f2
+  picture:
+  track: true
+
+192_168_86_38_5b_07_26_d9_ea_49:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 5b 07 26 d9 ea 49
+  picture:
+  track: true
+
+192_168_86_38_48_c0_31_48_6f_4b:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 48 c0 31 48 6f 4b
+  picture:
+  track: true
+
+192_168_86_38_53_0d_2b_6e_3a_8f:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 53 0d 2b 6e 3a 8f
+  picture:
+  track: true
+
+192_168_86_38_41_fc_35_ec_5a_96:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 41 fc 35 ec 5a 96
+  picture:
+  track: true
+
+192_168_86_38_71_f8_a5_93_e3_87:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 71 f8 a5 93 e3 87
+  picture:
+  track: true
+
+192_168_86_38_47_00_eb_f5_4e_7f:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 47 00 eb f5 4e 7f
+  picture:
+  track: true
+
+192_168_86_38_5f_74_ef_d9_51_3a:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 5f 74 ef d9 51 3a
+  picture:
+  track: true
+
+192_168_86_38_46_2a_df_82_62_df:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 46 2a df 82 62 df
+  picture:
+  track: true
+
+192_168_86_38_5d_15_23_1f_e9_ae:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 5d 15 23 1f e9 ae
+  picture:
+  track: true
