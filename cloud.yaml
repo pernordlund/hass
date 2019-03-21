@@ -27,6 +27,10 @@
         - switch.vit_fjarr_1
         - switch.vit_fjarr_3
         - switch.telldus_tzwp_100_plug_in_switch_switch
+        - switch.bedroom_window
+        - switch.swiid_swiidinter_switch
+        - switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch_2
+        - switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch
     entity_config:
 
 #No room (so Turn on [room] lights do not include them)
