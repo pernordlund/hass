@@ -42,9 +42,6 @@
       light.arbrum_skrivbord:
         name: Guest room desk
         room: Guest room
-      light.fibaro_system_fgd211_universal_dimmer_500w_level:
-        name: Guest room ceiling
-        room: No room
       light.guestroom_red:
         name: Guest room corner
         room: Guest room
