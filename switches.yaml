@@ -40,26 +40,26 @@
       service: rest_command.turn_htpc_off
   - platform: template
     switches:
-      guest_room:
-        value_template: "{{ is_state('group.guest_room', 'on') }}"
-        turn_on:
-          service: homeassistant.turn_on
-          data:
-            entity_id: group.guest_room
-        turn_off:
-          service: homeassistant.turn_off
-          data:
-            entity_id: group.guest_room
-      living_room:
-        value_template: "{{ is_state('group.living_room', 'on') }}"
-        turn_on:
-          service: homeassistant.turn_on
-          data:
-            entity_id: group.living_room
-        turn_off:
-          service: homeassistant.turn_off
-          data:
-            entity_id: group.living_room
+      # guest_room:
+      #   value_template: "{{ is_state('group.guest_room', 'on') }}"
+      #   turn_on:
+      #     service: homeassistant.turn_on
+      #     data:
+      #       entity_id: group.guest_room
+      #   turn_off:
+      #     service: homeassistant.turn_off
+      #     data:
+      #       entity_id: group.guest_room
+      # living_room:
+      #   value_template: "{{ is_state('group.living_room', 'on') }}"
+      #   turn_on:
+      #     service: homeassistant.turn_on
+      #     data:
+      #       entity_id: group.living_room
+      #   turn_off:
+      #     service: homeassistant.turn_off
+      #     data:
+      #       entity_id: group.living_room
       frida_at_school:
         value_template: "{{ is_state('device_tracker.frida_frida', 'VRG') }}"
         turn_on:

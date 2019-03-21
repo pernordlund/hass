@@ -30,3 +30,12 @@
   - platform: switch
     name: livingroom_corner
     entity_id: switch.telldus_tzwp_100_plug_in_switch_switch
+  - platform: switch
+    name: bedroom_window
+    entity_id: switch.bedroom_window
+  - platform: switch
+    name: bathroom_ceiling
+    entity_id: switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch_2
+  - platform: switch
+    name: sauna
+    entity_id: switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch
