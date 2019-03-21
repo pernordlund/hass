@@ -514,6 +514,12 @@
   - data:
       entity_id: timer.arbrum_motion
     service: timer.start
+  - data:
+      entity_id: light.arbrum_fonster
+    service: homeassistant.turn_on
+  - data:
+      entity_id: light.guestroom_red
+    service: homeassistant.turn_on
 - id: '1544045540211'
   alias: XX-test-timer-arbrum
   initial_state: 'off'

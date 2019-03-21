@@ -1,8 +1,8 @@
   turn_htpc_off:
-    url: 'http://192.168.1.57:8082/?Sleep'
-  roger_start:
-    url: 'http://192.168.1.33:1234/start'
-  roger_park:
-    url: 'http://192.168.1.33:1234/park'
-  roger_stop:
-    url: 'http://192.168.1.33:1234/stop'
+    url: 'http://192.168.86.57:8082/?Sleep'
+  #roger_start:
+  #  url: 'http://192.168.1.33:1234/start'
+  #roger_park:
+  #  url: 'http://192.168.1.33:1234/park'
+  #roger_stop:
+  #  url: 'http://192.168.1.33:1234/stop'

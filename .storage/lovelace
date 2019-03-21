@@ -573,6 +573,9 @@
                                 },
                                 {
                                     "entity": "sensor.netatmo_rain_radio"
+                                },
+                                {
+                                    "entity": "device_tracker.camera"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -655,16 +658,13 @@
                                     "entity": "sensor.google_wifi_uptime"
                                 },
                                 {
-                                    "entity": "sensor.onhub_kbyte_sec_received"
-                                },
-                                {
-                                    "entity": "sensor.onhub_kbyte_sec_sent"
-                                },
-                                {
                                     "entity": "sensor.onhub_packets_sec_received"
+                                },
+                                {
+                                    "entity": "sensor.onhub_packets_sec_sent"
                                 }
                             ],
-                            "show_header_toggle": true,
+                            "show_header_toggle": false,
                             "title": "Google Wifi",
                             "type": "entities"
                         }
@@ -880,6 +880,11 @@
                             },
                             "theme": "default",
                             "type": "gauge"
+                        },
+                        {
+                            "entity": "weather.smhi_home",
+                            "name": "Smhi",
+                            "type": "weather-forecast"
                         }
                     ],
                     "theme": "Backend-selected",

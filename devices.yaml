@@ -6,7 +6,7 @@
       camera: 192.168.86.64
       zonestorage: 192.168.86.77
       tv: 192.168.86.55
-#      htpc: 192.168.1.57
+      htpc: 192.168.86.57
       tradfri: 192.168.86.81
       husdata: 192.168.86.79
       storstugan: storstugan.dyndns-server.com
