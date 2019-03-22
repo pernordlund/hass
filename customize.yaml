@@ -39,8 +39,6 @@ light.livingroom_corner:
   icon: mdi:lightbulb
 binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor_4:
   friendly_name: Rorelse allrum
-light.koksbanken_level:
-  friendly_name: Koksbanken
 sensor.fibaro_system_fgms001zw5_motion_sensor_luminance_4:
   friendly_name: Ljus allrum
 binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2:
