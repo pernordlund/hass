@@ -1955,3 +1955,19 @@ tradfri:
   name: 192 168 86 38 00 21 9e 40 7a 17
   picture:
   track: true
+
+192_168_86_38_67_3b_ba_0a_6a_3f:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 67 3b ba 0a 6a 3f
+  picture:
+  track: true
+
+192_168_86_38_67_69_79_49_a2_b9:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 192 168 86 38 67 69 79 49 a2 b9
+  picture:
+  track: true

@@ -288,6 +288,9 @@
                                 },
                                 {
                                     "entity": "light.fibaro_system_fgd211_universal_dimmer_500w_level_2"
+                                },
+                                {
+                                    "entity": "light.koksbanken"
                                 }
                             ],
                             "show_header_toggle": true,
