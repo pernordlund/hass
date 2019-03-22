@@ -1,2 +1,4 @@
   devices:
     - host: 192.168.86.38
+    - track_devices: false
+    - track_alarms: true
