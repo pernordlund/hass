@@ -31,14 +31,9 @@
         - switch.swiid_swiidinter_switch
         - switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch_2
         - switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch
-        - light.fibaro_system_fgd212_dimmer_2_level_2
-        - light.fibaro_system_fgd212_dimmer_2_level
-    entity_config:
+        - light.fibaro_system_fgd211_universal_dimmer_500w_level
 
-#No room (so Turn on [room] lights do not include them)
-      light.fibaro_system_fgd211_universal_dimmer_500w_level:
-        name: Guest room ceiling
-        room: No room
+    entity_config:
 
 #Guest room
       light.arbrum_skrivbord:
