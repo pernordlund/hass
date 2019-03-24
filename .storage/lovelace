@@ -38,9 +38,6 @@
                                 },
                                 {
                                     "entity": "device_tracker.albin_albin"
-                                },
-                                {
-                                    "entity": "device_tracker.192_168_86_38_d4_38_9c_12_22_4b"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -888,6 +885,21 @@
                             "entity": "weather.smhi_home",
                             "name": "Smhi",
                             "type": "weather-forecast"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "lock.id_lock_150_locked"
+                                },
+                                {
+                                    "entity": "sensor.id_lock_150_alarm_level"
+                                },
+                                {
+                                    "entity": "sensor.id_lock_150_access_control"
+                                }
+                            ],
+                            "title": "lock",
+                            "type": "entities"
                         }
                     ],
                     "theme": "Backend-selected",

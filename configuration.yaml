@@ -157,4 +157,4 @@ owntracks:
 
 system_health:
 
-googlehome: !include googlehome.yaml
+#googlehome: !include googlehome.yaml
