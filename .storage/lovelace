@@ -72,6 +72,12 @@
                                 },
                                 {
                                     "entity": "sensor.captured_today_arlozoneinside"
+                                },
+                                {
+                                    "entity": "lock.id_lock_150_locked"
+                                },
+                                {
+                                    "entity": "sensor.id_lock_notification"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -287,7 +293,7 @@
                                     "entity": "light.fibaro_system_fgd211_universal_dimmer_500w_level_2"
                                 },
                                 {
-                                    "entity": "light.koksbanken"
+                                    "entity": "light.kitchen_bench"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -631,6 +637,9 @@
                                 },
                                 {
                                     "entity": "sensor.kylen_battery"
+                                },
+                                {
+                                    "entity": "sensor.id_lock_battery"
                                 }
                             ],
                             "show_header_toggle": false,
