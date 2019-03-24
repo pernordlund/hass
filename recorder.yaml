@@ -8,6 +8,7 @@
       - binary_sensor
       - device_tracker
       - input_number
+      - lock
 #      - sensor
     entities:
       - sensor.oregon_w_disp_temperature
@@ -30,15 +31,15 @@
       - sensor.everspring_st814_temperature_and_humidity_sensor_relative_humidity
       - sensor.altan_temperature
       - sensor.bv_outdoor
-      - sensor.bvbrine_inevaporator
-      - sensor.bvbrine_outcondenser
-      - sensor.bvfree_mem
-      - sensor.bvheat_carrier_forwrd
-      - sensor.bvheat_carrier_return
-      - sensor.bvheating_setpoint
-      - sensor.bvhot_gas_compr
-      - sensor.bvhot_water_1_top
-      - sensor.bvradiator_return
+      - sensor.bv_brine_inevaporator
+      - sensor.bv_brine_outcondenser
+      - sensor.bv_free_mem
+      - sensor.bv_heat_carrier_forwrd
+      - sensor.bv_heat_carrier_return
+      - sensor.bv_heating_setpoint
+      - sensor.bv_hot_gas_compr
+      - sensor.bv_hot_water_1_top
+      - sensor.bv_radiator_return
       - sensor.cpu_temperature
       - sensor.load_1m
       - sensor.load_5m
@@ -66,3 +67,6 @@
       - sensor.northq_nq92021_power_reader_energy
       - sensor.onhub_kbyte_sec_sent
       - sensor.onhub_packets_sec_received
+      - sensor.id_lock_battery
+      - sensor.id_lock_notification
+      - sensor.id_lock_150_access_control

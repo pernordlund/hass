@@ -129,6 +129,14 @@
         friendly_name: 'Garage door sensor battery'
         value_template: '{{ states.zwave.fibaro_system_fgk101_door_opening_sensor.attributes.battery_level }}'
         unit_of_measurement: '%'
+      id_lock_battery:
+        friendly_name: 'Front door battery'
+        value_template: '{{ states.zwave.id_lock_150.attributes.battery_level }}'
+        unit_of_measurement: '%'
+      id_lock_notification:
+        friendly_name: 'ID Lock notification'
+        value_template: '{{ states.lock.id_lock_150_locked.attributes.notification }}'
+
 #      slussen:
 #        friendly_name: 'Slussenbuss'
 #        entity_id: sensor.klisatravagen
