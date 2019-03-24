@@ -281,9 +281,6 @@
                                     "entity": "light.fibaro_system_fgd211_universal_dimmer_500w_level_4"
                                 },
                                 {
-                                    "entity": "light.sov_mop"
-                                },
-                                {
                                     "entity": "light.livingroom_corner"
                                 },
                                 {
@@ -294,6 +291,9 @@
                                 },
                                 {
                                     "entity": "light.kitchen_bench"
+                                },
+                                {
+                                    "entity": "light.bedroom_window"
                                 }
                             ],
                             "show_header_toggle": true,
