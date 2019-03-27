@@ -100,7 +100,7 @@
         room: Living room
 
 #Kitchen
-      light.fibaro_system_fgd211_universal_dimmer_500w_level_4:
+      light.kitchen_table:
         name: Kitchen table
         room: Kitchen
       light.kitchen_bench:

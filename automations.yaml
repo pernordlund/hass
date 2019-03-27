@@ -153,7 +153,7 @@
     before: 08:00:00
   action:
   - service: light.toggle
-    entity_id: light.fibaro_system_fgd211_universal_dimmer_500w_level_4
+    entity_id: light.kitchen_table
 - id: A019
   alias: Arbrum fonsterlampa from wall
   trigger:
