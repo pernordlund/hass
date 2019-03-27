@@ -171,9 +171,9 @@
       - light.fibaro_system_fgd211_universal_dimmer_500w_level_5
       - switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch_2
       - switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch
-      - light.frida_skrivbord
-      - light.fridas_bed
-      - light.fibaro_system_fgd211_universal_dimmer_500w_level_6
+      # - light.frida_skrivbord
+      # - light.fridas_bed
+      # - light.fibaro_system_fgd211_universal_dimmer_500w_level_6 #Fridas tak
       - light.vinden
   outside:
     name: Outside
