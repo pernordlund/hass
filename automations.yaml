@@ -505,7 +505,7 @@
     entity_id: timer.arbrum_motion
     state: idle
   - after: '14:00:00'
-    before: '23:00:00'
+    before: '22:00:00'
     condition: time
   action:
   - data:
@@ -545,7 +545,7 @@
     to: 'on'
   condition:
   - after: '15:00:00'
-    before: '23:00:00'
+    before: '22:00:00'
     condition: time
   action:
   - data:

@@ -161,6 +161,7 @@
       - switch.fibaro_system_fgs211_switch_3kw_switch
       - light.fibaro_system_fgd211_universal_dimmer_500w_level_4
       - light.sov_mop
+      - light.bedroom_window
       - light.livingroom_corner
       - light.sofa
       - light.fibaro_system_fgd211_universal_dimmer_500w_level_2
@@ -378,6 +379,7 @@
       - light.fibaro_system_fgd211_universal_dimmer_500w_level_5
       - switch.swiid_swiidinter_switch
       - light.sov_mop
+      - light.bedroom_window
       - switch.telldus_tzwp100_plugin_switch_switch
       - light.utebelysning
       - light.ute_altan
@@ -389,6 +391,7 @@
     entities:
       - switch.swiid_swiidinter_switch
       - light.sov_mop
+      - light.bedroom_window
       - switch.telldus_tzwp100_plugin_switch_switch
       - switch.fibaro_system_fgwpef_wall_plug_switch
       - light.arbrum_fonster
@@ -405,6 +408,7 @@
       - switch.fibaro_system_fgs211_switch_3kw_switch
       - light.fibaro_system_fgd211_universal_dimmer_500w_level_4
       - light.sov_mop
+      - light.bedroom_window
       - light.sofa
       - light.fibaro_system_fgd211_universal_dimmer_500w_level_2
       - light.fibaro_system_fgd211_universal_dimmer_500w_level_5
