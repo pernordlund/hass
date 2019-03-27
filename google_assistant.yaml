@@ -26,7 +26,7 @@
       name: Living room corner
     light.fibaro_system_fgd211_universal_dimmer_500w_level_2:
       name: Living room table
-    light.fibaro_system_fgd211_universal_dimmer_500w_level_4:
+    light.kitchen_table:
       name: Kitchen table
     light.sofa:
       name: Living room sofa
