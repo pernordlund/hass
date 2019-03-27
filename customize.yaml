@@ -141,3 +141,5 @@ sensor.oregon_w_disp_humidity:
   friendly_name: Frida room hum
 lock.id_lock_150_locked:
   friendly_name: Lock main door
+light.bedroom_window:
+  friendly_name: Bedroom window
