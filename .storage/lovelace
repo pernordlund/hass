@@ -278,6 +278,15 @@
                                     "entity": "light.kitchen_table"
                                 },
                                 {
+                                    "entity": "light.kitchen_bench"
+                                },
+                                {
+                                    "entity": "light.kitchen_bench_left"
+                                },
+                                {
+                                    "entity": "light.kitchen_bench_right"
+                                },
+                                {
                                     "entity": "light.livingroom_corner"
                                 },
                                 {
@@ -285,9 +294,6 @@
                                 },
                                 {
                                     "entity": "light.fibaro_system_fgd211_universal_dimmer_500w_level_2"
-                                },
-                                {
-                                    "entity": "light.kitchen_bench"
                                 },
                                 {
                                     "entity": "light.bedroom_window"

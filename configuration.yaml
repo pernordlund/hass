@@ -110,7 +110,8 @@ rest_command: !include rest_commands.yaml
 
 shell_command: !include shell_commands.yaml
 
-#tradfri:
+tradfri:
+  allow_tradfri_groups: true
 #  host: '192.168.1.45'
 
 input_select: !include input_selects.yaml

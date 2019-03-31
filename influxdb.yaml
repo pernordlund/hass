@@ -6,3 +6,7 @@
     domains:
        - sensor
        - binary_sensor
+       - device_tracker
+       - light
+       - switch
+       - lock
