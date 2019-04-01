@@ -266,6 +266,9 @@
                                     "entity": "light.guestroom_red"
                                 },
                                 {
+                                    "entity": "light.guest_room_ceiling"
+                                },
+                                {
                                     "entity": "light.entre_byra"
                                 },
                                 {
