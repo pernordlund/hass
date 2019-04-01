@@ -45,7 +45,7 @@
       light.guestroom_red:
         name: Guest room corner
         room: Guest room
-      light.arbrum_fonster:
+      light.guest_room_window:
         name: Guest room window
         room: Guest room
 

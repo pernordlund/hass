@@ -9,8 +9,8 @@
   #    '0710010141030150':
   #      name: Byralampa
   #      fire_event: True
-      '0710010142020170':
-        name: Sov-MoP
+      # '0710010142020170':
+      #   name: Sov-MoP
       '0710010042050160':
         name: Entre
       '0710010144040060':
@@ -22,8 +22,8 @@
       '0710010042080150':
         name: Ute altan
   - platform: switch
-    name: arbrum_fonster
-    entity_id: switch.fibaro_system_fgwpe_f_wall_plug_switch
+    name: Guest room window
+    entity_id: switch.guest_room_window
   - platform: switch
     name: entre_byra
     entity_id: switch.swiid_swiidinter_switch
