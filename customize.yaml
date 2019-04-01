@@ -45,8 +45,8 @@ binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor:
   friendly_name: Avlarmat
 switch.fibaro_system_fgwpef_wall_plug_gen5_switch_2:
   friendly_name: Pelles laddare
-light.guestroom_red:
-  friendly_name: Arbrum horn
+# light.guestroom_red:
+#   friendly_name: Arbrum horn
 light.fibaro_system_fgd211_universal_dimmer_500w_level_2:
   friendly_name: Vardrum bord
 switch.popp_duwi_zw_zsa_3500_plugin_switch_switch:
