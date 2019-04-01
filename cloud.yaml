@@ -31,7 +31,7 @@
         - switch.swiid_swiidinter_switch
         - switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch_2
         - switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch
-        - light.fibaro_system_fgd211_universal_dimmer_500w_level
+        - light.guest_room_ceiling
         - switch.fibaro_system_fgwpe_f_wall_plug_switch
         - switch.fibaro_system_fgs211_switch_3kw_switch
         - light.fibaro_system_fgd211_universal_dimmer_500w_level_4

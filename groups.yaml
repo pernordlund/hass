@@ -155,7 +155,7 @@
       - light.arbrum_fonster
       - light.arbrum_skrivbord
       - light.guestroom_red
-      - light.fibaro_system_fgd211_universal_dimmer_500w_level
+      - light.guest_room_ceiling
       - light.entre_byra
       - light.fibaro_system_fgd211_universal_dimmer_500w_level_3
       - switch.fibaro_system_fgs211_switch_3kw_switch
@@ -401,7 +401,7 @@
     entities:
       - light.arbrum_skrivbord
       - light.guestroom_red
-      - light.fibaro_system_fgd211_universal_dimmer_500w_level
+      - light.guest_room_ceiling
       - switch.swiid_swiidinter_switch
       - light.tradfri_bulb_e14_ws_opal_400lm
       - light.fibaro_system_fgd211_universal_dimmer_500w_level_3

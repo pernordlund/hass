@@ -6,8 +6,6 @@ configurator.plex_media_server:
   hidden: true
 camera.generic_camera:
   friendly_name: Living room
-light.fibaro_system_fgd211_universal_dimmer_500w_level:
-  friendly_name: Arbrum tak
 light.arbrum_skrivbord:
   assumed_state: false
 light.fibaro_system_fgd211_universal_dimmer_500w_level_6:
