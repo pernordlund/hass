@@ -260,7 +260,7 @@
                                     "entity": "light.guest_room_window"
                                 },
                                 {
-                                    "entity": "light.arbrum_skrivbord"
+                                    "entity": "light.guest_room_desk"
                                 },
                                 {
                                     "entity": "light.guestroom_red"
