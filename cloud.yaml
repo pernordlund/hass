@@ -39,7 +39,7 @@
     entity_config:
 
 #Guest room
-      light.arbrum_skrivbord:
+      light.guest_room_desk:
         name: Guest room desk
         room: Guest room
       light.guestroom_red:
