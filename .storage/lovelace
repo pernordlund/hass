@@ -257,7 +257,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "light.arbrum_fonster"
+                                    "entity": "light.guest_room_window"
                                 },
                                 {
                                     "entity": "light.arbrum_skrivbord"
