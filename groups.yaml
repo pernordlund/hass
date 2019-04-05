@@ -159,6 +159,7 @@
       - light.entre_byra
       - light.fibaro_system_fgd211_universal_dimmer_500w_level_3
       - switch.fibaro_system_fgs211_switch_3kw_switch
+      - light.kitchen_bench
       - light.kitchen_table
       - light.sov_mop
       - light.bedroom_window
