@@ -218,13 +218,13 @@
     to: 'on'
   action:
     service: homeassistant.turn_on
-    entity_id: switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch_2
+    entity_id: switch.bathroom_ceiling
 - id: A026
   alias: Badrum auto off timer
   initial_state: 'on'
   trigger:
     platform: state
-    entity_id: switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch_2
+    entity_id: switch.bathroom_ceiling
     to: 'on'
   action:
     service: homeassistant.turn_on
@@ -244,7 +244,7 @@
   alias: Klk off 5 min after on
   trigger:
     platform: state
-    entity_id: switch.fibaro_system_fgs211_switch_3kw_switch
+    entity_id: switch.cloak_room_ceiling
     to: 'on'
   action:
     service: homeassistant.turn_on
@@ -558,5 +558,5 @@
     condition: time
   action:
   - data:
-      entity_id: light.fibaro_system_fgd211_universal_dimmer_500w_level_5
+      entity_id: light.play_room_ceiling
     service: light.turn_on
