@@ -157,25 +157,24 @@
       - light.guestroom_red
       - light.guest_room_ceiling
       - light.entre_byra
-      - light.fibaro_system_fgd211_universal_dimmer_500w_level_3
-      - switch.fibaro_system_fgs211_switch_3kw_switch
-      - light.kitchen_bench
+      - light.entrance_ceiling
+      - switch.cloak_room_ceiling
       - light.kitchen_table
       - light.sov_mop
       - light.bedroom_window
       - light.livingroom_corner
       - light.sofa
-      - light.fibaro_system_fgd211_universal_dimmer_500w_level_2
+      - light.living_room_table
   inside_upstairs:
     name: Upstairs
     view: no
     entities:
-      - light.fibaro_system_fgd211_universal_dimmer_500w_level_5
-      - switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch_2
-      - switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch
+      - light.play_room_ceiling
+      - switch.bathroom_ceiling
+      - switch.sauna
       # - light.frida_skrivbord
       # - light.fridas_bed
-      # - light.fibaro_system_fgd211_universal_dimmer_500w_level_6 #Fridas tak
+      # - light.fridas_room_ceiling #Fridas tak
       - light.vinden
   outside:
     name: Outside
@@ -191,7 +190,7 @@
       - switch.fibaro_system_fgwpef_wall_plug_gen5_switch
       - switch.kamera
       - switch.sensor_badrum
-      - switch.fibaro_system_fgwpef_wall_plug_gen5_switch_2
+      - switch.bedroom_table
       - switch.popp_duwi_zw_zsa_3500_plugin_switch_switch
   timers:
     name: Timers
@@ -377,7 +376,7 @@
   daily_sun:
     view: no
     entities:
-      - light.fibaro_system_fgd211_universal_dimmer_500w_level_5
+      - light.play_room_ceiling
       - switch.swiid_swiidinter_switch
       - light.sov_mop
       - light.bedroom_window
@@ -405,19 +404,19 @@
       - light.guest_room_ceiling
       - switch.swiid_swiidinter_switch
       - light.tradfri_bulb_e14_ws_opal_400lm
-      - light.fibaro_system_fgd211_universal_dimmer_500w_level_3
-      - switch.fibaro_system_fgs211_switch_3kw_switch
+      - light.entrance_ceiling
+      - switch.cloak_room_ceiling
       - light.kitchen_table
       - light.sov_mop
       - light.bedroom_window
       - light.sofa
-      - light.fibaro_system_fgd211_universal_dimmer_500w_level_2
-      - light.fibaro_system_fgd211_universal_dimmer_500w_level_5
-      - switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch_2
-      - switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch
+      - light.living_room_table
+      - light.play_room_ceiling
+      - switch.bathroom_ceiling
+      - switch.sauna
       - light.frida_skrivbord
       - light.fridas_bed
-      - light.fibaro_system_fgd211_universal_dimmer_500w_level_6
+      - light.fridas_room_ceiling
       - light.vinden
   automations:
     name: Automations

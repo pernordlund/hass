@@ -2,15 +2,15 @@
     entities:
       group.inside_downstairs: off
       group.inside_upstairs: off
-      light.fibaro_system_fgd211_universal_dimmer_500w_level_2: off
+      light.living_room_table: off
   - name: Pelle favourite
     entities:
       group.lights_pelle: on
   - name: Alarm On
     entities:
       group.lights_alarm_on: off
-      switch.fibaro_system_fgwpef_wall_plug_gen5_switch_2: off
+      switch.bedroom_table: off
   - name: Alarm Off
     entities:
-      switch.fibaro_system_fgwpef_wall_plug_gen5_switch_2: on
+      switch.bedroom_table: on
       group.lights_pelle: on
