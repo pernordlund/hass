@@ -160,6 +160,7 @@
       - light.entrance_ceiling
       - switch.cloak_room_ceiling
       - light.kitchen_table
+      - light.kitchen_bench
       - light.sov_mop
       - light.bedroom_window
       - light.livingroom_corner
