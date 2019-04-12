@@ -152,8 +152,8 @@
     name: Downstairs
     view: no
     entities:
-      - light.arbrum_fonster
-      - light.arbrum_skrivbord
+      - light.guest_room_desk
+      - light.guest_room_window
       - light.guestroom_red
       - light.guest_room_ceiling
       - light.entre_byra
@@ -400,21 +400,21 @@
     name: Lights alarm on
     view: no
     entities:
-      - light.arbrum_skrivbord
+      - light.guest_room_desk
       - light.guestroom_red
       - light.guest_room_ceiling
-      - switch.swiid_swiidinter_switch
-      - light.tradfri_bulb_e14_ws_opal_400lm
+      - light.entre_byra
       - light.entrance_ceiling
-      - switch.cloak_room_ceiling
+      - light.cloak_room
       - light.kitchen_table
-      - light.sov_mop
+      - light.kitchen_bench
       - light.bedroom_window
       - light.sofa
       - light.living_room_table
+      - light.living_room_corner
       - light.play_room_ceiling
-      - switch.bathroom_ceiling
-      - switch.sauna
+      - light.bathroom_ceiling
+      - light.sauna
       - light.frida_skrivbord
       - light.fridas_bed
       - light.fridas_room_ceiling

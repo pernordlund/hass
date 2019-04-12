@@ -121,7 +121,7 @@
                                     "entity": "sensor.yr_symbol"
                                 },
                                 {
-                                    "entity": "sensor.northq_nq_92021_power_reader_energy"
+                                    "entity": "sensor.power_reader"
                                 }
                             ],
                             "show_header_toggle": false,

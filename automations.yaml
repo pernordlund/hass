@@ -505,7 +505,7 @@
 - id: '1544037641675'
   alias: Arbrum on motion
   trigger:
-  - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor
+  - entity_id: binary_sensor.guest_room_motion
     from: 'off'
     platform: state
     to: 'on'
@@ -560,3 +560,13 @@
   - data:
       entity_id: light.play_room_ceiling
     service: light.turn_on
+- id: '1554619393049'
+  alias: Test Google Pub/Sub
+  trigger:
+  - platform: webhook
+    webhook_id: google-pub-sub
+  condition: []
+  action:
+  - data:
+      message: Webhook triggered
+    service: notify.pelles_tfn

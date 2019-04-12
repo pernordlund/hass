@@ -34,10 +34,10 @@
     name: bedroom_window
     entity_id: switch.bedroom_window
   - platform: switch
-    name: bathroom_ceiling
+    name: Bathroom ceiling
     entity_id: switch.bathroom_ceiling
   - platform: switch
-    name: sauna
+    name: Sauna
     entity_id: switch.sauna
   - platform: switch
     name: Cloak room
