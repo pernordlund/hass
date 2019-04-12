@@ -62,7 +62,7 @@
                                     "entity": "binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_2"
                                 },
                                 {
-                                    "entity": "binary_sensor.philio_technology_corporation_psp05_pir_motion_sensor"
+                                    "entity": "binary_sensor.guest_room_motion"
                                 },
                                 {
                                     "entity": "binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor"
@@ -103,6 +103,9 @@
                                 },
                                 {
                                     "entity": "sensor.last_arlozoneinside"
+                                },
+                                {
+                                    "entity": "sensor.last_trip_guest_room"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -116,6 +119,9 @@
                                 },
                                 {
                                     "entity": "sensor.yr_symbol"
+                                },
+                                {
+                                    "entity": "sensor.northq_nq_92021_power_reader_energy"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -260,7 +266,7 @@
                                     "entity": "light.guest_room_window"
                                 },
                                 {
-                                    "entity": "light.arbrum_skrivbord"
+                                    "entity": "light.guest_room_desk"
                                 },
                                 {
                                     "entity": "light.guestroom_red"
@@ -272,10 +278,10 @@
                                     "entity": "light.entre_byra"
                                 },
                                 {
-                                    "entity": "light.fibaro_system_fgd211_universal_dimmer_500w_level_3"
+                                    "entity": "light.entrance_ceiling"
                                 },
                                 {
-                                    "entity": "switch.fibaro_system_fgs211_switch_3kw_switch"
+                                    "entity": "light.cloak_room"
                                 },
                                 {
                                     "entity": "light.kitchen_table"
@@ -296,7 +302,7 @@
                                     "entity": "light.sofa"
                                 },
                                 {
-                                    "entity": "light.fibaro_system_fgd211_universal_dimmer_500w_level_2"
+                                    "entity": "light.living_room_table"
                                 },
                                 {
                                     "entity": "light.bedroom_window"
@@ -309,19 +315,19 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "light.fibaro_system_fgd211_universal_dimmer_500w_level_5"
+                                    "entity": "light.play_room_ceiling"
                                 },
                                 {
-                                    "entity": "switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch_2"
+                                    "entity": "light.bathroom_ceiling"
                                 },
                                 {
-                                    "entity": "switch.fibaro_system_fgs221_double_relay_switch_2x1_5kw_switch"
+                                    "entity": "light.sauna"
                                 },
                                 {
                                     "entity": "light.frida_skrivbord"
                                 },
                                 {
-                                    "entity": "light.fibaro_system_fgd211_universal_dimmer_500w_level_6"
+                                    "entity": "light.fridas_room_ceiling"
                                 },
                                 {
                                     "entity": "light.vinden"
@@ -356,7 +362,7 @@
                                     "entity": "switch.sensor_badrum"
                                 },
                                 {
-                                    "entity": "switch.fibaro_system_fgwpe_f_wall_plug_gen5_switch_2"
+                                    "entity": "switch.bedroom_table"
                                 },
                                 {
                                     "entity": "switch.popp_duwi_zw_zsa_3500_plugin_switch_switch"
