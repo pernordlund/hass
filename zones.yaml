@@ -78,3 +78,7 @@
     longitude: 17.950168
     radius: 100
     icon: mdi:baby
+  - name: Astrid
+    latitude: 59.305167659855
+    longitude: 18.157850195084
+    radius: 100
