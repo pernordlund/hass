@@ -144,6 +144,26 @@
       id_lock_notification:
         friendly_name: 'ID Lock notification'
         value_template: '{{ states.lock.id_lock_150_locked.attributes.notification }}'
+      pelle_velocity:
+        friendly_name: 'Pelle velocity'
+        value_template: '{{ states.device_tracker.per_per.attributes.velocity }}'
+        unit_of_measurement: 'mph'
+      marie_velocity:
+        friendly_name: 'Marie velocity'
+        value_template: '{{ states.device_tracker.marie_marie.attributes.velocity }}'
+        unit_of_measurement: 'mph'
+      frida_velocity:
+        friendly_name: 'Frida velocity'
+        value_template: '{{ states.device_tracker.frida_frida.attributes.velocity }}'
+        unit_of_measurement: 'mph'
+      jenny_velocity:
+        friendly_name: 'Jenny velocity'
+        value_template: '{{ states.device_tracker.jenny_jenny.attributes.velocity }}'
+        unit_of_measurement: 'mph'
+      albin_velocity:
+        friendly_name: 'Albin velocity'
+        value_template: '{{ states.device_tracker.albin_albin.attributes.velocity }}'
+        unit_of_measurement: 'mph'
 
 #      slussen:
 #        friendly_name: 'Slussenbuss'

@@ -677,12 +677,6 @@
                                 },
                                 {
                                     "entity": "sensor.google_wifi_uptime"
-                                },
-                                {
-                                    "entity": "sensor.onhub_packets_sec_received"
-                                },
-                                {
-                                    "entity": "sensor.onhub_packets_sec_sent"
                                 }
                             ],
                             "show_header_toggle": false,

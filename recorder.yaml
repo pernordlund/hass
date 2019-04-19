@@ -71,3 +71,8 @@
       - sensor.id_lock_battery
       - sensor.id_lock_notification
       - sensor.id_lock_150_access_control
+      - sensor.pelle_velocity
+      - sensor.marie_velocity
+      - sensor.frida_velocity
+      - sensor.jenny_velocity
+      - sensor.albin_velocity
