@@ -38,6 +38,21 @@
                                 },
                                 {
                                     "entity": "device_tracker.albin_albin"
+                                },
+                                {
+                                    "entity": "sensor.marie_velocity"
+                                },
+                                {
+                                    "entity": "sensor.pelle_velocity"
+                                },
+                                {
+                                    "entity": "sensor.frida_velocity"
+                                },
+                                {
+                                    "entity": "sensor.jenny_velocity"
+                                },
+                                {
+                                    "entity": "sensor.albin_velocity"
                                 }
                             ],
                             "show_header_toggle": false,
