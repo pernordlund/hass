@@ -146,23 +146,23 @@
         value_template: '{{ states.lock.id_lock_150_locked.attributes.notification }}'
       pelle_velocity:
         friendly_name: 'Pelle velocity'
-        value_template: '{{ states.device_tracker.per_per.attributes.velocity * 3.542 }}'
+        value_template: '{{ (states.device_tracker.per_per.attributes.velocity * 3.542) | int }}'
         unit_of_measurement: 'kmh'
       marie_velocity:
         friendly_name: 'Marie velocity'
-        value_template: '{{ states.device_tracker.marie_marie.attributes.velocity * 3.542 }}'
+        value_template: '{{ (states.device_tracker.marie_marie.attributes.velocity * 3.542) | int}}'
         unit_of_measurement: 'kmh'
       frida_velocity:
         friendly_name: 'Frida velocity'
-        value_template: '{{ states.device_tracker.frida_frida.attributes.velocity * 3.542 }}'
+        value_template: '{{ (states.device_tracker.frida_frida.attributes.velocity * 3.542) | int}}'
         unit_of_measurement: 'kmh'
       jenny_velocity:
         friendly_name: 'Jenny velocity'
-        value_template: '{{ states.device_tracker.jenny_jenny.attributes.velocity * 3.542 }}'
+        value_template: '{{ (states.device_tracker.jenny_jenny.attributes.velocity * 3.542) | int}}'
         unit_of_measurement: 'kmh'
       albin_velocity:
         friendly_name: 'Albin velocity'
-        value_template: '{{ states.device_tracker.albin_albin.attributes.velocity * 3.542 }}'
+        value_template: '{{ (states.device_tracker.albin_albin.attributes.velocity * 3.542) | int}}'
         unit_of_measurement: 'kmh'
 
 #      slussen:
