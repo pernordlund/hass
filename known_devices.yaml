@@ -180,3 +180,11 @@ tradfri:
   picture:
   track: true
 
+
+automower_k_170504968_170332295:
+  hide_if_away: false
+  icon:
+  mac:
+  name: Roger
+  picture:
+  track: true
