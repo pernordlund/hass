@@ -82,3 +82,8 @@
     latitude: 59.305167659855
     longitude: 18.157850195084
     radius: 100
+  - name: SCA
+    latitude: 59.31566
+    longitude: 18.05643
+    radius:250
+    icon: mdi:baby
