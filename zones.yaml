@@ -92,3 +92,8 @@
     longitude: 18.0561497
     radius: 200
     icon: mdi:baby
+  - name: LedR
+    latitude: 59.6590749
+    longitude: 17.0942671
+    radius: 1000
+    icon: mdi:baby

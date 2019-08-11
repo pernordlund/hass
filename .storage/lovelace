@@ -389,16 +389,6 @@
                             "type": "entities"
                         },
                         {
-                            "entities": [
-                                "script.update_next_bus",
-                                "script.next_bus",
-                                "script.next_bus_debug"
-                            ],
-                            "show_header_toggle": true,
-                            "title": "Scripts",
-                            "type": "entities"
-                        },
-                        {
                             "entity": "alarm_control_panel.arlozone",
                             "type": "alarm-panel"
                         },

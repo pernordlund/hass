@@ -33,6 +33,7 @@
     data:
       entity_id: light.livingroom_corner
 - id: A007
+  initial_state: 'on'
   alias: 0 - All lights off when night
   trigger:
     platform: time
@@ -41,6 +42,7 @@
   - service: scene.turn_on
     entity_id: scene.godnatt
 - id: A008
+  initial_state: 'on'
   alias: 0 - Some lights off at sunrise
   trigger:
     platform: sun
@@ -49,6 +51,7 @@
     service: homeassistant.turn_off
     entity_id: group.daily_sun
 - id: A009
+  initial_state: 'on'
   alias: 0 - Some lights on before sunset
   trigger:
     platform: sun
@@ -61,6 +64,7 @@
     data_template:
       message: '{{ states("sensor.time") }} - Daily sunset triggered'
 - id: A012
+  initial_state: 'on'
   alias: Alarm activation message
   trigger:
     platform: state
@@ -74,6 +78,7 @@
   - service: scene.turn_on
     entity_id: scene.alarm_on
 - id: A013
+  initial_state: 'on'
   alias: Alarm deactivation message
   trigger:
     platform: state
