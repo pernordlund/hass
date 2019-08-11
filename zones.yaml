@@ -87,3 +87,8 @@
     longitude: 18.05643
     radius: 250
     icon: mdi:baby
+  - name: BUP
+    latitude: 59.3080082
+    longitude: 18.0561497
+    radius: 200
+    icon: mdi:baby
