@@ -78,13 +78,6 @@ sensor: !include sensors.yaml
 
 binary_sensor: !include binary_sensors.yaml
 
-# Text to speech
-tts:
-  - platform: google
-    cache: true
-    cache_dir: /tmp/tts
-    time_memory: 300
-
 media_player: !include media_players.yaml
 
 device_tracker: !include devices.yaml

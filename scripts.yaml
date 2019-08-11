@@ -96,26 +96,26 @@
       - service: scene.turn_on
         data:
           entity_id: scene.godnatt
-  next_bus:
-    alias: "Next bus"
-    sequence:
-      - service: shell_command.update_bus
-      - service: tts.google_say
-        entity_id: media_player.living_room_speaker
-        data:
-          message: 'Buses for Slussen'
-      - delay: 00:00:01
-      - service: tts.google_say
-        entity_id: media_player.living_room_speaker
-        data_template:
-          message: "{{ states.sensor.slussen.state }}"
-  next_bus_debug:
-    alias: "Next bus debug"
-    sequence:
-    - service: tts.google_say
-      entity_id: media_player.living_room_speaker
-      data:
-        message: 'Buses for Slussen'
+  # next_bus:
+  #   alias: "Next bus"
+  #   sequence:
+  #     - service: shell_command.update_bus
+  #     - service: tts.google_say
+  #       entity_id: media_player.living_room_speaker
+  #       data:
+  #         message: 'Buses for Slussen'
+  #     - delay: 00:00:01
+  #     - service: tts.google_say
+  #       entity_id: media_player.living_room_speaker
+  #       data_template:
+  #         message: "{{ states.sensor.slussen.state }}"
+  # next_bus_debug:
+  #   alias: "Next bus debug"
+  #   sequence:
+  #   - service: tts.google_say
+  #     entity_id: media_player.living_room_speaker
+  #     data:
+  #       message: 'Buses for Slussen'
   where_is_my_family:
     alias: "Where is my family"
     sequence:
@@ -129,7 +129,7 @@
           Jenny: {{ states.device_tracker.jenny_jenny.state }}
           
           Albin: {{ states.device_tracker.albin_albin.state }}
-  update_next_bus:
-    alias: "Update next bus"
-    sequence:
-    - service: shell_command.update_bus
+  # update_next_bus:
+  #   alias: "Update next bus"
+  #   sequence:
+  #   - service: shell_command.update_bus

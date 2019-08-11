@@ -140,7 +140,7 @@
       - group.outside
       - group.switches
       - group.timers
-      - group.scripts
+      # - group.scripts
       - vacuum.roger
       - group.arlo_alarm
   arlo_alarm:
@@ -199,13 +199,13 @@
     entities:
       - input_number.klk_timer
       - input_number.badrum_timer
-  scripts:
-    name: Scripts
-    view: no
-    entities:
-      - script.update_next_bus
-      - script.next_bus
-      - script.next_bus_debug
+  # scripts:
+  #   name: Scripts
+  #   view: no
+  #   entities:
+  #     - script.update_next_bus
+  #     - script.next_bus
+  #     - script.next_bus_debug
   media:
     name: Media
     view: yes
