@@ -405,31 +405,32 @@
 - id: A044
   alias: X - Log Pelle to work - Life
   trigger:
+  - entity_id: device_tracker.life360_per_nordlund
     platform: state
-    entity_id: device_tracker.per_per
     to: OKQ8
   action:
   - service: shell_command.log_to_okq8
-  - service: notify.work_log
+  - data: {}
     data_template:
       message: '{{ states("sensor.time") }} - Logged to OKQ8 - Life'
-  - service: notify.pelles_tfn
-    data_template:
+    service: notify.work_log
+  - data_template:
       message: '{{ states("sensor.time") }} - Logged to OKQ8 - Life'
+    service: notify.pelles_tfn
 - id: A045
   alias: X - Log Pelle leave work - Life
   trigger:
-    platform: state
-    entity_id: device_tracker.per_per
+  - entity_id: device_tracker.life360_per_nordlund
     from: OKQ8
+    platform: state
   action:
   - service: shell_command.log_leave_okq8
-  - service: notify.work_log
-    data_template:
+  - data_template:
       message: '{{ states("sensor.time") }} - Logged leave OKQ8 - Life'
-  - service: notify.pelles_tfn
-    data_template:
+    service: notify.work_log
+  - data_template:
       message: '{{ states("sensor.time") }} - Logged leave OKQ8 - Life'
+    service: notify.pelles_tfn
 - id: A046
   alias: Garage light on when door opens
   trigger:

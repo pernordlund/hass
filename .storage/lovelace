@@ -25,34 +25,19 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "device_tracker.marie_marie"
+                                    "entity": "device_tracker.life360_per_nordlund"
                                 },
                                 {
-                                    "entity": "device_tracker.per_per"
+                                    "entity": "device_tracker.life360_marie"
                                 },
                                 {
-                                    "entity": "device_tracker.frida_frida"
+                                    "entity": "device_tracker.life360_frida_nordlund"
                                 },
                                 {
-                                    "entity": "device_tracker.jenny_jenny"
+                                    "entity": "device_tracker.life360_jenny_nordlund"
                                 },
                                 {
-                                    "entity": "device_tracker.albin_albin"
-                                },
-                                {
-                                    "entity": "sensor.marie_velocity"
-                                },
-                                {
-                                    "entity": "sensor.pelle_velocity"
-                                },
-                                {
-                                    "entity": "sensor.frida_velocity"
-                                },
-                                {
-                                    "entity": "sensor.jenny_velocity"
-                                },
-                                {
-                                    "entity": "sensor.albin_velocity"
+                                    "entity": "device_tracker.life360_albin_nordlund"
                                 }
                             ],
                             "show_header_toggle": false,
