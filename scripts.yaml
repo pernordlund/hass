@@ -122,13 +122,13 @@
     - service: notify.pelles_tfn
       data_template:
         message: >
-          Marie: {{ states.device_tracker.marie_marie.state }}
+          Marie: {{ states.device_tracker.life360_marie }}
 
-          Frida: {{ states.device_tracker.frida_frida.state }}
+          Frida: {{ states.device_tracker.life360_frida_nordlund }}
 
-          Jenny: {{ states.device_tracker.jenny_jenny.state }}
+          Jenny: {{ states.device_tracker.life360_jenny_nordlund }}
           
-          Albin: {{ states.device_tracker.albin_albin.state }}
+          Albin: {{ states.device_tracker.life360_albin_nordlund }}
   # update_next_bus:
   #   alias: "Update next bus"
   #   sequence:
