@@ -905,6 +905,14 @@
                             ],
                             "title": "lock",
                             "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "device_tracker.life360_albin_nordlund"
+                                }
+                            ],
+                            "type": "entities"
                         }
                     ],
                     "theme": "Backend-selected",
