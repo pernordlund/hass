@@ -342,9 +342,15 @@
                         },
                         {
                             "entities": [
-                                "light.entre",
-                                "light.utebelysning",
-                                "light.ute_altan"
+                                {
+                                    "entity": "light.entre"
+                                },
+                                {
+                                    "entity": "light.utebelysning"
+                                },
+                                {
+                                    "entity": "light.ute_altan"
+                                }
                             ],
                             "show_header_toggle": true,
                             "title": "Outside",
@@ -363,9 +369,6 @@
                                 },
                                 {
                                     "entity": "switch.bedroom_table"
-                                },
-                                {
-                                    "entity": "switch.popp_duwi_zw_zsa_3500_plugin_switch_switch"
                                 }
                             ],
                             "show_header_toggle": true,
