@@ -353,6 +353,9 @@
                                 },
                                 {
                                     "entity": "light.garage_ceiling"
+                                },
+                                {
+                                    "entity": "switch.fibaro_system_fgwpe_f_wall_plug_gen5_switch"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -361,12 +364,6 @@
                         },
                         {
                             "entities": [
-                                {
-                                    "entity": "switch.fibaro_system_fgwpe_f_wall_plug_gen5_switch"
-                                },
-                                {
-                                    "entity": "switch.sensor_badrum"
-                                },
                                 {
                                     "entity": "switch.bedroom_table"
                                 }

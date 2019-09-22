@@ -254,15 +254,6 @@
   action:
     service: homeassistant.turn_on
     entity_id: script.timed_klk
-# - id: A029
-#   alias: Bass speaker off when turning tv off
-#   trigger:
-#     platform: state
-#     entity_id: media_player.tv
-#     to: 'off'
-#   action:
-#   - service: homeassistant.turn_off
-#     entity_id: switch.fibaro_system_fgwpef_wall_plug_gen5_switch
 - id: A030
   alias: MQTT toggle
   trigger:
@@ -347,24 +338,6 @@
   - service: notify.work_log
     data_template:
       message: '{{ states("sensor.time") }} - Logged leave OKQ8 - GPS'
-# - id: A038
-#   alias: Bass speaker on when Pioneer on
-#   trigger:
-#     platform: state
-#     entity_id: media_player.stereo
-#     to: 'on'
-#   action:
-#   - service: homeassistant.turn_on
-#     entity_id: switch.fibaro_system_fgwpef_wall_plug_gen5_switch
-# - id: A039
-#   alias: Bass speaker off when Pioneer off
-#   trigger:
-#     platform: state
-#     entity_id: media_player.stereo
-#     from: 'on'
-#   action:
-#   - service: homeassistant.turn_off
-#     entity_id: switch.fibaro_system_fgwpef_wall_plug_gen5_switch
 - id: A040
   alias: Daily python scripts midnight
   initial_state: 'off'
@@ -576,3 +549,27 @@
   - data:
       message: Webhook triggered
     service: notify.pelles_tfn
+- id: '1569174049492'
+  alias: Flower light - On
+  trigger:
+  - at: 06:00
+    platform: time
+  - at: '18:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: switch.fibaro_system_fgwpe_f_wall_plug_gen5_switch
+    service: homeassistant.turn_on
+- id: '1569174104818'
+  alias: Flower light - Off
+  trigger:
+  - at: 09:00
+    platform: time
+  - at: '22:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: switch.fibaro_system_fgwpe_f_wall_plug_gen5_switch
+    service: homeassistant.turn_off
