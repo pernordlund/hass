@@ -50,7 +50,7 @@ binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor:
 #light.living_room_table:
 #  friendly_name: Vardrum bord
 switch.popp_duwi_zw_zsa_3500_plugin_switch_switch:
-  friendly_name: Garage el Rogers laddare
+  friendly_name: Garage ceiling
 sensor.everspring_st814_temperature_and_humidity_sensor_temperature:
   friendly_name: Garagevinden temp
 sensor.everspring_st814_temperature_and_humidity_sensor_relative_humidity:
