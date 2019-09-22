@@ -350,6 +350,9 @@
                                 },
                                 {
                                     "entity": "light.ute_altan"
+                                },
+                                {
+                                    "entity": "light.garage_ceiling"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -360,9 +363,6 @@
                             "entities": [
                                 {
                                     "entity": "switch.fibaro_system_fgwpe_f_wall_plug_gen5_switch"
-                                },
-                                {
-                                    "entity": "switch.kamera"
                                 },
                                 {
                                     "entity": "switch.sensor_badrum"
