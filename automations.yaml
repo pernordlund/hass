@@ -170,17 +170,6 @@
   action:
   - service: homeassistant.toggle
     entity_id: switch.fibaro_system_fgwpef_wall_plug_switch
-- id: A020
-  alias: Fridas skrivbord 3-klick
-  trigger:
-    platform: event
-    event_type: zwave.scene_activated
-    event_data:
-      node_id: 25
-      scene_id: 15
-  action:
-  - service: light.toggle
-    entity_id: light.frida_skrivbord
 - id: A021
   alias: Arbrum fonsterlampa med 2-klick
   trigger:
@@ -287,18 +276,6 @@
     to: stop
   action:
   - service: rest_command.roger_stop
-- id: A034
-  alias: Majolika alive
-  initial_state: 'off'
-  trigger:
-    platform: state
-    entity_id: device_tracker.majolika
-    from: not home
-    to: home
-  action:
-  - service: notify.pelles_tfn
-    data:
-      message: Majolika alive
 - id: A035
   alias: Arbrum fonsterlampa med long-klick
   trigger:
