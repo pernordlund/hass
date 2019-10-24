@@ -153,7 +153,7 @@
     view: no
     entities:
       - light.guest_room_desk
-      - light.guest_room_window
+      - light.guest_room_window_2
       - light.guestroom_red
       - light.guest_room_ceiling
       - light.entre_byra

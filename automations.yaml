@@ -536,7 +536,7 @@
   condition: []
   action:
   - data:
-      entity_id: switch.fibaro_system_fgwpe_f_wall_plug_gen5_switch
+      entity_id: switch.flower_lights
     service: homeassistant.turn_on
 - id: '1569174104818'
   alias: Flower light - Off
@@ -548,5 +548,5 @@
   condition: []
   action:
   - data:
-      entity_id: switch.fibaro_system_fgwpe_f_wall_plug_gen5_switch
+      entity_id: switch.flower_lights
     service: homeassistant.turn_off

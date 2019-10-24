@@ -263,9 +263,6 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "light.guest_room_window"
-                                },
-                                {
                                     "entity": "light.guest_room_desk"
                                 },
                                 {
@@ -306,6 +303,9 @@
                                 },
                                 {
                                     "entity": "light.bedroom_window"
+                                },
+                                {
+                                    "entity": "light.guest_room_window_2"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -334,6 +334,9 @@
                                 },
                                 {
                                     "entity": "light.fridas_bed"
+                                },
+                                {
+                                    "entity": "light.media_room_ceiling"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -342,9 +345,6 @@
                         },
                         {
                             "entities": [
-                                {
-                                    "entity": "light.entre"
-                                },
                                 {
                                     "entity": "light.utebelysning"
                                 },
@@ -355,7 +355,7 @@
                                     "entity": "light.garage_ceiling"
                                 },
                                 {
-                                    "entity": "switch.fibaro_system_fgwpe_f_wall_plug_gen5_switch"
+                                    "entity": "switch.flower_lights"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -411,10 +411,6 @@
                             "type": "media-control"
                         },
                         {
-                            "entity": "media_player.nordlund_chromecast",
-                            "type": "media-control"
-                        },
-                        {
                             "entity": "media_player.living_room_speaker",
                             "type": "media-control"
                         },
@@ -432,9 +428,6 @@
                                     "entity": "switch.htpc"
                                 },
                                 {
-                                    "entity": "switch.fibaro_system_fgwpe_f_wall_plug_gen5_switch"
-                                },
-                                {
                                     "entity": "device_tracker.htpc"
                                 },
                                 {
@@ -444,6 +437,10 @@
                             "show_header_toggle": true,
                             "title": "Media devices",
                             "type": "entities"
+                        },
+                        {
+                            "entity": "media_player.chromecast8094",
+                            "type": "media-control"
                         }
                     ],
                     "panel": false,
@@ -563,9 +560,6 @@
                                 },
                                 {
                                     "entity": "sensor.hass_mqtt_status"
-                                },
-                                {
-                                    "entity": "sensor.nodered_mqtt_status"
                                 },
                                 {
                                     "entity": "sensor.signal_strength_arlozonefront"
@@ -719,16 +713,10 @@
                                     "entity": "automation.badrum_auto_off_timer"
                                 },
                                 {
+                                    "entity": "automation.alarm_activation_message"
+                                },
+                                {
                                     "entity": "automation.badrum_on_when_motion_timer"
-                                },
-                                {
-                                    "entity": "automation.bass_speaker_off_when_pioneer_off"
-                                },
-                                {
-                                    "entity": "automation.bass_speaker_off_when_turning_tv_off"
-                                },
-                                {
-                                    "entity": "automation.bass_speaker_on_when_pioneer_on"
                                 },
                                 {
                                     "entity": "automation.daily_python_scripts_midnight"
@@ -743,9 +731,6 @@
                                     "entity": "automation.flood_alarm_message"
                                 },
                                 {
-                                    "entity": "automation.fridas_skrivbord_3_klick"
-                                },
-                                {
                                     "entity": "automation.garage_light_off_when_door_closes"
                                 },
                                 {
@@ -756,9 +741,6 @@
                                 },
                                 {
                                     "entity": "automation.mqtt_toggle"
-                                },
-                                {
-                                    "entity": "automation.majolika_alive"
                                 },
                                 {
                                     "entity": "automation.marie_leaving_slussen"
@@ -917,6 +899,31 @@
                     ],
                     "theme": "Backend-selected",
                     "title": "Test UI"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "script.mute_tv"
+                                },
+                                {
+                                    "entity": "script.good_night"
+                                },
+                                {
+                                    "entity": "script.where_is_my_family"
+                                },
+                                {
+                                    "entity": "script.turn_off_tv"
+                                }
+                            ],
+                            "title": "Scripts",
+                            "type": "entities"
+                        }
+                    ],
+                    "path": "scripts",
+                    "title": "Scripts"
                 }
             ]
         }
