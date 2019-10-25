@@ -78,3 +78,5 @@
       - sensor.albin_velocity
       - sensor.battery_level_arlozonefront
       - sensor.battery_level_arlozoneinside
+      - sensor.netatmo_rain_radio
+      - sensor.netatmo_outdoor_radio
