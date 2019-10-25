@@ -76,3 +76,5 @@
       - sensor.frida_velocity
       - sensor.jenny_velocity
       - sensor.albin_velocity
+      - sensor.battery_level_arlozonefront
+      - sensor.battery_level_arlozoneinside
