@@ -80,3 +80,4 @@
       - sensor.battery_level_arlozoneinside
       - sensor.netatmo_rain_radio
       - sensor.netatmo_outdoor_radio
+      - sensor.garage_door_battery
