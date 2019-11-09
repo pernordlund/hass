@@ -16,7 +16,6 @@
       - sensor.oregon_no_disp_humidity
       - sensor.oregon_no_disp_temperature
       - sensor.fibaro_system_fgsd002_smoke_sensor_temperature
-      - sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_4
       - sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance
       - sensor.inne_uppe_temperature
       - sensor.inne_uppe_humidity
@@ -81,3 +80,4 @@
       - sensor.netatmo_rain_radio
       - sensor.netatmo_outdoor_radio
       - sensor.garage_door_battery
+      - sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature
