@@ -160,6 +160,7 @@
   - service: light.toggle
     entity_id: light.kitchen_table
 - id: A019
+  initial_state: 'on'
   alias: Arbrum fonsterlampa from wall
   trigger:
     platform: event
@@ -171,6 +172,7 @@
   - service: homeassistant.toggle
     entity_id: light.guest_room_window_2
 - id: A021
+  initial_state: 'on'
   alias: Arbrum fonsterlampa med 2-klick
   trigger:
     platform: event
@@ -278,6 +280,7 @@
   action:
   - service: rest_command.roger_stop
 - id: A035
+  initial_state: 'on'
   alias: Arbrum fonsterlampa med long-klick
   trigger:
     platform: event
@@ -287,7 +290,7 @@
       scene_id: 25
   action:
   - service: homeassistant.toggle
-    entity_id: switch.fibaro_system_fgwpef_wall_plug_switch
+    entity_id: light.guest_room_window_2
 - id: A036
   alias: X - Log Pelle to work
   trigger:
