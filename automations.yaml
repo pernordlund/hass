@@ -169,7 +169,7 @@
       scene_id: 24
   action:
   - service: homeassistant.toggle
-    entity_id: switch.fibaro_system_fgwpef_wall_plug_switch
+    entity_id: light.guest_room_window_2
 - id: A021
   alias: Arbrum fonsterlampa med 2-klick
   trigger:
@@ -180,7 +180,7 @@
       scene_id: 26
   action:
   - service: homeassistant.toggle
-    entity_id: switch.fibaro_system_fgwpef_wall_plug_switch
+    entity_id: light.guest_room_window_2
 - id: A022
   alias: Vardrum hornlampan med 3-klick
   trigger:

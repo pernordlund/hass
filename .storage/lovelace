@@ -895,6 +895,16 @@
                                 }
                             ],
                             "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.frysen_temperature"
+                                }
+                            ],
+                            "hours_to_show": 100,
+                            "refresh_interval": 0,
+                            "type": "history-graph"
                         }
                     ],
                     "theme": "Backend-selected",
