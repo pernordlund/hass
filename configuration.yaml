@@ -143,9 +143,9 @@ arlo:
   username: !secret ar_username
   password: !secret ar_password
 
-alarm_control_panel:
-  - platform: arlo
-    home_mode_name: Home
+# alarm_control_panel:
+#   - platform: arlo
+#     home_mode_name: Home
 
 # owntracks:
 

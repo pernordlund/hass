@@ -389,10 +389,6 @@
                             "type": "entities"
                         },
                         {
-                            "entity": "alarm_control_panel.arlozone",
-                            "type": "alarm-panel"
-                        },
-                        {
                             "entities": [
                                 "vacuum.roger"
                             ],
@@ -902,7 +898,17 @@
                                     "entity": "sensor.frysen_temperature"
                                 }
                             ],
-                            "hours_to_show": 100,
+                            "hours_to_show": 72,
+                            "refresh_interval": 0,
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.kylen_temperature"
+                                }
+                            ],
+                            "hours_to_show": 72,
                             "refresh_interval": 0,
                             "type": "history-graph"
                         }
