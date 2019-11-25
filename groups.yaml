@@ -378,7 +378,6 @@
     view: no
     entities:
       - light.play_room_ceiling
-      - switch.swiid_swiidinter_switch
       - light.sov_mop
       - light.bedroom_window
       - switch.telldus_tzwp100_plugin_switch_switch
@@ -390,7 +389,7 @@
     name: Lights Pelle
     view: no
     entities:
-      - switch.swiid_swiidinter_switch
+      # - switch.swiid_swiidinter_switch
       - light.sov_mop
       - light.bedroom_window
       - switch.telldus_tzwp100_plugin_switch_switch

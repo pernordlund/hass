@@ -145,20 +145,20 @@
     service: notify.pelles_tfn
     data_template:
       message: '{{ states("sensor.slussen") }}'
-- id: A018
-  alias: Turn kitchen table on if morning and byra is turned on
-  trigger:
-    platform: event
-    event_type: zwave.node_event
-    event_data:
-      entity_id: zwave.swiid
-  condition:
-    condition: time
-    after: 05:00:00
-    before: 08:00:00
-  action:
-  - service: light.toggle
-    entity_id: light.kitchen_table
+# - id: A018
+#   alias: Turn kitchen table on if morning and byra is turned on
+#   trigger:
+#     platform: event
+#     event_type: zwave.node_event
+#     event_data:
+#       entity_id: zwave.swiid
+#   condition:
+#     condition: time
+#     after: 05:00:00
+#     before: 08:00:00
+#   action:
+#   - service: light.toggle
+#     entity_id: light.kitchen_table
 - id: A019
   initial_state: 'on'
   alias: Arbrum fonsterlampa from wall
@@ -438,30 +438,30 @@
   - service: notify.pelles_tfn
     data_template:
       message: '{{ states("sensor.time") }} - Jenny left home - WLAN'
-- id: A049
-  alias: Ytterdorr open turn on byra
-  trigger:
-  - entity_id: binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2
-    from: 'off'
-    platform: state
-    to: 'on'
-  condition:
-  - after: '23:00:00'
-    before: 05:00:00
-    condition: time
-  - condition: state
-    entity_id: light.entre_byra
-    state: 'off'
-  action:
-  - data:
-      entity_id: light.entre_byra
-    entity_id: switch.swiid_swiidinter_switch
-    service: switch.turn_on
-  - delay: 00:10:00
-  - data:
-      entity_id: light.entre_byra
-    service: switch.turn_off
-  initial_state: 'on'
+# - id: A049
+#   alias: Ytterdorr open turn on byra
+#   trigger:
+#   - entity_id: binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2
+#     from: 'off'
+#     platform: state
+#     to: 'on'
+#   condition:
+#   - after: '23:00:00'
+#     before: 05:00:00
+#     condition: time
+#   - condition: state
+#     entity_id: light.entre_byra
+#     state: 'off'
+#   action:
+#   - data:
+#       entity_id: light.entre_byra
+#     entity_id: switch.swiid_swiidinter_switch
+#     service: switch.turn_on
+#   - delay: 00:10:00
+#   - data:
+#       entity_id: light.entre_byra
+#     service: switch.turn_off
+#   initial_state: 'on'
 - id: '1544037641675'
   alias: Arbrum on motion
   trigger:

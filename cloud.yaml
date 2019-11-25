@@ -28,7 +28,7 @@
         - switch.vit_fjarr_3
         - switch.telldus_tzwp_100_plug_in_switch_switch
         - switch.bedroom_window
-        - switch.swiid_swiidinter_switch
+        # - switch.swiid_swiidinter_switch
         - switch.sauna
         - switch.sauna
         - light.guest_room_ceiling
