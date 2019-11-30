@@ -158,6 +158,7 @@
       - light.guest_room_ceiling
       - light.entre_byra
       - light.entrance_ceiling
+      - light.entrance_drawer
       - switch.cloak_room_ceiling
       - light.kitchen_table
       - light.kitchen_bench
@@ -385,6 +386,7 @@
       - light.ute_altan
       - light.guestroom_red
       - light.sofa
+      - light.entrance_drawer
   lights_pelle:
     name: Lights Pelle
     view: no
