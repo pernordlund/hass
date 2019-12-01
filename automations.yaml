@@ -145,20 +145,6 @@
     service: notify.pelles_tfn
     data_template:
       message: '{{ states("sensor.slussen") }}'
-# - id: A018
-#   alias: Turn kitchen table on if morning and byra is turned on
-#   trigger:
-#     platform: event
-#     event_type: zwave.node_event
-#     event_data:
-#       entity_id: zwave.swiid
-#   condition:
-#     condition: time
-#     after: 05:00:00
-#     before: 08:00:00
-#   action:
-#   - service: light.toggle
-#     entity_id: light.kitchen_table
 - id: A019
   initial_state: 'on'
   alias: Arbrum fonsterlampa from wall
@@ -553,4 +539,15 @@
   action:
   - data:
       entity_id: switch.flower_lights
+    service: homeassistant.turn_off
+- id: '1575213350487'
+  alias: Lights off at 2200
+  description: ''
+  trigger:
+  - at: '22:00:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: group.lights_off_at_2200
     service: homeassistant.turn_off

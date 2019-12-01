@@ -174,10 +174,16 @@
       - light.play_room_ceiling
       - switch.bathroom_ceiling
       - switch.sauna
+      - switch.tp1
       # - light.frida_skrivbord
       # - light.fridas_bed
       # - light.fridas_room_ceiling #Fridas tak
       - light.vinden
+  lights_off_at_2200:
+    name: Lights 2200
+    view: no
+    entities:
+      - switch.tp1
   outside:
     name: Outside
     view: no
