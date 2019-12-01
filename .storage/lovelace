@@ -366,6 +366,9 @@
                             "entities": [
                                 {
                                     "entity": "switch.bedroom_table"
+                                },
+                                {
+                                    "entity": "switch.tp1"
                                 }
                             ],
                             "show_header_toggle": true,
