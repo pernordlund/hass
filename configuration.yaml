@@ -160,3 +160,5 @@ panel_custom:
     sidebar_title: Z-Wave Graph
     sidebar_icon: mdi:access-point-network
     url_path: zwave
+
+tplink: !include tplink.yaml

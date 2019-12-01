@@ -272,7 +272,7 @@
                                     "entity": "light.guest_room_ceiling"
                                 },
                                 {
-                                    "entity": "light.entre_byra"
+                                    "entity": "light.entrance_drawer"
                                 },
                                 {
                                     "entity": "light.entrance_ceiling"
