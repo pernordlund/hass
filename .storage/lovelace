@@ -372,6 +372,9 @@
                                 },
                                 {
                                     "entity": "switch.tp2"
+                                },
+                                {
+                                    "entity": "switch.nexa1"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -676,6 +679,24 @@
                         {
                             "entities": [
                                 {
+                                    "entity": "script.mute_tv"
+                                },
+                                {
+                                    "entity": "script.good_night"
+                                },
+                                {
+                                    "entity": "script.where_is_my_family"
+                                },
+                                {
+                                    "entity": "script.turn_off_tv"
+                                }
+                            ],
+                            "title": "Scripts",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
                                     "entity": "automation.0_all_lights_off_when_night"
                                 },
                                 {
@@ -688,112 +709,19 @@
                                     "entity": "automation.0_some_lights_on_when_pelle_gets_home_in_the_afternoon"
                                 },
                                 {
-                                    "entity": "automation.alarm_activation_message"
-                                },
-                                {
-                                    "entity": "automation.alarm_deactivation_message"
-                                },
-                                {
-                                    "entity": "automation.allrum_triggered_notify_pelle"
-                                },
-                                {
-                                    "entity": "automation.arbrum_fonsterlampa_from_wall"
-                                },
-                                {
-                                    "entity": "automation.arbrum_fonsterlampa_med_2_klick"
-                                },
-                                {
-                                    "entity": "automation.arbrum_fonsterlampa_med_long_klick"
-                                },
-                                {
                                     "entity": "automation.arbrum_on_motion"
                                 },
                                 {
                                     "entity": "automation.badrum_auto_off_timer"
                                 },
                                 {
-                                    "entity": "automation.alarm_activation_message"
-                                },
-                                {
-                                    "entity": "automation.badrum_on_when_motion_timer"
-                                },
-                                {
-                                    "entity": "automation.daily_python_scripts_midnight"
-                                },
-                                {
-                                    "entity": "automation.daily_scripts_midnight"
-                                },
-                                {
                                     "entity": "automation.entre_on_when_door_opens"
-                                },
-                                {
-                                    "entity": "automation.flood_alarm_message"
-                                },
-                                {
-                                    "entity": "automation.garage_light_off_when_door_closes"
-                                },
-                                {
-                                    "entity": "automation.garage_light_on_when_door_opens"
-                                },
-                                {
-                                    "entity": "automation.klk_off_5_min_after_on"
-                                },
-                                {
-                                    "entity": "automation.mqtt_toggle"
                                 },
                                 {
                                     "entity": "automation.marie_leaving_slussen"
                                 },
                                 {
-                                    "entity": "automation.roger_park"
-                                },
-                                {
-                                    "entity": "automation.roger_start"
-                                },
-                                {
-                                    "entity": "automation.roger_stop"
-                                },
-                                {
-                                    "entity": "automation.smoke_alarm_message"
-                                },
-                                {
                                     "entity": "automation.turn_kitchen_table_on_if_morning_and_byra_is_turned_on"
-                                },
-                                {
-                                    "entity": "automation.vardrum_hornlampa_on_when_white_remote_no_3_is_pressed"
-                                },
-                                {
-                                    "entity": "automation.vardrum_hornlampan_med_3_klick"
-                                },
-                                {
-                                    "entity": "automation.vardrum_sofflampa_on_when_white_remote_no_1_is_pressed"
-                                },
-                                {
-                                    "entity": "automation.x_log_jenny_leaving_home_life"
-                                },
-                                {
-                                    "entity": "automation.x_log_jenny_leaving_home_wlan"
-                                },
-                                {
-                                    "entity": "automation.x_log_pelle_leave_work"
-                                },
-                                {
-                                    "entity": "automation.x_log_pelle_leave_work_life"
-                                },
-                                {
-                                    "entity": "automation.x_log_pelle_to_work"
-                                },
-                                {
-                                    "entity": "automation.x_log_pelle_to_work_life"
-                                },
-                                {
-                                    "entity": "automation.x_notify_pelle_to_work"
-                                },
-                                {
-                                    "entity": "automation.x_send_bus_schedule_when_pelle_leaves"
-                                },
-                                {
-                                    "entity": "automation.xx_test_timer_arbrum"
                                 },
                                 {
                                     "entity": "automation.ytterdorr_open_notify"
@@ -808,26 +736,10 @@
                             "show_header_toggle": true,
                             "title": "All automations",
                             "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "alert.front_door_open_long"
-                                },
-                                {
-                                    "entity": "alert.garage_door_open_long"
-                                },
-                                {
-                                    "entity": "alert.husdata_offline"
-                                }
-                            ],
-                            "show_header_toggle": true,
-                            "title": "All alerts",
-                            "type": "entities"
                         }
                     ],
-                    "path": "automations",
-                    "title": "Automations"
+                    "path": "scripts",
+                    "title": "Scripts"
                 },
                 {
                     "badges": [],
@@ -918,31 +830,6 @@
                     ],
                     "theme": "Backend-selected",
                     "title": "Test UI"
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "entities": [
-                                {
-                                    "entity": "script.mute_tv"
-                                },
-                                {
-                                    "entity": "script.good_night"
-                                },
-                                {
-                                    "entity": "script.where_is_my_family"
-                                },
-                                {
-                                    "entity": "script.turn_off_tv"
-                                }
-                            ],
-                            "title": "Scripts",
-                            "type": "entities"
-                        }
-                    ],
-                    "path": "scripts",
-                    "title": "Scripts"
                 }
             ]
         }

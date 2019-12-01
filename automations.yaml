@@ -551,3 +551,19 @@
   - data:
       entity_id: group.lights_off_at_2200
     service: homeassistant.turn_off
+- id: '1575216792330'
+  alias: Kitchen table when drawer on
+  description: ''
+  trigger:
+  - entity_id: light.entrance_drawer
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - after: 05:00:00
+    before: '10:00:00'
+    condition: time
+  action:
+  - data:
+      entity_id: light.kitchen_table
+    service: homeassistant.turn_on
