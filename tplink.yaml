@@ -1,3 +1,4 @@
   discovery: false
   switch:
     - host: 192.168.86.21 #TP1
+    - host: 192.168.86.27 #TP2
