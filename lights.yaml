@@ -9,8 +9,6 @@
   #    '0710010141030150':
   #      name: Byralampa
   #      fire_event: True
-      # '0710010142020170':
-      #   name: Sov-MoP
       '0710010042050160':
         name: Entre
       '0710010144040060':

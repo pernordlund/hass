@@ -8,6 +8,8 @@
       '0710010042090160':
         name: Multifjarr9
         fire_event: True
+      '0710010142020170':
+        name: Nexa1
       '0b110001006eb2e202000060':
         name: Vagg vardrum
         fire_event: True

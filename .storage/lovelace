@@ -369,6 +369,9 @@
                                 },
                                 {
                                     "entity": "switch.tp1"
+                                },
+                                {
+                                    "entity": "switch.tp2"
                                 }
                             ],
                             "show_header_toggle": true,
