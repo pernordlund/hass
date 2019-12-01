@@ -180,10 +180,11 @@
       # - light.fridas_room_ceiling #Fridas tak
       - light.vinden
   lights_off_at_2200:
-    name: Lights 2200
+    name: Lights off at 2200
     view: no
     entities:
       - switch.tp1
+      - switch.nexa1
   outside:
     name: Outside
     view: no
