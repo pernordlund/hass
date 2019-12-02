@@ -446,6 +446,10 @@
                         {
                             "entity": "media_player.chromecast8094",
                             "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.chromecastultra2387",
+                            "type": "media-control"
                         }
                     ],
                     "panel": false,
@@ -721,7 +725,7 @@
                                     "entity": "automation.marie_leaving_slussen"
                                 },
                                 {
-                                    "entity": "automation.turn_kitchen_table_on_if_morning_and_byra_is_turned_on"
+                                    "entity": "automation.kitchen_table_when_drawer_on"
                                 },
                                 {
                                     "entity": "automation.ytterdorr_open_notify"

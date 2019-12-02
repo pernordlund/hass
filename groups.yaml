@@ -395,6 +395,7 @@
       - light.sofa
       - light.entrance_drawer
       - switch.tp1
+      - switch.nexa1
   lights_pelle:
     name: Lights Pelle
     view: no
