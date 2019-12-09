@@ -12,6 +12,7 @@
       message: '{{ states("sensor.time") }} - Ytterdorr opened'
 - id: A003
   alias: Vardrum sofflampa on when white remote no 1 is pressed
+  initial_state: 'on'
   trigger:
   - event_data:
       entity_id: switch.vit_fjarr_1
@@ -23,6 +24,7 @@
     service: homeassistant.toggle
 - id: A004
   alias: Vardrum hornlampa on when white remote no 3 is pressed
+  initial_state: 'on'
   trigger:
     platform: event
     event_type: button_pressed
@@ -566,4 +568,16 @@
   action:
   - data:
       entity_id: light.kitchen_table
+    service: homeassistant.turn_on
+- id: '1575711195852'
+  alias: living room cornet when sofa
+  description: ''
+  trigger:
+  - entity_id: light.sofa
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      entity_id: light.livingroom_corner
     service: homeassistant.turn_on
