@@ -554,7 +554,7 @@
       entity_id: group.lights_off_at_2200
     service: homeassistant.turn_off
 - id: '1575216792330'
-  alias: Kitchen table when drawer on
+  alias: Kitchen table when drawer on 05-07
   description: ''
   trigger:
   - entity_id: light.entrance_drawer
@@ -563,21 +563,37 @@
     to: 'on'
   condition:
   - after: 05:00:00
-    before: '10:00:00'
+    before: 07:00:00
     condition: time
   action:
   - data:
       entity_id: light.kitchen_table
     service: homeassistant.turn_on
-- id: '1575711195852'
-  alias: living room cornet when sofa
+- id: '1575216792331'
+  alias: Kitchen table when drawer off 05-07
   description: ''
   trigger:
-  - entity_id: light.sofa
+  - entity_id: light.entrance_drawer
+    from: 'on'
     platform: state
-    to: 'on'
-  condition: []
+    to: 'off'
+  condition:
+  - after: 05:00:00
+    before: 07:00:00
+    condition: time
   action:
   - data:
-      entity_id: light.livingroom_corner
-    service: homeassistant.turn_on
+      entity_id: light.kitchen_table
+    service: homeassistant.turn_off
+# - id: '1575711195852'
+#   alias: living room corner when sofa
+#   description: ''
+#   trigger:
+#   - entity_id: light.sofa
+#     platform: state
+#     to: 'on'
+#   condition: []
+#   action:
+#   - data:
+#       entity_id: light.livingroom_corner
+#     service: homeassistant.turn_on
