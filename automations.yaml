@@ -35,14 +35,21 @@
     data:
       entity_id: light.livingroom_corner
 - id: A007
-  initial_state: 'on'
   alias: 0 - All lights off when night
   trigger:
+  - at: '23:30'
     platform: time
-    at: '23:30'
+  condition:
+  - condition: state
+    entity_id: input_boolean.cancel_next_goodnight
+    state: 'off'
   action:
-  - service: scene.turn_on
-    entity_id: scene.godnatt
+  - entity_id: scene.godnatt
+    service: scene.turn_on
+  - data:
+      entity_id: input_boolean.cancel_next_goodnight
+    service: input_boolean.turn_off
+  initial_state: 'on'
 - id: A008
   initial_state: 'on'
   alias: 0 - Some lights off at sunrise
@@ -585,15 +592,3 @@
   - data:
       entity_id: light.kitchen_table
     service: homeassistant.turn_off
-# - id: '1575711195852'
-#   alias: living room corner when sofa
-#   description: ''
-#   trigger:
-#   - entity_id: light.sofa
-#     platform: state
-#     to: 'on'
-#   condition: []
-#   action:
-#   - data:
-#       entity_id: light.livingroom_corner
-#     service: homeassistant.turn_on

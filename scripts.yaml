@@ -1,135 +1,114 @@
-  timed_klk:
-    alias: "Set Klk Timer"
-    sequence:
-      # Cancel ev. old timer
-      - service: script.turn_off
-        data:
-          entity_id: script.timer_klk_off
-      # Set new timer
-      - service: script.turn_on
-        data:
-          entity_id: script.timer_klk_off
-  timer_klk_off:
-    alias: "Turn Off Klk"
-    sequence:
-      - delay: '00:{{ states.input_number.klk_timer.state | int }}:00'
-      - service: homeassistant.turn_off
-        entity_id: switch.cloak_room_ceiling
-  timed_badrum:
-    alias: "Set Badrum Timer"
-    sequence:
-      # Cancel ev. old timer
-      - service: script.turn_off
-        data:
-          entity_id: script.timer_badrum_off
-      # Set new timer
-      - service: script.turn_on
-        data:
-          entity_id: script.timer_badrum_off
-  timer_badrum_off:
-    alias: "Turn Off badrum"
-    sequence:
-      - delay: '00:{{ states.input_number.badrum_timer.state | int }}:00'
-      - service: homeassistant.turn_off
-        entity_id: switch.bathroom_ceiling
-  daily_midnight:
-    alias: "Daily midnight scripts"
-    sequence:
-      - service: notify.pelles_tfn
-        data:
-          message: Daily mignight scripts
-  turn_tv_volume_up:
-    alias: "TV volume up"
-    sequence:
-      - service: media_player.volume_up
-        entity_id: media_player.tv
-      - service: media_player.volume_up
-        entity_id: media_player.tv
-      - service: media_player.volume_up
-        entity_id: media_player.tv
-      - service: media_player.volume_up
-        entity_id: media_player.tv
-      - service: media_player.volume_up
-        entity_id: media_player.tv
-  turn_tv_volume_down:
-    alias: "TV volume down"
-    sequence:
-      - service: media_player.volume_down
-        entity_id: media_player.tv
-      - service: media_player.volume_down
-        entity_id: media_player.tv
-      - service: media_player.volume_down
-        entity_id: media_player.tv
-      - service: media_player.volume_down
-        entity_id: media_player.tv
-      - service: media_player.volume_down
-        entity_id: media_player.tv
-  mute_tv:
-    alias: "Mute TV"
-    sequence:
-      - service: media_player.volume_mute
-        data:
-          entity_id: media_player.tv
-          is_volume_muted: true
-  unmute_tv:
-    alias: "Unmute TV"
-    sequence:
-      - service: media_player.volume_mute
-        data:
-          entity_id: media_player.tv
-          is_volume_muted: false
-  turn_on_stereo:
-    alias: "Turn on Stereo"
-    sequence:
-      - service: media_player.turn_on
-        data:
-          entity_id: media_player.stereo
-  turn_off_tv:
-    alias: "Turn off TV"
-    sequence:
-      - service: media_player.turn_off
-        data:
-          entity_id: media_player.tv
-  good_night:
-    alias: "Good night"
-    sequence:
-      - service: scene.turn_on
-        data:
-          entity_id: scene.godnatt
-  # next_bus:
-  #   alias: "Next bus"
-  #   sequence:
-  #     - service: shell_command.update_bus
-  #     - service: tts.google_say
-  #       entity_id: media_player.living_room_speaker
-  #       data:
-  #         message: 'Buses for Slussen'
-  #     - delay: 00:00:01
-  #     - service: tts.google_say
-  #       entity_id: media_player.living_room_speaker
-  #       data_template:
-  #         message: "{{ states.sensor.slussen.state }}"
-  # next_bus_debug:
-  #   alias: "Next bus debug"
-  #   sequence:
-  #   - service: tts.google_say
-  #     entity_id: media_player.living_room_speaker
-  #     data:
-  #       message: 'Buses for Slussen'
-  where_is_my_family:
-    alias: "Where is my family"
-    sequence:
-    - service: notify.pelles_tfn
-      data_template:
-        message: >
-          Marie: {{ states.device_tracker.life360_marie.state }}
+timed_klk:
+  alias: Set Klk Timer
+  sequence:
+  - service: script.turn_off
+    data:
+      entity_id: script.timer_klk_off
+  - service: script.turn_on
+    data:
+      entity_id: script.timer_klk_off
+timer_klk_off:
+  alias: Turn Off Klk
+  sequence:
+  - delay: 00:{{ states.input_number.klk_timer.state | int }}:00
+  - service: homeassistant.turn_off
+    entity_id: switch.cloak_room_ceiling
+timed_badrum:
+  alias: Set Badrum Timer
+  sequence:
+  - service: script.turn_off
+    data:
+      entity_id: script.timer_badrum_off
+  - service: script.turn_on
+    data:
+      entity_id: script.timer_badrum_off
+timer_badrum_off:
+  alias: Turn Off badrum
+  sequence:
+  - delay: 00:{{ states.input_number.badrum_timer.state | int }}:00
+  - service: homeassistant.turn_off
+    entity_id: switch.bathroom_ceiling
+daily_midnight:
+  alias: Daily midnight scripts
+  sequence:
+  - service: notify.pelles_tfn
+    data:
+      message: Daily mignight scripts
+turn_tv_volume_up:
+  alias: TV volume up
+  sequence:
+  - service: media_player.volume_up
+    entity_id: media_player.tv
+  - service: media_player.volume_up
+    entity_id: media_player.tv
+  - service: media_player.volume_up
+    entity_id: media_player.tv
+  - service: media_player.volume_up
+    entity_id: media_player.tv
+  - service: media_player.volume_up
+    entity_id: media_player.tv
+turn_tv_volume_down:
+  alias: TV volume down
+  sequence:
+  - service: media_player.volume_down
+    entity_id: media_player.tv
+  - service: media_player.volume_down
+    entity_id: media_player.tv
+  - service: media_player.volume_down
+    entity_id: media_player.tv
+  - service: media_player.volume_down
+    entity_id: media_player.tv
+  - service: media_player.volume_down
+    entity_id: media_player.tv
+mute_tv:
+  alias: Mute TV
+  sequence:
+  - service: media_player.volume_mute
+    data:
+      entity_id: media_player.tv
+      is_volume_muted: true
+unmute_tv:
+  alias: Unmute TV
+  sequence:
+  - service: media_player.volume_mute
+    data:
+      entity_id: media_player.tv
+      is_volume_muted: false
+turn_on_stereo:
+  alias: Turn on Stereo
+  sequence:
+  - service: media_player.turn_on
+    data:
+      entity_id: media_player.stereo
+turn_off_tv:
+  alias: Turn off TV
+  sequence:
+  - service: media_player.turn_off
+    data:
+      entity_id: media_player.tv
+good_night:
+  alias: Good night
+  sequence:
+  - service: scene.turn_on
+    data:
+      entity_id: scene.godnatt
+where_is_my_family:
+  alias: Where is my family
+  sequence:
+  - service: notify.pelles_tfn
+    data_template:
+      message: 'Marie: {{ states.device_tracker.life360_marie.state }}
 
-          Frida: {{ states.device_tracker.life360_frida_nordlund.state }}
+        Frida: {{ states.device_tracker.life360_frida_nordlund.state }}
 
-          Jenny: {{ states.device_tracker.life360_jenny_nordlund.state }}
-          
-          Albin: {{ states.device_tracker.life360_albin_nordlund.state }}
-  # update_next_bus:
-  #   alias: "Update next bus"
-  #   sequence:
-  #   - service: shell_command.update_bus
+        Jenny: {{ states.device_tracker.life360_jenny_nordlund.state }}
+
+        Albin: {{ states.device_tracker.life360_albin_nordlund.state }}
+
+        '
+'1576340335902':
+  alias: Cancel next goodnight
+  sequence:
+  - data:
+      entity_id: input_boolean.cancel_next_goodnight
+    service: input_boolean.turn_on

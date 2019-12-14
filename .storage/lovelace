@@ -391,10 +391,13 @@
                                 },
                                 {
                                     "entity": "timer.arbrum_motion"
+                                },
+                                {
+                                    "entity": "input_boolean.cancel_next_goodnight"
                                 }
                             ],
                             "show_header_toggle": false,
-                            "title": "Timers",
+                            "title": "Misc",
                             "type": "entities"
                         },
                         {
@@ -725,9 +728,6 @@
                                     "entity": "automation.marie_leaving_slussen"
                                 },
                                 {
-                                    "entity": "automation.kitchen_table_when_drawer_on"
-                                },
-                                {
                                     "entity": "automation.ytterdorr_open_notify"
                                 },
                                 {
@@ -735,6 +735,12 @@
                                 },
                                 {
                                     "entity": "automation.allrum_on_when_dark"
+                                },
+                                {
+                                    "entity": "automation.kitchen_table_when_drawer_off_05_07"
+                                },
+                                {
+                                    "entity": "automation.kitchen_table_when_drawer_on_05_07"
                                 }
                             ],
                             "show_header_toggle": true,
