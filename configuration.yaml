@@ -162,3 +162,5 @@ panel_custom:
     url_path: zwave
 
 tplink: !include tplink.yaml
+
+input_boolean: !include input_booleans.yaml
