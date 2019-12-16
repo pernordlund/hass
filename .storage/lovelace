@@ -696,6 +696,9 @@
                                 },
                                 {
                                     "entity": "script.turn_off_tv"
+                                },
+                                {
+                                    "entity": "script.1576340335902"
                                 }
                             ],
                             "title": "Scripts",
