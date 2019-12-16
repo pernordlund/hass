@@ -119,7 +119,7 @@ script: !include scripts.yaml
 python_script:
 
 #google_assistant: !include google_assistant.yaml
-cloud: !include cloud.yaml
+cloud: #!include cloud.yaml
 
 system_log:
 

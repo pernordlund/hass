@@ -46,9 +46,6 @@
   action:
   - entity_id: scene.godnatt
     service: scene.turn_on
-  - data:
-      entity_id: input_boolean.cancel_next_goodnight
-    service: input_boolean.turn_off
   initial_state: 'on'
 - id: A008
   initial_state: 'on'
@@ -592,3 +589,14 @@
   - data:
       entity_id: light.kitchen_table
     service: homeassistant.turn_off
+- id: '1576364866846'
+  alias: Cancel the cancel
+  description: ''
+  trigger:
+  - at: '23:35:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: input_boolean.cancel_next_goodnight
+    service: input_boolean.turn_off

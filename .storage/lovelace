@@ -741,6 +741,9 @@
                                 },
                                 {
                                     "entity": "automation.kitchen_table_when_drawer_on_05_07"
+                                },
+                                {
+                                    "entity": "automation.cancel_the_cancel"
                                 }
                             ],
                             "show_header_toggle": true,
