@@ -121,9 +121,9 @@
         friendly_name: 'Oregon ND sensor battery'
         value_template: "{{states.sensor.oregon_no_disp_humidity.attributes['Battery numeric']}}"
         unit_of_measurement: 'of 9'
-      vinden_battery:
-        friendly_name: 'Vinden sensor battery'
-        value_template: "{{states.sensor.vinden_temperature.attributes['Battery numeric']}}"
+      attic_battery:
+        friendly_name: 'attic sensor battery'
+        value_template: "{{states.sensor.attic_temperature.attributes['Battery numeric']}}"
         unit_of_measurement: 'of 9'
       flood_battery:
         friendly_name: 'Flood sensor battery'
@@ -325,7 +325,7 @@
          - Humidity
          - Temperature
       0a5202042a018015530369:
-        name: Vinden
+        name: attic
         data_type:
          - Humidity
          - Temperature

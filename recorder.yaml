@@ -19,8 +19,8 @@
       - sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance
       - sensor.inne_uppe_temperature
       - sensor.inne_uppe_humidity
-      - sensor.vinden_temperature
-      - sensor.vinden_humidity
+      - sensor.attic_temperature
+      - sensor.attic_humidity
       - sensor.kylen_temperature
       - sensor.kylen_humidity
       - sensor.frysen_temperature

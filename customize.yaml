@@ -18,7 +18,7 @@ light.frida_skrivbord:
 #  friendly_name: Allrum
 light.entre:
   assumed_state: false
-light.vinden:
+light.attic:
   assumed_state: false
 light.utebelysning:
   assumed_state: false
@@ -50,11 +50,11 @@ binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor:
 switch.popp_duwi_zw_zsa_3500_plugin_switch_switch:
   friendly_name: Garage ceiling
 sensor.everspring_st814_temperature_and_humidity_sensor_temperature:
-  friendly_name: Garagevinden temp
+  friendly_name: Garage attic temperature
 sensor.everspring_st814_temperature_and_humidity_sensor_relative_humidity:
-  friendly_name: Garagevinden fukt
+  friendly_name: Garage attic humidity
 binary_sensor.garage_door_sensor:
-  friendly_name: Garagedorren oppen
+  friendly_name: Garage door open
 binary_sensor.sensative_strips_sensor:
   friendly_name: Forradsdorren oppen
 sensor.everspring_st812_flood_detector_flood:

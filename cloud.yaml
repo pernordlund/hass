@@ -120,7 +120,7 @@
         room: Outside front
 
 #Attic
-      light.vinden:
+      light.attic:
         name: Attic
         room: Attic
 
