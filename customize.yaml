@@ -27,12 +27,12 @@ light.ute_altan:
 group.all_automations:
   hidden: false
   friendly_name: All automations
-light.entre_byra:
-  friendly_name: Byralampa
-  icon: mdi:lightbulb
-light.livingroom_corner:
-  friendly_name: Vardagrum hornlampa
-  icon: mdi:lightbulb
+# light.entre_byra:
+#   friendly_name: Byralampa
+#   icon: mdi:lightbulb
+# light.livingroom_corner:
+#   friendly_name: Vardagrum hornlampa
+#   icon: mdi:lightbulb
 binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor_4:
   friendly_name: Rorelse allrum
 sensor.fibaro_system_fgms001zw5_motion_sensor_luminance_4:
@@ -66,9 +66,9 @@ sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_4:
 #switch.cloak_room_ceiling:
 #  friendly_name: Klk nere
 #  icon: mdi:lightbulb
-light.sofa:
-  friendly_name: Vardrum soffa
-  icon: mdi:lightbulb
+# light.sofa:
+#   friendly_name: Vardrum soffa
+#   icon: mdi:lightbulb
 # light.arbrum_fonster:
 #   friendly_name: Arbrum fonster
 #   icon: mdi:lightbulb
@@ -97,14 +97,14 @@ binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor:
   friendly_name: Roksensor
 sensor.fibaro_system_fgsd002_smoke_sensor_temperature:
   friendly_name: Vardrum temp
-light.tradfri_bulb_e14_ws_opal_400lm:
-  friendly_name: Tradfri e14
+# light.tradfri_bulb_e14_ws_opal_400lm:
+#   friendly_name: Tradfri e14
 sensor.pelle_life360:
   entity_picture: /local/pelle.JPG
 sensor.huset:
   entity_picture: /local/home.jpg
-sensor.slussen:
-  icon: mdi:bus
+# sensor.slussen:
+#   icon: mdi:bus
 sensor.roger_battery:
   icon: mdi:battery
 sensor.roger_next_start:
@@ -137,5 +137,5 @@ sensor.oregon_w_disp_humidity:
   friendly_name: Frida room hum
 lock.id_lock_150_locked:
   friendly_name: Lock main door
-light.bedroom_window:
-  friendly_name: Bedroom window
+# light.bedroom_window:
+#   friendly_name: Bedroom window

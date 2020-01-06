@@ -190,10 +190,10 @@
                                     "entity": "sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature"
                                 },
                                 {
-                                    "entity": "sensor.vinden_temperature"
+                                    "entity": "sensor.attic_temperature"
                                 },
                                 {
-                                    "entity": "sensor.vinden_humidity"
+                                    "entity": "sensor.attic_humidity"
                                 },
                                 {
                                     "entity": "sensor.netatmo_indoor_temperature"
@@ -330,13 +330,16 @@
                                     "entity": "light.fridas_room_ceiling"
                                 },
                                 {
-                                    "entity": "light.vinden"
+                                    "entity": "light.attic"
                                 },
                                 {
                                     "entity": "light.fridas_bed"
                                 },
                                 {
                                     "entity": "light.media_room_ceiling"
+                                },
+                                {
+                                    "entity": "light.play_room_ceiling_2"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -429,22 +432,6 @@
                         {
                             "entity": "media_player.guest_room_speaker",
                             "type": "media-control"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "switch.htpc"
-                                },
-                                {
-                                    "entity": "device_tracker.htpc"
-                                },
-                                {
-                                    "entity": "device_tracker.tv"
-                                }
-                            ],
-                            "show_header_toggle": true,
-                            "title": "Media devices",
-                            "type": "entities"
                         },
                         {
                             "entity": "media_player.chromecast8094",
@@ -629,7 +616,7 @@
                                     "entity": "sensor.oregon_wd_battery"
                                 },
                                 {
-                                    "entity": "sensor.vinden_battery"
+                                    "entity": "sensor.attic_battery"
                                 },
                                 {
                                     "entity": "sensor.flood_battery"
