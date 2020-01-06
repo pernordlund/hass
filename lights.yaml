@@ -23,7 +23,7 @@
     name: Guest room window
     entity_id: switch.guest_room_window
   - platform: switch
-    name: Livingroom Corner
+    name: Corner
     entity_id: switch.telldus_tzwp_100_plug_in_switch_switch
   - platform: switch
     name: bedroom_window
