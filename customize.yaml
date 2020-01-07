@@ -66,7 +66,7 @@ sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_4:
 #switch.cloak_room_ceiling:
 #  friendly_name: Klk nere
 #  icon: mdi:lightbulb
-# light.sofa:
+# light.living_room_sofa:
 #   friendly_name: Vardrum soffa
 #   icon: mdi:lightbulb
 # light.arbrum_fonster:

@@ -293,10 +293,10 @@
                                     "entity": "light.kitchen_bench_right"
                                 },
                                 {
-                                    "entity": "light.corner"
+                                    "entity": "light.living_room_corner"
                                 },
                                 {
-                                    "entity": "light.sofa"
+                                    "entity": "light.living_room_sofa"
                                 },
                                 {
                                     "entity": "light.living_room_table"

@@ -28,7 +28,7 @@
       name: Living room table
     light.kitchen_table:
       name: Kitchen table
-    light.sofa:
+    light.living_room_sofa:
       name: Living room sofa
     group.outside:
       name: Outside lights

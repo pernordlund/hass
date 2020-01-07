@@ -26,7 +26,7 @@
     name: Living room corner
     entity_id: switch.telldus_tzwp_100_plug_in_switch_switch
   - platform: switch
-    name: bedroom_window
+    name: Bedroom window
     entity_id: switch.bedroom_window
   - platform: switch
     name: Bathroom ceiling

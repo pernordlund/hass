@@ -165,7 +165,7 @@
       - light.sov_mop
       - light.bedroom_window
       - light.livingroom_corner
-      - light.sofa
+      - light.living_room_sofa
       - light.living_room_table
   inside_upstairs:
     name: Upstairs
@@ -392,7 +392,7 @@
       - light.utebelysning
       - light.ute_altan
       - light.guestroom_red
-      - light.sofa
+      - light.living_room_sofa
       - light.entrance_drawer
       - switch.tp1
       - switch.nexa1
@@ -419,7 +419,7 @@
       - light.kitchen_table
       - light.kitchen_bench
       - light.bedroom_window
-      - light.sofa
+      - light.living_room_sofa
       - light.living_room_table
       - light.living_room_corner
       - light.play_room_ceiling
