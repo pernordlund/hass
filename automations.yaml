@@ -332,16 +332,26 @@
     data:
       entity_id: script.daily_midnight
 - id: A042
-  alias: Entre on when door opens
-  initial_state: 'on'
+  alias: Entre on when door opens late night
   trigger:
-    platform: state
-    entity_id: binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2
+  - entity_id: binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2
     from: 'off'
+    platform: state
     to: 'on'
+  condition:
+  - after: '22:00:00'
+    before: 04:00:00
+    condition: time
+  - condition: state
+    entity_id: light.entrance_drawer
+    state: 'off'
   action:
-  - service: light.turn_on
-    entity_id: light.entre
+  - entity_id: light.entrance_drawer
+    service: light.turn_on
+  - delay: 00:10:00
+  - entity_id: light.entrance_drawer
+    service: light.turn_off
+  initial_state: 'on'
 - id: A043
   alias: Marie leaving Slussen
   initial_state: 'on'

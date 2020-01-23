@@ -164,7 +164,7 @@
       - light.kitchen_bench
       - light.sov_mop
       - light.bedroom_window
-      - light.livingroom_corner
+      - light.living_room_corner
       - light.living_room_sofa
       - light.living_room_table
   inside_upstairs:
