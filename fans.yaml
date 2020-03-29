@@ -1,0 +1,3 @@
+  - platform: xiaomi_miio
+    host: !secret mi_ip
+    token: !secret mi_token
