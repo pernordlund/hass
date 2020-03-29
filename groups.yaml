@@ -4,7 +4,6 @@
 #Group config
   default_view:
     name: Overview
-    view: yes
     entities:
       - group.welcome
       - group.awesome_people
@@ -18,7 +17,6 @@
       - camera.arlozoneinside
   welcome:
     name: Welcome
-    view: no
     entities:
       - sensor.from_hass
       - sensor.date
@@ -29,13 +27,11 @@
       - sensor.uptime
   roger:
     name: Roger
-    view: no
     entities:
       - sensor.roger_status
       - sensor.roger_battery
   alerts:
     name: Alerts
-    view: no
     entities:
       - alert.forrad_door_open_long
       - alert.front_door_open_long
@@ -43,7 +39,6 @@
       - alert.husdata_offline
   awesome_people:
     name: Family
-    view: no
     entities:
       - sensor.huset
       - device_tracker.marie_marie
@@ -53,7 +48,6 @@
       - device_tracker.albin_albin
   security:
     name: Security
-    view: no
     entities:
       - binary_sensor.dishwasher_flood_template
       - binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor_4
@@ -67,7 +61,6 @@
       - sensor.captured_today_arlozoneinside
   security_lt:
     name: Security last trip
-    view: no
     entities:
       - sensor.last_trip_allrum
       - sensor.last_trip_ytterdorr
@@ -78,7 +71,6 @@
       - sensor.last_arlozoneinside
   frontpage_sensors:
     name: Sensors
-    view: no
     entities:
       - sun.sun
       - sun.sunrise
@@ -86,14 +78,12 @@
       - sensor.northq_nq92021_power_reader_energy
   climate:
     name: Climate
-    view: yes
     entities:
       - group.climate_house
       - group.climate_garage
       - group.climate_outside
   climate_house:
     name: Climate House
-    view: no
     entities:
       - sensor.oregon_w_disp_temperature
       - sensor.oregon_w_disp_humidity
@@ -116,14 +106,12 @@
       - sensor.frysen_humidity
   climate_garage:
     name: Climate Garage
-    view: no
     entities:
       - sensor.fibaro_system_fgk101_door_opening_sensor_temperature
       - sensor.everspring_st814_temperature_and_humidity_sensor_temperature
       - sensor.everspring_st814_temperature_and_humidity_sensor_relative_humidity
   climate_outside:
     name: Climate Outside
-    view: no
     entities:
       - sensor.altan_temperature
       - sensor.bv_outdoor
@@ -133,7 +121,6 @@
       - sensor.netatmo_rain_sum_rain_24
   control:
     name: Control
-    view: yes
     entities:
       - group.inside_downstairs
       - group.inside_upstairs
@@ -145,12 +132,10 @@
       - group.arlo_alarm
   arlo_alarm:
     name: Arlo alarm
-    view: no
     entities:
       - alarm_control_panel.arlozone
   inside_downstairs:
     name: Downstairs
-    view: no
     entities:
       - light.guest_room_desk
       - light.guest_room_window_2
@@ -169,7 +154,6 @@
       - light.living_room_table
   inside_upstairs:
     name: Upstairs
-    view: no
     entities:
       - light.play_room_ceiling
       - switch.bathroom_ceiling
@@ -181,20 +165,17 @@
       - light.attic
   lights_off_at_2200:
     name: Lights off at 2200
-    view: no
     entities:
       - switch.tp1
       - switch.nexa1
   outside:
     name: Outside
-    view: no
     entities:
       - light.entre
       - light.utebelysning
       - light.ute_altan
   switches:
     name: Switches
-    view: no
     entities:
       - switch.fibaro_system_fgwpef_wall_plug_gen5_switch
       - switch.kamera
@@ -203,7 +184,6 @@
       - switch.popp_duwi_zw_zsa_3500_plugin_switch_switch
   timers:
     name: Timers
-    view: no
     entities:
       - input_number.klk_timer
       - input_number.badrum_timer
@@ -216,13 +196,11 @@
   #     - script.next_bus_debug
   media:
     name: Media
-    view: yes
     entities:
       - group.m_players
       - group.m_devices
   m_players:
     name: Media players
-    view: no
     entities:
       - media_player.nordlund_chromecast
       - media_player.stereo
@@ -232,7 +210,6 @@
       - media_player.kitchen_speaker
   m_devices:
     name: Media devices
-    view: no
     entities:
       - switch.htpc
       - switch.fibaro_system_fgwpef_wall_plug_gen5_switch
@@ -240,12 +217,10 @@
       - device_tracker.tv
   heater:
     name: Heater
-    view: yes
     entities:
       - group.heater_vals
   heater_vals:
     name: Values
-    view: no
     entities:
       - sensor.bvtime
       - sensor.bvfree_mem
@@ -272,21 +247,18 @@
       - binary_sensor.bvswitch_valve_1
 #  majolika:
 #    name: majolika
-#    view: no
-#    entities:
+##    entities:
 #      - group.majolika_status
 #      - group.majolika_control
 #      - group.majolika_vals
 #  majolika_vals:
 #    name: Values
-#    view: no
-#    entities:
+##    entities:
 #      - sensor.majolika_control
 #      - sensor.majolika_status
 #  majolika_status:
 #    name: Status
-#    view: no
-#    entities:
+##    entities:
 #      - sensor.maj_batt_volt
 #      - sensor.maj_batt_amps
 #      - sensor.maj_batt_kapac
@@ -297,8 +269,7 @@
 #      - sensor.maj_solcell_volt
 #  majolika_control:
 #    name: Control
-#    view: no
-#    entities:
+##    entities:
 #      - sensor.maj_dag_natt
 #      - sensor.maj_enable_load_test
 #      - sensor.maj_enable_man_contr
@@ -307,7 +278,6 @@
 #      - sensor.maj_over_temp
   systems:
     name: Systems
-    view: yes
     entities:
       - group.system_macmini
 #      - group.system_rasp3
@@ -315,7 +285,6 @@
       - group.batteries
   system_macmini:
     name: Macmini values
-    view: no
     entities:
       - sensor.load_1m
       - sensor.load_5m
@@ -329,8 +298,7 @@
       - sensor.cpu_temperature
 #  system_rasp3:
 #    name: Rasp-3 values
-#    view: no
-#    entities:
+##    entities:
 #      - sensor.rasp3_cpu_load
 #      - sensor.rasp3_disk_free
 #      - sensor.rasp3_disk_use
@@ -347,7 +315,6 @@
 #      - sensor.rasp3_total
   other_systems:
     name: Other systems
-    view: no
     entities:
       - device_tracker.camera
       - device_tracker.zonestorage
@@ -364,7 +331,6 @@
       - sensor.netatmo_rain_radio
   batteries:
     name: Batteries
-    view: no
     entities:
       - sensor.battery_level_arlozonefront
       - sensor.battery_level_arlozoneinside
@@ -383,7 +349,6 @@
       - sensor.garage_vind_battery
       - sensor.garage_door_battery
   daily_sun:
-    view: no
     entities:
       - light.play_room_ceiling
       - light.sov_mop
@@ -398,7 +363,6 @@
       - switch.nexa1
   lights_pelle:
     name: Lights Pelle
-    view: no
     entities:
       # - switch.swiid_swiidinter_switch
       - light.sov_mop
@@ -408,7 +372,6 @@
       - light.arbrum_fonster
   lights_alarm_on:
     name: Lights alarm on
-    view: no
     entities:
       - light.guest_room_desk
       - light.guestroom_red
@@ -431,13 +394,11 @@
       - light.attic
   automations:
     name: Automations
-    view: yes
     entities:
       - group.all_automations
       - group.all_alerts
   all_alerts:
     name: All alerts
-    view: no
     entities:
       - alert.forrad_door_open_long
       - alert.front_door_open_long
