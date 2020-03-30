@@ -81,3 +81,8 @@
       - sensor.netatmo_outdoor_radio
       - sensor.garage_door_battery
       - sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature
+      - sensor.xiaomi_airpurifier_air_quality_pm25
+      - sensor.xiaomi_airpurifier_filter_remaining
+      - sensor.xiaomi_airpurifier_humidity
+      - sensor.xiaomi_airpurifier_speed
+      - sensor.xiaomi_airpurifier_temp
