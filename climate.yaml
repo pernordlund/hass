@@ -1,13 +1,13 @@
   - platform: generic_thermostat
     name: outside
-    heater: switch.compressor
+    heater: switch.frida_at_school
     target_sensor: sensor.bv_outdoor
   - platform: generic_thermostat
     name: upstairs
-    heater: switch.compressor
+    heater: switch.frida_at_school
     target_sensor: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature
   - platform: generic_thermostat
     name: downstairs
-    heater: switch.compressor
+    heater: switch.frida_at_school
     target_sensor: sensor.fibaro_system_fgsd002_smoke_sensor_temperature
     
