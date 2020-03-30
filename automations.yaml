@@ -414,7 +414,7 @@
       entity_id: switch.popp_duwi_zw_zsa_3500_plugin_switch_switch
     service: homeassistant.turn_off
   initial_state: 'on'
-- id: A047
+- id: A0471
   alias: X - Log Jenny leaving home - Life
   trigger:
     platform: state
