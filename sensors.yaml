@@ -19,6 +19,33 @@
 #    name: Klisatravagen
   - platform: template
     sensors:
+  # Xiaomi Air Purifier 2S
+      xiaomi_airpurifier_temp:
+        friendly_name: "Temperature"
+        value_template: "{{ state_attr('fan.xiaomi_miio_device', 'temperature') }}"
+        unit_of_measurement: "°C"
+        device_class: "temperature"
+      xiaomi_airpurifier_humidity:
+        friendly_name: "Humidity"
+        value_template: "{{ state_attr('fan.xiaomi_miio_device', 'humidity') }}"
+        unit_of_measurement: "%"
+        device_class: "humidity"
+      xiaomi_airpurifier_air_quality_pm25:
+        friendly_name: "Air quality"
+        value_template: "{{ state_attr('fan.xiaomi_miio_device', 'aqi') }}"
+        unit_of_measurement: "μg/m³"
+        icon_template: "mdi:weather-fog"
+      xiaomi_airpurifier_speed:
+        friendly_name: "Fan speed"
+        value_template: "{{ state_attr('fan.xiaomi_miio_device', 'motor_speed') }}"
+        unit_of_measurement: "rpm"
+        icon_template: "mdi:speedometer"
+      xiaomi_airpurifier_filter_remaining:
+        friendly_name: "Filter remaining"
+        value_template: "{{ state_attr('fan.xiaomi_miio_device', 'filter_life_remaining') }}"
+        unit_of_measurement: "%"
+        icon_template: "mdi:heart-outline"
+  #Others
       last_trip_allrum:
         value_template: >-
           {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor.last_changed))/3600 > 24 -%}
