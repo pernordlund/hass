@@ -2,8 +2,8 @@ sensor.from_hass:
   friendly_name: Message
 binary_sensor.flood_sensor_4_20:
   friendly_name: Fuktvarning diskmaskin
-configurator.plex_media_server:
-  hidden: true
+# configurator.plex_media_server:
+#   hidden: true
 camera.generic_camera:
   friendly_name: Living room
 light.guest_room_desk:
