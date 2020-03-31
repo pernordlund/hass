@@ -139,9 +139,11 @@ netatmo: !include netatmo.yaml
 
 timer: !include timers.yaml
 
-arlo:
+aarlo:
   username: !secret ar_username
   password: !secret ar_password
+  refresh_devices_every: 2
+  stream_timeout: 120
 
 # alarm_control_panel:
 #   - platform: arlo
