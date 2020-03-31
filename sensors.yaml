@@ -444,6 +444,16 @@
     origin: place_id:ChIJncjNW9x4X0YRAAuGGtz9Snk
     destination: place_id:ChIJWbo6qXOdX0YRhuGHD2V6uck
   - platform: uptime
-  - platform: arlo
+  - platform: aarlo
+    monitored_conditions:
+    - total_cameras
+    - last_capture
+    - recent_activity
+    - captured_today
+    - battery_level
+    - signal_strength
+    - temperature
+    - humidity
+    - air_quality
   - platform: google_wifi
     host: 192.168.86.1

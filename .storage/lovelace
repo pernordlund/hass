@@ -158,12 +158,28 @@
                             "type": "picture-entity"
                         },
                         {
-                            "entity": "camera.arlozonefront",
-                            "type": "picture-entity"
+                            "aspect_ratio": "0%",
+                            "camera_image": "camera.aarlo_arlozonefront",
+                            "entities": [
+                                {
+                                    "entity": "camera.aarlo_arlozonefront"
+                                }
+                            ],
+                            "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
+                            "title": "Front",
+                            "type": "picture-glance"
                         },
                         {
-                            "entity": "camera.arlozoneinside",
-                            "type": "picture-entity"
+                            "aspect_ratio": "0%",
+                            "camera_image": "camera.aarlo_arlozoneinside",
+                            "entities": [
+                                {
+                                    "entity": "camera.aarlo_arlozoneinside"
+                                }
+                            ],
+                            "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
+                            "title": "Guest room",
+                            "type": "picture-glance"
                         }
                     ],
                     "path": "default_view",

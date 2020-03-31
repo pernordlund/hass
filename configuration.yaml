@@ -145,9 +145,13 @@ aarlo:
   refresh_devices_every: 2
   stream_timeout: 120
 
-# alarm_control_panel:
-#   - platform: arlo
-#     home_mode_name: Home
+alarm_control_panel:
+  - platform: aarlo
+    away_mode_name: armed
+    home_mode_name: Home
+    night_mode_name: night
+    trigger_time: 30
+    alarm_volume: 8
 
 # owntracks:
 
