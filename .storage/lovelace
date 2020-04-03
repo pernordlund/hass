@@ -68,10 +68,10 @@
                                     "entity": "binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor"
                                 },
                                 {
-                                    "entity": "sensor.captured_today_arlozonefront"
+                                    "entity": "binary_sensor.aarlo_motion_arlozonefront"
                                 },
                                 {
-                                    "entity": "sensor.captured_today_arlozoneinside"
+                                    "entity": "binary_sensor.aarlo_motion_arlozoneinside"
                                 },
                                 {
                                     "entity": "lock.id_lock_150_locked"
@@ -99,10 +99,10 @@
                                     "entity": "sensor.last_trip_garagedorr"
                                 },
                                 {
-                                    "entity": "sensor.last_arlozonefront"
+                                    "entity": "sensor.aarlo_last_arlozonefront"
                                 },
                                 {
-                                    "entity": "sensor.last_arlozoneinside"
+                                    "entity": "sensor.aarlo_last_arlozoneinside"
                                 },
                                 {
                                     "entity": "sensor.last_trip_guest_room"
@@ -180,6 +180,14 @@
                             "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
                             "title": "Guest room",
                             "type": "picture-glance"
+                        },
+                        {
+                            "entity": "alarm_control_panel.aarlo_arlozone",
+                            "states": [
+                                "arm_home",
+                                "arm_away"
+                            ],
+                            "type": "alarm-panel"
                         }
                     ],
                     "path": "default_view",
@@ -635,10 +643,10 @@
                                     "entity": "sensor.hass_mqtt_status"
                                 },
                                 {
-                                    "entity": "sensor.signal_strength_arlozonefront"
+                                    "entity": "sensor.aarlo_signal_strength_arlozonefront"
                                 },
                                 {
-                                    "entity": "sensor.signal_strength_arlozoneinside"
+                                    "entity": "sensor.aarlo_signal_strength_arlozoneinside"
                                 },
                                 {
                                     "entity": "sensor.netatmo_indoor_wifi"
@@ -660,10 +668,10 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.battery_level_arlozonefront"
+                                    "entity": "sensor.aarlo_battery_level_arlozonefront"
                                 },
                                 {
-                                    "entity": "sensor.battery_level_arlozoneinside"
+                                    "entity": "sensor.aarlo_battery_level_arlozoneinside"
                                 },
                                 {
                                     "entity": "sensor.netatmo_outdoor_battery"
