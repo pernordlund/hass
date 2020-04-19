@@ -170,174 +170,21 @@
                             "type": "picture-glance"
                         },
                         {
-                            "aspect_ratio": "0%",
-                            "camera_image": "camera.aarlo_arlozoneinside",
-                            "entities": [
-                                {
-                                    "entity": "camera.aarlo_arlozoneinside"
-                                }
-                            ],
-                            "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
-                            "title": "Guest room",
-                            "type": "picture-glance"
-                        },
-                        {
                             "entity": "alarm_control_panel.aarlo_arlozone",
                             "states": [
                                 "arm_home",
                                 "arm_away"
                             ],
                             "type": "alarm-panel"
+                        },
+                        {
+                            "aspect_ratio": "50%",
+                            "entity": "camera.aarlo_arlozoneinside",
+                            "type": "picture-entity"
                         }
                     ],
                     "path": "default_view",
                     "title": "Overview"
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.oregon_w_disp_temperature"
-                                },
-                                {
-                                    "entity": "sensor.oregon_w_disp_humidity"
-                                },
-                                {
-                                    "entity": "sensor.fibaro_system_fgsd002_smoke_sensor_temperature"
-                                },
-                                {
-                                    "entity": "sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance"
-                                },
-                                {
-                                    "entity": "sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature"
-                                },
-                                {
-                                    "entity": "sensor.attic_temperature"
-                                },
-                                {
-                                    "entity": "sensor.attic_humidity"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_indoor_temperature"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_indoor_pressure"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_indoor_humidity"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_indoor_co2"
-                                },
-                                {
-                                    "entity": "sensor.kylen_temperature"
-                                },
-                                {
-                                    "entity": "sensor.kylen_humidity"
-                                },
-                                {
-                                    "entity": "sensor.frysen_temperature"
-                                },
-                                {
-                                    "entity": "sensor.frysen_humidity"
-                                }
-                            ],
-                            "show_header_toggle": true,
-                            "title": "Climate House",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                "sensor.fibaro_system_fgk101_door_opening_sensor_temperature",
-                                "sensor.everspring_st814_temperature_and_humidity_sensor_temperature",
-                                "sensor.everspring_st814_temperature_and_humidity_sensor_relative_humidity"
-                            ],
-                            "show_header_toggle": true,
-                            "title": "Climate Garage",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.bv_outdoor"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_outdoor_humidity"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_outdoor_temperature"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_rain_rain"
-                                }
-                            ],
-                            "show_header_toggle": true,
-                            "title": "Climate Outside",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "fan.xiaomi_miio_device"
-                                },
-                                {
-                                    "entity": "input_select.xiaomi_airpurifier_mode"
-                                },
-                                {
-                                    "entity": "input_number.xiaomi_airpurifier_favorite_level"
-                                },
-                                {
-                                    "entity": "switch.xiaomi_airpurifier_child_lock"
-                                },
-                                {
-                                    "entity": "switch.xiaomi_airpurifier_led"
-                                },
-                                {
-                                    "entity": "switch.xiaomi_airpurifier_buzzer"
-                                },
-                                {
-                                    "entity": "sensor.xiaomi_airpurifier_speed"
-                                },
-                                {
-                                    "entity": "sensor.xiaomi_airpurifier_filter_remaining"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "theme": "default",
-                            "title": "Air Purifier",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.xiaomi_airpurifier_air_quality_pm25"
-                                },
-                                {
-                                    "entity": "sensor.xiaomi_airpurifier_temp"
-                                },
-                                {
-                                    "entity": "sensor.xiaomi_airpurifier_humidity"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "theme": "default",
-                            "title": "Environment",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                "sensor.xiaomi_airpurifier_air_quality_pm25"
-                            ],
-                            "hours_to_show": 80,
-                            "refresh_interval": 60,
-                            "title": "Air quality",
-                            "type": "history-graph"
-                        }
-                    ],
-                    "path": "climate",
-                    "title": "Climate"
                 },
                 {
                     "badges": [],
@@ -495,6 +342,152 @@
                     ],
                     "path": "control",
                     "title": "Control"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.oregon_w_disp_temperature"
+                                },
+                                {
+                                    "entity": "sensor.oregon_w_disp_humidity"
+                                },
+                                {
+                                    "entity": "sensor.fibaro_system_fgsd002_smoke_sensor_temperature"
+                                },
+                                {
+                                    "entity": "sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance"
+                                },
+                                {
+                                    "entity": "sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature"
+                                },
+                                {
+                                    "entity": "sensor.attic_temperature"
+                                },
+                                {
+                                    "entity": "sensor.attic_humidity"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_indoor_temperature"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_indoor_pressure"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_indoor_humidity"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_indoor_co2"
+                                },
+                                {
+                                    "entity": "sensor.kylen_temperature"
+                                },
+                                {
+                                    "entity": "sensor.kylen_humidity"
+                                },
+                                {
+                                    "entity": "sensor.frysen_temperature"
+                                },
+                                {
+                                    "entity": "sensor.frysen_humidity"
+                                }
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Climate House",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.fibaro_system_fgk101_door_opening_sensor_temperature",
+                                "sensor.everspring_st814_temperature_and_humidity_sensor_temperature",
+                                "sensor.everspring_st814_temperature_and_humidity_sensor_relative_humidity"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Climate Garage",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.bv_outdoor"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_outdoor_humidity"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_outdoor_temperature"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_rain_rain"
+                                }
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Climate Outside",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "fan.xiaomi_miio_device"
+                                },
+                                {
+                                    "entity": "input_select.xiaomi_airpurifier_mode"
+                                },
+                                {
+                                    "entity": "input_number.xiaomi_airpurifier_favorite_level"
+                                },
+                                {
+                                    "entity": "switch.xiaomi_airpurifier_child_lock"
+                                },
+                                {
+                                    "entity": "switch.xiaomi_airpurifier_led"
+                                },
+                                {
+                                    "entity": "switch.xiaomi_airpurifier_buzzer"
+                                },
+                                {
+                                    "entity": "sensor.xiaomi_airpurifier_speed"
+                                },
+                                {
+                                    "entity": "sensor.xiaomi_airpurifier_filter_remaining"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "theme": "default",
+                            "title": "Air Purifier",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.xiaomi_airpurifier_air_quality_pm25"
+                                },
+                                {
+                                    "entity": "sensor.xiaomi_airpurifier_temp"
+                                },
+                                {
+                                    "entity": "sensor.xiaomi_airpurifier_humidity"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "theme": "default",
+                            "title": "Environment",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.xiaomi_airpurifier_air_quality_pm25"
+                            ],
+                            "hours_to_show": 80,
+                            "refresh_interval": 60,
+                            "title": "Air quality",
+                            "type": "history-graph"
+                        }
+                    ],
+                    "path": "climate",
+                    "title": "Climate"
                 },
                 {
                     "badges": [],

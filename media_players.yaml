@@ -4,11 +4,11 @@
     host: 192.168.86.56
     port: 8102
     timeout: 1
-  - platform: samsungtv
-    name: TV
-    timeout: 1
-    host: 192.168.86.55
-    mac: 50:85:69:54:47:76
+#  - platform: samsungtv
+#    name: TV
+#    timeout: 1
+#    host: 192.168.86.55
+#    mac: 50:85:69:54:47:76
 #  - platform: plex
 #  - platform: spotify
 #    client_id: !secret spotify_id
