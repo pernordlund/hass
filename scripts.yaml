@@ -83,9 +83,9 @@ turn_on_stereo:
 turn_off_tv:
   alias: Turn off TV
   sequence:
-  - service: media_player.turn_off
-    data:
-      entity_id: media_player.tv
+  - data:
+      entity_id: media_player.samusng_tv
+    service: media_player.turn_off
 good_night:
   alias: Good night
   sequence:

@@ -610,8 +610,7 @@
   - data:
       entity_id: input_boolean.cancel_next_goodnight
     service: input_boolean.turn_off
-# Xiaomi Air Purifier 2S
-- id: 'mi1'
+- id: mi1
   alias: Air Purifier mode change
   trigger:
     entity_id: input_select.xiaomi_airpurifier_mode
@@ -621,7 +620,7 @@
     data_template:
       entity_id: fan.xiaomi_miio_device
       speed: '{{ states.input_select.xiaomi_airpurifier_mode.state }}'
-- id: 'mi2'
+- id: mi2
   alias: Air Purifier mode changed
   trigger:
     platform: state
@@ -631,7 +630,7 @@
     entity_id: input_select.xiaomi_airpurifier_mode
     data_template:
       option: '{{ states.fan.xiaomi_miio_device.attributes.speed }}'
-- id: 'mi3'
+- id: mi3
   alias: Air Purifier favorite level change
   trigger:
     entity_id: input_number.xiaomi_airpurifier_favorite_level
@@ -640,8 +639,9 @@
     service: fan.xiaomi_miio_set_favorite_level
     data_template:
       entity_id: fan.xiaomi_miio_device
-      level: '{{ states.input_number.xiaomi_airpurifier_favorite_level.state | int }}'
-- id: 'mi4'
+      level: '{{ states.input_number.xiaomi_airpurifier_favorite_level.state | int
+        }}'
+- id: mi4
   alias: Air Purifier favorite level changed
   trigger:
     platform: state
@@ -651,3 +651,16 @@
     entity_id: input_number.xiaomi_airpurifier_favorite_level
     data_template:
       value: '{{ states.fan.xiaomi_miio_device.attributes.favorite_level }}'
+- id: '1588022688533'
+  alias: Storstugan On
+  description: 'Notify Pelle when Storstugan available'
+  trigger:
+  - entity_id: device_tracker.storstugan
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - service: notify.pelles_tfn
+    data_template:
+      message: '{{ states("sensor.time") }} - Storstugan now online'

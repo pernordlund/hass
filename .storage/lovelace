@@ -514,6 +514,14 @@
                         {
                             "entity": "media_player.chromecastultra2387",
                             "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.stereo",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.samsung_tv",
+                            "type": "media-control"
                         }
                     ],
                     "panel": false,
