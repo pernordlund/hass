@@ -310,6 +310,9 @@
                                 },
                                 {
                                     "entity": "switch.nexa1"
+                                },
+                                {
+                                    "entity": "switch.roger"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -916,6 +919,24 @@
                             "entity": "camera.aarlo_arlozonefront",
                             "image_click": "play",
                             "name": "Front Door",
+                            "show": [
+                                "motion",
+                                "sound",
+                                "snapshot",
+                                "battery_level",
+                                "signal_strength",
+                                "captured_today",
+                                "image_date"
+                            ],
+                            "top_date": false,
+                            "top_status": false,
+                            "top_title": false,
+                            "type": "custom:aarlo-glance"
+                        },
+                        {
+                            "entity": "camera.aarlo_arlozoneinside",
+                            "image_click": "record",
+                            "name": "Guest room",
                             "show": [
                                 "motion",
                                 "sound",

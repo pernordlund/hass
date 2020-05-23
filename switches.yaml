@@ -14,7 +14,7 @@
         name: Vagg vardrum
         fire_event: True
       '0b11000100a5b3f202010f50':
-        name: Roger
+        name: Roger main switch
         fire_event: True
       '0710010142040160':
         name: Kamera MF4

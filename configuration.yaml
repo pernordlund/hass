@@ -129,7 +129,7 @@ system_log:
 
 climate: !include climate.yaml
 
-#automower: !include automower.yaml
+automower: !include automower.yaml
 
 cast: !include cast.yaml
 
@@ -172,3 +172,5 @@ tplink: !include tplink.yaml
 input_boolean: !include input_booleans.yaml
 
 fan: !include fans.yaml
+
+ffmpeg:
