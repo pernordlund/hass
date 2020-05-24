@@ -13,9 +13,6 @@
       '0b110001006eb2e202000060':
         name: Vagg vardrum
         fire_event: True
-      '0b11000100a5b3f202010f50':
-        name: Roger main switch
-        fire_event: True
       '0710010142040160':
         name: Kamera MF4
         fire_event: True
@@ -24,6 +21,9 @@
         fire_event: True
       '0b11000000a5b3f201010f40':
         name: Vit fjarr 1
+        fire_event: True
+      '0b11000100a5b3f202010f50':
+        name: Roger main switch #Vit fjärr 2
         fire_event: True
       '0b11000000a5b3f203010f60':
         name: Vit fjarr 3

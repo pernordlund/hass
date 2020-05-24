@@ -33,7 +33,7 @@
   action:
   - service: homeassistant.toggle
     data:
-      entity_id: light.livingroom_corner
+      entity_id: light.living_room_corner
 - id: A007
   alias: 0 - All lights off when night
   trigger:

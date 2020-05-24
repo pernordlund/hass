@@ -256,7 +256,7 @@
                                     "entity": "light.sauna"
                                 },
                                 {
-                                    "entity": "light.frida_skrivbord"
+                                    "entity": "light.fridas_desk"
                                 },
                                 {
                                     "entity": "light.fridas_room_ceiling"
@@ -281,10 +281,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "light.utebelysning"
-                                },
-                                {
-                                    "entity": "light.ute_altan"
+                                    "entity": "light.porch_ball"
                                 },
                                 {
                                     "entity": "light.garage_ceiling"
@@ -521,15 +518,6 @@
                         {
                             "entity": "media_player.samsung_tv",
                             "type": "media-control"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "switch.tv_switch"
-                                }
-                            ],
-                            "title": "Media switches",
-                            "type": "entities"
                         }
                     ],
                     "panel": false,
@@ -919,42 +907,6 @@
                             "hours_to_show": 72,
                             "refresh_interval": 0,
                             "type": "history-graph"
-                        },
-                        {
-                            "entity": "camera.aarlo_arlozonefront",
-                            "image_click": "play",
-                            "name": "Front Door",
-                            "show": [
-                                "motion",
-                                "sound",
-                                "snapshot",
-                                "battery_level",
-                                "signal_strength",
-                                "captured_today",
-                                "image_date"
-                            ],
-                            "top_date": false,
-                            "top_status": false,
-                            "top_title": false,
-                            "type": "custom:aarlo-glance"
-                        },
-                        {
-                            "entity": "camera.aarlo_arlozoneinside",
-                            "image_click": "play",
-                            "name": "Guest room",
-                            "show": [
-                                "motion",
-                                "sound",
-                                "snapshot",
-                                "battery_level",
-                                "signal_strength",
-                                "captured_today",
-                                "image_date"
-                            ],
-                            "top_date": false,
-                            "top_status": false,
-                            "top_title": false,
-                            "type": "custom:aarlo-glance"
                         },
                         {
                             "entities": [

@@ -175,4 +175,12 @@ fan: !include fans.yaml
 
 ffmpeg:
 
-wake_on_lan:
+# wake_on_lan:
+
+# samsungtv:
+#   - host: 192.168.86.55
+#     name: Samsung TV
+#     turn_on_action:
+#       - service: wake_on_lan.send_magic_packet
+#         data:
+#           mac: "50:85:69:54:47:76"
