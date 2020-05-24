@@ -174,3 +174,5 @@ input_boolean: !include input_booleans.yaml
 fan: !include fans.yaml
 
 ffmpeg:
+
+wake_on_lan:

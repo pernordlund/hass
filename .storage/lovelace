@@ -312,7 +312,7 @@
                                     "entity": "switch.nexa1"
                                 },
                                 {
-                                    "entity": "switch.roger"
+                                    "entity": "switch.roger_main_switch"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -524,6 +524,10 @@
                         },
                         {
                             "entity": "media_player.samsung_tv",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.stereo",
                             "type": "media-control"
                         }
                     ],
@@ -935,7 +939,7 @@
                         },
                         {
                             "entity": "camera.aarlo_arlozoneinside",
-                            "image_click": "record",
+                            "image_click": "play",
                             "name": "Guest room",
                             "show": [
                                 "motion",
@@ -950,6 +954,15 @@
                             "top_status": false,
                             "top_title": false,
                             "type": "custom:aarlo-glance"
+                        },
+                        {
+                            "entities": [
+                                "switch.frida_at_school",
+                                "light.entre",
+                                "switch.multifjarr6"
+                            ],
+                            "title": "My Title",
+                            "type": "entities"
                         }
                     ],
                     "theme": "Backend-selected",

@@ -40,6 +40,14 @@
   #   host: 192.168.86.57
   #   turn_off:
   #     service: rest_command.turn_htpc_off
+  - platform: wake_on_lan
+    name: TV switch
+    mac_address: "50-85-69-54-47-76"
+    host: 192.168.86.55
+    turn_off:
+        service: media_player.turn_off
+        data: 
+          entity_id: media_player.samsung_tv
   - platform: template
     switches:
       xiaomi_airpurifier_led:
