@@ -519,16 +519,17 @@
                             "type": "media-control"
                         },
                         {
-                            "entity": "media_player.stereo",
-                            "type": "media-control"
-                        },
-                        {
                             "entity": "media_player.samsung_tv",
                             "type": "media-control"
                         },
                         {
-                            "entity": "media_player.stereo",
-                            "type": "media-control"
+                            "entities": [
+                                {
+                                    "entity": "switch.tv_switch"
+                                }
+                            ],
+                            "title": "Media switches",
+                            "type": "entities"
                         }
                     ],
                     "panel": false,

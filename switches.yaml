@@ -40,14 +40,14 @@
   #   host: 192.168.86.57
   #   turn_off:
   #     service: rest_command.turn_htpc_off
-  - platform: wake_on_lan
-    name: TV switch
-    mac_address: "50-85-69-54-47-76"
-    host: 192.168.86.55
-    turn_off:
-        service: media_player.turn_off
-        data: 
-          entity_id: media_player.samsung_tv
+  # - platform: wake_on_lan
+  #   name: TV switch
+  #   mac: 50:85:69:54:47:76
+  #   host: 192.168.86.55
+  #   turn_off:
+  #       service: media_player.turn_off
+  #       data: 
+  #         entity_id: media_player.samsung_tv
   - platform: template
     switches:
       xiaomi_airpurifier_led:
@@ -118,6 +118,18 @@
           data:
             topic: hass/switchdummy
             payload: Frida at VRG
+      # tv:
+      #   friendly_name: TV
+      #   value_template: "{{ is_state('media_player.samsung_tv', 'on') }}"
+      #   turn_on:
+      #     service: mqtt.publish
+      #     data:
+      #       topic: hass/switchdummy
+      #       payload: Tried to turn on TV
+      #   turn_off:
+      #     service: media_player.turn_off
+      #     data: 
+      #       entity_id: media_player.samsung_tv
 #      frida_at_home:
 #        value_template: "{{ is_state('device_tracker.frida_frida', 'home') }}"
 #        turn_on:
