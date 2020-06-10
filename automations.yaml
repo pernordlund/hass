@@ -653,7 +653,7 @@
       value: '{{ states.fan.xiaomi_miio_device.attributes.favorite_level }}'
 - id: '1588022688533'
   alias: Storstugan On
-  description: 'Notify Pelle when Storstugan available'
+  description: Notify Pelle when Storstugan available
   trigger:
   - entity_id: device_tracker.storstugan
     from: 'off'
@@ -664,3 +664,27 @@
   - service: notify.pelles_tfn
     data_template:
       message: '{{ states("sensor.time") }} - Storstugan now online'
+- id: '1590615866019'
+  alias: Air purifier off when Albin not home
+  description: ''
+  trigger:
+  - entity_id: device_tracker.life360_albin_nordlund
+    from: home
+    platform: state
+  condition: []
+  action:
+  - data: {}
+    entity_id: fan.xiaomi_miio_device
+    service: fan.turn_off
+- id: '1590615984329'
+  alias: Air purifier on when Albin home
+  description: ''
+  trigger:
+  - entity_id: device_tracker.life360_albin_nordlund
+    platform: state
+    to: home
+  condition: []
+  action:
+  - data: {}
+    entity_id: fan.xiaomi_miio_device
+    service: fan.turn_on

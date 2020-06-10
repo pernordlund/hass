@@ -184,3 +184,5 @@ ffmpeg:
 #       - service: wake_on_lan.send_magic_packet
 #         data:
 #           mac: "50:85:69:54:47:76"
+
+stream:

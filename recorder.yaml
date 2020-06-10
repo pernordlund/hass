@@ -9,6 +9,7 @@
       - device_tracker
       - input_number
       - lock
+      - fan
 #      - sensor
     entities:
       - sensor.oregon_w_disp_temperature

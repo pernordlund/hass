@@ -812,6 +812,12 @@
                                 },
                                 {
                                     "entity": "automation.cancel_the_cancel"
+                                },
+                                {
+                                    "entity": "automation.air_purifier_off_when_albin_not_home"
+                                },
+                                {
+                                    "entity": "automation.air_purifier_on_when_albin_home"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -910,12 +916,51 @@
                         },
                         {
                             "entities": [
-                                "switch.frida_at_school",
-                                "light.entre",
-                                "switch.multifjarr6"
+                                {
+                                    "entity": "switch.frida_at_school"
+                                },
+                                {
+                                    "entity": "switch.multifjarr6"
+                                }
                             ],
                             "title": "My Title",
                             "type": "entities"
+                        },
+                        {
+                            "entity": "camera.aarlo_arlozoneinside",
+                            "image_click": "play",
+                            "name": "Guest room",
+                            "show": [
+                                "motion",
+                                "sound",
+                                "snapshot",
+                                "battery_level",
+                                "signal_strength",
+                                "captured_today",
+                                "image_date"
+                            ],
+                            "top_date": false,
+                            "top_status": false,
+                            "top_title": false,
+                            "type": "custom:aarlo-glance"
+                        },
+                        {
+                            "entity": "camera.aarlo_arlozonefront",
+                            "image_click": "play",
+                            "name": "Front",
+                            "show": [
+                                "motion",
+                                "sound",
+                                "snapshot",
+                                "battery_level",
+                                "signal_strength",
+                                "captured_today",
+                                "image_date"
+                            ],
+                            "top_date": false,
+                            "top_status": false,
+                            "top_title": false,
+                            "type": "custom:aarlo-glance"
                         }
                     ],
                     "theme": "Backend-selected",
