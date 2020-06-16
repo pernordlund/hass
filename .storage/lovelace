@@ -310,6 +310,9 @@
                                 },
                                 {
                                     "entity": "switch.roger_main_switch"
+                                },
+                                {
+                                    "entity": "switch.water_control"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -487,6 +490,30 @@
                             "refresh_interval": 60,
                             "title": "Air quality",
                             "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.sensor_ambient_temperature"
+                                },
+                                {
+                                    "entity": "sensor.sensor_battery_level"
+                                },
+                                {
+                                    "entity": "sensor.sensor_light_intensity"
+                                },
+                                {
+                                    "entity": "sensor.sensor_soil_humidity"
+                                },
+                                {
+                                    "entity": "sensor.sensor_soil_temperature"
+                                },
+                                {
+                                    "entity": "sensor.water_control_battery_level"
+                                }
+                            ],
+                            "title": "Greenhouse",
+                            "type": "entities"
                         }
                     ],
                     "path": "climate",
@@ -655,6 +682,9 @@
                                 },
                                 {
                                     "entity": "device_tracker.camera"
+                                },
+                                {
+                                    "entity": "binary_sensor.gardena_smart_system_connection"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -710,6 +740,12 @@
                                 },
                                 {
                                     "entity": "sensor.id_lock_battery"
+                                },
+                                {
+                                    "entity": "sensor.sensor_battery_level"
+                                },
+                                {
+                                    "entity": "sensor.water_control_battery_level"
                                 }
                             ],
                             "show_header_toggle": false,

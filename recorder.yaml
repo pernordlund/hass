@@ -76,8 +76,8 @@
       - sensor.frida_velocity
       - sensor.jenny_velocity
       - sensor.albin_velocity
-      - sensor.battery_level_arlozonefront
-      - sensor.battery_level_arlozoneinside
+      - sensor.aarlo_battery_level_arlozonefront
+      - sensor.aarlo_battery_level_arlozoneinside
       - sensor.netatmo_rain_radio
       - sensor.netatmo_outdoor_radio
       - sensor.garage_door_battery
@@ -87,3 +87,9 @@
       - sensor.xiaomi_airpurifier_humidity
       - sensor.xiaomi_airpurifier_speed
       - sensor.xiaomi_airpurifier_temp
+      - sensor.sensor_ambient_temperature
+      - sensor.sensor_battery_level
+      - sensor.sensor_light_intensity
+      - sensor.sensor_soil_humidity
+      - sensor.sensor_soil_temperature
+      - sensor.water_control_battery_level
