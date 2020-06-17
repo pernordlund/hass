@@ -161,18 +161,6 @@
                             "type": "picture-entity"
                         },
                         {
-                            "aspect_ratio": "0%",
-                            "camera_image": "camera.aarlo_arlozonefront",
-                            "entities": [
-                                {
-                                    "entity": "camera.aarlo_arlozonefront"
-                                }
-                            ],
-                            "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
-                            "title": "Front",
-                            "type": "picture-glance"
-                        },
-                        {
                             "entity": "alarm_control_panel.aarlo_arlozone",
                             "states": [
                                 "arm_home",
@@ -181,9 +169,55 @@
                             "type": "alarm-panel"
                         },
                         {
-                            "aspect_ratio": "50%",
+                            "adjust_times": false,
+                            "departures": true,
+                            "deviations": true,
+                            "entities": [
+                                "sensor.klisatravagen"
+                            ],
+                            "header": false,
+                            "hide_departed": false,
+                            "language": "sv-SE",
+                            "name": "Departures",
+                            "timeleft": false,
+                            "type": "custom:hasl-departure-card",
+                            "updated": true
+                        },
+                        {
+                            "entity": "camera.aarlo_arlozonefront",
+                            "image_click": "play",
+                            "name": "Front",
+                            "show": [
+                                "motion",
+                                "sound",
+                                "snapshot",
+                                "battery_level",
+                                "signal_strength",
+                                "captured_today",
+                                "image_date"
+                            ],
+                            "top_date": false,
+                            "top_status": false,
+                            "top_title": false,
+                            "type": "custom:aarlo-glance"
+                        },
+                        {
                             "entity": "camera.aarlo_arlozoneinside",
-                            "type": "picture-entity"
+                            "image_click": "play",
+                            "name": "Guest room",
+                            "show": [
+                                "motion",
+                                "sound",
+                                "snapshot",
+                                "battery_level",
+                                "signal_strength",
+                                "captured_today",
+                                "image_date"
+                            ],
+                            "top_date": false,
+                            "top_status": false,
+                            "top_title": false,
+                            "type": "custom:aarlo-glance"
                         }
                     ],
                     "path": "default_view",
@@ -514,6 +548,11 @@
                             ],
                             "title": "Greenhouse",
                             "type": "entities"
+                        },
+                        {
+                            "entity": "weather.smhi_home",
+                            "name": "Smhi",
+                            "type": "weather-forecast"
                         }
                     ],
                     "path": "climate",
@@ -826,7 +865,7 @@
                                     "entity": "automation.badrum_auto_off_timer"
                                 },
                                 {
-                                    "entity": "automation.entre_on_when_door_opens"
+                                    "entity": "automation.entre_on_when_door_opens_late_night"
                                 },
                                 {
                                     "entity": "automation.marie_leaving_slussen"
@@ -903,11 +942,6 @@
                             "type": "gauge"
                         },
                         {
-                            "entity": "weather.smhi_home",
-                            "name": "Smhi",
-                            "type": "weather-forecast"
-                        },
-                        {
                             "entities": [
                                 {
                                     "entity": "lock.id_lock_150_locked"
@@ -963,40 +997,21 @@
                             "type": "entities"
                         },
                         {
-                            "entity": "camera.aarlo_arlozoneinside",
-                            "image_click": "play",
-                            "name": "Guest room",
-                            "show": [
-                                "motion",
-                                "sound",
-                                "snapshot",
-                                "battery_level",
-                                "signal_strength",
-                                "captured_today",
-                                "image_date"
+                            "aspect_ratio": "0%",
+                            "camera_image": "camera.aarlo_arlozonefront",
+                            "entities": [
+                                {
+                                    "entity": "camera.aarlo_arlozonefront"
+                                }
                             ],
-                            "top_date": false,
-                            "top_status": false,
-                            "top_title": false,
-                            "type": "custom:aarlo-glance"
+                            "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
+                            "title": "Front",
+                            "type": "picture-glance"
                         },
                         {
-                            "entity": "camera.aarlo_arlozonefront",
-                            "image_click": "play",
-                            "name": "Front",
-                            "show": [
-                                "motion",
-                                "sound",
-                                "snapshot",
-                                "battery_level",
-                                "signal_strength",
-                                "captured_today",
-                                "image_date"
-                            ],
-                            "top_date": false,
-                            "top_status": false,
-                            "top_title": false,
-                            "type": "custom:aarlo-glance"
+                            "aspect_ratio": "50%",
+                            "entity": "camera.aarlo_arlozoneinside",
+                            "type": "picture-entity"
                         }
                     ],
                     "theme": "Backend-selected",

@@ -464,10 +464,10 @@
     si2key: !secret sl_si2_key
     tl2key: !secret sl_tl2_key
     sensors:
-    - friendly_name: Mölnvik
+    - friendly_name: Klisätravägen
       sensor_type: departures
-      siteid: 4244
-      lines: ['474', '480C']
-      direction: 1
-    - friendly_name: Trafikstatus
-      sensor_type: status
+      siteid: 4612
+      lines: ['401']
+      direction: 2
+    # - friendly_name: Trafikstatus
+    #   sensor_type: status
