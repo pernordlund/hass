@@ -186,3 +186,11 @@ ffmpeg:
 #           mac: "50:85:69:54:47:76"
 
 stream:
+
+svt_play:
+
+# volkswagencarnet:
+#     username: !secret vw_username
+#     password: !secret vw_password
+#     name:
+#         wvwzzz3czhe181012: Passat

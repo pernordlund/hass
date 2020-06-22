@@ -38,6 +38,9 @@
                                 },
                                 {
                                     "entity": "device_tracker.life360_albin_nordlund"
+                                },
+                                {
+                                    "entity": "device_tracker.passat"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -839,6 +842,9 @@
                                 },
                                 {
                                     "entity": "script.1576340335902"
+                                },
+                                {
+                                    "entity": "script.1592687963235"
                                 }
                             ],
                             "title": "Scripts",
@@ -960,6 +966,12 @@
                             "entities": [
                                 {
                                     "entity": "device_tracker.life360_albin_nordlund"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_battery_level"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_fuel_level"
                                 }
                             ],
                             "type": "entities"
@@ -987,10 +999,85 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "switch.frida_at_school"
+                                    "entity": "binary_sensor.wvwzzz3czhe181012_climatisation_without_external_power"
                                 },
                                 {
-                                    "entity": "switch.multifjarr6"
+                                    "entity": "binary_sensor.wvwzzz3czhe181012_doors_locked"
+                                },
+                                {
+                                    "entity": "binary_sensor.wvwzzz3czhe181012_external_power"
+                                },
+                                {
+                                    "entity": "binary_sensor.wvwzzz3czhe181012_trunk_locked"
+                                },
+                                {
+                                    "entity": "binary_sensor.wvwzzz3czhe181012_windows_closed"
+                                },
+                                {
+                                    "entity": "binary_sensor.wvwzzz3czhe181012_parking_light"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_battery_level"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_charger_max_ampere"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_charging_time_left"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_climatisation_target_temperature"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_combined_range"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_combustion_range"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_electric_range"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_fuel_level"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_last_connected"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_last_trip_average_electric_consumption"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_last_trip_average_fuel_consumption"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_last_trip_average_speed"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_last_trip_duration"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_last_trip_length"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_odometer"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_oil_inspection"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_service_inspection"
+                                },
+                                {
+                                    "entity": "switch.wvwzzz3czhe181012_charging"
+                                },
+                                {
+                                    "entity": "switch.wvwzzz3czhe181012_electric_climatisation"
+                                },
+                                {
+                                    "entity": "switch.wvwzzz3czhe181012_request_in_progress"
+                                },
+                                {
+                                    "entity": "switch.wvwzzz3czhe181012_window_heater"
                                 }
                             ],
                             "title": "My Title",
@@ -1012,6 +1099,10 @@
                             "aspect_ratio": "50%",
                             "entity": "camera.aarlo_arlozoneinside",
                             "type": "picture-entity"
+                        },
+                        {
+                            "entity": "climate.wvwzzz3czhe181012_electric_climatisation",
+                            "type": "thermostat"
                         }
                     ],
                     "theme": "Backend-selected",

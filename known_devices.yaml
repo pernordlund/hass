@@ -228,3 +228,10 @@ life360_frida_nordlund:
   name: life360 frida nordlund
   picture: https://www.life360.com/img/user_images/327a9c67-2e20-4f61-94bf-75db72cc6f71/64a57853-2793-4de2-884a-d0b2d4e32b3e.jpg?fd=2
   track: true
+
+passat:
+  icon: mdi:car
+  mac:
+  name: Passat
+  picture:
+  track: true
