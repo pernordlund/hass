@@ -1,3 +1,4 @@
+# https://community.home-assistant.io/t/xiaomi-air-purifier-show-all-sensors-and-switches-in-ui-and-homekit/121786
   - platform: xiaomi_miio
     host: !secret mi_ip
     token: !secret mi_token

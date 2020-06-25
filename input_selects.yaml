@@ -13,4 +13,5 @@
       - Auto
       - Silent
       - Favorite
+    initial: Auto
     icon: "mdi:animation-outline"

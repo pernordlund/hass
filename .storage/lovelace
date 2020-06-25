@@ -83,6 +83,9 @@
                                     "entity": "sensor.id_lock_notification"
                                 },
                                 {
+                                    "entity": "lock.wvwzzz3czhe181012_door_locked"
+                                },
+                                {
                                     "entity": "switch.aarlo_arlozone_siren"
                                 }
                             ],
@@ -164,14 +167,6 @@
                             "type": "picture-entity"
                         },
                         {
-                            "entity": "alarm_control_panel.aarlo_arlozone",
-                            "states": [
-                                "arm_home",
-                                "arm_away"
-                            ],
-                            "type": "alarm-panel"
-                        },
-                        {
                             "adjust_times": false,
                             "departures": true,
                             "deviations": true,
@@ -182,7 +177,7 @@
                             "hide_departed": false,
                             "language": "sv-SE",
                             "name": "Departures",
-                            "timeleft": false,
+                            "timeleft": true,
                             "type": "custom:hasl-departure-card",
                             "updated": true
                         },
@@ -221,6 +216,25 @@
                             "top_status": false,
                             "top_title": false,
                             "type": "custom:aarlo-glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_charging_time_left"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_battery_level"
+                                },
+                                {
+                                    "entity": "binary_sensor.wvwzzz3czhe181012_doors_locked"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_combustion_range"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "YLF 950",
+                            "type": "entities"
                         }
                     ],
                     "path": "default_view",
@@ -381,6 +395,18 @@
                             ],
                             "title": "Vacuum",
                             "type": "entities"
+                        },
+                        {
+                            "entity": "climate.wvwzzz3czhe181012_electric_climatisation",
+                            "type": "thermostat"
+                        },
+                        {
+                            "entity": "alarm_control_panel.aarlo_arlozone",
+                            "states": [
+                                "arm_home",
+                                "arm_away"
+                            ],
+                            "type": "alarm-panel"
                         }
                     ],
                     "path": "control",
@@ -829,6 +855,116 @@
                         {
                             "entities": [
                                 {
+                                    "entity": "device_tracker.passat"
+                                },
+                                {
+                                    "entity": "binary_sensor.wvwzzz3czhe181012_climatisation_without_external_power"
+                                },
+                                {
+                                    "entity": "binary_sensor.wvwzzz3czhe181012_doors_locked"
+                                },
+                                {
+                                    "entity": "binary_sensor.wvwzzz3czhe181012_external_power"
+                                },
+                                {
+                                    "entity": "binary_sensor.wvwzzz3czhe181012_trunk_locked"
+                                },
+                                {
+                                    "entity": "binary_sensor.wvwzzz3czhe181012_windows_closed"
+                                },
+                                {
+                                    "entity": "binary_sensor.wvwzzz3czhe181012_parking_light"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_battery_level"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_charger_max_ampere"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_charging_time_left"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_climatisation_target_temperature"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_combined_range"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_combustion_range"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_electric_range"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_fuel_level"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_last_connected"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_last_trip_average_electric_consumption"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_last_trip_average_fuel_consumption"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_last_trip_average_speed"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_last_trip_duration"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_last_trip_length"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_odometer"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_oil_inspection"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_service_inspection"
+                                },
+                                {
+                                    "entity": "switch.wvwzzz3czhe181012_charging"
+                                },
+                                {
+                                    "entity": "switch.wvwzzz3czhe181012_electric_climatisation"
+                                },
+                                {
+                                    "entity": "switch.wvwzzz3czhe181012_request_in_progress"
+                                },
+                                {
+                                    "entity": "switch.wvwzzz3czhe181012_window_heater"
+                                },
+                                {
+                                    "entity": "binary_sensor.passat_window_closed_left_back"
+                                },
+                                {
+                                    "entity": "binary_sensor.passat_window_closed_left_front"
+                                },
+                                {
+                                    "entity": "binary_sensor.passat_window_closed_right_back"
+                                },
+                                {
+                                    "entity": "binary_sensor.passat_window_closed_right_front"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "YLF950-Passat",
+                            "type": "entities"
+                        }
+                    ],
+                    "path": "car",
+                    "title": "Car"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
                                     "entity": "script.mute_tv"
                                 },
                                 {
@@ -997,93 +1133,6 @@
                             "type": "history-graph"
                         },
                         {
-                            "entities": [
-                                {
-                                    "entity": "binary_sensor.wvwzzz3czhe181012_climatisation_without_external_power"
-                                },
-                                {
-                                    "entity": "binary_sensor.wvwzzz3czhe181012_doors_locked"
-                                },
-                                {
-                                    "entity": "binary_sensor.wvwzzz3czhe181012_external_power"
-                                },
-                                {
-                                    "entity": "binary_sensor.wvwzzz3czhe181012_trunk_locked"
-                                },
-                                {
-                                    "entity": "binary_sensor.wvwzzz3czhe181012_windows_closed"
-                                },
-                                {
-                                    "entity": "binary_sensor.wvwzzz3czhe181012_parking_light"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_battery_level"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_charger_max_ampere"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_charging_time_left"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_climatisation_target_temperature"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_combined_range"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_combustion_range"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_electric_range"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_fuel_level"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_last_connected"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_last_trip_average_electric_consumption"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_last_trip_average_fuel_consumption"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_last_trip_average_speed"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_last_trip_duration"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_last_trip_length"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_odometer"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_oil_inspection"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_service_inspection"
-                                },
-                                {
-                                    "entity": "switch.wvwzzz3czhe181012_charging"
-                                },
-                                {
-                                    "entity": "switch.wvwzzz3czhe181012_electric_climatisation"
-                                },
-                                {
-                                    "entity": "switch.wvwzzz3czhe181012_request_in_progress"
-                                },
-                                {
-                                    "entity": "switch.wvwzzz3czhe181012_window_heater"
-                                }
-                            ],
-                            "title": "My Title",
-                            "type": "entities"
-                        },
-                        {
                             "aspect_ratio": "0%",
                             "camera_image": "camera.aarlo_arlozonefront",
                             "entities": [
@@ -1099,10 +1148,6 @@
                             "aspect_ratio": "50%",
                             "entity": "camera.aarlo_arlozoneinside",
                             "type": "picture-entity"
-                        },
-                        {
-                            "entity": "climate.wvwzzz3czhe181012_electric_climatisation",
-                            "type": "thermostat"
                         }
                     ],
                     "theme": "Backend-selected",
