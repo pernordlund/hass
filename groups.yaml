@@ -74,7 +74,7 @@
     entities:
       - sun.sun
       - sun.sunrise
-      - sensor.yr_symbol
+      # - sensor.yr_symbol
       - sensor.northq_nq92021_power_reader_energy
   climate:
     name: Climate

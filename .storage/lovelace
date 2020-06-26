@@ -127,9 +127,6 @@
                                     "entity": "sun.sun"
                                 },
                                 {
-                                    "entity": "sensor.yr_symbol"
-                                },
-                                {
                                     "entity": "sensor.power_reader"
                                 }
                             ],
@@ -363,6 +360,12 @@
                                     "entity": "switch.roger_main_switch"
                                 },
                                 {
+                                    "entity": "fan.xiaomi_miio_device"
+                                },
+                                {
+                                    "entity": "switch.wvwzzz3czhe181012_electric_climatisation"
+                                },
+                                {
                                     "entity": "switch.water_control"
                                 }
                             ],
@@ -499,37 +502,11 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "fan.xiaomi_miio_device"
-                                },
-                                {
-                                    "entity": "input_select.xiaomi_airpurifier_mode"
-                                },
-                                {
-                                    "entity": "input_number.xiaomi_airpurifier_favorite_level"
-                                },
-                                {
-                                    "entity": "switch.xiaomi_airpurifier_child_lock"
-                                },
-                                {
-                                    "entity": "switch.xiaomi_airpurifier_led"
-                                },
-                                {
-                                    "entity": "switch.xiaomi_airpurifier_buzzer"
-                                },
-                                {
                                     "entity": "sensor.xiaomi_airpurifier_speed"
                                 },
                                 {
                                     "entity": "sensor.xiaomi_airpurifier_filter_remaining"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "theme": "default",
-                            "title": "Air Purifier",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
+                                },
                                 {
                                     "entity": "sensor.xiaomi_airpurifier_air_quality_pm25"
                                 },
@@ -542,17 +519,8 @@
                             ],
                             "show_header_toggle": false,
                             "theme": "default",
-                            "title": "Environment",
+                            "title": "Albins Air Purifier",
                             "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                "sensor.xiaomi_airpurifier_air_quality_pm25"
-                            ],
-                            "hours_to_show": 80,
-                            "refresh_interval": 60,
-                            "title": "Air quality",
-                            "type": "history-graph"
                         },
                         {
                             "entities": [

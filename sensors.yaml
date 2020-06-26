@@ -4,7 +4,7 @@
       - 'time'
       - 'date'
       - 'date_time'
-  - platform: yr
+  # - platform: yr
 #  - platform: rest
 #    scan_interval: 60
 #    resource: !secret sl_resource
