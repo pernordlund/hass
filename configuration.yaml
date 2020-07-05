@@ -189,8 +189,8 @@ stream:
 
 svt_play:
 
-# volkswagencarnet:
-#     username: !secret vw_username
-#     password: !secret vw_password
-#     name:
-#         wvwzzz3czhe181012: Passat
+volkswagencarnet:
+    username: !secret vw_username
+    password: !secret vw_password
+    name:
+        wvwzzz3czhe181012: Passat
