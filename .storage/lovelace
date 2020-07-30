@@ -1116,6 +1116,25 @@
                             "aspect_ratio": "50%",
                             "entity": "camera.aarlo_arlozoneinside",
                             "type": "picture-entity"
+                        },
+                        {
+                            "entity": "sensor.0850020a3901007569_temperature",
+                            "graph": "line",
+                            "type": "sensor"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.bv_outdoor"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_indoor_temperature"
+                                }
+                            ],
+                            "hours_to_show": 96,
+                            "refresh_interval": 0,
+                            "title": "Temps",
+                            "type": "history-graph"
                         }
                     ],
                     "theme": "Backend-selected",
