@@ -2,20 +2,12 @@ sensor.from_hass:
   friendly_name: Message
 binary_sensor.flood_sensor_4_20:
   friendly_name: Fuktvarning diskmaskin
-# configurator.plex_media_server:
-#   hidden: true
 camera.generic_camera:
   friendly_name: Living room
 light.guest_room_desk:
   assumed_state: false
-#light.fridas_room_ceiling:
-#  friendly_name: Frida tak
 light.frida_skrivbord:
   assumed_state: false
-# light.sov_mop:
-#   assumed_state: false
-#light.play_room_ceiling:
-#  friendly_name: Allrum
 light.entre:
   assumed_state: false
 light.attic:
@@ -27,14 +19,6 @@ light.ute_altan:
 group.all_automations:
   hidden: false
   friendly_name: All automations
-# light.entre_byra:
-#   friendly_name: Byralampa
-#   icon: mdi:lightbulb
-# light.livingroom_corner:
-#   friendly_name: Vardagrum hornlampa
-#   icon: mdi:lightbulb
-binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor_4:
-  friendly_name: Rorelse allrum
 sensor.fibaro_system_fgms001zw5_motion_sensor_luminance_4:
   friendly_name: Ljus allrum
 binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2:

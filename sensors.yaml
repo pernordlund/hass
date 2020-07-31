@@ -356,7 +356,7 @@
         data_type:
          - Humidity
          - Temperature
-      085002010e01001b69:
+      085002033901009c69:
         name: Altan
         data_type:
          - Temperature

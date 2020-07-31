@@ -189,7 +189,8 @@
                                 "battery_level",
                                 "signal_strength",
                                 "captured_today",
-                                "image_date"
+                                "image_date",
+                                "on_off"
                             ],
                             "top_date": false,
                             "top_status": false,
@@ -207,7 +208,8 @@
                                 "battery_level",
                                 "signal_strength",
                                 "captured_today",
-                                "image_date"
+                                "image_date",
+                                "on_off"
                             ],
                             "top_date": false,
                             "top_status": false,
@@ -493,6 +495,9 @@
                                 },
                                 {
                                     "entity": "sensor.netatmo_rain_rain"
+                                },
+                                {
+                                    "entity": "sensor.altan_temperature"
                                 }
                             ],
                             "show_header_toggle": true,

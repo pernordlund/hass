@@ -147,7 +147,6 @@
       - switch.cloak_room_ceiling
       - light.kitchen_table
       - light.kitchen_bench
-      - light.sov_mop
       - light.bedroom_window
       - light.living_room_corner
       - light.living_room_sofa
@@ -351,7 +350,6 @@
   daily_sun:
     entities:
       - light.play_room_ceiling
-      - light.sov_mop
       - light.bedroom_window
       - switch.telldus_tzwp100_plugin_switch_switch
       - light.utebelysning
@@ -364,8 +362,6 @@
   lights_pelle:
     name: Lights Pelle
     entities:
-      # - switch.swiid_swiidinter_switch
-      - light.sov_mop
       - light.bedroom_window
       - switch.telldus_tzwp100_plugin_switch_switch
       - switch.fibaro_system_fgwpef_wall_plug_switch
