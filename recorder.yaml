@@ -95,3 +95,6 @@
       - sensor.water_control_battery_level
       - sensor.popp_co_popp_z_rain_rain_sensor_rain_rate
       - sensor.popp_co_popp_z_rain_rain_sensor_water
+      - sensor.popp_co_popp_z_rain_rain_sensor_general
+      - sensor.popp_co_popp_z_rain_rain_sensor_exporting
+      - sensor.popp_co_popp_z_rain_rain_sensor_battery_level
