@@ -93,3 +93,5 @@
       - sensor.sensor_soil_humidity
       - sensor.sensor_soil_temperature
       - sensor.water_control_battery_level
+      - sensor.popp_co_popp_z_rain_rain_sensor_rain_rate
+      - sensor.popp_co_popp_z_rain_rain_sensor_water

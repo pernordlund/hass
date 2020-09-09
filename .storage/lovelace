@@ -41,6 +41,12 @@
                                 },
                                 {
                                     "entity": "device_tracker.passat"
+                                },
+                                {
+                                    "entity": "device_tracker.pelles_wallet"
+                                },
+                                {
+                                    "entity": "device_tracker.xperia_xz1_compact"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -498,6 +504,21 @@
                                 },
                                 {
                                     "entity": "sensor.altan_temperature"
+                                },
+                                {
+                                    "entity": "binary_sensor.popp_co_popp_z_rain_rain_sensor_sensor"
+                                },
+                                {
+                                    "entity": "sensor.popp_co_popp_z_rain_rain_sensor_exporting"
+                                },
+                                {
+                                    "entity": "sensor.popp_co_popp_z_rain_rain_sensor_general"
+                                },
+                                {
+                                    "entity": "sensor.popp_co_popp_z_rain_rain_sensor_rain_rate"
+                                },
+                                {
+                                    "entity": "sensor.popp_co_popp_z_rain_rain_sensor_water"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -787,6 +808,9 @@
                                 },
                                 {
                                     "entity": "sensor.water_control_battery_level"
+                                },
+                                {
+                                    "entity": "sensor.popp_co_popp_z_rain_rain_sensor_battery_level"
                                 }
                             ],
                             "show_header_toggle": false,
