@@ -98,3 +98,6 @@
       - sensor.popp_co_popp_z_rain_rain_sensor_general
       - sensor.popp_co_popp_z_rain_rain_sensor_exporting
       - sensor.popp_co_popp_z_rain_rain_sensor_battery_level
+      - sensor.blitzortung_lightning_azimuth
+      - sensor.blitzortung_lightning_counter
+      - sensor.blitzortung_lightning_distance

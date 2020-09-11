@@ -519,6 +519,15 @@
                                 },
                                 {
                                     "entity": "sensor.popp_co_popp_z_rain_rain_sensor_water"
+                                },
+                                {
+                                    "entity": "sensor.blitzortung_lightning_azimuth"
+                                },
+                                {
+                                    "entity": "sensor.blitzortung_lightning_counter"
+                                },
+                                {
+                                    "entity": "sensor.blitzortung_lightning_distance"
                                 }
                             ],
                             "show_header_toggle": true,
