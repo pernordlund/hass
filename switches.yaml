@@ -10,6 +10,8 @@
         fire_event: True
       '0710010142020170':
         name: Nexa1
+      '0710010143030160':
+        name: Nexa2
       '0b110001006eb2e202000060':
         name: Vagg vardrum
         fire_event: True

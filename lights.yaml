@@ -4,8 +4,6 @@
     devices:
   #    '07100101420a0150':
   #      name: Arbrum fonster
-      '0710010143030160':
-        name: Guest room desk
   #    '0710010141030150':
   #      name: Byralampa
   #      fire_event: True
@@ -20,8 +18,8 @@
       '0710010042080150':
         name: Porch ball
   - platform: switch
-    name: Guest room window
-    entity_id: switch.guest_room_window
+    name: Guest room desk
+    entity_id: switch.guest_room_desk
   - platform: switch
     name: Living room corner
     entity_id: switch.telldus_tzwp_100_plug_in_switch_switch

@@ -365,6 +365,9 @@
                                     "entity": "switch.nexa1"
                                 },
                                 {
+                                    "entity": "switch.nexa2"
+                                },
+                                {
                                     "entity": "switch.roger_main_switch"
                                 },
                                 {
