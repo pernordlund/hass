@@ -3,6 +3,9 @@
       dishwasher_flood_template:
         value_template: '{{ states.sensor.everspring_st812_flood_detector_flood.state != "0" }}'
         friendly_name: 'Dishwasher flood warning'
+      fridge_temp_high:
+        value_template: '{{ states("sensor.kylen_temperature") | int > 12 }}'
+        friendly_name: 'Fridge temp is high'
   - platform: mqtt
     state_topic: "hass/bv/1A01"
     name: "BV-Compressor"

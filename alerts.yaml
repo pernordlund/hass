@@ -22,6 +22,18 @@
     can_acknowledge: true
     notifiers:
       - pelles_tfn
+  fridge_temp_high:
+    name: Fridge temp is high
+    entity_id: binary_sensor.fridge_temp_high
+    state: 'on'
+    repeat: 
+      - 5
+      - 60
+      - 120
+    skip_first: false
+    can_acknowledge: true
+    notifiers:
+      - pelles_tfn
 #  forrad_door_open_long:
 #    name: Forrad door is open
 #    entity_id: binary_sensor.sensative_strips_sensor
@@ -46,4 +58,3 @@
     can_acknowledge: true
     notifiers:
       - pelles_tfn
-

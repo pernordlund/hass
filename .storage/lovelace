@@ -86,13 +86,10 @@
                                     "entity": "lock.id_lock_150_locked"
                                 },
                                 {
-                                    "entity": "sensor.id_lock_notification"
-                                },
-                                {
                                     "entity": "lock.wvwzzz3czhe181012_door_locked"
                                 },
                                 {
-                                    "entity": "switch.aarlo_arlozone_siren"
+                                    "entity": "binary_sensor.fridge_temp_high"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -159,6 +156,9 @@
                                 },
                                 {
                                     "entity": "alert.husdata_offline"
+                                },
+                                {
+                                    "entity": "alert.fridge_temp_high"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -260,6 +260,9 @@
                                     "entity": "light.guest_room_ceiling"
                                 },
                                 {
+                                    "entity": "light.guest_room_window_2"
+                                },
+                                {
                                     "entity": "light.entrance_drawer"
                                 },
                                 {
@@ -291,9 +294,6 @@
                                 },
                                 {
                                     "entity": "light.bedroom_window"
-                                },
-                                {
-                                    "entity": "light.guest_room_window_2"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -1110,20 +1110,6 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "device_tracker.life360_albin_nordlund"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_battery_level"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_fuel_level"
-                                }
-                            ],
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
                                     "entity": "sensor.frysen_temperature"
                                 }
                             ],
@@ -1157,11 +1143,6 @@
                             "aspect_ratio": "50%",
                             "entity": "camera.aarlo_arlozoneinside",
                             "type": "picture-entity"
-                        },
-                        {
-                            "entity": "sensor.0850020a3901007569_temperature",
-                            "graph": "line",
-                            "type": "sensor"
                         },
                         {
                             "entities": [

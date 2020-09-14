@@ -23,12 +23,6 @@ binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2:
   friendly_name: Ytterdorr oppen
 binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor:
   friendly_name: Avlarmat
-#switch.bedroom_table:
-#  friendly_name: Pelles laddare
-# light.guestroom_red:
-#   friendly_name: Arbrum horn
-#light.living_room_table:
-#  friendly_name: Vardrum bord
 switch.popp_duwi_zw_zsa_3500_plugin_switch_switch:
   friendly_name: Garage ceiling
 sensor.everspring_st814_temperature_and_humidity_sensor_temperature:
@@ -43,23 +37,6 @@ sensor.everspring_st812_flood_detector_flood:
   friendly_name: Oversvammning disk
 sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_4:
   friendly_name: Allrum temp
-#light.entrance_ceiling:
-#  friendly_name: Hallampa
-#switch.cloak_room_ceiling:
-#  friendly_name: Klk nere
-#  icon: mdi:lightbulb
-# light.living_room_sofa:
-#   friendly_name: Vardrum soffa
-#   icon: mdi:lightbulb
-# light.arbrum_fonster:
-#   friendly_name: Arbrum fonster
-#   icon: mdi:lightbulb
-#switch.bathroom_ceiling:
-#  friendly_name: Badrum
-#  icon: mdi:lightbulb
-#switch.sauna:
-#  friendly_name: Bastu
-#  icon: mdi:lightbulb
 sensor.last_trip_allrum:
   icon: mdi:calendar-clock
 sensor.last_trip_alarm:
@@ -79,14 +56,10 @@ binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor:
   friendly_name: Roksensor
 sensor.fibaro_system_fgsd002_smoke_sensor_temperature:
   friendly_name: Vardrum temp
-# light.tradfri_bulb_e14_ws_opal_400lm:
-#   friendly_name: Tradfri e14
 sensor.pelle_life360:
   entity_picture: /local/pelle.JPG
 sensor.huset:
   entity_picture: /local/home.jpg
-# sensor.slussen:
-#   icon: mdi:bus
 sensor.roger_battery:
   icon: mdi:battery
 sensor.roger_next_start:
@@ -121,3 +94,7 @@ lock.id_lock_150_locked:
   friendly_name: Lock main door
 light.bedroom_window:
   friendly_name: Bedroom window
+binary_sensor.aarlo_motion_arlozonefront:
+  device_class: problem
+binary_sensor.aarlo_motion_arlozoneinside:
+  device_class: problem
