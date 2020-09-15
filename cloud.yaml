@@ -112,7 +112,7 @@
 #         room: Outside
 
 # #Outside front
-#       light.utebelysning:
+#       light.tree:
 #         name: Tree
 #         room: Outside front
 #       light.entre:

@@ -10,9 +10,9 @@ light.entre:
   assumed_state: false
 light.attic:
   assumed_state: false
-light.utebelysning:
+light.tree:
   assumed_state: false
-light.ute_altan:
+light.porch_ball:
   assumed_state: false
 group.all_automations:
   hidden: false

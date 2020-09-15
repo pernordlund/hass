@@ -171,8 +171,8 @@
     name: Outside
     entities:
       - light.entre
-      - light.utebelysning
-      - light.ute_altan
+      - light.tree
+      - light.porch_ball
   switches:
     name: Switches
     entities:
@@ -352,13 +352,11 @@
       - light.play_room_ceiling
       - light.bedroom_window
       - switch.telldus_tzwp100_plugin_switch_switch
-      - light.utebelysning
-      - light.ute_altan
+      - light.tree
+      - light.porch_ball
       - light.guestroom_red
       - light.living_room_sofa
       - light.entrance_drawer
-      - switch.tp1
-      - switch.nexa1
   lights_pelle:
     name: Lights Pelle
     entities:
