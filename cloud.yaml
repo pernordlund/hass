@@ -61,7 +61,7 @@
 #       light.entrance_ceiling:
 #         name: Entrance ceiling
 #         room: Entrance
-#       light.entre_byra:
+#       light.entrance_drawer:
 #         name: Entrance drawer
 #         room: Entrance
 #       light.cloak_room:
