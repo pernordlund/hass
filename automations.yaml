@@ -621,7 +621,7 @@
     data_template:
       message: '{{ states("sensor.time") }} - Storstugan now online'
 - id: '1590615866019'
-  alias: Air purifier off when Albin not home
+  alias: Some stuff off when Albin not home
   description: ''
   trigger:
   - entity_id: device_tracker.life360_albin_nordlund
@@ -632,6 +632,9 @@
   - data: {}
     entity_id: fan.xiaomi_miio_device
     service: fan.turn_off
+  - data: {}
+    entity_id: light.albins_bed
+    service: homeassistant.turn_off
 - id: '1590615984329'
   alias: Air purifier on when Albin home
   description: ''
@@ -644,3 +647,18 @@
   - data: {}
     entity_id: fan.xiaomi_miio_device
     service: fan.turn_on
+- id: '1600181517063'
+  alias: Notify Pelle front door not locked
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.g8441_is_charging
+    platform: state
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: lock.id_lock_150_locked
+    state: unlocked
+  action:
+  - data:
+      message: Front door not locked
+    service: notify.pelles_tfn

@@ -64,6 +64,7 @@
       - sensor.netatmo_rain_rain
       - sensor.netatmo_rain_sum_rain_1
       - sensor.netatmo_rain_sum_rain_24
+      - sensor.netatmo_rain_battery
       - sensor.time_to_work
       - sensor.onhub_kbyte_sec_sent
       - sensor.onhub_packets_sec_received
@@ -101,3 +102,4 @@
       - sensor.blitzortung_lightning_azimuth
       - sensor.blitzortung_lightning_counter
       - sensor.blitzortung_lightning_distance
+      - sensor.g8441_battery_level

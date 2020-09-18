@@ -46,7 +46,7 @@
                                     "entity": "device_tracker.pelles_wallet"
                                 },
                                 {
-                                    "entity": "device_tracker.xperia_xz1_compact"
+                                    "entity": "device_tracker.g8441"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -56,13 +56,13 @@
                         {
                             "entities": [
                                 {
+                                    "entity": "binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor"
+                                },
+                                {
                                     "entity": "binary_sensor.dishwasher_flood_template"
                                 },
                                 {
                                     "entity": "binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor"
-                                },
-                                {
-                                    "entity": "binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor"
                                 },
                                 {
                                     "entity": "binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2"
@@ -77,6 +77,9 @@
                                     "entity": "binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor"
                                 },
                                 {
+                                    "entity": "binary_sensor.fridge_temp_high"
+                                },
+                                {
                                     "entity": "binary_sensor.aarlo_motion_arlozonefront"
                                 },
                                 {
@@ -87,9 +90,6 @@
                                 },
                                 {
                                     "entity": "lock.wvwzzz3czhe181012_door_locked"
-                                },
-                                {
-                                    "entity": "binary_sensor.fridge_temp_high"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -130,7 +130,13 @@
                                     "entity": "sun.sun"
                                 },
                                 {
-                                    "entity": "sensor.power_reader"
+                                    "entity": "binary_sensor.g8441_is_charging"
+                                },
+                                {
+                                    "entity": "sensor.g8441_geocoded_location"
+                                },
+                                {
+                                    "entity": "sensor.g8441_battery_level"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -312,22 +318,19 @@
                                     "entity": "light.sauna"
                                 },
                                 {
-                                    "entity": "light.fridas_desk"
-                                },
-                                {
                                     "entity": "light.fridas_room_ceiling"
                                 },
                                 {
                                     "entity": "light.attic"
                                 },
                                 {
-                                    "entity": "light.fridas_bed"
-                                },
-                                {
                                     "entity": "light.media_room_ceiling"
                                 },
                                 {
                                     "entity": "light.play_room_ceiling_2"
+                                },
+                                {
+                                    "entity": "light.albins_bed"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -344,6 +347,9 @@
                                 },
                                 {
                                     "entity": "switch.flower_lights"
+                                },
+                                {
+                                    "entity": "light.tree"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -509,25 +515,25 @@
                                     "entity": "sensor.altan_temperature"
                                 },
                                 {
-                                    "entity": "binary_sensor.popp_co_popp_z_rain_rain_sensor_sensor"
-                                },
-                                {
-                                    "entity": "sensor.popp_co_popp_z_rain_rain_sensor_exporting"
-                                },
-                                {
-                                    "entity": "sensor.popp_co_popp_z_rain_rain_sensor_general"
-                                },
-                                {
                                     "entity": "sensor.popp_co_popp_z_rain_rain_sensor_rain_rate"
                                 },
                                 {
                                     "entity": "sensor.popp_co_popp_z_rain_rain_sensor_water"
                                 },
                                 {
-                                    "entity": "sensor.blitzortung_lightning_azimuth"
+                                    "entity": "sensor.netatmo_rain_rain"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_rain_sum_rain_1"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_rain_sum_rain_24"
                                 },
                                 {
                                     "entity": "sensor.blitzortung_lightning_counter"
+                                },
+                                {
+                                    "entity": "sensor.blitzortung_lightning_azimuth"
                                 },
                                 {
                                     "entity": "sensor.blitzortung_lightning_distance"
@@ -778,9 +784,6 @@
                                 },
                                 {
                                     "entity": "sensor.netatmo_rain_battery"
-                                },
-                                {
-                                    "entity": "sensor.sensative_battery"
                                 },
                                 {
                                     "entity": "sensor.philio_battery"

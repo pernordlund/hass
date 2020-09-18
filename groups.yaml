@@ -157,9 +157,8 @@
       - switch.bathroom_ceiling
       - switch.sauna
       - switch.tp1
-      # - light.frida_skrivbord
-      # - light.fridas_bed
-      # - light.fridas_room_ceiling #Fridas tak
+      - light.media_room_ceiling
+      - light.play_room_ceiling_2
       - light.attic
   lights_off_at_2200:
     name: Lights off at 2200
