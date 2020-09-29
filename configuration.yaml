@@ -69,9 +69,9 @@ logbook:
 # Track the sun
 sun:
 
-rfxtrx:
+rfxtrx: !include rfxtrx.yaml
 #  device: /dev/ttyUSB0
-  device: /dev/serial/by-id/usb-RFXCOM_RFXtrx433_08WDX6UE-if00-port0
+#  device: /dev/serial/by-id/usb-RFXCOM_RFXtrx433_08WDX6UE-if00-port0
 #  debug: True
 
 sensor: !include sensors.yaml

@@ -509,9 +509,6 @@
                                     "entity": "sensor.netatmo_outdoor_temperature"
                                 },
                                 {
-                                    "entity": "sensor.netatmo_rain_rain"
-                                },
-                                {
                                     "entity": "sensor.altan_temperature"
                                 },
                                 {
