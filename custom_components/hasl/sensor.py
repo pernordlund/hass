@@ -516,7 +516,7 @@ class SLDeparturesSensor(Entity):
         """ Return number of minutes to the next departure """
 
         # If the sensor should return minutes to next departure.
-        if self._sensorproperty is 'min':
+        if self._sensorproperty == 'min':
             next_departure = self.nextDeparture()
             if not next_departure:
                 return '-'
@@ -526,7 +526,7 @@ class SLDeparturesSensor(Entity):
             return expected_minutes
 
         # If the sensor should return the time at which next departure occurs.
-        if self._sensorproperty is 'time':
+        if self._sensorproperty == 'time':
             next_departure = self.nextDeparture()
             if not next_departure:
                 return '-'
@@ -535,17 +535,17 @@ class SLDeparturesSensor(Entity):
             return expected
 
         # If the sensor should return the number of deviations.
-        if self._sensorproperty is 'deviations':
+        if self._sensorproperty == 'deviations':
             return len(self._deviations_table)
 
         # If the sensor should return if it is updating or not.
-        if self._sensorproperty is 'refresh':
+        if self._sensorproperty == 'refresh':
             if self._enabled_sensor is None or sensor_state.state is STATE_ON:
                 return STATE_ON
             return STATE_OFF
 
-        if self._sensorproperty is 'updated':
-            if self._lastupdate is '-':
+        if self._sensorproperty == 'updated':
+            if self._lastupdate == '-':
                 return '-'
             return refresh.strftime('%Y-%m-%d %H:%M:%S')
 
@@ -572,11 +572,11 @@ class SLDeparturesSensor(Entity):
 
         # Format the last refresh time.
         refresh = self._lastupdate
-        if self._lastupdate is not '-':
+        if self._lastupdate != '-':
             refresh = refresh.strftime('%Y-%m-%d %H:%M:%S')
 
         # Setup the unit of measure.
-        if self._unit_of_measure is not '':
+        if self._unit_of_measure != '':
             val['unit_of_measurement'] = self._unit_of_measure
 
         # Check if sensor is currently updating or not.

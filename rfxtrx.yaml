@@ -1,1 +1,78 @@
   device: /dev/serial/by-id/usb-RFXCOM_RFXtrx433_08WDX6UE-if00-port0
+#  automatic_add: true
+#  debug: true
+  devices:
+# Switches
+    '0710010042060150':
+#      name: Multifjarr6
+      fire_event: True
+    '0710010042090160':
+#      name: Multifjarr9
+      fire_event: True
+    '0710010142020170':
+#      name: Nexa1
+    '0710010143030160':
+#      name: Nexa2
+    '0b110001006eb2e202000060':
+#      name: Vagg vardrum
+      fire_event: True
+    '0710010142040160':
+#      name: Kamera MF4
+      fire_event: True
+    '0b11000000c4470201040f70':
+#      name: Okand 0
+      fire_event: True
+    '0b11000000a5b3f201010f40':
+#      name: Vit fjarr 1
+      fire_event: True
+    '0b11000100a5b3f202010f50':
+#      name: Roger main switch #Vit fjärr 2
+      fire_event: True
+    '0b11000000a5b3f203010f60':
+#      name: Vit fjarr 3
+      fire_event: True
+    '0b110000008464ba0a010f60':
+#      name: Sensor badrum
+      fire_event: True
+    '0b110001008464ba0a000060':
+#      name: Badrum uppe
+      fire_event: True
+# Lights
+    '0710010144040060':
+#      name: Fridas desk
+    '0710010143010170':
+#      name: Attic
+    '0710010142010150':
+#      name: Tree
+    '0710010042080150':
+#      name: Porch ball
+# Sensors
+    0a520201050100cf200269:
+#      name: Oregon w disp
+#      data_type:
+#      - Humidity
+#      - Temperature
+    0a5202042a018015530369:
+#      name: attic
+#      data_type:
+#      - Humidity
+#      - Temperature
+    085002033901009c69:
+#      name: Altan
+#      data_type:
+#      - Temperature
+    0a52019ae60100e3200279:
+#      name: Oregon no disp
+#      data_type:
+#      - Humidity
+#      - Temperature
+    0a5209018700005e300159:
+#      name: Kylen
+#      data_type:
+#      - Humidity
+#      - Temperature
+    0a520902c700002f1d0259:
+#      name: Frysen
+#      data_type:
+#      - Humidity
+#      - Temperature

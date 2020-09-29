@@ -132,26 +132,26 @@
         friendly_name: 'Allrum sensor battery'
         value_template: '{{ states.zwave.fibaro_system_fgms001_zw5_motion_sensor.attributes.battery_level }}'
         unit_of_measurement: '%'
-      frysen_battery:
-        friendly_name: 'Frysen sensor battery'
-        value_template: "{{states.sensor.frysen_humidity.attributes['Battery numeric']}}"
-        unit_of_measurement: 'of 9'
-      kylen_battery:
-        friendly_name: 'Kylen sensor battery'
-        value_template: "{{states.sensor.kylen_humidity.attributes['Battery numeric']}}"
-        unit_of_measurement: 'of 9'
-      oregon_wd_battery:
-        friendly_name: 'Oregon WD sensor battery'
-        value_template: "{{states.sensor.oregon_w_disp_temperature.attributes['Battery numeric']}}"
-        unit_of_measurement: 'of 9'
-      oregon_nd_battery:
-        friendly_name: 'Oregon ND sensor battery'
-        value_template: "{{states.sensor.oregon_no_disp_humidity.attributes['Battery numeric']}}"
-        unit_of_measurement: 'of 9'
-      attic_battery:
-        friendly_name: 'attic sensor battery'
-        value_template: "{{states.sensor.attic_temperature.attributes['Battery numeric']}}"
-        unit_of_measurement: 'of 9'
+#      frysen_battery:
+#        friendly_name: 'Frysen sensor battery'
+#        value_template: "{{states.sensor.frysen_humidity.attributes['Battery numeric']}}"
+#        unit_of_measurement: 'of 9'
+#      kylen_battery:
+#        friendly_name: 'Kylen sensor battery'
+#        value_template: "{{states.sensor.kylen_humidity.attributes['Battery numeric']}}"
+#        unit_of_measurement: 'of 9'
+#      oregon_wd_battery:
+#        friendly_name: 'Oregon WD sensor battery'
+#        value_template: "{{states.sensor.oregon_w_disp_temperature.attributes['Battery numeric']}}"
+#        unit_of_measurement: 'of 9'
+#      oregon_nd_battery:
+#        friendly_name: 'Oregon ND sensor battery'
+#        value_template: "{{states.sensor.oregon_no_disp_humidity.attributes['Battery numeric']}}"
+#        unit_of_measurement: 'of 9'
+#      attic_battery:
+#        friendly_name: 'attic sensor battery'
+#        value_template: "{{states.sensor.attic_temperature.attributes['Battery numeric']}}"
+#        unit_of_measurement: 'of 9'
       flood_battery:
         friendly_name: 'Flood sensor battery'
         value_template: '{{ states.zwave.everspring_st812_flood_detector.attributes.battery_level }}'
@@ -343,38 +343,6 @@
     state_topic: "hass/bv/2207"
     name: "BV-Heat set 3, Parallel"
     unit_of_measurement: 'BV'
-  - platform: rfxtrx
-    automatic_add: True
-    devices:
-      0a520201050100cf200269:
-        name: Oregon w disp
-        data_type:
-         - Humidity
-         - Temperature
-      0a5202042a018015530369:
-        name: attic
-        data_type:
-         - Humidity
-         - Temperature
-      085002033901009c69:
-        name: Altan
-        data_type:
-         - Temperature
-      0a52019ae60100e3200279:
-        name: Oregon no disp
-        data_type:
-         - Humidity
-         - Temperature
-      0a5209018700005e300159:
-        name: Kylen
-        data_type:
-         - Humidity
-         - Temperature
-      0a520902c700002f1d0259:
-        name: Frysen
-        data_type:
-         - Humidity
-         - Temperature
   - platform: systemmonitor
     resources:
 #      - type: disk_use_percent

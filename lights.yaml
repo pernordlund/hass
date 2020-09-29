@@ -1,22 +1,3 @@
-  - platform: rfxtrx
-    automatic_add: True
-    signal_repetitions: 2
-    devices:
-  #    '07100101420a0150':
-  #      name: Arbrum fonster
-  #    '0710010141030150':
-  #      name: Byralampa
-  #      fire_event: True
-      # '0710010042050160':
-      #   name: Entre
-      '0710010144040060':
-        name: Fridas desk
-      '0710010143010170':
-        name: Attic
-      '0710010142010150':
-        name: Tree
-      '0710010042080150':
-        name: Porch ball
   - platform: switch
     name: Guest room desk
     entity_id: switch.guest_room_desk

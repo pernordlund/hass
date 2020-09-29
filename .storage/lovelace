@@ -1,4 +1,6 @@
 {
+    "version": 1,
+    "key": "lovelace",
     "data": {
         "config": {
             "title": "Nordlunds",
@@ -340,7 +342,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "light.porch_ball"
+                                    "entity": "switch.arc_b8"
                                 },
                                 {
                                     "entity": "light.garage_ceiling"
@@ -349,7 +351,7 @@
                                     "entity": "switch.flower_lights"
                                 },
                                 {
-                                    "entity": "light.tree"
+                                    "entity": "switch.arc_b1"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -371,10 +373,10 @@
                                     "entity": "switch.nexa1"
                                 },
                                 {
-                                    "entity": "switch.nexa2"
+                                    "entity": "switch.arc_c3"
                                 },
                                 {
-                                    "entity": "switch.roger_main_switch"
+                                    "entity": "switch.white_remote_2"
                                 },
                                 {
                                     "entity": "fan.xiaomi_miio_device"
@@ -1157,6 +1159,57 @@
                             "refresh_interval": 0,
                             "title": "Temps",
                             "type": "history-graph"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "switch.arc_b1"
+                                },
+                                {
+                                    "entity": "switch.arc_b2"
+                                },
+                                {
+                                    "entity": "switch.arc_b4"
+                                },
+                                {
+                                    "entity": "switch.arc_b6"
+                                },
+                                {
+                                    "entity": "switch.arc_b8"
+                                },
+                                {
+                                    "entity": "switch.arc_b9"
+                                },
+                                {
+                                    "entity": "switch.arc_c1"
+                                },
+                                {
+                                    "entity": "switch.arc_c3"
+                                },
+                                {
+                                    "entity": "switch.arc_d4"
+                                },
+                                {
+                                    "entity": "switch.ac_06eb2e2_2"
+                                },
+                                {
+                                    "entity": "switch.ac_08464ba_10"
+                                },
+                                {
+                                    "entity": "switch.white_remote_1"
+                                },
+                                {
+                                    "entity": "switch.white_remote_2"
+                                },
+                                {
+                                    "entity": "switch.white_remote_3"
+                                },
+                                {
+                                    "entity": "switch.ac_0c44702_1"
+                                }
+                            ],
+                            "title": "RFXtrx"
                         }
                     ],
                     "theme": "Backend-selected",
@@ -1164,7 +1217,5 @@
                 }
             ]
         }
-    },
-    "key": "lovelace",
-    "version": 1
+    }
 }

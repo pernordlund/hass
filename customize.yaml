@@ -86,10 +86,6 @@ binary_sensor.philio_technology_corporation_psp05_pir_motion_sensor:
   friendly_name: Guest room motion
 zwave.fibaro_system_fgd211_universal_dimmer_500w:
   friendly_name: Guest room ceiling
-sensor.oregon_w_disp_temperature:
-  friendly_name: Fridas room temp
-sensor.oregon_w_disp_humidity:
-  friendly_name: Frida room hum
 lock.id_lock_150_locked:
   friendly_name: Lock main door
 light.bedroom_window:

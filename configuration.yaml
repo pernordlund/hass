@@ -40,7 +40,7 @@ group: !include groups.yaml
 
 http:
 # Uncomment this if you are using SSL or running in Docker etc
-  base_url: hass.panitco.se
+#  base_url: hass.panitco.se
 
 # Checks for available updates
 updater:
@@ -161,11 +161,11 @@ system_health:
 
 life360: !include life360.yaml
 
-panel_custom:
-  - name: zwavegraph2
-    sidebar_title: Z-Wave Graph
-    sidebar_icon: mdi:access-point-network
-    url_path: zwave
+#panel_custom:
+#  - name: zwavegraph2
+#    sidebar_title: Z-Wave Graph
+#    sidebar_icon: mdi:access-point-network
+#    url_path: zwave
 
 tplink: !include tplink.yaml
 
