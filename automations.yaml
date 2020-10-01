@@ -217,16 +217,33 @@
     service: homeassistant.turn_on
     entity_id: script.timed_badrum
 - id: A027
-  alias: Allrum triggered notify Pelle
-  initial_state: 'off'
+  alias: White remote 2:ALL triggered notify Pelle
   trigger:
-    platform: state
-    entity_id: binary_sensor.fibaro_system_fgms001zw5_motion_sensor_sensor_4
-    to: 'on'
+  - platform: event
+    event_type: rfxtrx_event
+    event_data:
+      id_string: 0533a9e:1
+      values:
+        Command: Group off
   action:
   - service: notify.pelles_tfn
-    data_template:
-      message: '{{ states("sensor.time") }} - Sensor allrum triggered'
+    data:
+      message: Testing WR2/All
+  mode: single
+- id: A0271
+  alias: White remote 1:ALL triggered notify Pelle
+  trigger:
+  - platform: event
+    event_type: rfxtrx_event
+    event_data:
+      id_string: 0a5b3f2:1
+      values:
+        Command: Group off
+  action:
+  - service: notify.pelles_tfn
+    data:
+      message: Testing WR1/All
+  mode: single
 - id: A028
   alias: Klk off 5 min after on
   trigger:

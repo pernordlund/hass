@@ -1232,6 +1232,15 @@
                                 },
                                 {
                                     "entity": "switch.ac_0c44702_1"
+                                },
+                                {
+                                    "entity": "switch.ac_0533a9e_1"
+                                },
+                                {
+                                    "entity": "switch.ac_0533a9e_2"
+                                },
+                                {
+                                    "entity": "switch.ac_0533a9e_3"
                                 }
                             ],
                             "title": "RFXtrx"

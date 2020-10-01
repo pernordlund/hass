@@ -1,42 +1,51 @@
   device: /dev/serial/by-id/usb-RFXCOM_RFXtrx433_08WDX6UE-if00-port0
 #  automatic_add: true
-#  debug: true
+  debug: true
   devices:
 # Switches
-    '0710010042060150':
+#    '0710010042060150':
 #      name: Multifjarr6
-      fire_event: True
-    '0710010042090160':
+#      fire_event: True
+#    '0710010042090160':
 #      name: Multifjarr9
-      fire_event: True
-    '0710010142020170':
+#      fire_event: True
+#    '0710010142020170':
 #      name: Nexa1
     '0710010143030160':
 #      name: Nexa2
-    '0b110001006eb2e202000060':
+#    '0b110001006eb2e202000060':
 #      name: Vagg vardrum
-      fire_event: True
-    '0710010142040160':
+#      fire_event: True
+#    '0710010142040160':
 #      name: Kamera MF4
+#      fire_event: True
+    '0b11001700533a9e01010f50':
+#      name: Vit fjarr 2:1, AC 0533a9
       fire_event: True
-    '0b11000000c4470201040f70':
-#      name: Okand 0
+      signal_repetitions: 2
+    '0b11001000533a9e02010f50':
+#      name: Vit fjarr 2:2, AC 0533a9
       fire_event: True
+      signal_repetitions: 2
+    '0b11001600533a9e03010f50':
+#      name: Vit fjarr 2:3, AC 0533a9
+      fire_event: True
+      signal_repetitions: 2
     '0b11000000a5b3f201010f40':
-#      name: Vit fjarr 1
+#      name: Vit fjarr 1:1, AC 0a5b3f
       fire_event: True
     '0b11000100a5b3f202010f50':
-#      name: Roger main switch #Vit fjärr 2
+#      name: Vit fjarr 1:2, AC 0a5b3f
       fire_event: True
     '0b11000000a5b3f203010f60':
-#      name: Vit fjarr 3
+#      name: Vit fjarr 1:3, AC 0a5b3f
       fire_event: True
-    '0b110000008464ba0a010f60':
+#    '0b110000008464ba0a010f60':
 #      name: Sensor badrum
-      fire_event: True
-    '0b110001008464ba0a000060':
+#      fire_event: True
+#    '0b110001008464ba0a000060':
 #      name: Badrum uppe
-      fire_event: True
+#      fire_event: True
 # Lights
     '0710010144040060':
 #      name: Fridas desk
