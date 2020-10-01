@@ -102,3 +102,6 @@
       - sensor.blitzortung_lightning_counter
       - sensor.blitzortung_lightning_distance
       - sensor.g8441_battery_level
+      - sensor.speedtest_download
+      - sensor.speedtest_upload
+      - sensor.speedtest_ping

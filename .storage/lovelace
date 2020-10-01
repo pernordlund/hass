@@ -370,7 +370,7 @@
                                     "entity": "switch.tp2"
                                 },
                                 {
-                                    "entity": "switch.nexa1"
+                                    "entity": "switch.arc_b2"
                                 },
                                 {
                                     "entity": "switch.arc_c3"
@@ -593,6 +593,16 @@
                             "entity": "weather.smhi_home",
                             "name": "Smhi",
                             "type": "weather-forecast"
+                        },
+                        {
+                            "type": "history-graph",
+                            "entities": [
+                                {
+                                    "entity": "sensor.netatmo_indoor_temperature"
+                                }
+                            ],
+                            "hours_to_show": 72,
+                            "refresh_interval": 0
                         }
                     ],
                     "path": "climate",
@@ -855,6 +865,21 @@
                             "show_header_toggle": false,
                             "title": "Google Wifi",
                             "type": "entities"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.speedtest_download"
+                                },
+                                {
+                                    "entity": "sensor.speedtest_upload"
+                                },
+                                {
+                                    "entity": "sensor.speedtest_ping"
+                                }
+                            ],
+                            "title": "Speedtest"
                         }
                     ],
                     "path": "systems",
