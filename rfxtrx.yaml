@@ -1,6 +1,6 @@
   device: /dev/serial/by-id/usb-RFXCOM_RFXtrx433_08WDX6UE-if00-port0
 #  automatic_add: true
-  debug: true
+#  debug: true
   devices:
 # Switches
 #    '0710010042060150':
@@ -9,8 +9,10 @@
 #    '0710010042090160':
 #      name: Multifjarr9
 #      fire_event: True
-#    '0710010142020170':
-#      name: Nexa1
+    0b11001700533a9e04010f50:
+#      name: Nexa 1, virtual 2:4 AC 0533a9
+      fire_event: True
+#      signal_repetitions: 2
     '0710010143030160':
 #      name: Nexa2
 #    '0b110001006eb2e202000060':

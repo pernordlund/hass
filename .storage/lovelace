@@ -1244,6 +1244,20 @@
                                 }
                             ],
                             "title": "RFXtrx"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.nexa_1"
+                                },
+                                {
+                                    "entity": "sensor.nexa_1_rssi_numeric"
+                                },
+                                {
+                                    "entity": "switch.nexa_1"
+                                }
+                            ]
                         }
                     ],
                     "theme": "Backend-selected",

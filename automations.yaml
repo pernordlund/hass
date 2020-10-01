@@ -1,6 +1,6 @@
 - id: A001
   alias: Ytterdorr open notify
-  initial_state: 'off'
+  initial_state: off
   trigger:
     platform: state
     entity_id: binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2
@@ -19,7 +19,6 @@
   - data:
       entity_id: light.living_room_sofa
     service: homeassistant.toggle
-  initial_state: 'on'
   mode: single
 - id: A004
   alias: Vardrum hornlampa on when white remote no 3 is pressed
@@ -30,12 +29,11 @@
   - service: homeassistant.toggle
     data:
       entity_id: light.living_room_corner
-  initial_state: 'on'
   mode: single
 - id: A007
   alias: 0 - All lights off when night
   trigger:
-  - at: '23:30'
+  - at: '23:30:00'
     platform: time
   condition:
   - condition: state
@@ -44,9 +42,7 @@
   action:
   - entity_id: scene.godnatt
     service: scene.turn_on
-  initial_state: 'on'
 - id: A008
-  initial_state: 'on'
   alias: 0 - Some lights off at sunrise
   trigger:
     platform: sun
@@ -55,7 +51,6 @@
     service: homeassistant.turn_off
     entity_id: group.daily_sun
 - id: A009
-  initial_state: 'on'
   alias: 0 - Some lights on before sunset
   trigger:
     platform: sun
@@ -68,7 +63,6 @@
     data_template:
       message: '{{ states("sensor.time") }} - Daily sunset triggered'
 - id: A012
-  initial_state: 'on'
   alias: Alarm activation message
   trigger:
     platform: state
@@ -82,7 +76,6 @@
   - service: scene.turn_on
     entity_id: scene.alarm_on
 - id: A013
-  initial_state: 'on'
   alias: Alarm deactivation message
   trigger:
     platform: state
@@ -125,17 +118,16 @@
     platform: state
     to: home
   condition:
-  - after: '14:00:00'
-    before: '21:00:00'
+  - after: '14:00'
+    before: '21:00'
     condition: time
   action:
   - data:
       entity_id: group.lights_pelle
     service: homeassistant.turn_on
-  initial_state: 'on'
 - id: A017
   alias: X - Send bus schedule when Pelle leaves
-  initial_state: 'off'
+  initial_state: off
   trigger:
     platform: state
     entity_id: device_tracker.pelle_gps
@@ -143,14 +135,13 @@
     to: not_home
   condition:
     condition: time
-    after: 05:00:00
-    before: '10:00:00'
+    after: 05:00
+    before: '10:00'
   action:
     service: notify.pelles_tfn
     data_template:
       message: '{{ states("sensor.slussen") }}'
 - id: A019
-  initial_state: 'on'
   alias: Arbrum fonsterlampa from wall
   trigger:
     platform: event
@@ -162,7 +153,6 @@
   - service: homeassistant.toggle
     entity_id: light.guest_room_window_2
 - id: A021
-  initial_state: 'on'
   alias: Arbrum fonsterlampa med 2-klick
   trigger:
     platform: event
@@ -175,7 +165,6 @@
     entity_id: light.guest_room_window_2
 - id: A022
   alias: Vardrum hornlampan med 3-klick
-  initial_state: 'on'
   trigger:
     platform: event
     event_type: zwave.scene_activated
@@ -187,7 +176,7 @@
     entity_id: switch.telldus_tzwp_100_plug_in_switch_switch
 - id: A024
   alias: X - Notify Pelle to work
-  initial_state: 'off'
+  initial_state: off
   trigger:
     platform: state
     entity_id: device_tracker.pelle_gps
@@ -198,7 +187,6 @@
       message: '{{ states("sensor.time") }} - Pelle got to work'
 - id: A025
   alias: Badrum on when motion timer
-  initial_state: 'on'
   trigger:
     platform: state
     entity_id: switch.sensor_badrum
@@ -208,7 +196,6 @@
     entity_id: switch.bathroom_ceiling
 - id: A026
   alias: Badrum auto off timer
-  initial_state: 'on'
   trigger:
     platform: state
     entity_id: switch.bathroom_ceiling
@@ -287,7 +274,6 @@
   action:
   - service: rest_command.roger_stop
 - id: A035
-  initial_state: 'on'
   alias: Arbrum fonsterlampa med long-klick
   trigger:
     platform: event
@@ -328,7 +314,7 @@
       message: '{{ states("sensor.time") }} - Logged leave OKQ8 - GPS'
 - id: A040
   alias: Daily python scripts midnight
-  initial_state: 'off'
+  initial_state: off
   trigger:
     platform: state
     entity_id: sensor.date
@@ -338,7 +324,7 @@
       entity_id: daily_midnight
 - id: A041
   alias: Daily scripts midnight
-  initial_state: 'off'
+  initial_state: off
   trigger:
     platform: state
     entity_id: sensor.date
@@ -354,8 +340,8 @@
     platform: state
     to: 'on'
   condition:
-  - after: '22:00:00'
-    before: 04:00:00
+  - after: '22:00'
+    before: 04:00
     condition: time
   - condition: state
     entity_id: light.entrance_drawer
@@ -366,10 +352,8 @@
   - delay: 00:10:00
   - entity_id: light.entrance_drawer
     service: light.turn_off
-  initial_state: 'on'
 - id: A043
   alias: Marie leaving Slussen
-  initial_state: 'on'
   trigger:
     platform: state
     entity_id: device_tracker.marie_marie
@@ -417,7 +401,6 @@
   - data:
       entity_id: switch.popp_duwi_zw_zsa_3500_plugin_switch_switch
     service: homeassistant.turn_on
-  initial_state: 'on'
 - id: A047
   alias: Garage light off when door closes
   trigger:
@@ -428,7 +411,6 @@
   - data:
       entity_id: switch.popp_duwi_zw_zsa_3500_plugin_switch_switch
     service: homeassistant.turn_off
-  initial_state: 'on'
 - id: A0471
   alias: X - Log Jenny leaving home - Life
   trigger:
@@ -463,8 +445,8 @@
     platform: state
     to: 'on'
   condition:
-  - after: '23:00:00'
-    before: 05:00:00
+  - after: '23:00'
+    before: 05:00
     condition: time
   - condition: state
     entity_id: light.entrance_drawer
@@ -478,7 +460,6 @@
   - data:
       entity_id: light.entrance_drawer
     service: light.turn_off
-  initial_state: 'on'
 - id: '1544037641675'
   alias: Arbrum on motion
   trigger:
@@ -490,8 +471,8 @@
   - condition: state
     entity_id: timer.arbrum_motion
     state: idle
-  - after: '14:00:00'
-    before: '22:00:00'
+  - after: '14:00'
+    before: '22:00'
     condition: time
   action:
   - data:
@@ -505,7 +486,7 @@
     service: homeassistant.turn_on
 - id: '1544045540211'
   alias: XX-test-timer-arbrum
-  initial_state: 'off'
+  initial_state: off
   trigger:
   - event_data:
       entity_id: timer.arbrum_motion
@@ -519,7 +500,7 @@
 - id: '1550438266481'
   alias: Allrum on when dark
   trigger:
-  - below: '6'
+  - below: 6
     entity_id: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance
     platform: numeric_state
   - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor
@@ -527,8 +508,8 @@
     platform: state
     to: 'on'
   condition:
-  - after: '15:00:00'
-    before: '22:00:00'
+  - after: '15:00'
+    before: '22:00'
     condition: time
   action:
   - data:
@@ -547,9 +528,9 @@
 - id: '1569174049492'
   alias: Flower light - On
   trigger:
-  - at: 06:00
+  - at: '06:00:00'
     platform: time
-  - at: '18:00'
+  - at: '18:00:00'
     platform: time
   condition: []
   action:
@@ -559,9 +540,9 @@
 - id: '1569174104818'
   alias: Flower light - Off
   trigger:
-  - at: 09:00
+  - at: 09:00:00
     platform: time
-  - at: '22:00'
+  - at: '22:00:00'
     platform: time
   condition: []
   action:
