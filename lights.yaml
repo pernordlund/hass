@@ -19,6 +19,15 @@
   - platform: switch
     name: Garage ceiling
     entity_id: switch.popp_duwi_zw_zsa_3500_plugin_switch_switch
+  - platform: switch
+    name: Attic
+    entity_id: switch.attic
+  - platform: switch
+    name: Porch ball
+    entity_id: switch.arc_b8
+  - platform: switch
+    name: tree
+    entity_id: switch.arc_b1
   - platform: group
     name: Kitchen bench
     entities:

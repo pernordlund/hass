@@ -286,12 +286,6 @@
                                     "entity": "light.kitchen_bench"
                                 },
                                 {
-                                    "entity": "light.kitchen_bench_left"
-                                },
-                                {
-                                    "entity": "light.kitchen_bench_right"
-                                },
-                                {
                                     "entity": "light.living_room_corner"
                                 },
                                 {
@@ -370,7 +364,7 @@
                                     "entity": "switch.tp2"
                                 },
                                 {
-                                    "entity": "switch.arc_b2"
+                                    "entity": "switch.nexa_1"
                                 },
                                 {
                                     "entity": "switch.arc_c3"
@@ -404,7 +398,13 @@
                                     "entity": "timer.arbrum_motion"
                                 },
                                 {
+                                    "entity": "input_datetime.good_night"
+                                },
+                                {
                                     "entity": "input_boolean.cancel_next_goodnight"
+                                },
+                                {
+                                    "entity": "input_datetime.extra_good_night"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -429,6 +429,28 @@
                                 "arm_away"
                             ],
                             "type": "alarm-panel"
+                        },
+                        {
+                            "type": "custom:scheduler-card",
+                            "include": [
+                                "light.bathroom_ceiling",
+                                "light.bedroom_window",
+                                "light.guest_room_desk",
+                                "light.guest_room_window_2",
+                                "light.guestroom_red",
+                                "light.kitchen_bench",
+                                "light.living_room_corner",
+                                "light.living_room_sofa",
+                                "scene.godnatt",
+                                "switch.arc_b1",
+                                "switch.arc_b2",
+                                "switch.arc_b8",
+                                "switch.arc_c3",
+                                "switch.attic",
+                                "switch.nexa_1",
+                                "switch.tp1",
+                                "switch.water_control"
+                            ]
                         }
                     ],
                     "path": "control",

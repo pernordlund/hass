@@ -1,6 +1,6 @@
 - id: A001
   alias: Ytterdorr open notify
-  initial_state: off
+  initial_state: false
   trigger:
     platform: state
     entity_id: binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2
@@ -33,15 +33,19 @@
 - id: A007
   alias: 0 - All lights off when night
   trigger:
-  - at: '23:30:00'
+  - at: input_datetime.good_night
     platform: time
   condition:
   - condition: state
     entity_id: input_boolean.cancel_next_goodnight
     state: 'off'
+  - condition: state
+    entity_id: media_player.samsung_tv
+    state: 'off'
   action:
   - entity_id: scene.godnatt
     service: scene.turn_on
+  mode: single
 - id: A008
   alias: 0 - Some lights off at sunrise
   trigger:
@@ -127,7 +131,7 @@
     service: homeassistant.turn_on
 - id: A017
   alias: X - Send bus schedule when Pelle leaves
-  initial_state: off
+  initial_state: false
   trigger:
     platform: state
     entity_id: device_tracker.pelle_gps
@@ -176,7 +180,7 @@
     entity_id: switch.telldus_tzwp_100_plug_in_switch_switch
 - id: A024
   alias: X - Notify Pelle to work
-  initial_state: off
+  initial_state: false
   trigger:
     platform: state
     entity_id: device_tracker.pelle_gps
@@ -188,23 +192,25 @@
 - id: A025
   alias: Badrum on when motion timer
   trigger:
-    platform: state
-    entity_id: switch.sensor_badrum
+  - platform: state
     to: 'on'
+    entity_id: binary_sensor.upstairs_bathroom_motion
   action:
-    service: homeassistant.turn_on
+  - service: homeassistant.turn_on
     entity_id: switch.bathroom_ceiling
+  mode: single
 - id: A026
   alias: Badrum auto off timer
   trigger:
-    platform: state
+  - platform: state
     entity_id: switch.bathroom_ceiling
     to: 'on'
   action:
-    service: homeassistant.turn_on
+  - service: homeassistant.turn_on
     entity_id: script.timed_badrum
+  mode: single
 - id: A027
-  alias: White remote 2:ALL triggered notify Pelle
+  alias: White remote 2:ALL triggered Godnatt
   trigger:
   - platform: event
     event_type: rfxtrx_event
@@ -213,9 +219,10 @@
       values:
         Command: Group off
   action:
-  - service: notify.pelles_tfn
-    data:
-      message: Testing WR2/All
+  - scene: scene.godnatt
+  - service: homeassistant.turn_off
+    data: {}
+    entity_id: media_player.samsung_tv
   mode: single
 - id: A0271
   alias: White remote 1:ALL triggered notify Pelle
@@ -314,7 +321,7 @@
       message: '{{ states("sensor.time") }} - Logged leave OKQ8 - GPS'
 - id: A040
   alias: Daily python scripts midnight
-  initial_state: off
+  initial_state: false
   trigger:
     platform: state
     entity_id: sensor.date
@@ -324,7 +331,7 @@
       entity_id: daily_midnight
 - id: A041
   alias: Daily scripts midnight
-  initial_state: off
+  initial_state: false
   trigger:
     platform: state
     entity_id: sensor.date
@@ -486,7 +493,7 @@
     service: homeassistant.turn_on
 - id: '1544045540211'
   alias: XX-test-timer-arbrum
-  initial_state: off
+  initial_state: false
   trigger:
   - event_data:
       entity_id: timer.arbrum_motion
@@ -528,7 +535,7 @@
 - id: '1569174049492'
   alias: Flower light - On
   trigger:
-  - at: '06:00:00'
+  - at: 06:00:00
     platform: time
   - at: '18:00:00'
     platform: time
@@ -596,13 +603,15 @@
   alias: Cancel the cancel
   description: ''
   trigger:
-  - at: '23:35:00'
+  - at: input_datetime.good_night
     platform: time
   condition: []
   action:
+  - delay: 00:05:00
   - data:
       entity_id: input_boolean.cancel_next_goodnight
     service: input_boolean.turn_off
+  mode: single
 - id: '1588022688533'
   alias: Storstugan On
   description: Notify Pelle when Storstugan available
@@ -658,3 +667,16 @@
   - data:
       message: Front door not locked
     service: notify.pelles_tfn
+- id: '1601619813757'
+  alias: Extra good night
+  description: ''
+  trigger:
+  - platform: time
+    at: input_datetime.extra_good_night
+  condition: []
+  action:
+  - scene: scene.godnatt
+  - service: homeassistant.turn_off
+    data: {}
+    entity_id: media_player.samsung_tv
+  mode: single

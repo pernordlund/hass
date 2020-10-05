@@ -14,7 +14,7 @@
       fire_event: True
 #      signal_repetitions: 2
     '0710010143030160':
-#      name: Nexa2
+#      name: Nexa2, ARC C3
 #    '0b110001006eb2e202000060':
 #      name: Vagg vardrum
 #      fire_event: True
@@ -42,21 +42,21 @@
     '0b11000000a5b3f203010f60':
 #      name: Vit fjarr 1:3, AC 0a5b3f
       fire_event: True
-#    '0b110000008464ba0a010f60':
-#      name: Sensor badrum
-#      fire_event: True
-#    '0b110001008464ba0a000060':
-#      name: Badrum uppe
-#      fire_event: True
-# Lights
+
+#### Sensor badrum
+    0b110003008464ba0a010f40:
+#    0b110004008464ba0a000040
+#    0a520209050100e23a0159:
+
+    # Lights
     '0710010144040060':
 #      name: Fridas desk
     '0710010143010170':
-#      name: Attic
+#      name: Attic, ARC C1
     '0710010142010150':
-#      name: Tree
+#      name: Tree, ARC B1
     '0710010042080150':
-#      name: Porch ball
+#      name: Porch ball, ARC B8
 # Sensors
     0a520201050100cf200269:
 #      name: Oregon w disp
