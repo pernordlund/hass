@@ -50,13 +50,16 @@
 
     # Lights
     '0710010144040060':
-#      name: Fridas desk
+#      name: Nexa 3
     '0710010143010170':
 #      name: Attic, ARC C1
     '0710010142010150':
 #      name: Tree, ARC B1
     '0710010042080150':
 #      name: Porch ball, ARC B8
+      fire_event: True
+      signal_repetitions: 2
+
 # Sensors
     0a520201050100cf200269:
 #      name: Oregon w disp

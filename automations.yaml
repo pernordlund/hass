@@ -67,42 +67,58 @@
     data_template:
       message: '{{ states("sensor.time") }} - Daily sunset triggered'
 - id: A012
-  alias: Alarm activation message
+  alias: Alarm activation
   trigger:
-    platform: state
+  - platform: state
     entity_id: binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor
     from: 'on'
     to: 'off'
   action:
   - service: notify.pelles_tfn
-    data_template:
+    data:
       message: '{{ states("sensor.time") }} - Palarmning'
   - service: scene.turn_on
     entity_id: scene.alarm_on
+  - service: alarm_control_panel.alarm_arm_away
+    data: {}
+    entity_id: alarm_control_panel.aarlo_arlozone
+  mode: single
 - id: A013
-  alias: Alarm deactivation message
+  alias: Alarm deactivation
   trigger:
-    platform: state
+  - platform: state
     entity_id: binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor
     from: 'off'
     to: 'on'
   action:
   - service: notify.pelles_tfn
-    data_template:
+    data:
       message: '{{ states("sensor.time") }} -  Avlarmning'
   - service: scene.turn_on
     entity_id: scene.alarm_off
+  - service: alarm_control_panel.alarm_arm_home
+    data: {}
+    entity_id: alarm_control_panel.aarlo_arlozone
+  mode: single
 - id: A014
   alias: Flood alarm message
   trigger:
-    platform: state
+  - platform: state
     entity_id: binary_sensor.dishwasher_flood_template
     from: 'off'
     to: 'on'
   action:
-  - service: notify.pelles_tfn
-    data_template:
+  - service: notify.pelle_twilio_sms
+    data:
       message: '{{ states("sensor.time") }} - Oversvammningslarm'
+      target:
+      - 46735587416
+  - service: notify.pelle_twilio_call
+    data:
+      message: Flood alarm. Flood alarm. Flood alarm.
+      target:
+      - 46735587416
+  mode: single
 - id: A015
   alias: Smoke alarm message
   trigger:
@@ -195,6 +211,16 @@
   - platform: state
     to: 'on'
     entity_id: binary_sensor.upstairs_bathroom_motion
+  condition:
+  - condition: device
+    type: is_off
+    device_id: c2d030f4d6f8491286e88808301e1a69
+    entity_id: switch.bathroom_ceiling
+    domain: switch
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 10
   action:
   - service: homeassistant.turn_on
     entity_id: switch.bathroom_ceiling
@@ -533,42 +559,33 @@
       message: Webhook triggered
     service: notify.pelles_tfn
 - id: '1569174049492'
-  alias: Flower light - On
+  alias: Flower lights on
   trigger:
-  - at: 06:00:00
+  - at: input_datetime.flower_lights_on_1
     platform: time
-  - at: '18:00:00'
+  - at: input_datetime.flower_lights_on_2
     platform: time
   condition: []
   action:
   - data:
       entity_id: switch.flower_lights
     service: homeassistant.turn_on
+  mode: single
 - id: '1569174104818'
-  alias: Flower light - Off
+  alias: Flower lights off
   trigger:
-  - at: 09:00:00
+  - at: input_datetime.flower_lights_off_1
     platform: time
-  - at: '22:00:00'
+  - at: input_datetime.flower_lights_off_2
     platform: time
   condition: []
   action:
   - data:
       entity_id: switch.flower_lights
     service: homeassistant.turn_off
-- id: '1575213350487'
-  alias: Lights off at 2200
-  description: ''
-  trigger:
-  - at: '22:00:00'
-    platform: time
-  condition: []
-  action:
-  - data:
-      entity_id: group.lights_off_at_2200
-    service: homeassistant.turn_off
+  mode: single
 - id: '1575216792330'
-  alias: Kitchen table when drawer on 05-07
+  alias: Kitchen table when drawer on
   description: ''
   trigger:
   - entity_id: light.entrance_drawer
@@ -576,15 +593,16 @@
     platform: state
     to: 'on'
   condition:
-  - after: 05:00:00
-    before: 07:00:00
+  - after: input_datetime.start_kitchen_table_extra
+    before: input_datetime.stop_kitchen_table_extra
     condition: time
   action:
   - data:
       entity_id: light.kitchen_table
     service: homeassistant.turn_on
+  mode: single
 - id: '1575216792331'
-  alias: Kitchen table when drawer off 05-07
+  alias: Kitchen table when drawer off
   description: ''
   trigger:
   - entity_id: light.entrance_drawer
@@ -592,13 +610,14 @@
     platform: state
     to: 'off'
   condition:
-  - after: 05:00:00
-    before: 07:00:00
+  - after: input_datetime.start_kitchen_table_extra
+    before: input_datetime.stop_kitchen_table_extra
     condition: time
   action:
   - data:
       entity_id: light.kitchen_table
     service: homeassistant.turn_off
+  mode: single
 - id: '1576364866846'
   alias: Cancel the cancel
   description: ''
@@ -679,4 +698,18 @@
   - service: homeassistant.turn_off
     data: {}
     entity_id: media_player.samsung_tv
+  mode: single
+- id: '1602220465881'
+  alias: Front door refresh
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: alert.front_door_open_long
+    to: 'on'
+    from: idle
+  condition: []
+  action:
+  - service: zwave.refresh_node
+    data:
+      node_id: 9
   mode: single

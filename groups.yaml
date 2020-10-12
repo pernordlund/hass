@@ -160,11 +160,6 @@
       - light.media_room_ceiling
       - light.play_room_ceiling_2
       - light.attic
-  lights_off_at_2200:
-    name: Lights off at 2200
-    entities:
-      - switch.tp1
-      - switch.nexa1
   outside:
     name: Outside
     entities:

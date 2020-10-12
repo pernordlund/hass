@@ -9,3 +9,9 @@
     platform: file
     filename: /share/b_jenny_log.txt
     timestamp: True
+  - name: pelle_twilio_call
+    platform: twilio_call
+    from_number: !secret tw_phone_no
+  - name: pelle_twilio_sms
+    platform: twilio_sms
+    from_number: !secret tw_phone_no

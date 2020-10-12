@@ -76,6 +76,9 @@
                                     "entity": "binary_sensor.guest_room_motion"
                                 },
                                 {
+                                    "entity": "binary_sensor.upstairs_bathroom_motion"
+                                },
+                                {
                                     "entity": "binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor"
                                 },
                                 {
@@ -370,6 +373,9 @@
                                     "entity": "switch.arc_c3"
                                 },
                                 {
+                                    "entity": "switch.arc_d4"
+                                },
+                                {
                                     "entity": "switch.white_remote_2"
                                 },
                                 {
@@ -388,39 +394,10 @@
                         },
                         {
                             "entities": [
-                                {
-                                    "entity": "input_number.klk_timer"
-                                },
-                                {
-                                    "entity": "input_number.badrum_timer"
-                                },
-                                {
-                                    "entity": "timer.arbrum_motion"
-                                },
-                                {
-                                    "entity": "input_datetime.good_night"
-                                },
-                                {
-                                    "entity": "input_boolean.cancel_next_goodnight"
-                                },
-                                {
-                                    "entity": "input_datetime.extra_good_night"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Misc",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
                                 "vacuum.roger"
                             ],
                             "title": "Vacuum",
                             "type": "entities"
-                        },
-                        {
-                            "entity": "climate.wvwzzz3czhe181012_electric_climatisation",
-                            "type": "thermostat"
                         },
                         {
                             "entity": "alarm_control_panel.aarlo_arlozone",
@@ -431,26 +408,13 @@
                             "type": "alarm-panel"
                         },
                         {
-                            "type": "custom:scheduler-card",
-                            "include": [
-                                "light.bathroom_ceiling",
-                                "light.bedroom_window",
-                                "light.guest_room_desk",
-                                "light.guest_room_window_2",
-                                "light.guestroom_red",
-                                "light.kitchen_bench",
-                                "light.living_room_corner",
-                                "light.living_room_sofa",
-                                "scene.godnatt",
-                                "switch.arc_b1",
-                                "switch.arc_b2",
-                                "switch.arc_b8",
-                                "switch.arc_c3",
-                                "switch.attic",
-                                "switch.nexa_1",
-                                "switch.tp1",
-                                "switch.water_control"
-                            ]
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "input_boolean.cancel_next_goodnight"
+                                }
+                            ],
+                            "title": "Misc"
                         }
                     ],
                     "path": "control",
@@ -667,83 +631,6 @@
                     "cards": [
                         {
                             "entities": [
-                                {
-                                    "entity": "sensor.bv_time"
-                                },
-                                {
-                                    "entity": "sensor.bv_free_mem"
-                                },
-                                {
-                                    "entity": "binary_sensor.bv_alarm"
-                                },
-                                {
-                                    "entity": "sensor.bv_radiator_return"
-                                },
-                                {
-                                    "entity": "sensor.bv_brine_in_evaporator"
-                                },
-                                {
-                                    "entity": "sensor.bv_brine_out_condenser"
-                                },
-                                {
-                                    "entity": "sensor.bv_heat_carrier_forwrd"
-                                },
-                                {
-                                    "entity": "sensor.bv_heat_carrier_return"
-                                },
-                                {
-                                    "entity": "sensor.bv_hot_gas_compr"
-                                },
-                                {
-                                    "entity": "sensor.bv_hot_water_1_top"
-                                },
-                                {
-                                    "entity": "sensor.bv_outdoor"
-                                },
-                                {
-                                    "entity": "binary_sensor.bv_add_heat_step_1"
-                                },
-                                {
-                                    "entity": "binary_sensor.bv_add_heat_step_2"
-                                },
-                                {
-                                    "entity": "binary_sensor.bv_compressor"
-                                },
-                                {
-                                    "entity": "sensor.bv_heat_set_1_curvel"
-                                },
-                                {
-                                    "entity": "sensor.bv_heat_set_3_parallel"
-                                },
-                                {
-                                    "entity": "sensor.bv_heating_setpoint"
-                                },
-                                {
-                                    "entity": "binary_sensor.bv_pump_cold_circuit"
-                                },
-                                {
-                                    "entity": "binary_sensor.bv_pump_heat_circuit"
-                                },
-                                {
-                                    "entity": "binary_sensor.bv_pump_radiator"
-                                },
-                                {
-                                    "entity": "binary_sensor.bv_switch_valve_1"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Values",
-                            "type": "entities"
-                        }
-                    ],
-                    "path": "heater",
-                    "title": "Heater"
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "entities": [
                                 "sensor.load_1m",
                                 "sensor.load_5m",
                                 "sensor.load_15m",
@@ -906,6 +793,156 @@
                     ],
                     "path": "systems",
                     "title": "Systems"
+                },
+                {
+                    "title": "Settings",
+                    "path": "settings",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "input_number.klk_timer"
+                                },
+                                {
+                                    "entity": "input_number.badrum_timer"
+                                },
+                                {
+                                    "entity": "timer.arbrum_motion"
+                                },
+                                {
+                                    "entity": "input_datetime.good_night"
+                                },
+                                {
+                                    "entity": "input_datetime.extra_good_night"
+                                },
+                                {
+                                    "entity": "input_datetime.start_kitchen_table_extra"
+                                },
+                                {
+                                    "entity": "input_datetime.stop_kitchen_table_extra"
+                                },
+                                {
+                                    "entity": "input_datetime.flower_lights_off_1"
+                                },
+                                {
+                                    "entity": "input_datetime.flower_lights_off_2"
+                                },
+                                {
+                                    "entity": "input_datetime.flower_lights_on_1"
+                                },
+                                {
+                                    "entity": "input_datetime.flower_lights_on_2"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Misc",
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "climate.wvwzzz3czhe181012_electric_climatisation",
+                            "type": "thermostat"
+                        },
+                        {
+                            "type": "custom:scheduler-card",
+                            "include": [
+                                "light.bathroom_ceiling",
+                                "light.bedroom_window",
+                                "light.guest_room_desk",
+                                "light.guest_room_window_2",
+                                "light.guestroom_red",
+                                "light.kitchen_bench",
+                                "light.living_room_corner",
+                                "light.living_room_sofa",
+                                "scene.godnatt",
+                                "switch.arc_b1",
+                                "switch.arc_b2",
+                                "switch.arc_b8",
+                                "switch.arc_c3",
+                                "switch.attic",
+                                "switch.nexa_1",
+                                "switch.tp1",
+                                "switch.water_control"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.bv_time"
+                                },
+                                {
+                                    "entity": "sensor.bv_free_mem"
+                                },
+                                {
+                                    "entity": "binary_sensor.bv_alarm"
+                                },
+                                {
+                                    "entity": "sensor.bv_radiator_return"
+                                },
+                                {
+                                    "entity": "sensor.bv_brine_in_evaporator"
+                                },
+                                {
+                                    "entity": "sensor.bv_brine_out_condenser"
+                                },
+                                {
+                                    "entity": "sensor.bv_heat_carrier_forwrd"
+                                },
+                                {
+                                    "entity": "sensor.bv_heat_carrier_return"
+                                },
+                                {
+                                    "entity": "sensor.bv_hot_gas_compr"
+                                },
+                                {
+                                    "entity": "sensor.bv_hot_water_1_top"
+                                },
+                                {
+                                    "entity": "sensor.bv_outdoor"
+                                },
+                                {
+                                    "entity": "binary_sensor.bv_add_heat_step_1"
+                                },
+                                {
+                                    "entity": "binary_sensor.bv_add_heat_step_2"
+                                },
+                                {
+                                    "entity": "binary_sensor.bv_compressor"
+                                },
+                                {
+                                    "entity": "sensor.bv_heat_set_1_curvel"
+                                },
+                                {
+                                    "entity": "sensor.bv_heat_set_3_parallel"
+                                },
+                                {
+                                    "entity": "sensor.bv_heating_setpoint"
+                                },
+                                {
+                                    "entity": "binary_sensor.bv_pump_cold_circuit"
+                                },
+                                {
+                                    "entity": "binary_sensor.bv_pump_heat_circuit"
+                                },
+                                {
+                                    "entity": "binary_sensor.bv_pump_radiator"
+                                },
+                                {
+                                    "entity": "binary_sensor.bv_switch_valve_1"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Values",
+                            "type": "entities"
+                        }
+                    ],
+                    "path": "heater",
+                    "title": "Heater"
                 },
                 {
                     "badges": [],

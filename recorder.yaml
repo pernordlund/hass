@@ -64,6 +64,7 @@
       - sensor.netatmo_rain_sum_rain_1
       - sensor.netatmo_rain_sum_rain_24
       - sensor.netatmo_rain_battery
+      - sensor.netatmo_rain_battery_percent
       - sensor.time_to_work
       - sensor.onhub_kbyte_sec_sent
       - sensor.onhub_packets_sec_received

@@ -4,8 +4,6 @@ binary_sensor.flood_sensor_4_20:
   friendly_name: Fuktvarning diskmaskin
 camera.generic_camera:
   friendly_name: Living room
-light.frida_skrivbord:
-  assumed_state: false
 light.entre:
   assumed_state: false
 light.attic:

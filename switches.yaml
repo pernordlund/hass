@@ -1,17 +1,3 @@
-  # - platform: wake_on_lan
-  #   name: htpc
-  #   mac_address: "00-01-80-79-68-A8"
-  #   host: 192.168.86.57
-  #   turn_off:
-  #     service: rest_command.turn_htpc_off
-  # - platform: wake_on_lan
-  #   name: TV switch
-  #   mac: 50:85:69:54:47:76
-  #   host: 192.168.86.55
-  #   turn_off:
-  #       service: media_player.turn_off
-  #       data: 
-  #         entity_id: media_player.samsung_tv
   - platform: template
     switches:
       xiaomi_airpurifier_led:
@@ -50,73 +36,15 @@
           data:
             entity_id: fan.xiaomi_miio_device
         icon_template: "mdi:volume-high"
-      # guest_room:
-      #   value_template: "{{ is_state('group.guest_room', 'on') }}"
-      #   turn_on:
-      #     service: homeassistant.turn_on
-      #     data:
-      #       entity_id: group.guest_room
-      #   turn_off:
-      #     service: homeassistant.turn_off
-      #     data:
-      #       entity_id: group.guest_room
-      # living_room:
-      #   value_template: "{{ is_state('group.living_room', 'on') }}"
-      #   turn_on:
-      #     service: homeassistant.turn_on
-      #     data:
-      #       entity_id: group.living_room
-      #   turn_off:
-      #     service: homeassistant.turn_off
-      #     data:
-      #       entity_id: group.living_room
-      frida_at_school:
-        value_template: "{{ is_state('device_tracker.frida_frida', 'VRG') }}"
-        turn_on:
-          service: mqtt.publish
-          data:
-            topic: hass/switchdummy
-            payload: Frida at VRG
-        turn_off:
-          service: mqtt.publish
-          data:
-            topic: hass/switchdummy
-            payload: Frida at VRG
-      # tv:
-      #   friendly_name: TV
-      #   value_template: "{{ is_state('media_player.samsung_tv', 'on') }}"
-      #   turn_on:
-      #     service: mqtt.publish
-      #     data:
-      #       topic: hass/switchdummy
-      #       payload: Tried to turn on TV
-      #   turn_off:
-      #     service: media_player.turn_off
-      #     data: 
-      #       entity_id: media_player.samsung_tv
-#      frida_at_home:
-#        value_template: "{{ is_state('device_tracker.frida_frida', 'home') }}"
-#        turn_on:
-#          service: homeassistant.turn_on
-#          data:
-#            entity_id: switch.frida_at_school
-#        turn_off:
-#          service: homeassistant.turn_off
-#          data:
-#            entity_id: switch.frida_at_school
-#      compressor:
-#        value_template: "{{ is_state('binary_sensor.bvcompressor', 'on') }}"
-#        turn_on:
-#          service: homeassistant.turn_on
-#          data:
-#            entity_id: switch.frida_at_school
-#        turn_off:
-#          service: homeassistant.turn_off
-#          data:
-#            entity_id: switch.frida_at_school
   - platform: aarlo
     siren: True
     all_sirens: True
     snapshot: True
     siren_volume: 1
     siren_duration: 10
+  # - platform: wake_on_lan
+  #   name: htpc
+  #   mac_address: "00-01-80-79-68-A8"
+  #   host: 192.168.86.57
+  #   turn_off:
+  #     service: rest_command.turn_htpc_off

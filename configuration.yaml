@@ -107,12 +107,6 @@ tradfri:
   allow_tradfri_groups: true
 #  host: '192.168.1.45'
 
-input_select: !include input_selects.yaml
-
-input_number: !include input_numbers.yaml
-
-input_datetime:
-
 #influxdb:
 influxdb: !include influxdb.yaml
 
@@ -172,7 +166,11 @@ life360: !include life360.yaml
 tplink: !include tplink.yaml
 
 input_boolean: !include input_booleans.yaml
-
+input_text:
+input_select: !include input_selects.yaml
+input_number: !include input_numbers.yaml
+input_datetime:
+  
 fan: !include fans.yaml
 
 ffmpeg:
@@ -191,14 +189,18 @@ stream:
 
 svt_play:
 
-# volkswagencarnet:
-#     username: !secret vw_username
-#     password: !secret vw_password
-#     spin: !secret vw_spin
-#     scandinavian_miles: false
-#     scan_interval:
-#         minutes: 2    
-#     name:
-#         wvwzzz3czhe181012: Passat
+volkswagencarnet:
+    username: !secret vw_username
+    password: !secret vw_password
+    spin: !secret vw_spin
+    scandinavian_miles: false
+    scan_interval:
+        minutes: 2    
+    name:
+        wvwzzz3czhe181012: Passat
 
 mobile_app:
+
+twilio:
+  account_sid: !secret tw_account_sid_from_twilio
+  auth_token: !secret tw_auth_token_from_twilio
