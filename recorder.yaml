@@ -10,6 +10,8 @@
       - lock
       - fan
 #      - sensor
+    entity_globs:
+      - sensor.glances*
     entities:
       - sensor.oregon_w_disp_temperature
       - sensor.oregon_w_disp_humidity

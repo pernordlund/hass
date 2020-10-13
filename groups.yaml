@@ -156,7 +156,6 @@
       - light.play_room_ceiling
       - switch.bathroom_ceiling
       - switch.sauna
-      - switch.tp1
       - light.media_room_ceiling
       - light.play_room_ceiling_2
       - light.attic

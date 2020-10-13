@@ -789,6 +789,48 @@
                                 }
                             ],
                             "title": "Speedtest"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.glances_cpu_load"
+                                },
+                                {
+                                    "entity": "sensor.glances_cpu_used"
+                                },
+                                {
+                                    "entity": "sensor.glances_etc_hostname_free"
+                                },
+                                {
+                                    "entity": "sensor.glances_etc_hostname_used"
+                                },
+                                {
+                                    "entity": "sensor.glances_ram_free"
+                                },
+                                {
+                                    "entity": "sensor.glances_ram_used"
+                                },
+                                {
+                                    "entity": "sensor.glances_ram_used_percent"
+                                },
+                                {
+                                    "entity": "sensor.glances_running"
+                                },
+                                {
+                                    "entity": "sensor.glances_swap_used_percent"
+                                },
+                                {
+                                    "entity": "sensor.glances_thread"
+                                },
+                                {
+                                    "entity": "sensor.glances_total"
+                                },
+                                {
+                                    "entity": "sensor.glances_cpu_thermal_1_temp"
+                                }
+                            ],
+                            "title": "RPI-Glances"
                         }
                     ],
                     "path": "systems",
