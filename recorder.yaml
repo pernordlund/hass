@@ -109,3 +109,4 @@
       - sensor.speedtest_upload
       - sensor.speedtest_ping
       - sensor.allrum_battery
+      - sensor.poly_control_danalock_v3_btze_battery_level

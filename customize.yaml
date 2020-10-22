@@ -89,6 +89,9 @@ lock.id_lock_150_locked:
 light.bedroom_window:
   friendly_name: Bedroom window
 binary_sensor.aarlo_motion_arlozonefront:
-  device_class: problem
+  device_class: moving
+  friendly_name: Motion front
 binary_sensor.aarlo_motion_arlozoneinside:
-  device_class: problem
+  device_class: moving
+  friendly_name: Motion inside
+

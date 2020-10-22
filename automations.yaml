@@ -713,3 +713,39 @@
     data:
       node_id: 9
   mode: single
+- id: '1603043901780'
+  alias: Entrance ceiling when White remote 2 button 3
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: switch.white_remote2_3
+  condition: []
+  action:
+  - service: light.toggle
+    data: {}
+    entity_id: light.entrance_ceiling
+  mode: single
+- id: '1603044157890'
+  alias: Porch Ball when white remote 2 button 2
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: switch.white_remote2_2
+  condition: []
+  action:
+  - service: switch.toggle
+    data: {}
+    entity_id: switch.arc_b8
+  mode: single
+- id: '1603044225348'
+  alias: Tree when white remote 2 button 1
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: switch.white_remote2_1
+  condition: []
+  action:
+  - service: switch.toggle
+    data: {}
+    entity_id: switch.arc_b1
+  mode: single

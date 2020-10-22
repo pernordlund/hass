@@ -91,10 +91,13 @@
                                     "entity": "binary_sensor.aarlo_motion_arlozoneinside"
                                 },
                                 {
-                                    "entity": "lock.id_lock_150_locked"
+                                    "entity": "binary_sensor.front_door_unlocked"
                                 },
                                 {
-                                    "entity": "lock.wvwzzz3czhe181012_door_locked"
+                                    "entity": "binary_sensor.passat_door_unlocked"
+                                },
+                                {
+                                    "entity": "binary_sensor.garage_door_unlocked"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -246,6 +249,9 @@
                                 },
                                 {
                                     "entity": "sensor.wvwzzz3czhe181012_combustion_range"
+                                },
+                                {
+                                    "entity": "sensor.wvwzzz3czhe181012_last_connected"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -339,6 +345,9 @@
                         {
                             "entities": [
                                 {
+                                    "entity": "light.front_door"
+                                },
+                                {
                                     "entity": "switch.arc_b8"
                                 },
                                 {
@@ -388,7 +397,7 @@
                                     "entity": "switch.water_control"
                                 }
                             ],
-                            "show_header_toggle": true,
+                            "show_header_toggle": false,
                             "title": "Switches",
                             "type": "entities"
                         },
@@ -415,6 +424,24 @@
                                 }
                             ],
                             "title": "Misc"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "lock.id_lock_150_locked"
+                                },
+                                {
+                                    "entity": "lock.poly_control_danalock_v3_btze_locked"
+                                },
+                                {
+                                    "entity": "zwave.poly_control_danalock_v3_btze"
+                                },
+                                {
+                                    "entity": "zwave.id_lock_150"
+                                }
+                            ],
+                            "title": "Locks"
                         }
                     ],
                     "path": "control",
@@ -744,6 +771,9 @@
                                 },
                                 {
                                     "entity": "sensor.popp_co_popp_z_rain_rain_sensor_battery_level"
+                                },
+                                {
+                                    "entity": "sensor.poly_control_danalock_v3_btze_battery_level"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -1358,6 +1388,26 @@
                                 {
                                     "entity": "switch.nexa_1"
                                 }
+                            ]
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                "zwave.poly_control_danalock_v3_btze",
+                                "sensor.poly_control_danalock_v3_btze_alarm_level",
+                                "sensor.poly_control_danalock_v3_btze_alarm_type",
+                                "lock.poly_control_danalock_v3_btze_locked"
+                            ]
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                "zwave.poly_control_danalock_v3_btze",
+                                "sensor.poly_control_danalock_v3_btze_access_control",
+                                "sensor.poly_control_danalock_v3_btze_alarm_level",
+                                "sensor.poly_control_danalock_v3_btze_alarm_type",
+                                "lock.poly_control_danalock_v3_btze_locked",
+                                "sensor.poly_control_danalock_v3_btze_sourcenodeid"
                             ]
                         }
                     ],

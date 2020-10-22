@@ -6,6 +6,15 @@
       fridge_temp_high:
         value_template: '{{ states("sensor.kylen_temperature") | int > 12 }}'
         friendly_name: 'Fridge temp is high'
+      garage_door_unlocked:
+        value_template: '{{ is_state("lock.poly_control_danalock_v3_btze_locked", "unlocked") }}'
+        friendly_name: 'Garage door unlocked'
+      front_door_unlocked:
+        value_template: '{{ is_state("lock.id_lock_150_locked", "unlocked") }}'
+        friendly_name: 'Front door unlocked'
+      passat_door_unlocked:
+        value_template: '{{ is_state("lock.wvwzzz3czhe181012_door_locked", "unlocked") }}'
+        friendly_name: 'Passat door unlocked'
   - platform: mqtt
     state_topic: "hass/bv/1A01"
     name: "BV-Compressor"
