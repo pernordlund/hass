@@ -49,11 +49,16 @@
 - id: A008
   alias: 0 - Some lights off at sunrise
   trigger:
-    platform: sun
+  - platform: sun
     event: sunrise
   action:
-    service: homeassistant.turn_off
+  - type: turn_off
+    device_id: 41391f4613e811eb9646f5c29c4a5405
+    entity_id: light.front_door
+    domain: light
+  - service: homeassistant.turn_off
     entity_id: group.daily_sun
+  mode: single
 - id: A009
   alias: 0 - Some lights on before sunset
   trigger:
@@ -388,13 +393,14 @@
 - id: A043
   alias: Marie leaving Slussen
   trigger:
-    platform: state
-    entity_id: device_tracker.marie_marie
+  - platform: state
+    entity_id: device_tracker.life360_marie
     from: Slussen
   action:
   - service: notify.pelles_tfn
-    data_template:
+    data:
       message: '{{ states("sensor.time") }} - Marie left Slussen'
+  mode: single
 - id: A044
   alias: X - Log Pelle to work - Life
   trigger:
@@ -748,4 +754,30 @@
   - service: switch.toggle
     data: {}
     entity_id: switch.arc_b1
+  mode: single
+- id: '1603458841523'
+  alias: Marie starts moving
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: device_tracker.life360_marie
+    to: moving
+  condition: []
+  action:
+  - service: notify.pelles_tfn
+    data:
+      message: '{{ states("sensor.time") }} - Marie on the move'
+  mode: single
+- id: '1604272064775'
+  alias: Bathroom timer
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: light.bathroom_ceiling
+    to: 'on'
+  condition: []
+  action:
+  - service: timer.start
+    entity_id: timer.bathroom_motion
+    data: {}
   mode: single

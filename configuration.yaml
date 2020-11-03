@@ -14,9 +14,6 @@ homeassistant:
   customize: !include customize.yaml
   auth_providers:
     - type: homeassistant
-#    - type: trusted_networks
-#      trusted_networks:
-#        - 192.168.86.0/24  
 
 zone: !include zones.yaml
 
@@ -39,15 +36,15 @@ zwave:
 group: !include groups.yaml
 
 http:
-# Uncomment this if you are using SSL or running in Docker etc
-#  base_url: hass.panitco.se
+  # trusted_proxies:
+  #   - !secret http_trusted_proxy
 
 # Checks for available updates
 updater:
   include_used_components: true
 
 # Discover some devices automatically
-# discovery:
+discovery:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 #conversation:
@@ -70,9 +67,6 @@ logbook:
 sun:
 
 rfxtrx: !include rfxtrx.yaml
-#  device: /dev/ttyUSB0
-#  device: /dev/serial/by-id/usb-RFXCOM_RFXtrx433_08WDX6UE-if00-port0
-#  debug: True
 
 sensor: !include sensors.yaml
 
@@ -105,23 +99,16 @@ shell_command: !include shell_commands.yaml
 
 tradfri:
   allow_tradfri_groups: true
-#  host: '192.168.1.45'
 
-#influxdb:
 influxdb: !include influxdb.yaml
 
 script: !include scripts.yaml
 
 python_script:
 
-#google_assistant: !include google_assistant.yaml
-cloud: #!include cloud.yaml
+cloud:
 
 system_log:
-
-#intent_script: !include intent_scripts.yaml
-
-#google_assistant_group_fix:
 
 climate: !include climate.yaml
 
@@ -130,8 +117,6 @@ automower: !include automower.yaml
 cast: !include cast.yaml
 
 netatmo: !include netatmo.yaml
-
-#asuswrt: !include asuswrt.yaml
 
 timer: !include timers.yaml
 
@@ -149,11 +134,7 @@ alarm_control_panel:
     trigger_time: 30
     alarm_volume: 8
 
-# owntracks:
-
 system_health:
-
-#googlehome: !include googlehome.yaml
 
 life360: !include life360.yaml
 
@@ -174,16 +155,6 @@ input_datetime:
 fan: !include fans.yaml
 
 ffmpeg:
-
-# wake_on_lan:
-
-# samsungtv:
-#   - host: 192.168.86.55
-#     name: Samsung TV
-#     turn_on_action:
-#       - service: wake_on_lan.send_magic_packet
-#         data:
-#           mac: "50:85:69:54:47:76"
 
 stream:
 
