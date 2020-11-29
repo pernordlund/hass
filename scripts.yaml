@@ -1,78 +1,48 @@
-timed_klk:
-  alias: Set Klk Timer
-  sequence:
-  - service: script.turn_off
-    data:
-      entity_id: script.timer_klk_off
-  - service: script.turn_on
-    data:
-      entity_id: script.timer_klk_off
-timer_klk_off:
-  alias: Turn Off Klk
-  sequence:
-  - delay: 00:{{ states.input_number.klk_timer.state | int }}:00
-  - service: homeassistant.turn_off
-    entity_id: switch.cloak_room_ceiling
-timed_badrum:
-  alias: Set Badrum Timer
-  sequence:
-  - service: script.turn_off
-    data:
-      entity_id: script.timer_badrum_off
-  - service: script.turn_on
-    data:
-      entity_id: script.timer_badrum_off
-timer_badrum_off:
-  alias: Turn Off badrum
-  sequence:
-  - delay: 00:{{ states.input_number.badrum_timer.state | int }}:00
-  - service: homeassistant.turn_off
-    entity_id: switch.bathroom_ceiling
 daily_midnight:
   alias: Daily midnight scripts
   sequence:
   - service: notify.pelles_tfn
     data:
-      message: Daily mignight scripts
+      message: Daily midnight scripts
 turn_tv_volume_up:
   alias: TV volume up
   sequence:
   - service: media_player.volume_up
-    entity_id: media_player.tv
+    entity_id: media_player.samsung_tv
   - service: media_player.volume_up
-    entity_id: media_player.tv
+    entity_id: media_player.samsung_tv
   - service: media_player.volume_up
-    entity_id: media_player.tv
+    entity_id: media_player.samsung_tv
   - service: media_player.volume_up
-    entity_id: media_player.tv
+    entity_id: media_player.samsung_tv
   - service: media_player.volume_up
-    entity_id: media_player.tv
+    entity_id: media_player.samsung_tv
 turn_tv_volume_down:
   alias: TV volume down
   sequence:
   - service: media_player.volume_down
-    entity_id: media_player.tv
+    entity_id: media_player.samsung_tv
   - service: media_player.volume_down
-    entity_id: media_player.tv
+    entity_id: media_player.samsung_tv
   - service: media_player.volume_down
-    entity_id: media_player.tv
+    entity_id: media_player.samsung_tv
   - service: media_player.volume_down
-    entity_id: media_player.tv
+    entity_id: media_player.samsung_tv
   - service: media_player.volume_down
-    entity_id: media_player.tv
+    entity_id: media_player.samsung_tv
 mute_tv:
   alias: Mute TV
   sequence:
   - service: media_player.volume_mute
     data:
-      entity_id: media_player.tv
+      entity_id: media_player.samsung_tv
       is_volume_muted: true
 unmute_tv:
   alias: Unmute TV
   sequence:
   - service: media_player.volume_mute
     data:
-      entity_id: media_player.tv
+      entity_id: media_player.samsung_tv
       is_volume_muted: false
 turn_on_stereo:
   alias: Turn on Stereo

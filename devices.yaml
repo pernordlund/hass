@@ -10,3 +10,4 @@
       tradfri: 192.168.86.81
       husdata: 192.168.86.79
       storstugan: storstugan.dyndns-server.com
+      wireguard_pi: 192.168.86.249

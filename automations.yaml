@@ -236,6 +236,10 @@
   - platform: state
     entity_id: switch.bathroom_ceiling
     to: 'on'
+  condition:
+  - condition: state
+    entity_id: light.sauna
+    state: 'off'
   action:
   - service: homeassistant.turn_on
     entity_id: script.timed_badrum
@@ -651,7 +655,7 @@
     data_template:
       message: '{{ states("sensor.time") }} - Storstugan now online'
 - id: '1590615866019'
-  alias: Some stuff off when Albin not home
+  alias: Albin leaves home
   description: ''
   trigger:
   - entity_id: device_tracker.life360_albin_nordlund
@@ -666,7 +670,7 @@
     entity_id: light.albins_bed
     service: homeassistant.turn_off
 - id: '1590615984329'
-  alias: Air purifier on when Albin home
+  alias: Albin comes home
   description: ''
   trigger:
   - entity_id: device_tracker.life360_albin_nordlund
@@ -769,7 +773,7 @@
       message: '{{ states("sensor.time") }} - Marie on the move'
   mode: single
 - id: '1604272064775'
-  alias: Bathroom timer
+  alias: Bathroom timer start
   description: ''
   trigger:
   - platform: state
@@ -778,6 +782,52 @@
   condition: []
   action:
   - service: timer.start
-    entity_id: timer.bathroom_motion
+    data_template:
+      entity_id: timer.bathroom_timer
+      duration: 00:{{ states.input_number.badrum_timer.state | int }}:00
+  mode: single
+- id: '1606658581370'
+  alias: Bathroom timer end
+  description: ''
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.bathroom_timer
+  condition:
+  - condition: state
+    entity_id: light.sauna
+    state: 'off'
+  action:
+  - service: light.turn_off
     data: {}
+    entity_id: light.bathroom_ceiling
+  mode: single
+- id: '1606659412579'
+  alias: Cloakroom timer start
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: light.cloak_room
+    to: 'on'
+  condition: []
+  action:
+  - service: timer.start
+    data_template:
+      entity_id: timer.cloakroom_timer
+      duration: 00:{{ states.input_number.klk_timer.state | int }}:00
+  mode: single
+- id: '1606659604638'
+  alias: Cloakroom timer end
+  description: ''
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.cloakroom_timer
+  condition: []
+  action:
+  - service: light.turn_off
+    data: {}
+    entity_id: light.cloak_room
   mode: single

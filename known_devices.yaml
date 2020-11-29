@@ -235,3 +235,10 @@ passat:
   name: Passat
   picture:
   track: true
+
+wireguard_pi:
+  name: wireguard_pi
+  mac:
+  icon:
+  picture:
+  track: true

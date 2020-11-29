@@ -233,6 +233,9 @@
                                 },
                                 {
                                     "entity": "sensor.wvwzzz3czhe181012_last_connected"
+                                },
+                                {
+                                    "entity": "switch.wvwzzz3czhe181012_electric_climatisation"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -375,6 +378,9 @@
                                     "entity": "switch.wvwzzz3czhe181012_electric_climatisation"
                                 },
                                 {
+                                    "entity": "switch.wvwzzz3czhe181012_charging"
+                                },
+                                {
                                     "entity": "switch.water_control"
                                 }
                             ],
@@ -423,6 +429,18 @@
                                 }
                             ],
                             "title": "Locks"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "automation.marie_starts_moving"
+                                },
+                                {
+                                    "entity": "automation.ytterdorr_open_notify"
+                                }
+                            ],
+                            "title": "Automations"
                         }
                     ],
                     "path": "control",
@@ -771,6 +789,9 @@
                                 },
                                 {
                                     "entity": "sensor.poly_control_danalock_v3_btze_battery_level"
+                                },
+                                {
+                                    "entity": "sensor.media_room_multi_sensor_battery_level"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -905,9 +926,6 @@
                                     "entity": "input_number.badrum_timer"
                                 },
                                 {
-                                    "entity": "timer.arbrum_motion"
-                                },
-                                {
                                     "entity": "input_datetime.good_night"
                                 },
                                 {
@@ -969,7 +987,10 @@
                                     "entity": "timer.arbrum_motion"
                                 },
                                 {
-                                    "entity": "timer.bathroom_motion"
+                                    "entity": "timer.bathroom_timer"
+                                },
+                                {
+                                    "entity": "timer.cloakroom_timer"
                                 }
                             ],
                             "title": "Timers"
