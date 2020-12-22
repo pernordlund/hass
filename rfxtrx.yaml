@@ -1,14 +1,7 @@
   device: /dev/serial/by-id/usb-RFXCOM_RFXtrx433_08WDX6UE-if00-port0
-#  automatic_add: true
-#  debug: true
+  automatic_add: true
   devices:
 # Switches
-#    '0710010042060150':
-#      name: Multifjarr6
-#      fire_event: True
-#    '0710010042090160':
-#      name: Multifjarr9
-#      fire_event: True
     0b11001700533a9e04010f50:
 #      name: Nexa 1, virtual 2:4 AC 0533a9
       fire_event: True
@@ -17,9 +10,6 @@
 #      name: Nexa2, ARC C3
 #    '0b110001006eb2e202000060':
 #      name: Vagg vardrum
-#      fire_event: True
-#    '0710010142040160':
-#      name: Kamera MF4
 #      fire_event: True
     '0b11001700533a9e01010f50':
 #      name: Vit fjarr 2:1, AC 0533a9
@@ -45,10 +35,8 @@
 
 #### Sensor badrum
     0b110003008464ba0a010f40:
-#    0b110004008464ba0a000040
-#    0a520209050100e23a0159:
 
-    # Lights
+# Lights
     '0710010144040060':
 #      name: Nexa 3
     '0710010143010170':
@@ -90,3 +78,5 @@
 #      data_type:
 #      - Humidity
 #      - Temperature
+    # 0a520206550100c7220269: try 1
+    # 0a520208550100d7230269: from GUI

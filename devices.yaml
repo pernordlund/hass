@@ -11,3 +11,7 @@
       husdata: 192.168.86.79
       storstugan: storstugan.dyndns-server.com
       wireguard_pi: 192.168.86.249
+  - platform: nmap_tracker
+    hosts:
+      - 192.168.86.35
+ 

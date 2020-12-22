@@ -3,3 +3,9 @@
     host: !secret mi_ip
     token: !secret mi_token
     name: "Xiaomi Air Purifier 2S"
+
+#  - platform: xiaomi_miio_airpurifier
+#    name: Xiaomi Air Purifier 2S
+#    host: !secret mi_ip
+#    token: !secret mi_token
+#    model: zhimi.airpurifier.mc1

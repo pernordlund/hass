@@ -138,7 +138,7 @@
 - id: A016
   alias: 0 - Some lights on when Pelle gets home in the afternoon
   trigger:
-  - entity_id: device_tracker.per_per
+  - entity_id: device_tracker.life360_per_nordlund
     from: not_home
     platform: state
     to: home
@@ -150,6 +150,7 @@
   - data:
       entity_id: group.lights_pelle
     service: homeassistant.turn_on
+  mode: single
 - id: A017
   alias: X - Send bus schedule when Pelle leaves
   initial_state: false

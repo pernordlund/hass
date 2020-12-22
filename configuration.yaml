@@ -58,6 +58,8 @@ history:
 logger:
   default: warning
 #  logs:
+#    RFXtrx: debug
+#  logs:
 #    homeassistant.components.zwave: debug
 
 # View all events in a logbook

@@ -56,12 +56,6 @@ turn_off_tv:
   - data:
       entity_id: media_player.samusng_tv
     service: media_player.turn_off
-good_night:
-  alias: Good night
-  sequence:
-  - service: scene.turn_on
-    data:
-      entity_id: scene.godnatt
 where_is_my_family:
   alias: Where is my family
   sequence:

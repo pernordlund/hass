@@ -165,21 +165,6 @@
                             "type": "picture-entity"
                         },
                         {
-                            "adjust_times": false,
-                            "departures": true,
-                            "deviations": true,
-                            "entities": [
-                                "sensor.klisatravagen"
-                            ],
-                            "header": false,
-                            "hide_departed": false,
-                            "language": "sv-SE",
-                            "name": "Departures",
-                            "timeleft": true,
-                            "type": "custom:hasl-departure-card",
-                            "updated": true
-                        },
-                        {
                             "entity": "camera.aarlo_arlozonefront",
                             "image_click": "play",
                             "name": "Front",
@@ -354,9 +339,6 @@
                                     "entity": "switch.bedroom_table"
                                 },
                                 {
-                                    "entity": "switch.tp1"
-                                },
-                                {
                                     "entity": "switch.tp2"
                                 },
                                 {
@@ -452,10 +434,10 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.oregon_w_disp_temperature"
+                                    "entity": "sensor.thgr810_thgn800_55_01_temperature"
                                 },
                                 {
-                                    "entity": "sensor.oregon_w_disp_humidity"
+                                    "entity": "sensor.thgr810_thgn800_55_01_humidity"
                                 },
                                 {
                                     "entity": "sensor.fibaro_system_fgsd002_smoke_sensor_temperature"
@@ -497,10 +479,13 @@
                                     "entity": "sensor.frysen_humidity"
                                 },
                                 {
-                                    "entity": "sensor.media_room_temperature"
+                                    "entity": "sensor.lumi_lumi_weather_b7074b05_temperature"
                                 },
                                 {
-                                    "entity": "sensor.media_room_humidity"
+                                    "entity": "sensor.lumi_lumi_weather_b7074b05_humidity"
+                                },
+                                {
+                                    "entity": "sensor.lumi_lumi_weather_b7074b05_pressure"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -725,6 +710,9 @@
                                 },
                                 {
                                     "entity": "binary_sensor.gardena_smart_system_connection"
+                                },
+                                {
+                                    "entity": "device_tracker.20j1_lr09d73d_lan"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -758,7 +746,7 @@
                                     "entity": "sensor.frysen_battery"
                                 },
                                 {
-                                    "entity": "sensor.oregon_wd_battery"
+                                    "entity": "sensor.thgr810_thgn800_55_01_battery_numeric"
                                 },
                                 {
                                     "entity": "sensor.attic_battery"
@@ -791,7 +779,7 @@
                                     "entity": "sensor.poly_control_danalock_v3_btze_battery_level"
                                 },
                                 {
-                                    "entity": "sensor.media_room_multi_sensor_battery_level"
+                                    "entity": "sensor.lumi_lumi_weather_b7074b05_power"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -1274,28 +1262,6 @@
                     "badges": [],
                     "cards": [
                         {
-                            "entities": [
-                                {
-                                    "entity": "sensor.bv_outdoor"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_outdoor_temperature"
-                                }
-                            ],
-                            "title": "Glance",
-                            "type": "glance"
-                        },
-                        {
-                            "default_zoom": 12,
-                            "entities": [
-                                {
-                                    "entity": "device_tracker.marie_marie"
-                                }
-                            ],
-                            "title": "Marie",
-                            "type": "map"
-                        },
-                        {
                             "entity": "sensor.netatmo_indoor_temperature",
                             "max": 40,
                             "min": 0,
@@ -1307,21 +1273,6 @@
                             },
                             "theme": "default",
                             "type": "gauge"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "lock.id_lock_150_locked"
-                                },
-                                {
-                                    "entity": "sensor.id_lock_150_alarm_level"
-                                },
-                                {
-                                    "entity": "sensor.id_lock_150_access_control"
-                                }
-                            ],
-                            "title": "lock",
-                            "type": "entities"
                         },
                         {
                             "entities": [
@@ -1466,6 +1417,37 @@
                                 "sensor.poly_control_danalock_v3_btze_alarm_type",
                                 "lock.poly_control_danalock_v3_btze_locked",
                                 "sensor.poly_control_danalock_v3_btze_sourcenodeid"
+                            ]
+                        },
+                        {
+                            "type": "custom:fan-xiaomi",
+                            "name": "Fan",
+                            "entity": "fan.xiaomi_miio_device",
+                            "aspect_ratio": "1",
+                            "background_color": ""
+                        },
+                        {
+                            "type": "light",
+                            "entity": "light.ikea_of_sweden_tradfri_bulb_e14_w_op_ch_400lm_903620fe_level_on_off"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.thgr810_thgn800_55_01_humidity"
+                                },
+                                {
+                                    "entity": "sensor.thgr810_thgn800_55_01_humidity_status"
+                                },
+                                {
+                                    "entity": "sensor.thgr810_thgn800_55_01_rssi_numeric"
+                                },
+                                {
+                                    "entity": "sensor.thgr810_thgn800_55_01_temperature"
+                                },
+                                {
+                                    "entity": "sensor.thgr810_thgn800_55_01_battery_numeric"
+                                }
                             ]
                         }
                     ],

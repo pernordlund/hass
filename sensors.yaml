@@ -427,15 +427,15 @@
     host: 192.168.86.1
 
 # HASL Hass SL integration
-  - platform: hasl
-    ri4key: !secret sl_ri4_key
-    si2key: !secret sl_si2_key
-    tl2key: !secret sl_tl2_key
-    sensors:
-    - friendly_name: Klisätravägen
-      sensor_type: departures
-      siteid: 4612
-      lines: ['401']
-      direction: 2
-    # - friendly_name: Trafikstatus
-    #   sensor_type: status
+#  - platform: hasl
+#    ri4key: !secret sl_ri4_key
+#    si2key: !secret sl_si2_key
+#    tl2key: !secret sl_tl2_key
+#    sensors:
+#    - friendly_name: Klisätravägen
+#      sensor_type: departures
+#      siteid: 4612
+#      lines: ['401']
+#      direction: 2
+#    # - friendly_name: Trafikstatus
+#    #   sensor_type: status

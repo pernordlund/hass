@@ -242,3 +242,10 @@ wireguard_pi:
   icon:
   picture:
   track: true
+
+20j1_lr09d73d_lan:
+  name: OKQ8 Lenovo
+  mac: 00:E0:4C:A8:D9:BE
+  icon:
+  picture:
+  track: true
