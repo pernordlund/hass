@@ -423,6 +423,19 @@
                                 }
                             ],
                             "title": "Automations"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "scene.good_night"
+                                },
+                                {
+                                    "entity": "scene.pelle_favourite"
+                                }
+                            ],
+                            "title": "Scenes",
+                            "show_header_toggle": false
                         }
                     ],
                     "path": "control",
@@ -1181,9 +1194,6 @@
                                     "entity": "script.mute_tv"
                                 },
                                 {
-                                    "entity": "script.good_night"
-                                },
-                                {
                                     "entity": "script.where_is_my_family"
                                 },
                                 {
@@ -1447,6 +1457,9 @@
                                 },
                                 {
                                     "entity": "sensor.thgr810_thgn800_55_01_battery_numeric"
+                                },
+                                {
+                                    "entity": "device_tracker.20j1_lr09d73d_lan"
                                 }
                             ]
                         }

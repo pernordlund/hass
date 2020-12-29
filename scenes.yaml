@@ -132,10 +132,12 @@
     light.guest_room_window_2:
       friendly_name: Guest room window
       supported_features: 33
-      state: unavailable
+      state: 'off'
     light.guestroom_red:
       min_mireds: 250
       max_mireds: 454
+      brightness: 163
+      color_temp: 250
       friendly_name: Guestroom corner
       supported_features: 35
       state: 'off'
@@ -144,10 +146,39 @@
       value_index: 0
       value_instance: 1
       value_id: '72057594714816512'
-      notification: Manual Lock
+      notification: Keypad Unlock
       friendly_name: Lock main door
       state: locked
     switch.arc_c3:
       friendly_name: Nexa 2 - Guest room window
       assumed_state: true
+      state: 'off'
+    group.inside_downstairs:
+      entity_id:
+      - light.guest_room_desk
+      - light.guest_room_window_2
+      - light.guestroom_red
+      - light.guest_room_ceiling
+      - light.entrance_ceiling
+      - light.entrance_drawer
+      - switch.cloak_room_ceiling
+      - light.kitchen_table
+      - light.kitchen_bench
+      - light.bedroom_window
+      - light.living_room_corner
+      - light.living_room_sofa
+      - light.living_room_table
+      order: 14
+      friendly_name: Downstairs
+      state: 'off'
+    group.inside_upstairs:
+      entity_id:
+      - light.play_room_ceiling
+      - switch.bathroom_ceiling
+      - switch.sauna
+      - light.media_room_ceiling
+      - light.play_room_ceiling_2
+      - light.attic
+      order: 15
+      friendly_name: Upstairs
       state: 'off'

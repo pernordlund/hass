@@ -832,3 +832,16 @@
     data: {}
     entity_id: light.cloak_room
   mode: single
+- id: '1608909453602'
+  alias: Guest room desk when Lenovo off
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: device_tracker.20j1_lr09d73d_lan
+    to: not_home
+  condition: []
+  action:
+  - service: homeassistant.turn_off
+    data:
+      entity_id: light.guest_room_desk
+  mode: single
