@@ -14,7 +14,7 @@
       - light.kitchen_bench
       - light.bedroom_window
       - light.living_room_corner
-      - light.living_room_sofa
+      - light.livingroom_sofa
       - light.living_room_table
       order: 14
       friendly_name: Downstairs
@@ -166,7 +166,7 @@
       - light.kitchen_bench
       - light.bedroom_window
       - light.living_room_corner
-      - light.living_room_sofa
+      - light.livingroom_sofa
       - light.living_room_table
       order: 14
       friendly_name: Downstairs

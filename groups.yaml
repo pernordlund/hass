@@ -148,7 +148,7 @@
       - light.kitchen_bench
       - light.bedroom_window
       - light.living_room_corner
-      - light.living_room_sofa
+      - light.livingroom_sofa
       - light.living_room_table
   inside_upstairs:
     name: Upstairs
@@ -348,8 +348,7 @@
       - light.tree
       - light.porch_ball
       - light.guestroom_red
-      - light.living_room_sofa
-      - light.entrance_drawer
+      - light.livingroom_sofa
   lights_pelle:
     name: Lights Pelle
     entities:
@@ -369,7 +368,7 @@
       - light.kitchen_table
       - light.kitchen_bench
       - light.bedroom_window
-      - light.living_room_sofa
+      - light.livingroom_sofa
       - light.living_room_table
       - light.living_room_corner
       - light.play_room_ceiling

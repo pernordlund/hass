@@ -94,4 +94,5 @@ binary_sensor.aarlo_motion_arlozonefront:
 binary_sensor.aarlo_motion_arlozoneinside:
   device_class: moving
   friendly_name: Motion inside
-
+light.shapes_eea3_local:
+  friendly_name: Albins shapes

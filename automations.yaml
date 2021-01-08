@@ -17,7 +17,7 @@
     entity_id: switch.white_remote_1
   action:
   - data:
-      entity_id: light.living_room_sofa
+      entity_id: light.livingroom_sofa
     service: homeassistant.toggle
   mode: single
 - id: A004
@@ -670,6 +670,10 @@
   - data: {}
     entity_id: light.albins_bed
     service: homeassistant.turn_off
+  - service: homeassistant.turn_off
+    data: {}
+    entity_id: light.shapes_eea3_local
+  mode: single
 - id: '1590615984329'
   alias: Albin comes home
   description: ''

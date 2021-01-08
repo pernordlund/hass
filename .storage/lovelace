@@ -240,9 +240,6 @@
                                     "entity": "light.guest_room_desk"
                                 },
                                 {
-                                    "entity": "light.guestroom_red"
-                                },
-                                {
                                     "entity": "light.guest_room_ceiling"
                                 },
                                 {
@@ -267,7 +264,7 @@
                                     "entity": "light.living_room_corner"
                                 },
                                 {
-                                    "entity": "light.living_room_sofa"
+                                    "entity": "light.livingroom_sofa"
                                 },
                                 {
                                     "entity": "light.living_room_table"
@@ -305,6 +302,12 @@
                                 },
                                 {
                                     "entity": "light.albins_bed"
+                                },
+                                {
+                                    "entity": "light.shapes_eea3_local"
+                                },
+                                {
+                                    "entity": "light.play_room_sofa"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -492,13 +495,13 @@
                                     "entity": "sensor.frysen_humidity"
                                 },
                                 {
-                                    "entity": "sensor.lumi_lumi_weather_b7074b05_temperature"
+                                    "entity": "sensor.media_room_temperature"
                                 },
                                 {
-                                    "entity": "sensor.lumi_lumi_weather_b7074b05_humidity"
+                                    "entity": "sensor.media_room_pressure"
                                 },
                                 {
-                                    "entity": "sensor.lumi_lumi_weather_b7074b05_pressure"
+                                    "entity": "sensor.media_room_humidity"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -792,7 +795,7 @@
                                     "entity": "sensor.poly_control_danalock_v3_btze_battery_level"
                                 },
                                 {
-                                    "entity": "sensor.lumi_lumi_weather_b7074b05_power"
+                                    "entity": "sensor.media_room_sensor_battery_level"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -838,48 +841,6 @@
                                 }
                             ],
                             "title": "Speedtest"
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "sensor.glances_cpu_load"
-                                },
-                                {
-                                    "entity": "sensor.glances_cpu_used"
-                                },
-                                {
-                                    "entity": "sensor.glances_etc_hostname_free"
-                                },
-                                {
-                                    "entity": "sensor.glances_etc_hostname_used"
-                                },
-                                {
-                                    "entity": "sensor.glances_ram_free"
-                                },
-                                {
-                                    "entity": "sensor.glances_ram_used"
-                                },
-                                {
-                                    "entity": "sensor.glances_ram_used_percent"
-                                },
-                                {
-                                    "entity": "sensor.glances_running"
-                                },
-                                {
-                                    "entity": "sensor.glances_swap_used_percent"
-                                },
-                                {
-                                    "entity": "sensor.glances_thread"
-                                },
-                                {
-                                    "entity": "sensor.glances_total"
-                                },
-                                {
-                                    "entity": "sensor.glances_cpu_thermal_1_temp"
-                                }
-                            ],
-                            "title": "RPI-Glances"
                         },
                         {
                             "entities": [
@@ -1357,9 +1318,6 @@
                                     "entity": "switch.arc_b9"
                                 },
                                 {
-                                    "entity": "switch.arc_c1"
-                                },
-                                {
                                     "entity": "switch.arc_c3"
                                 },
                                 {
@@ -1382,15 +1340,6 @@
                                 },
                                 {
                                     "entity": "switch.ac_0c44702_1"
-                                },
-                                {
-                                    "entity": "switch.ac_0533a9e_1"
-                                },
-                                {
-                                    "entity": "switch.ac_0533a9e_2"
-                                },
-                                {
-                                    "entity": "switch.ac_0533a9e_3"
                                 }
                             ],
                             "title": "RFXtrx"
@@ -1412,37 +1361,6 @@
                         {
                             "type": "entities",
                             "entities": [
-                                "zwave.poly_control_danalock_v3_btze",
-                                "sensor.poly_control_danalock_v3_btze_alarm_level",
-                                "sensor.poly_control_danalock_v3_btze_alarm_type",
-                                "lock.poly_control_danalock_v3_btze_locked"
-                            ]
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                "zwave.poly_control_danalock_v3_btze",
-                                "sensor.poly_control_danalock_v3_btze_access_control",
-                                "sensor.poly_control_danalock_v3_btze_alarm_level",
-                                "sensor.poly_control_danalock_v3_btze_alarm_type",
-                                "lock.poly_control_danalock_v3_btze_locked",
-                                "sensor.poly_control_danalock_v3_btze_sourcenodeid"
-                            ]
-                        },
-                        {
-                            "type": "custom:fan-xiaomi",
-                            "name": "Fan",
-                            "entity": "fan.xiaomi_miio_device",
-                            "aspect_ratio": "1",
-                            "background_color": ""
-                        },
-                        {
-                            "type": "light",
-                            "entity": "light.ikea_of_sweden_tradfri_bulb_e14_w_op_ch_400lm_903620fe_level_on_off"
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
                                 {
                                     "entity": "sensor.thgr810_thgn800_55_01_humidity"
                                 },
@@ -1460,6 +1378,25 @@
                                 },
                                 {
                                     "entity": "device_tracker.20j1_lr09d73d_lan"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "light",
+                            "entity": "light.dimmable_light_2"
+                        },
+                        {
+                            "type": "light",
+                            "entity": "light.guestroom_dimmer"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.aqara_motion"
+                                },
+                                {
+                                    "entity": "sensor.aqara_lightlevel"
                                 }
                             ]
                         }

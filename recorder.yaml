@@ -23,6 +23,8 @@
       - sensor.blitzortung_*
       - sensor.popp_co_popp_z_rain_rain_*
     entities:
+      - zwave.poly_control_danalock_v3_btze
+      - sensor.aqara_lightlevel
       # - sensor.oregon_w_disp_temperature
       # - sensor.oregon_w_disp_humidity
       # - sensor.oregon_no_disp_humidity
@@ -121,3 +123,4 @@
       # - sensor.allrum_battery
       # - sensor.poly_control_danalock_v3_btze_battery_level
       - sensor.sm_t719_wifi_connection
+      - sensor.daylight
