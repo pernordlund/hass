@@ -98,6 +98,9 @@
                                 },
                                 {
                                     "entity": "binary_sensor.garage_door_unlocked"
+                                },
+                                {
+                                    "entity": "binary_sensor.aqara_motion"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -237,13 +240,16 @@
                         {
                             "entities": [
                                 {
+                                    "entity": "light.bedroom_window"
+                                },
+                                {
                                     "entity": "light.guest_room_desk"
                                 },
                                 {
                                     "entity": "light.guest_room_ceiling"
                                 },
                                 {
-                                    "entity": "light.guest_room_window_2"
+                                    "entity": "switch.arc_c3"
                                 },
                                 {
                                     "entity": "light.entrance_drawer"
@@ -261,6 +267,9 @@
                                     "entity": "light.kitchen_bench"
                                 },
                                 {
+                                    "entity": "light.kitchen_ceiling"
+                                },
+                                {
                                     "entity": "light.living_room_corner"
                                 },
                                 {
@@ -268,9 +277,6 @@
                                 },
                                 {
                                     "entity": "light.living_room_table"
-                                },
-                                {
-                                    "entity": "light.bedroom_window"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -280,19 +286,22 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "light.play_room_ceiling"
-                                },
-                                {
                                     "entity": "light.bathroom_ceiling"
                                 },
                                 {
                                     "entity": "light.sauna"
                                 },
                                 {
+                                    "entity": "light.attic"
+                                },
+                                {
                                     "entity": "light.fridas_room_ceiling"
                                 },
                                 {
-                                    "entity": "light.attic"
+                                    "entity": "light.albins_bed"
+                                },
+                                {
+                                    "entity": "light.shapes_eea3_local"
                                 },
                                 {
                                     "entity": "light.media_room_ceiling"
@@ -301,10 +310,7 @@
                                     "entity": "light.play_room_ceiling_2"
                                 },
                                 {
-                                    "entity": "light.albins_bed"
-                                },
-                                {
-                                    "entity": "light.shapes_eea3_local"
+                                    "entity": "light.play_room_ceiling"
                                 },
                                 {
                                     "entity": "light.play_room_sofa"
@@ -432,9 +438,6 @@
                             "entities": [
                                 {
                                     "entity": "scene.good_night"
-                                },
-                                {
-                                    "entity": "scene.pelle_favourite"
                                 }
                             ],
                             "title": "Scenes",
@@ -483,13 +486,13 @@
                                     "entity": "sensor.netatmo_indoor_co2"
                                 },
                                 {
-                                    "entity": "sensor.kylen_temperature"
+                                    "entity": "sensor.fridge_temperature"
                                 },
                                 {
                                     "entity": "sensor.kylen_humidity"
                                 },
                                 {
-                                    "entity": "sensor.frysen_temperature"
+                                    "entity": "sensor.freezer_temperature"
                                 },
                                 {
                                     "entity": "sensor.frysen_humidity"
@@ -590,7 +593,7 @@
                                     "entity": "sensor.sensor_ambient_temperature"
                                 },
                                 {
-                                    "entity": "sensor.sensor_battery_level"
+                                    "entity": "sensor.plant_sensor_battery_level"
                                 },
                                 {
                                     "entity": "sensor.sensor_light_intensity"
@@ -744,10 +747,10 @@
                                     "entity": "sensor.aarlo_battery_level_arlozoneinside"
                                 },
                                 {
-                                    "entity": "sensor.netatmo_outdoor_battery"
+                                    "entity": "sensor.netatmo_outdoor_battery_percent"
                                 },
                                 {
-                                    "entity": "sensor.netatmo_rain_battery"
+                                    "entity": "sensor.netatmo_rain_battery_percent"
                                 },
                                 {
                                     "entity": "sensor.philio_battery"
@@ -783,7 +786,7 @@
                                     "entity": "sensor.id_lock_battery"
                                 },
                                 {
-                                    "entity": "sensor.sensor_battery_level"
+                                    "entity": "sensor.plant_sensor_battery_level"
                                 },
                                 {
                                     "entity": "sensor.water_control_battery_level"

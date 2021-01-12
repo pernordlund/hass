@@ -4,7 +4,7 @@
         value_template: '{{ states.sensor.everspring_st812_flood_detector_flood.state != "0" }}'
         friendly_name: 'Dishwasher flood warning'
       fridge_temp_high:
-        value_template: '{{ states("sensor.kylen_temperature") | int > 12 }}'
+        value_template: '{{ states("sensor.fridge_temperature") | int > 12 }}'
         friendly_name: 'Fridge temp is high'
       garage_door_unlocked:
         value_template: '{{ is_state("lock.poly_control_danalock_v3_btze_locked", "unlocked") }}'

@@ -10,6 +10,7 @@ from homeassistant.const import (
     STATE_ALARM_TRIGGERED as STATE_TRIGGERED,
     STATE_OFF,
     STATE_ON,
+    STATE_UNKNOWN,
     SUN_EVENT_SUNRISE,
     SUN_EVENT_SUNSET,
     ATTR_ENTITY_ID,
@@ -20,13 +21,21 @@ from homeassistant.helpers.entity import ToggleEntity
 from homeassistant.helpers.entity_registry import async_entries_for_device
 from homeassistant.helpers.event import (
     async_call_later,
-    async_track_point_in_utc_time,
+    async_track_point_in_time,
     async_track_state_change,
 )
 from homeassistant.helpers.restore_state import RestoreEntity
 from homeassistant.helpers.service import async_call_from_config
 from homeassistant.util import dt as dt_util
 from homeassistant.util import slugify
+
+from homeassistant.components.climate import (
+    SERVICE_SET_TEMPERATURE,
+    SERVICE_SET_HVAC_MODE,
+    ATTR_HVAC_MODE,
+    ATTR_TEMPERATURE,
+    DOMAIN as CLIMATE_DOMAIN,
+)
 
 from .const import (
     CONDITION_TYPE_AND,
@@ -40,12 +49,12 @@ from .const import (
     REPEAT_TYPE_PAUSE,
     REPEAT_TYPE_SINGLE,
     VERSION,
+    EVENT,
 )
 from .helpers import calculate_next_start_time, has_overlapping_timeslot
 from .migrate import migrate_old_entity
 from .store import ScheduleEntry, async_get_registry
 
-EVENT = "scheduler_updated"
 _LOGGER = logging.getLogger(__name__)
 
 
@@ -148,7 +157,6 @@ class ScheduleEntity(ToggleEntity):
         self._registered_sun_update = False
         self._registered_workday_update = False
         self._queued_actions = []
-        self._queued_entry = None
         self._retry_timeout = None
         self._timestamps = []
         self._next_entries = []
@@ -267,6 +275,8 @@ class ScheduleEntity(ToggleEntity):
     @callback
     def async_get_entity_state(self):
         data = copy.copy(self.schedule)
+        if not data:
+            data = {}
         data.update(
             {
                 "next_entries": self._next_entries,
@@ -308,6 +318,10 @@ class ScheduleEntity(ToggleEntity):
             )
 
             timestamps.append(next_time)
+
+        if not len(timestamps):
+            _LOGGER.error("schedule {} has no time entries".format(self.entity_id))
+            return (None, None)
 
         relative_time = list(map(lambda x: x - now, timestamps))
         timeslot_order = sorted(
@@ -356,18 +370,21 @@ class ScheduleEntity(ToggleEntity):
                 await self.async_execute_command()
 
         (self._entry, timestamp) = self.calculate_next_timeslot()
+        if self._entry is None:
+            self._state = STATE_UNKNOWN
+        else:
 
-        self._next_trigger = (
-            dt_util.as_local(timestamp).isoformat()
-            if self.schedule["enabled"]
-            else None
-        )
+            self._next_trigger = (
+                dt_util.as_local(timestamp).isoformat()
+                if self.schedule["enabled"]
+                else None
+            )
 
-        self._timer = async_track_point_in_utc_time(
-            self.hass, self.async_timer_finished, timestamp
-        )
-        if self._next_trigger:
-            _LOGGER.debug("The next timer is set for %s" % self._next_trigger)
+            self._timer = async_track_point_in_time(
+                self.hass, self.async_timer_finished, timestamp
+            )
+            if self._next_trigger:
+                _LOGGER.debug("The next timer is set for %s" % self._next_trigger)
 
         await self.async_update_ha_state()
         self.async_write_ha_state()
@@ -411,7 +428,7 @@ class ScheduleEntity(ToggleEntity):
         now = dt_util.now().replace(microsecond=0)
         next = now + datetime.timedelta(minutes=1)
 
-        self._timer = async_track_point_in_utc_time(
+        self._timer = async_track_point_in_time(
             self.hass, self.async_cooldown_timer_finished, next
         )
 
@@ -427,9 +444,8 @@ class ScheduleEntity(ToggleEntity):
             return
         _LOGGER.debug("start of executing actions for %s" % self.entity_id)
 
-        self._queued_entry = self._entry
-
         actions = self.schedule["timeslots"][self._entry]["actions"]
+        service_calls = []
         for num in range(len(actions)):
             action = actions[num]
             service_call = {
@@ -437,8 +453,34 @@ class ScheduleEntity(ToggleEntity):
                 "entity_id": action["entity_id"],
                 "data": action["service_data"],
             }
+            if (
+                service_call["service"] == "{}.{}".format(CLIMATE_DOMAIN, SERVICE_SET_TEMPERATURE)
+                and ATTR_HVAC_MODE in service_call["data"]
+                and ATTR_TEMPERATURE in service_call["data"]
+                and len(service_call["data"]) == 2
+            ):
+                # fix for climate integrations which don't support setting hvac_mode and temperature together
+                service_calls.extend([
+                    {
+                        "service": "{}.{}".format(CLIMATE_DOMAIN, SERVICE_SET_HVAC_MODE),
+                        "entity_id": service_call["entity_id"],
+                        "data": {
+                            ATTR_HVAC_MODE: service_call["data"][ATTR_HVAC_MODE]
+                        },
+                    },
+                    {
+                        "service": "{}.{}".format(CLIMATE_DOMAIN, SERVICE_SET_TEMPERATURE),
+                        "entity_id": service_call["entity_id"],
+                        "data": {
+                            ATTR_TEMPERATURE: service_call["data"][ATTR_TEMPERATURE]
+                        },
+                    }
+                ])
+            else:
+                service_calls.append(service_call)
 
-            await self.async_queue_action(num, service_call)
+        for num in range(len(service_calls)):
+            await self.async_queue_action(num, service_calls[num], self._entry)
 
         for item in self._queued_actions:
             if item is not None and not self.schedule["timeslots"][self._entry]["stop"]:
@@ -456,12 +498,11 @@ class ScheduleEntity(ToggleEntity):
                 if item is not None:
                     item()
             self._queued_actions = []
-            self._queued_entry = None
 
-    async def async_queue_action(self, num, service_call):
+    async def async_queue_action(self, num: int, service_call: dict, timeslot: int):
         async def async_handle_device_available():
 
-            await self.async_execute_action(service_call, self._queued_entry)
+            await self.async_execute_action(service_call, timeslot)
 
             if self._queued_actions[num]:  # remove state change listener from queue
                 self._queued_actions[num]()
@@ -475,10 +516,10 @@ class ScheduleEntity(ToggleEntity):
         entity = service_call["entity_id"] if "entity_id" in service_call else None
 
         (res, cb_handle) = self.check_entity_availability(
-            entity, async_handle_device_available
+            entity, async_handle_device_available, timeslot
         )
         if res:
-            await self.async_execute_action(service_call, self._queued_entry)
+            await self.async_execute_action(service_call, timeslot)
             self._queued_actions.append(None)
         else:
             self._queued_actions.append(cb_handle)
@@ -488,7 +529,7 @@ class ScheduleEntity(ToggleEntity):
                 )
             )
 
-    async def async_execute_action(self, service_call, timeslot):
+    async def async_execute_action(self, service_call: dict, timeslot: int):
 
         current_slot = self.schedule["timeslots"][timeslot]
         if current_slot["conditions"]:
@@ -554,7 +595,10 @@ class ScheduleEntity(ToggleEntity):
             else:
                 result = False
 
-            # _LOGGER.debug("validating condition for {}: required={}, actual={}, match_type={}, result={}".format(condition["entity_id"], required,actual,condition["match_type"], result))
+            # _LOGGER.debug(
+            #     "validating condition for {}: required={}, actual={}, match_type={}, result={}"
+            #     .format(condition["entity_id"], required,actual,condition["match_type"], result)
+            # )
             results.append(result)
         return results
 
@@ -590,6 +634,8 @@ class ScheduleEntity(ToggleEntity):
 
         self.coordinator.remove_sun_listener(self.schedule_id)
         self.coordinator.remove_workday_listener(self.schedule_id)
+
+        await super().async_will_remove_from_hass()
 
     async def async_register_sun_updates(self):
         has_sun = False
@@ -672,11 +718,11 @@ class ScheduleEntity(ToggleEntity):
         self.coordinator.add_workday_listener(self.schedule_id, async_workday_updated)
         self._registered_workday_update = True
 
-    def check_entity_availability(self, action_entity, cb_func):
+    def check_entity_availability(self, action_entity, cb_func, timeslot: int):
 
         entity_list = []
 
-        current_slot = self.schedule["timeslots"][self._queued_entry]
+        current_slot = self.schedule["timeslots"][timeslot]
 
         for item in current_slot["conditions"]:
             entity_list.append(item["entity_id"])

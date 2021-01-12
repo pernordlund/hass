@@ -83,3 +83,20 @@ where_is_my_family:
       program_name: rapport
     entity_id: media_player.chromecastultra2387
     service: svt_play.play_latest
+lights_out:
+  alias: Lights out
+  sequence:
+  - service: homeassistant.turn_off
+    data:
+      entity_id:
+      - group.inside_downstairs
+      - light.play_room_ceiling
+      - light.play_room_ceiling_2
+      - light.play_room_sofa
+  - service: media_player.turn_off
+    data:
+      entity_id: media_player.samsung_tv
+  - service: lock.lock
+    data: {}
+    entity_id: lock.id_lock_150_locked
+  mode: single

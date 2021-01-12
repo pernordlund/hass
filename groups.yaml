@@ -138,7 +138,7 @@
     name: Downstairs
     entities:
       - light.guest_room_desk
-      - light.guest_room_window_2
+      - switch.arc_c3
       - light.guestroom_red
       - light.guest_room_ceiling
       - light.entrance_ceiling
@@ -146,6 +146,7 @@
       - switch.cloak_room_ceiling
       - light.kitchen_table
       - light.kitchen_bench
+      - light.kitchen_ceiling
       - light.bedroom_window
       - light.living_room_corner
       - light.livingroom_sofa
@@ -154,6 +155,7 @@
     name: Upstairs
     entities:
       - light.play_room_ceiling
+      - light.play_room_sofa
       - switch.bathroom_ceiling
       - switch.sauna
       - light.media_room_ceiling
@@ -374,8 +376,6 @@
       - light.play_room_ceiling
       - light.bathroom_ceiling
       - light.sauna
-      - light.frida_skrivbord
-      - light.fridas_bed
       - light.fridas_room_ceiling
       - light.attic
   automations:

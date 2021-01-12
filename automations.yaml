@@ -82,8 +82,16 @@
   - service: notify.pelles_tfn
     data:
       message: '{{ states("sensor.time") }} - Palarmning'
-  - service: scene.turn_on
-    entity_id: scene.alarm_on
+  - service: homeassistant.turn_off
+    target:
+      area_id:
+      - Guest room
+      - Albins room
+      - Bathroom upstairs
+      - Entrance
+      - Kitchen
+      - Living room
+      - Play room
   - service: alarm_control_panel.alarm_arm_away
     data: {}
     entity_id: alarm_control_panel.aarlo_arlozone
@@ -99,8 +107,6 @@
   - service: notify.pelles_tfn
     data:
       message: '{{ states("sensor.time") }} -  Avlarmning'
-  - service: scene.turn_on
-    entity_id: scene.alarm_off
   - service: alarm_control_panel.alarm_arm_home
     data: {}
     entity_id: alarm_control_panel.aarlo_arlozone
@@ -136,7 +142,7 @@
     data_template:
       message: '{{ states("sensor.time") }} - Roklarm Roklarm'
 - id: A016
-  alias: 0 - Some lights on when Pelle gets home in the afternoon
+  alias: Pelle gets home in the afternoon
   trigger:
   - entity_id: device_tracker.life360_per_nordlund
     from: not_home
@@ -148,25 +154,12 @@
     condition: time
   action:
   - data:
-      entity_id: group.lights_pelle
+      entity_id:
+      - light.entrance_drawer
+      - light.bedroom_window
+      - light.livingroom_sofa
     service: homeassistant.turn_on
   mode: single
-- id: A017
-  alias: X - Send bus schedule when Pelle leaves
-  initial_state: false
-  trigger:
-    platform: state
-    entity_id: device_tracker.pelle_gps
-    from: home
-    to: not_home
-  condition:
-    condition: time
-    after: 05:00
-    before: '10:00'
-  action:
-    service: notify.pelles_tfn
-    data_template:
-      message: '{{ states("sensor.slussen") }}'
 - id: A019
   alias: Arbrum fonsterlampa from wall
   trigger:
@@ -177,7 +170,7 @@
       scene_id: 24
   action:
   - service: homeassistant.toggle
-    entity_id: light.guest_room_window_2
+    entity_id: switch.arc_c3
 - id: A021
   alias: Arbrum fonsterlampa med 2-klick
   trigger:
@@ -188,7 +181,7 @@
       scene_id: 26
   action:
   - service: homeassistant.toggle
-    entity_id: light.guest_room_window_2
+    entity_id: switch.arc_c3
 - id: A022
   alias: Vardrum hornlampan med 3-klick
   trigger:
@@ -200,17 +193,6 @@
   action:
   - service: homeassistant.toggle
     entity_id: switch.telldus_tzwp_100_plug_in_switch_switch
-- id: A024
-  alias: X - Notify Pelle to work
-  initial_state: false
-  trigger:
-    platform: state
-    entity_id: device_tracker.pelle_gps
-    to: work
-  action:
-  - service: notify.pelles_tfn
-    data_template:
-      message: '{{ states("sensor.time") }} - Pelle got to work'
 - id: A025
   alias: Badrum on when motion timer
   trigger:
@@ -326,35 +308,7 @@
       scene_id: 25
   action:
   - service: homeassistant.toggle
-    entity_id: light.guest_room_window_2
-- id: A036
-  alias: X - Log Pelle to work
-  trigger:
-    platform: state
-    entity_id: device_tracker.pelle_gps
-    to: OKQ8
-  action:
-  - service: shell_command.log_to_okq8
-  - service: notify.pelles_tfn
-    data_template:
-      message: '{{ states("sensor.time") }} - Logged to OKQ8 - GPS'
-  - service: notify.work_log
-    data_template:
-      message: '{{ states("sensor.time") }} - Logged to OKQ8 - GPS'
-- id: A037
-  alias: X - Log Pelle leave work
-  trigger:
-    platform: state
-    entity_id: device_tracker.pelle_gps
-    from: OKQ8
-  action:
-  - service: shell_command.log_leave_okq8
-  - service: notify.pelles_tfn
-    data_template:
-      message: '{{ states("sensor.time") }} - Logged leaving OKQ8 - GPS'
-  - service: notify.work_log
-    data_template:
-      message: '{{ states("sensor.time") }} - Logged leave OKQ8 - GPS'
+    entity_id: switch.arc_c3
 - id: A040
   alias: Daily python scripts midnight
   initial_state: false
@@ -526,7 +480,7 @@
       entity_id: timer.arbrum_motion
     service: timer.start
   - data:
-      entity_id: light.guest_room_window_2
+      entity_id: switch.arc_c3
     service: homeassistant.turn_on
 - id: '1544045540211'
   alias: XX-test-timer-arbrum
@@ -643,13 +597,13 @@
     service: input_boolean.turn_off
   mode: single
 - id: '1588022688533'
-  alias: Storstugan On
-  description: Notify Pelle when Storstugan available
+  alias: Pelle - notify when Storstugan online
+  description: ''
   trigger:
   - entity_id: device_tracker.storstugan
-    from: 'off'
+    from: not_home
     platform: state
-    to: 'on'
+    to: home
   condition: []
   action:
   - service: notify.pelles_tfn
@@ -687,7 +641,7 @@
     entity_id: fan.xiaomi_miio_device
     service: fan.turn_on
 - id: '1600181517063'
-  alias: Notify Pelle front door not locked
+  alias: Pelle - notify when front door not locked
   description: ''
   trigger:
   - entity_id: binary_sensor.g8441_is_charging
@@ -849,3 +803,13 @@
     data:
       entity_id: light.guest_room_desk
   mode: single
+- id: '1610198001486'
+  alias: Guest room IKEA remote
+  description: ''
+  use_blueprint:
+    path: Bram_Kragten/deconz-ikea-five-button-remote-for-lights.yaml
+    input:
+      brightness: '50'
+      remote: 9d061f23a1cd6cc064a81fb73fd8ec4f
+      light:
+        area_id: cf237a521d3e4777b7ed930a5b14d70a
