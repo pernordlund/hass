@@ -20,3 +20,4 @@ pyozw.sqlite
 !/.travis.yml
 html5_push_registrations.conf
 ip_bans.yaml
+id_rsa

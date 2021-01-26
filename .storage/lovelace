@@ -103,7 +103,7 @@
                                     "entity": "binary_sensor.aqara_motion"
                                 }
                             ],
-                            "show_header_toggle": false,
+                            "show_header_toggle": true,
                             "title": "Security",
                             "type": "entities"
                         },
@@ -314,6 +314,9 @@
                                 },
                                 {
                                     "entity": "light.play_room_sofa"
+                                },
+                                {
+                                    "entity": "light.play_room_corner"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -732,6 +735,9 @@
                                 },
                                 {
                                     "entity": "device_tracker.20j1_lr09d73d_lan"
+                                },
+                                {
+                                    "entity": "device_tracker.wireguard_pi"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -872,6 +878,19 @@
                             "show_header_toggle": false,
                             "type": "entities",
                             "title": "Phones Tablets"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.vpn_clients"
+                                },
+                                {
+                                    "entity": "sensor.vpn_simple",
+                                    "secondary_info": "last-changed"
+                                }
+                            ],
+                            "title": "VPN"
                         }
                     ],
                     "path": "systems",
@@ -934,6 +953,7 @@
                                 "light.kitchen_bench",
                                 "light.living_room_corner",
                                 "light.living_room_sofa",
+                                "light.play_room_corner",
                                 "scene.godnatt",
                                 "switch.arc_b1",
                                 "switch.arc_b2",

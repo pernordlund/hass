@@ -44,7 +44,7 @@
     state: 'off'
   action:
   - entity_id: scene.godnatt
-    service: scene.turn_on
+    service: script.lights_out
   mode: single
 - id: A008
   alias: 0 - Some lights off at sunrise
@@ -237,7 +237,8 @@
       values:
         Command: Group off
   action:
-  - scene: scene.godnatt
+  - service: script.lights_out
+    data: {}
   - service: homeassistant.turn_off
     data: {}
     entity_id: media_player.samsung_tv
@@ -811,5 +812,25 @@
     input:
       brightness: '50'
       remote: 9d061f23a1cd6cc064a81fb73fd8ec4f
+      button_left_short:
+      - service: homeassistant.toggle
+        data: {}
+        entity_id: switch.arc_c3
+      button_right_short:
+      - service: homeassistant.toggle
+        data: {}
+        entity_id: light.guest_room_desk
       light:
-        area_id: cf237a521d3e4777b7ed930a5b14d70a
+        entity_id: light.guest_room_ceiling
+- id: '1610542848014'
+  alias: Pelle - notify when VPN status changes
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.vpn_simple
+  condition: []
+  action:
+  - service: notify.pelles_tfn
+    data:
+      message: VPN status updated
+  mode: single

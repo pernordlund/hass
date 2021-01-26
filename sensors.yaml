@@ -45,6 +45,21 @@
         value_template: "{{ state_attr('fan.xiaomi_miio_device', 'filter_life_remaining') }}"
         unit_of_measurement: "%"
         icon_template: "mdi:heart-outline"
+  #VPN sensor
+      vpn_simple:
+        friendly_name: VPN simple
+        value_template: >-
+          {% for row in states.sensor.vpn_clients.state.split('\n') -%}
+            {% for value in row.split('--') -%}
+              {% if loop.index <= 2 -%}
+                {{ value }}
+              {%- endif %}
+              {% if loop.index <= 1 -%}
+                {{ ' ' }}
+              {%- endif %}
+            {%- endfor %}
+            {{'\n'}}
+          {%- endfor %}
   #Others
       last_trip_allrum:
         value_template: >-
@@ -406,6 +421,10 @@
     # If errors occur, remove degree symbol below
     unit_of_measurement: "°C"
     value_template: '{{ value | multiply(0.001) }}'
+  - platform: command_line
+    name: VPN Clients
+    command: "ssh -F /config/ssh/config pi@192.168.86.45 'pivpn -c' | grep 10.6 | sed -r 's/^(\\S*)\\s*(\\S*)\\s*\\S*\\s*\\S*\\s*(\\S*)\\s*(.*$)/\\1--\\2--\\3--\\4--***/g'"
+    value_template: '{{ value[:255] }}'
   - platform: google_travel_time
     name: Time to work
     api_key: !secret gm_api_key_1
