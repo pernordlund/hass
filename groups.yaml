@@ -3,7 +3,8 @@
     name: Downstairs
     entities:
       - light.guest_room_desk
-      - switch.arc_c3
+      - light.guest_room_desk_2
+      - light.guest_room_window_hue
       - light.guestroom_red
       - light.guest_room_ceiling
       - light.entrance_ceiling

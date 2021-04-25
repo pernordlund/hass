@@ -48,7 +48,7 @@
 #      - pelles_tfn
   husdata_offline:
     name: Husdata notreporting
-    entity_id: sensor.bvtime
+    entity_id: sensor.bv_time
     state: 'unknown'
     repeat: 
       - 5

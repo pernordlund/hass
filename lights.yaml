@@ -1,6 +1,6 @@
-  - platform: switch
-    name: Guest room desk
-    entity_id: switch.guest_room_desk
+  # - platform: switch
+  #   name: Guest room desk
+  #   entity_id: switch.guest_room_desk
   - platform: switch
     name: Living room corner
     entity_id: switch.telldus_tzwp_100_plug_in_switch_switch
@@ -28,8 +28,8 @@
   - platform: switch
     name: tree
     entity_id: switch.arc_b1
-  - platform: group
-    name: Kitchen bench
-    entities:
-      - light.kitchen_bench_right
-      - light.kitchen_bench_left
+  # - platform: group
+  #   name: Kitchen bench
+  #   entities:
+  #     - light.kitchen_bench_right
+  #     - light.kitchen_bench_left
