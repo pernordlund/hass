@@ -77,14 +77,14 @@
             {{ as_timestamp(states.binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor.last_changed) | timestamp_custom('%Y-%m-%d %H:%M') }}
           {%- endif %}
         friendly_name: 'Alarm trip'
-      last_trip_forradsdorr:
-        value_template: >-
-          {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.sensative_strips_sensor.last_changed))/3600 > 72 -%}
-            >72hr
-          {%- else -%}
-            {{ as_timestamp(states.binary_sensor.sensative_strips_sensor.last_changed) | timestamp_custom('%Y-%m-%d %H:%M') }}
-          {%- endif %}
-        friendly_name: 'Forradsdorr trip'
+      # last_trip_forradsdorr:
+      #   value_template: >-
+      #     {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.sensative_strips_sensor.last_changed))/3600 > 72 -%}
+      #       >72hr
+      #     {%- else -%}
+      #       {{ as_timestamp(states.binary_sensor.sensative_strips_sensor.last_changed) | timestamp_custom('%Y-%m-%d %H:%M') }}
+      #     {%- endif %}
+      #   friendly_name: 'Forradsdorr trip'
       last_trip_ytterdorr:
         value_template: >-
           {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2.last_changed))/3600 > 24 -%}
@@ -131,10 +131,10 @@
         friendly_name: 'Roger battery level'
         value_template: '{{ states.vacuum.roger.attributes.battery_level }}'
         unit_of_measurement: '%'
-      sensative_battery:
-        friendly_name: 'Sensative battery'
-        value_template: '{{ states.zwave.sensative_strips.attributes.battery_level }}'
-        unit_of_measurement: '%'
+      # sensative_battery:
+      #   friendly_name: 'Sensative battery'
+      #   value_template: '{{ states.zwave.sensative_strips.attributes.battery_level }}'
+      #   unit_of_measurement: '%'
       philio_battery:
         friendly_name: 'Philio battery'
         value_template: '{{ states.zwave.philio_technology_corporation_psp05_pir_motion.attributes.battery_level }}'
@@ -417,7 +417,7 @@
 #      {{ value_json.nextStartTimestamp | timestamp_utc }}
   - platform: command_line
     name: CPU Temperature
-    command: "cat /sys/class/thermal/thermal_zone2/temp"
+    command: "ssh -F /config/ssh/config root@192.168.86.254 'cat /sys/class/thermal/thermal_zone2/temp'"
     # If errors occur, remove degree symbol below
     unit_of_measurement: "°C"
     value_template: '{{ value | multiply(0.001) }}'

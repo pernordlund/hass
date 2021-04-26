@@ -1,4 +1,4 @@
-  host: 192.168.86.76
+  host: 192.168.86.58
   database: homeassistant
   username: !secret in_username
   password: !secret in_password

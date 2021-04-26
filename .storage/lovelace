@@ -243,13 +243,7 @@
                                     "entity": "light.bedroom_window"
                                 },
                                 {
-                                    "entity": "light.guest_room_desk"
-                                },
-                                {
-                                    "entity": "light.guest_room_ceiling"
-                                },
-                                {
-                                    "entity": "switch.arc_c3"
+                                    "entity": "light.cloak_room"
                                 },
                                 {
                                     "entity": "light.entrance_drawer"
@@ -258,16 +252,22 @@
                                     "entity": "light.entrance_ceiling"
                                 },
                                 {
-                                    "entity": "light.cloak_room"
+                                    "entity": "light.guest_room_ceiling"
                                 },
                                 {
-                                    "entity": "light.kitchen_table"
+                                    "entity": "light.guest_room_desk_2"
+                                },
+                                {
+                                    "entity": "light.guest_room_window_hue"
+                                },
+                                {
+                                    "entity": "light.kitchen_ceiling"
                                 },
                                 {
                                     "entity": "light.kitchen_bench"
                                 },
                                 {
-                                    "entity": "light.kitchen_ceiling"
+                                    "entity": "light.kitchen_table"
                                 },
                                 {
                                     "entity": "light.living_room_corner"
@@ -286,22 +286,22 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "light.bathroom_ceiling"
-                                },
-                                {
-                                    "entity": "light.sauna"
-                                },
-                                {
-                                    "entity": "light.attic"
+                                    "entity": "light.albins_bed"
                                 },
                                 {
                                     "entity": "light.fridas_room_ceiling"
                                 },
                                 {
-                                    "entity": "light.albins_bed"
+                                    "entity": "light.albins_shapes"
                                 },
                                 {
-                                    "entity": "light.shapes_eea3_local"
+                                    "entity": "light.attic"
+                                },
+                                {
+                                    "entity": "light.bathroom_ceiling"
+                                },
+                                {
+                                    "entity": "light.sauna"
                                 },
                                 {
                                     "entity": "light.media_room_ceiling"
@@ -366,9 +366,6 @@
                                     "entity": "switch.white_remote_2"
                                 },
                                 {
-                                    "entity": "fan.xiaomi_miio_device"
-                                },
-                                {
                                     "entity": "switch.wvwzzz3czhe181012_electric_climatisation"
                                 },
                                 {
@@ -376,6 +373,9 @@
                                 },
                                 {
                                     "entity": "switch.water_control"
+                                },
+                                {
+                                    "entity": "fan.xiaomi_air_purifier_2s"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -508,6 +508,9 @@
                                 },
                                 {
                                     "entity": "sensor.media_room_humidity"
+                                },
+                                {
+                                    "entity": "sensor.aqara_lightlevel"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -854,15 +857,6 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "binary_sensor.g8441_is_charging"
-                                },
-                                {
-                                    "entity": "sensor.g8441_geocoded_location"
-                                },
-                                {
-                                    "entity": "sensor.g8441_battery_level"
-                                },
-                                {
                                     "entity": "binary_sensor.sm_t719_is_charging"
                                 },
                                 {
@@ -873,6 +867,18 @@
                                 },
                                 {
                                     "entity": "sensor.sm_t719_wifi_connection"
+                                },
+                                {
+                                    "entity": "binary_sensor.xq_as52_is_charging"
+                                },
+                                {
+                                    "entity": "device_tracker.xq_as52"
+                                },
+                                {
+                                    "entity": "sensor.xq_as52_battery_level"
+                                },
+                                {
+                                    "entity": "sensor.xq_as52_charger_type"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -1279,28 +1285,6 @@
                             "type": "history-graph"
                         },
                         {
-                            "entities": [
-                                {
-                                    "entity": "sensor.kylen_temperature"
-                                }
-                            ],
-                            "hours_to_show": 72,
-                            "refresh_interval": 0,
-                            "type": "history-graph"
-                        },
-                        {
-                            "aspect_ratio": "0%",
-                            "camera_image": "camera.aarlo_arlozonefront",
-                            "entities": [
-                                {
-                                    "entity": "camera.aarlo_arlozonefront"
-                                }
-                            ],
-                            "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
-                            "title": "Front",
-                            "type": "picture-glance"
-                        },
-                        {
                             "aspect_ratio": "50%",
                             "entity": "camera.aarlo_arlozoneinside",
                             "type": "picture-entity"
@@ -1405,14 +1389,6 @@
                             ]
                         },
                         {
-                            "type": "light",
-                            "entity": "light.dimmable_light_2"
-                        },
-                        {
-                            "type": "light",
-                            "entity": "light.guestroom_dimmer"
-                        },
-                        {
                             "type": "entities",
                             "entities": [
                                 {
@@ -1422,6 +1398,13 @@
                                     "entity": "sensor.aqara_lightlevel"
                                 }
                             ]
+                        },
+                        {
+                            "type": "custom:fan-xiaomi",
+                            "name": "Fan",
+                            "entity": "fan.xiaomi_air_purifier_2s",
+                            "aspect_ratio": "1",
+                            "background_color": ""
                         }
                     ],
                     "theme": "Backend-selected",

@@ -29,8 +29,8 @@ sensor.everspring_st814_temperature_and_humidity_sensor_relative_humidity:
   friendly_name: Garage attic humidity
 binary_sensor.garage_door_sensor:
   friendly_name: Garage door open
-binary_sensor.sensative_strips_sensor:
-  friendly_name: Forradsdorren oppen
+# binary_sensor.sensative_strips_sensor:
+#   friendly_name: Forradsdorren oppen
 sensor.everspring_st812_flood_detector_flood:
   friendly_name: Oversvammning disk
 sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_4:

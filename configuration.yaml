@@ -42,7 +42,6 @@ http:
 
 # Checks for available updates
 updater:
-  include_used_components: true
 
 # Discover some devices automatically
 discovery:
@@ -155,7 +154,7 @@ input_select: !include input_selects.yaml
 input_number: !include input_numbers.yaml
 input_datetime:
   
-fan: !include fans.yaml
+# fan: !include fans.yaml
 
 ffmpeg:
 

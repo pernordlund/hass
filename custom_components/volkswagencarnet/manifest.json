@@ -1,9 +1,15 @@
 {
-    "domain": "volkswagencarnet",
-    "name": "Volkswagen WeConnect",
-    "documentation": "https://github.com/robinostlund/homeassistant-volkswagencarnet/blob/master/README.md",
-    "issue_tracker": "https://github.com/robinostlund/homeassistant-volkswagencarnet/issues",
+    "codeowners": [
+        "@robinostlund"
+    ],
+    "config_flow": true,
     "dependencies": [],
-    "codeowners": ["@robinostlund"],
-    "requirements": ["volkswagencarnet==4.4.24"]
+    "documentation": "https://github.com/robinostlund/homeassistant-volkswagencarnet/blob/master/README.md",
+    "domain": "volkswagencarnet",
+    "issue_tracker": "https://github.com/robinostlund/homeassistant-volkswagencarnet/issues",
+    "name": "Volkswagen WeConnect",
+    "requirements": [
+        "volkswagencarnet==4.4.26"
+    ],
+    "version": "v4.4.36"
 }

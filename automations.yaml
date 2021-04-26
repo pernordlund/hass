@@ -163,25 +163,27 @@
 - id: A019
   alias: Arbrum fonsterlampa from wall
   trigger:
-    platform: event
+  - platform: event
     event_type: zwave.scene_activated
     event_data:
       node_id: 10
       scene_id: 24
   action:
   - service: homeassistant.toggle
-    entity_id: switch.arc_c3
+    entity_id: light.guest_room_window_hue
+  mode: single
 - id: A021
   alias: Arbrum fonsterlampa med 2-klick
   trigger:
-    platform: event
+  - platform: event
     event_type: zwave.scene_activated
     event_data:
       node_id: 10
       scene_id: 26
   action:
   - service: homeassistant.toggle
-    entity_id: switch.arc_c3
+    entity_id: light.guest_room_window_hue
+  mode: single
 - id: A022
   alias: Vardrum hornlampan med 3-klick
   trigger:
@@ -302,14 +304,15 @@
 - id: A035
   alias: Arbrum fonsterlampa med long-klick
   trigger:
-    platform: event
+  - platform: event
     event_type: zwave.scene_activated
     event_data:
       node_id: 10
       scene_id: 25
   action:
   - service: homeassistant.toggle
-    entity_id: switch.arc_c3
+    entity_id: light.guest_room_window_hue
+  mode: single
 - id: A040
   alias: Daily python scripts midnight
   initial_state: false
@@ -481,8 +484,9 @@
       entity_id: timer.arbrum_motion
     service: timer.start
   - data:
-      entity_id: switch.arc_c3
+      entity_id: light.guest_room_window_hue
     service: homeassistant.turn_on
+  mode: single
 - id: '1544045540211'
   alias: XX-test-timer-arbrum
   initial_state: false
@@ -620,14 +624,12 @@
   condition: []
   action:
   - data: {}
-    entity_id: fan.xiaomi_miio_device
     service: fan.turn_off
+    target:
+      device_id: d8c02fe114b58e3906817ee446d737f3
   - data: {}
     entity_id: light.albins_bed
     service: homeassistant.turn_off
-  - service: homeassistant.turn_off
-    data: {}
-    entity_id: light.shapes_eea3_local
   mode: single
 - id: '1590615984329'
   alias: Albin comes home
@@ -810,16 +812,17 @@
   use_blueprint:
     path: Bram_Kragten/deconz-ikea-five-button-remote-for-lights.yaml
     input:
-      brightness: '50'
+      brightness: 50
       remote: 9d061f23a1cd6cc064a81fb73fd8ec4f
       button_left_short:
       - service: homeassistant.toggle
         data: {}
-        entity_id: switch.arc_c3
+        entity_id: light.guest_room_window_hue
       button_right_short:
       - service: homeassistant.toggle
         data: {}
-        entity_id: light.guest_room_desk
+        target:
+          entity_id: light.guest_room_desk_2
       light:
         entity_id: light.guest_room_ceiling
 - id: '1610542848014'
@@ -833,4 +836,29 @@
   - service: notify.pelles_tfn
     data:
       message: VPN status updated
+  mode: single
+- id: '1612194592825'
+  alias: Guest room ceiling if low light
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.aqara_lightlevel
+    below: '8'
+  condition:
+  - condition: state
+    entity_id: light.guest_room_desk
+    state: 'on'
+  - condition: time
+    after: '13:00'
+    before: '18:00'
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  action:
+  - service: homeassistant.turn_on
+    data: {}
+    entity_id: light.guest_room_ceiling
   mode: single
