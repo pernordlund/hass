@@ -4,6 +4,8 @@ daily_midnight:
   - service: notify.pelles_tfn
     data:
       message: Daily midnight scripts
+  - service: shell_command.restart_husdata
+  mode: single
 turn_tv_volume_up:
   alias: TV volume up
   sequence:
@@ -98,5 +100,8 @@ lights_out:
       entity_id: media_player.samsung_tv
   - service: lock.lock
     data: {}
-    entity_id: lock.id_lock_150_locked
+    target:
+      entity_id:
+      - lock.id_lock_150_locked
+      - lock.poly_control_danalock_v3_btze_locked
   mode: single

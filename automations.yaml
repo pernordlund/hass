@@ -325,14 +325,14 @@
       entity_id: daily_midnight
 - id: A041
   alias: Daily scripts midnight
-  initial_state: false
   trigger:
-    platform: state
-    entity_id: sensor.date
+  - platform: time
+    at: 00:05:00
   action:
   - service: script.turn_on
     data:
       entity_id: script.daily_midnight
+  mode: single
 - id: A042
   alias: Entre on when door opens late night
   trigger:
@@ -626,10 +626,14 @@
   - data: {}
     service: fan.turn_off
     target:
-      device_id: d8c02fe114b58e3906817ee446d737f3
+      entity_id: fan.albins_fan
   - data: {}
-    entity_id: light.albins_bed
     service: homeassistant.turn_off
+    target:
+      entity_id:
+      - light.albins_bed
+      - light.albins_shapes
+      - light.fridas_room_ceiling
   mode: single
 - id: '1590615984329'
   alias: Albin comes home
@@ -641,8 +645,10 @@
   condition: []
   action:
   - data: {}
-    entity_id: fan.xiaomi_miio_device
     service: fan.turn_on
+    target:
+      entity_id: fan.albins_fan
+  mode: single
 - id: '1600181517063'
   alias: Pelle - notify when front door not locked
   description: ''

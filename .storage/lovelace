@@ -18,6 +18,9 @@
                                 },
                                 {
                                     "entity": "sensor.time_to_work"
+                                },
+                                {
+                                    "entity": "binary_sensor.updater"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -49,6 +52,9 @@
                                 },
                                 {
                                     "entity": "device_tracker.g8441"
+                                },
+                                {
+                                    "entity": "sensor.marie_velocity"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -243,6 +249,9 @@
                                     "entity": "light.bedroom_window"
                                 },
                                 {
+                                    "entity": "switch.bedroom_window"
+                                },
+                                {
                                     "entity": "light.cloak_room"
                                 },
                                 {
@@ -375,7 +384,7 @@
                                     "entity": "switch.water_control"
                                 },
                                 {
-                                    "entity": "fan.xiaomi_air_purifier_2s"
+                                    "entity": "fan.albins_fan"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -440,10 +449,16 @@
                             "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "scene.good_night"
+                                    "entity": "script.lights_out"
+                                },
+                                {
+                                    "entity": "script.1592687963235"
+                                },
+                                {
+                                    "entity": "script.where_is_my_family"
                                 }
                             ],
-                            "title": "Scenes",
+                            "title": "Scripts",
                             "show_header_toggle": false
                         }
                     ],
@@ -695,16 +710,13 @@
                                 "sensor.cpu_temperature"
                             ],
                             "show_header_toggle": false,
-                            "title": "NUC values",
+                            "title": "NUC10 values",
                             "type": "entities"
                         },
                         {
                             "entities": [
                                 {
                                     "entity": "device_tracker.zonestorage"
-                                },
-                                {
-                                    "entity": "device_tracker.storstugan"
                                 },
                                 {
                                     "entity": "device_tracker.husdata"
@@ -741,6 +753,15 @@
                                 },
                                 {
                                     "entity": "device_tracker.wireguard_pi"
+                                },
+                                {
+                                    "entity": "sensor.wg_pi_temperature"
+                                },
+                                {
+                                    "entity": "device_tracker.omv"
+                                },
+                                {
+                                    "entity": "sensor.omv_temperature"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -897,6 +918,40 @@
                                 }
                             ],
                             "title": "VPN"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.nuc7_temperature"
+                                },
+                                {
+                                    "entity": "sensor.glances_containers_active"
+                                },
+                                {
+                                    "entity": "sensor.glances_containers_cpu_used"
+                                },
+                                {
+                                    "entity": "sensor.glances_containers_ram_used"
+                                },
+                                {
+                                    "entity": "sensor.glances_cpu_load"
+                                },
+                                {
+                                    "entity": "sensor.glances_ram_free"
+                                },
+                                {
+                                    "entity": "sensor.glances_ram_used_percent"
+                                },
+                                {
+                                    "entity": "sensor.glances_swap_used"
+                                },
+                                {
+                                    "entity": "sensor.glances_running"
+                                }
+                            ],
+                            "title": "NUC7 values",
+                            "show_header_toggle": false
                         }
                     ],
                     "path": "systems",

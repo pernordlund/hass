@@ -2,5 +2,11 @@
     still_image_url: !secret camera_url
     username: !secret camera_username
     password: !secret camera_pwd
+  # - platform: mjpeg
+  #   name: Living room camera
+  #   still_image_url: !secret camera_url
+  #   mjpeg_url: !secret camera_mjpeg_url
+  #   username: !secret camera_username
+  #   password: !secret camera_pwd
   - platform: aarlo
 #    ffmpeg_arguments: '-pred 1 -q:v 2'

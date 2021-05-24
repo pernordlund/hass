@@ -249,3 +249,17 @@ wireguard_pi:
   icon:
   picture:
   track: true
+
+omv:
+  name: omv
+  mac:
+  icon:
+  picture:
+  track: true
+
+automower_none_170504968_170332295:
+  name: Roger
+  mac:
+  icon:
+  picture:
+  track: true

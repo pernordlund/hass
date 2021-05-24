@@ -77,14 +77,6 @@
             {{ as_timestamp(states.binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor.last_changed) | timestamp_custom('%Y-%m-%d %H:%M') }}
           {%- endif %}
         friendly_name: 'Alarm trip'
-      # last_trip_forradsdorr:
-      #   value_template: >-
-      #     {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.sensative_strips_sensor.last_changed))/3600 > 72 -%}
-      #       >72hr
-      #     {%- else -%}
-      #       {{ as_timestamp(states.binary_sensor.sensative_strips_sensor.last_changed) | timestamp_custom('%Y-%m-%d %H:%M') }}
-      #     {%- endif %}
-      #   friendly_name: 'Forradsdorr trip'
       last_trip_ytterdorr:
         value_template: >-
           {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2.last_changed))/3600 > 24 -%}
@@ -126,74 +118,58 @@
         value_template: '{{ states.sun.sun.attributes.next_rising[11:16] }}'
       roger_status:
         friendly_name: 'Roger status'
-        value_template: '{{ states.vacuum.roger.attributes.status }}'
+        value_template: "{{ state_attr('vacuum.roger', 'status') }}"
       roger_battery:
         friendly_name: 'Roger battery level'
-        value_template: '{{ states.vacuum.roger.attributes.battery_level }}'
+        value_template: "{{ state_attr('vacuum.roger', 'battery_level') }}"
         unit_of_measurement: '%'
-      # sensative_battery:
-      #   friendly_name: 'Sensative battery'
-      #   value_template: '{{ states.zwave.sensative_strips.attributes.battery_level }}'
-      #   unit_of_measurement: '%'
+        device_class: battery
       philio_battery:
         friendly_name: 'Philio battery'
-        value_template: '{{ states.zwave.philio_technology_corporation_psp05_pir_motion.attributes.battery_level }}'
+        value_template: "{{ state_attr('zwave.philio_technology_corporation_psp05_pir_motion', 'battery_level') }}"
         unit_of_measurement: '%'
+        device_class: battery
       smoke_battery:
         friendly_name: 'Smoke sensor battery'
-        value_template: '{{ states.zwave.fibaro_system_fgsd002_smoke_sensor.attributes.battery_level }}'
+        value_template: "{{ state_attr('zwave.fibaro_system_fgsd002_smoke_sensor', 'battery_level') }}"
         unit_of_measurement: '%'
+        device_class: battery
       allrum_battery:
         friendly_name: 'Allrum sensor battery'
-        value_template: '{{ states.zwave.fibaro_system_fgms001_zw5_motion_sensor.attributes.battery_level }}'
+        value_template: "{{ state_attr('zwave.fibaro_system_fgms001_zw5_motion_sensor', 'battery_level') }}"
         unit_of_measurement: '%'
-#      frysen_battery:
-#        friendly_name: 'Frysen sensor battery'
-#        value_template: "{{states.sensor.frysen_humidity.attributes['Battery numeric']}}"
-#        unit_of_measurement: 'of 9'
-#      kylen_battery:
-#        friendly_name: 'Kylen sensor battery'
-#        value_template: "{{states.sensor.kylen_humidity.attributes['Battery numeric']}}"
-#        unit_of_measurement: 'of 9'
-#      oregon_wd_battery:
-#        friendly_name: 'Oregon WD sensor battery'
-#        value_template: "{{states.sensor.oregon_w_disp_temperature.attributes['Battery numeric']}}"
-#        unit_of_measurement: 'of 9'
-#      oregon_nd_battery:
-#        friendly_name: 'Oregon ND sensor battery'
-#        value_template: "{{states.sensor.oregon_no_disp_humidity.attributes['Battery numeric']}}"
-#        unit_of_measurement: 'of 9'
-#      attic_battery:
-#        friendly_name: 'attic sensor battery'
-#        value_template: "{{states.sensor.attic_temperature.attributes['Battery numeric']}}"
-#        unit_of_measurement: 'of 9'
+        device_class: battery
       flood_battery:
         friendly_name: 'Flood sensor battery'
-        value_template: '{{ states.zwave.everspring_st812_flood_detector.attributes.battery_level }}'
+        value_template: "{{ state_attr('zwave.everspring_st812_flood_detector', 'battery_level') }}"
         unit_of_measurement: '%'
+        device_class: battery
       garage_vind_battery:
         friendly_name: 'Garage vind sensor battery'
-        value_template: '{{ states.zwave.everspring_st814_temperature_and_humidity_sensor.attributes.battery_level }}'
+        value_template: "{{ state_attr('zwave.everspring_st814_temperature_and_humidity_sensor', 'battery_level') }}"
         unit_of_measurement: '%'
+        device_class: battery
       garage_door_battery:
         friendly_name: 'Garage door sensor battery'
-        value_template: '{{ states.zwave.fibaro_system_fgk101_door_opening_sensor.attributes.battery_level }}'
+        value_template: "{{ state_attr('zwave.fibaro_system_fgk101_door_opening_sensor', 'battery_level') }}"
         unit_of_measurement: '%'
+        device_class: battery
       id_lock_battery:
         friendly_name: 'Front door battery'
-        value_template: '{{ states.zwave.id_lock_150.attributes.battery_level }}'
+        value_template: "{{ state_attr('zwave.id_lock_150', 'battery_level') }}"
         unit_of_measurement: '%'
+        device_class: battery
       id_lock_notification:
         friendly_name: 'ID Lock notification'
-        value_template: '{{ states.lock.id_lock_150_locked.attributes.notification }}'
+        value_template: "{{ state_attr('lock.id_lock_150_locked', 'notification') }}"
       # pelle_velocity:
       #   friendly_name: 'Pelle velocity'
       #   value_template: '{{ (states.device_tracker.per_per.attributes.velocity * 3.542) | int }}'
       #   unit_of_measurement: 'kmh'
-      # marie_velocity:
-      #   friendly_name: 'Marie velocity'
-      #   value_template: '{{ (states.device_tracker.marie_marie.attributes.velocity * 3.542) | int}}'
-      #   unit_of_measurement: 'kmh'
+      marie_velocity:
+        friendly_name: 'Marie velocity'
+        value_template: "{{ state_attr('device_tracker.marie_marie', 'velocity') | int }}"
+        unit_of_measurement: 'kmh'
       # frida_velocity:
       #   friendly_name: 'Frida velocity'
       #   value_template: '{{ (states.device_tracker.frida_frida.attributes.velocity * 3.542) | int}}'
@@ -422,14 +398,32 @@
     unit_of_measurement: "°C"
     value_template: '{{ value | multiply(0.001) }}'
   - platform: command_line
+    name: NUC7 Temperature
+    command: "ssh -F /config/ssh/config pelle@192.168.86.76 'cat /sys/class/thermal/thermal_zone2/temp'"
+    # If errors occur, remove degree symbol below
+    unit_of_measurement: "°C"
+    value_template: '{{ value | multiply(0.001) }}'
+  - platform: command_line
+    name: OMV Temperature
+    command: "ssh -F /config/ssh/config pi@192.168.86.249 'cat /sys/class/thermal/thermal_zone0/temp'"
+    # If errors occur, remove degree symbol below
+    unit_of_measurement: "°C"
+    value_template: '{{ value | multiply(0.001) }}'
+  - platform: command_line
+    name: WG Pi Temperature
+    command: "ssh -F /config/ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'"
+    # If errors occur, remove degree symbol below
+    unit_of_measurement: "°C"
+    value_template: '{{ value | multiply(0.001) }}'
+  - platform: command_line
     name: VPN Clients
     command: "ssh -F /config/ssh/config pi@192.168.86.45 'pivpn -c' | grep 10.6 | sed -r 's/^(\\S*)\\s*(\\S*)\\s*\\S*\\s*\\S*\\s*(\\S*)\\s*(.*$)/\\1--\\2--\\3--\\4--***/g'"
     value_template: '{{ value[:255] }}'
-  - platform: google_travel_time
-    name: Time to work
-    api_key: !secret gm_api_key_1
-    origin: place_id:ChIJncjNW9x4X0YRAAuGGtz9Snk
-    destination: place_id:ChIJWbo6qXOdX0YRhuGHD2V6uck
+  # - platform: google_travel_time
+  #   name: Time to work
+  #   api_key: !secret gm_api_key_1
+  #   origin: place_id:ChIJncjNW9x4X0YRAAuGGtz9Snk
+  #   destination: place_id:ChIJWbo6qXOdX0YRhuGHD2V6uck
   - platform: uptime
   - platform: aarlo
     monitored_conditions:

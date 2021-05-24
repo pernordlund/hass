@@ -203,12 +203,7 @@ async def async_hacs_startup():
     if hacs.hass.state == CoreState.running:
         async_call_later(hacs.hass, 5, hacs.startup_tasks)
     else:
-        if hacs.hass.state == "RUNNING":
-            async_call_later(hacs.hass, 5, hacs.startup_tasks)
-        else:
-            hacs.hass.bus.async_listen_once(
-                EVENT_HOMEASSISTANT_STARTED, hacs.startup_tasks
-            )
+        hacs.hass.bus.async_listen_once(EVENT_HOMEASSISTANT_STARTED, hacs.startup_tasks)
 
     # Set up sensor
     await async_add_sensor()

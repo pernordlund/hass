@@ -44,6 +44,7 @@
   daily_sun:
     entities:
       - light.play_room_ceiling
+      - light.play_room_corner
       - light.front_door
       - light.bedroom_window
       - switch.telldus_tzwp100_plugin_switch_switch
