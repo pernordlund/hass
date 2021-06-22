@@ -868,3 +868,71 @@
     data: {}
     entity_id: light.guest_room_ceiling
   mode: single
+- id: '1622571786170'
+  alias: Outside water start
+  description: Turn on watering at specific time if soil dry
+  trigger:
+  - platform: time
+    at: '23:00:00'
+  condition:
+  - condition: numeric_state
+    entity_id: sensor.outside_sensor_soil_humidity
+    below: '61'
+  action:
+  - service: switch.turn_on
+    target:
+      entity_id: switch.outside_water
+  - service: timer.start
+    data:
+      duration: '0'
+    target:
+      entity_id: timer.outside_water_timer
+  mode: single
+- id: '1622634540808'
+  alias: Greenhouse water start
+  description: ''
+  trigger:
+  - platform: time
+    at: '21:00:00'
+  condition:
+  - condition: numeric_state
+    entity_id: sensor.sensor_soil_humidity
+    below: '60'
+  action:
+  - service: switch.turn_on
+    target:
+      entity_id: switch.water_control
+  - service: timer.start
+    data:
+      duration: '0'
+    target:
+      entity_id: timer.greenhouse_water
+  mode: single
+- id: '1623002824244'
+  alias: Outside water timer end
+  description: ''
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.outside_water_timer
+  condition: []
+  action:
+  - service: switch.turn_off
+    target:
+      entity_id: switch.outside_water
+  mode: single
+- id: '1623003418343'
+  alias: Greenhouse water timer end
+  description: ''
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.greenhouse_water
+  condition: []
+  action:
+  - service: switch.turn_off
+    target:
+      entity_id: switch.water_control
+  mode: single

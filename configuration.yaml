@@ -114,7 +114,7 @@ system_log:
 
 climate: !include climate.yaml
 
-automower: !include automower.yaml
+#automower: !include automower.yaml
 
 # cast: !include cast.yaml
 
@@ -162,15 +162,15 @@ stream:
 
 svt_play:
 
-volkswagencarnet:
-    username: !secret vw_username
-    password: !secret vw_password
-    spin: !secret vw_spin
-    scandinavian_miles: false
-    scan_interval:
-        minutes: 2    
-    name:
-        wvwzzz3czhe181012: Passat
+# volkswagencarnet:
+#     username: !secret vw_username
+#     password: !secret vw_password
+#     spin: !secret vw_spin
+#     scandinavian_miles: false
+#     scan_interval:
+#         minutes: 2    
+#     name:
+#         wvwzzz3czhe181012: Passat
 
 mobile_app:
 

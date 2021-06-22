@@ -143,15 +143,6 @@
                         },
                         {
                             "entities": [
-                                "sensor.roger_status",
-                                "sensor.roger_battery"
-                            ],
-                            "show_header_toggle": true,
-                            "title": "Roger",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
                                 {
                                     "entity": "alert.front_door_open_long"
                                 },
@@ -210,31 +201,6 @@
                             "top_status": false,
                             "top_title": false,
                             "type": "custom:aarlo-glance"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_charging_time_left"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_battery_level"
-                                },
-                                {
-                                    "entity": "binary_sensor.wvwzzz3czhe181012_doors_locked"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_combustion_range"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_last_connected"
-                                },
-                                {
-                                    "entity": "switch.wvwzzz3czhe181012_electric_climatisation"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "YLF 950",
-                            "type": "entities"
                         }
                     ],
                     "path": "default_view",
@@ -385,17 +351,13 @@
                                 },
                                 {
                                     "entity": "fan.albins_fan"
+                                },
+                                {
+                                    "entity": "switch.outside_water"
                                 }
                             ],
                             "show_header_toggle": false,
                             "title": "Switches",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                "vacuum.roger"
-                            ],
-                            "title": "Vacuum",
                             "type": "entities"
                         },
                         {
@@ -441,9 +403,16 @@
                                 },
                                 {
                                     "entity": "automation.ytterdorr_open_notify"
+                                },
+                                {
+                                    "entity": "automation.outside_water"
+                                },
+                                {
+                                    "entity": "automation.greenhouse_water"
                                 }
                             ],
-                            "title": "Automations"
+                            "title": "Automations on/off",
+                            "show_header_toggle": false
                         },
                         {
                             "type": "entities",
@@ -460,6 +429,12 @@
                             ],
                             "title": "Scripts",
                             "show_header_toggle": false
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                "vacuum.automower_r_310_roger"
+                            ]
                         }
                     ],
                     "path": "control",
@@ -534,9 +509,15 @@
                         },
                         {
                             "entities": [
-                                "sensor.fibaro_system_fgk101_door_opening_sensor_temperature",
-                                "sensor.everspring_st814_temperature_and_humidity_sensor_temperature",
-                                "sensor.everspring_st814_temperature_and_humidity_sensor_relative_humidity"
+                                {
+                                    "entity": "sensor.fibaro_system_fgk101_door_opening_sensor_temperature"
+                                },
+                                {
+                                    "entity": "sensor.everspring_st814_temperature_and_humidity_sensor_temperature_2"
+                                },
+                                {
+                                    "entity": "sensor.everspring_st814_temperature_and_humidity_sensor_relative_humidity_3"
+                                }
                             ],
                             "show_header_toggle": true,
                             "title": "Climate Garage",
@@ -614,23 +595,31 @@
                                     "entity": "sensor.sensor_ambient_temperature"
                                 },
                                 {
-                                    "entity": "sensor.plant_sensor_battery_level"
-                                },
-                                {
                                     "entity": "sensor.sensor_light_intensity"
-                                },
-                                {
-                                    "entity": "sensor.sensor_soil_humidity"
                                 },
                                 {
                                     "entity": "sensor.sensor_soil_temperature"
                                 },
                                 {
-                                    "entity": "sensor.water_control_battery_level"
+                                    "entity": "sensor.sensor_soil_humidity"
+                                },
+                                {
+                                    "entity": "sensor.outside_sensor_ambient_temperature"
+                                },
+                                {
+                                    "entity": "sensor.outside_sensor_light_intensity"
+                                },
+                                {
+                                    "entity": "sensor.outside_sensor_soil_temperature"
+                                },
+                                {
+                                    "entity": "sensor.outside_sensor_soil_humidity"
                                 }
                             ],
-                            "title": "Greenhouse",
-                            "type": "entities"
+                            "title": "Greenhouse & Garden",
+                            "type": "entities",
+                            "show_header_toggle": false,
+                            "state_color": false
                         },
                         {
                             "entity": "weather.smhi_home",
@@ -660,38 +649,6 @@
                     ],
                     "path": "climate",
                     "title": "Climate"
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "entity": "media_player.living_room_speaker",
-                            "type": "media-control"
-                        },
-                        {
-                            "entity": "media_player.kitchen_display",
-                            "type": "media-control"
-                        },
-                        {
-                            "entity": "media_player.guest_room_speaker",
-                            "type": "media-control"
-                        },
-                        {
-                            "entity": "media_player.chromecast8094",
-                            "type": "media-control"
-                        },
-                        {
-                            "entity": "media_player.chromecastultra2387",
-                            "type": "media-control"
-                        },
-                        {
-                            "entity": "media_player.samsung_tv",
-                            "type": "media-control"
-                        }
-                    ],
-                    "panel": false,
-                    "path": "media",
-                    "title": "Media"
                 },
                 {
                     "badges": [],
@@ -816,12 +773,6 @@
                                     "entity": "sensor.id_lock_battery"
                                 },
                                 {
-                                    "entity": "sensor.plant_sensor_battery_level"
-                                },
-                                {
-                                    "entity": "sensor.water_control_battery_level"
-                                },
-                                {
                                     "entity": "sensor.popp_co_popp_z_rain_rain_sensor_battery_level"
                                 },
                                 {
@@ -829,6 +780,18 @@
                                 },
                                 {
                                     "entity": "sensor.media_room_sensor_battery_level"
+                                },
+                                {
+                                    "entity": "sensor.outside_sensor_battery_level"
+                                },
+                                {
+                                    "entity": "sensor.outside_water_battery_level"
+                                },
+                                {
+                                    "entity": "sensor.water_control_battery_level"
+                                },
+                                {
+                                    "entity": "sensor.plant_sensor_battery_level"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -958,6 +921,38 @@
                     "title": "Systems"
                 },
                 {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entity": "media_player.living_room_speaker",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.kitchen_display",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.guest_room_speaker",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.chromecast8094",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.chromecastultra2387",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.samsung_tv",
+                            "type": "media-control"
+                        }
+                    ],
+                    "panel": false,
+                    "path": "media",
+                    "title": "Media"
+                },
+                {
                     "title": "Settings",
                     "path": "settings",
                     "badges": [],
@@ -1037,6 +1032,12 @@
                                 },
                                 {
                                     "entity": "timer.cloakroom_timer"
+                                },
+                                {
+                                    "entity": "timer.outside_water_timer"
+                                },
+                                {
+                                    "entity": "timer.greenhouse_water"
                                 }
                             ],
                             "title": "Timers"
@@ -1119,116 +1120,6 @@
                     ],
                     "path": "heater",
                     "title": "Heater"
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "entities": [
-                                {
-                                    "entity": "device_tracker.passat"
-                                },
-                                {
-                                    "entity": "binary_sensor.wvwzzz3czhe181012_climatisation_without_external_power"
-                                },
-                                {
-                                    "entity": "binary_sensor.wvwzzz3czhe181012_doors_locked"
-                                },
-                                {
-                                    "entity": "binary_sensor.wvwzzz3czhe181012_external_power"
-                                },
-                                {
-                                    "entity": "binary_sensor.wvwzzz3czhe181012_trunk_locked"
-                                },
-                                {
-                                    "entity": "binary_sensor.wvwzzz3czhe181012_windows_closed"
-                                },
-                                {
-                                    "entity": "binary_sensor.wvwzzz3czhe181012_parking_light"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_battery_level"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_charger_max_ampere"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_charging_time_left"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_climatisation_target_temperature"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_combined_range"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_combustion_range"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_electric_range"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_fuel_level"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_last_connected"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_last_trip_average_electric_consumption"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_last_trip_average_fuel_consumption"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_last_trip_average_speed"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_last_trip_duration"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_last_trip_length"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_odometer"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_oil_inspection"
-                                },
-                                {
-                                    "entity": "sensor.wvwzzz3czhe181012_service_inspection"
-                                },
-                                {
-                                    "entity": "switch.wvwzzz3czhe181012_charging"
-                                },
-                                {
-                                    "entity": "switch.wvwzzz3czhe181012_electric_climatisation"
-                                },
-                                {
-                                    "entity": "switch.wvwzzz3czhe181012_request_in_progress"
-                                },
-                                {
-                                    "entity": "switch.wvwzzz3czhe181012_window_heater"
-                                },
-                                {
-                                    "entity": "binary_sensor.passat_window_closed_left_back"
-                                },
-                                {
-                                    "entity": "binary_sensor.passat_window_closed_left_front"
-                                },
-                                {
-                                    "entity": "binary_sensor.passat_window_closed_right_back"
-                                },
-                                {
-                                    "entity": "binary_sensor.passat_window_closed_right_front"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "YLF950-Passat",
-                            "type": "entities"
-                        }
-                    ],
-                    "path": "car",
-                    "title": "Car"
                 },
                 {
                     "badges": [],
@@ -1458,6 +1349,13 @@
                             "type": "custom:fan-xiaomi",
                             "name": "Fan",
                             "entity": "fan.xiaomi_air_purifier_2s",
+                            "aspect_ratio": "1",
+                            "background_color": ""
+                        },
+                        {
+                            "type": "custom:fan-xiaomi",
+                            "name": "Fan",
+                            "entity": "fan.albins_fan",
                             "aspect_ratio": "1",
                             "background_color": ""
                         }

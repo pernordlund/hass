@@ -6,12 +6,3 @@
       - "stop"
       - "park"
     initial: "Select action"
-  # Xiaomi Air Purifier 2S
-  # xiaomi_airpurifier_mode:
-  #   name: Mode
-  #   options:
-  #     - Auto
-  #     - Silent
-  #     - Favorite
-  #   initial: Auto
-  #   icon: "mdi:animation-outline"
