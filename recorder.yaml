@@ -9,6 +9,7 @@
       - input_number
       - lock
       - fan
+      - media_player
 #      - sensor
     entity_globs:
       - sensor.glances*

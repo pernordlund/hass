@@ -12,9 +12,9 @@
       front_door_unlocked:
         value_template: '{{ is_state("lock.id_lock_150_locked", "unlocked") }}'
         friendly_name: 'Front door unlocked'
-      passat_door_unlocked:
-        value_template: '{{ is_state("lock.wvwzzz3czhe181012_door_locked", "unlocked") }}'
-        friendly_name: 'Passat door unlocked'
+      arteon_door_unlocked:
+        value_template: '{{ is_state("binary_sensor.arteon_doors_locked", "unlocked") }}'
+        friendly_name: 'Arteon door unlocked'
   - platform: mqtt
     state_topic: "hass/bv/1A01"
     name: "BV-Compressor"

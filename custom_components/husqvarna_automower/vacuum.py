@@ -4,7 +4,6 @@ import logging
 import time
 
 import voluptuous as vol
-
 from homeassistant.components.vacuum import (
     STATE_CLEANING,
     STATE_DOCKED,
@@ -99,7 +98,12 @@ class HusqvarnaAutomowerEntity(HusqvarnaEntity, StateVacuumEntity, CoordinatorEn
         self.communication_not_possible_already_sent = False
         self.mower_name = f"{self.mower_attributes['system']['model']}_{self.mower_attributes['system']['name']}"
         self.model_string_splited = self.mower_attributes["system"]["model"].split(" ")
-        self.model = f"{self.model_string_splited[1]} {self.model_string_splited[2]}"
+        try:
+            self.model = (
+                f"{self.model_string_splited[1]} {self.model_string_splited[2]}"
+            )
+        except IndexError:
+            self.model = self.mower_attributes["system"]["model"]
         self.mower_name = f"{self.model}_{self.mower_attributes['system']['name']}"
 
     @property
@@ -108,8 +112,6 @@ class HusqvarnaAutomowerEntity(HusqvarnaEntity, StateVacuumEntity, CoordinatorEn
             "identifiers": {(DOMAIN, self.mower_id)},
             "name": self.mower_attributes["system"]["name"],
             "manufacturer": "Husqvarna",
-            "model": self.mower_attributes["system"]["model"],
-            "manufacturer": self.model_string_splited[0],
             "model": self.model,
         }
 
@@ -141,6 +143,21 @@ class HusqvarnaAutomowerEntity(HusqvarnaEntity, StateVacuumEntity, CoordinatorEn
     def state(self):
         """Return the state of the mower."""
         self.mower_attributes = self.coordinator.data["data"][self.idx]["attributes"]
+        if self.mower_attributes["mower"]["state"] in ["PAUSED"]:
+            return STATE_PAUSED
+        if self.mower_attributes["mower"]["state"] in [
+            "WAIT_UPDATING",
+            "WAIT_POWER_UP",
+        ]:
+            return STATE_IDLE
+        if (self.mower_attributes["mower"]["state"] == "RESTRICTED") or (
+            self.mower_attributes["mower"]["activity"] in ["PARKED_IN_CS", "CHARGING"]
+        ):
+            return STATE_DOCKED
+        if self.mower_attributes["mower"]["activity"] in ["MOWING", "LEAVING"]:
+            return STATE_CLEANING
+        if self.mower_attributes["mower"]["activity"] == "GOING_HOME":
+            return STATE_RETURNING
         if (
             self.mower_attributes["mower"]["state"]
             in [
@@ -158,21 +175,6 @@ class HusqvarnaAutomowerEntity(HusqvarnaEntity, StateVacuumEntity, CoordinatorEn
             "NOT_APPLICABLE",
         ]:
             return STATE_ERROR
-        if self.mower_attributes["mower"]["state"] in [
-            "WAIT_UPDATING",
-            "WAIT_POWER_UP",
-        ]:
-            return STATE_IDLE
-        if self.mower_attributes["mower"]["state"] in ["PAUSED"]:
-            return STATE_PAUSED
-        if (self.mower_attributes["mower"]["state"] == "RESTRICTED") or (
-            self.mower_attributes["mower"]["activity"] in ["PARKED_IN_CS", "CHARGING"]
-        ):
-            return STATE_DOCKED
-        if self.mower_attributes["mower"]["activity"] in ["MOWING", "LEAVING"]:
-            return STATE_CLEANING
-        if self.mower_attributes["mower"]["activity"] == "GOING_HOME":
-            return STATE_RETURNING
 
     @property
     def icon(self):

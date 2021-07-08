@@ -11,8 +11,8 @@
     "@Thomas55555"
   ],
   "requirements": [
-    "aioautomower==2021.5.0"
+    "aioautomower==2021.6.2"
   ],
   "iot_class": "cloud_polling",
-  "version": "2021.5.3"
+  "version": "2021.6.0"
 }

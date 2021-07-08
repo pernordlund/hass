@@ -45,7 +45,7 @@
                                     "entity": "device_tracker.life360_albin_nordlund"
                                 },
                                 {
-                                    "entity": "device_tracker.passat"
+                                    "entity": "device_tracker.arteon_position"
                                 },
                                 {
                                     "entity": "device_tracker.pelles_wallet"
@@ -100,7 +100,7 @@
                                     "entity": "binary_sensor.front_door_unlocked"
                                 },
                                 {
-                                    "entity": "binary_sensor.passat_door_unlocked"
+                                    "entity": "binary_sensor.arteon_door_unlocked"
                                 },
                                 {
                                     "entity": "binary_sensor.garage_door_unlocked"
@@ -341,12 +341,6 @@
                                     "entity": "switch.white_remote_2"
                                 },
                                 {
-                                    "entity": "switch.wvwzzz3czhe181012_electric_climatisation"
-                                },
-                                {
-                                    "entity": "switch.wvwzzz3czhe181012_charging"
-                                },
-                                {
                                     "entity": "switch.water_control"
                                 },
                                 {
@@ -391,6 +385,9 @@
                                 },
                                 {
                                     "entity": "zwave.id_lock_150"
+                                },
+                                {
+                                    "entity": "lock.arteon_door_locked"
                                 }
                             ],
                             "title": "Locks"
@@ -1120,6 +1117,71 @@
                     ],
                     "path": "heater",
                     "title": "Heater"
+                },
+                {
+                    "title": "Car",
+                    "path": "car",
+                    "icon": "mdi:car",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "entities",
+                            "entities": [
+                                "switch.arteon_auxiliary_climatisation",
+                                "sensor.arteon_battery_level",
+                                "sensor.arteon_charger_max_ampere",
+                                "switch.arteon_charging",
+                                "binary_sensor.arteon_charging_cable_connected",
+                                "binary_sensor.arteon_charging_cable_locked",
+                                "sensor.arteon_charging_time_left",
+                                "switch.arteon_climatisation_from_battery",
+                                "sensor.arteon_climatisation_target_temperature",
+                                "sensor.arteon_combined_range",
+                                "sensor.arteon_combustion_range",
+                                "binary_sensor.arteon_door_closed_left_back",
+                                "binary_sensor.arteon_door_closed_left_front",
+                                "binary_sensor.arteon_door_closed_right_back",
+                                "binary_sensor.arteon_door_closed_right_front",
+                                "lock.arteon_door_locked",
+                                "binary_sensor.arteon_doors_locked",
+                                "switch.arteon_electric_climatisation",
+                                "sensor.arteon_electric_range",
+                                "binary_sensor.arteon_energy_flow",
+                                "binary_sensor.arteon_external_power",
+                                "switch.arteon_force_data_refresh",
+                                "sensor.arteon_fuel_level",
+                                "binary_sensor.arteon_hood_closed",
+                                "sensor.arteon_last_connected",
+                                "sensor.arteon_last_trip_average_electric_engine_consumption",
+                                "sensor.arteon_last_trip_average_fuel_consumption",
+                                "sensor.arteon_last_trip_average_speed",
+                                "sensor.arteon_last_trip_duration",
+                                "sensor.arteon_last_trip_length",
+                                "sensor.arteon_odometer",
+                                "sensor.arteon_oil_inspection_days",
+                                "sensor.arteon_oil_inspection_distance",
+                                "sensor.arteon_outside_temperature",
+                                "binary_sensor.arteon_parking_light",
+                                "sensor.arteon_parking_time",
+                                "device_tracker.arteon_position",
+                                "binary_sensor.arteon_request_in_progress",
+                                "sensor.arteon_request_results",
+                                "sensor.arteon_requests_remaining",
+                                "sensor.arteon_service_inspection_days",
+                                "sensor.arteon_service_inspection_distance",
+                                "binary_sensor.arteon_trunk_closed",
+                                "binary_sensor.arteon_trunk_locked",
+                                "lock.arteon_trunk_locked",
+                                "binary_sensor.arteon_vehicle_moving",
+                                "switch.arteon_window_heater",
+                                "binary_sensor.arteon_window_closed_left_back",
+                                "binary_sensor.arteon_window_closed_left_front",
+                                "binary_sensor.arteon_window_closed_right_back",
+                                "binary_sensor.arteon_window_closed_right_front",
+                                "binary_sensor.arteon_windows_closed"
+                            ]
+                        }
+                    ]
                 },
                 {
                     "badges": [],

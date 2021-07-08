@@ -37,8 +37,9 @@ zwave:
 group: !include groups.yaml
 
 http:
-  # trusted_proxies:
-  #   - !secret http_trusted_proxy
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - !secret http_trusted_proxy
 
 # Checks for available updates
 updater:

@@ -39,12 +39,13 @@
   - condition: state
     entity_id: input_boolean.cancel_next_goodnight
     state: 'off'
-  - condition: state
-    entity_id: media_player.samsung_tv
-    state: 'off'
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: media_player.samsung_tv
+      state: 'on'
   action:
-  - entity_id: scene.godnatt
-    service: script.lights_out
+  - service: script.lights_out
   mode: single
 - id: A008
   alias: 0 - Some lights off at sunrise
@@ -665,14 +666,14 @@
       message: Front door not locked
     service: notify.pelles_tfn
 - id: '1601619813757'
-  alias: Extra good night
+  alias: 0 - Extra good night
   description: ''
   trigger:
   - platform: time
     at: input_datetime.extra_good_night
   condition: []
   action:
-  - scene: scene.godnatt
+  - service: script.lights_out
   - service: homeassistant.turn_off
     data: {}
     entity_id: media_player.samsung_tv

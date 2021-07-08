@@ -3,7 +3,7 @@
 NAME = "husqvarna_automower"
 DOMAIN = "husqvarna_automower"
 DOMAIN_DATA = f"{DOMAIN}_data"
-INTEGRATION_VERSION = "2021.5.3"
+INTEGRATION_VERSION = "2021.6.0"
 ISSUE_URL = "https://github.com/Thomas55555/husqvarna_automower"
 HUSQVARNA_URL = "https://developer.husqvarnagroup.cloud/"
 
@@ -13,9 +13,8 @@ ICON = "mdi:robot-mower"
 
 
 # Platforms
-##SENSOR = "sensor"
-VACUUM = "vacuum"
-PLATFORMS = [VACUUM]
+PLATFORMS = ["device_tracker", "vacuum"]
+# PLATFORMS = ["vacuum"]
 
 
 # Configuration and options
