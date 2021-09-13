@@ -13,8 +13,8 @@
       - light.kitchen_table
       - light.kitchen_bench
       - light.kitchen_ceiling
-      - light.bedroom_window
-      - light.living_room_corner
+      - switch.bedroom_window
+      - switch.living_room_corner
       - light.livingroom_sofa
       - light.living_room_table
   inside_upstairs:
@@ -46,8 +46,8 @@
       - light.play_room_ceiling
       - light.play_room_corner
       - light.front_door
-      - light.bedroom_window
-      - switch.telldus_tzwp100_plugin_switch_switch
+      - switch.bedroom_window
+      - switch.living_room_corner
       - light.tree
       - light.porch_ball
       - light.guestroom_red
@@ -56,7 +56,7 @@
     name: Lights Pelle
     entities:
       - light.bedroom_window
-      - switch.telldus_tzwp100_plugin_switch_switch
+      - switch.living_room_corner
       - switch.fibaro_system_fgwpef_wall_plug_switch
       - light.arbrum_fonster
   lights_alarm_on:

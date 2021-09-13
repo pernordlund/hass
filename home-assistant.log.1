@@ -1,0 +1,156 @@
+2021-09-13 20:03:09 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret latitude retrieved from secrets.yaml in folder /config
+2021-09-13 20:03:09 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret longitude retrieved from secrets.yaml in folder /config
+2021-09-13 20:03:09 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret zw_network_key retrieved from secrets.yaml in folder /config
+2021-09-13 20:03:09 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret http_trusted_proxy retrieved from secrets.yaml in folder /config
+2021-09-13 20:03:09 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret rc_db_url retrieved from secrets.yaml in folder /config
+2021-09-13 20:03:09 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret camera_url retrieved from secrets.yaml in folder /config
+2021-09-13 20:03:09 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret camera_username retrieved from secrets.yaml in folder /config
+2021-09-13 20:03:09 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret camera_pwd retrieved from secrets.yaml in folder /config
+2021-09-13 20:03:09 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret pb_api_key retrieved from secrets.yaml in folder /config
+2021-09-13 20:03:09 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret tw_phone_no retrieved from secrets.yaml in folder /config
+2021-09-13 20:03:09 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret tw_phone_no retrieved from secrets.yaml in folder /config
+2021-09-13 20:03:09 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret in_username retrieved from secrets.yaml in folder /config
+2021-09-13 20:03:09 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret in_password retrieved from secrets.yaml in folder /config
+2021-09-13 20:03:09 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret na_client_id retrieved from secrets.yaml in folder /config
+2021-09-13 20:03:09 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret na_client_secret retrieved from secrets.yaml in folder /config
+2021-09-13 20:03:09 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret ar_username retrieved from secrets.yaml in folder /config
+2021-09-13 20:03:09 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret ar_password retrieved from secrets.yaml in folder /config
+2021-09-13 20:03:09 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret tw_account_sid_from_twilio retrieved from secrets.yaml in folder /config
+2021-09-13 20:03:09 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret tw_auth_token_from_twilio retrieved from secrets.yaml in folder /config
+2021-09-13 20:03:09 WARNING (SyncWorker_1) [homeassistant.loader] We found a custom integration hacs which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-09-13 20:03:09 WARNING (SyncWorker_4) [homeassistant.loader] We found a custom integration xiaomi_miio_airpurifier which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-09-13 20:03:09 WARNING (SyncWorker_3) [homeassistant.loader] We found a custom integration husqvarna_automower which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-09-13 20:03:09 WARNING (SyncWorker_6) [homeassistant.loader] We found a custom integration blitzortung which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-09-13 20:03:09 WARNING (SyncWorker_2) [homeassistant.loader] We found a custom integration scheduler which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-09-13 20:03:09 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration gardena_smart_system which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-09-13 20:03:09 WARNING (SyncWorker_1) [homeassistant.loader] We found a custom integration svt_play which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-09-13 20:03:09 WARNING (SyncWorker_5) [homeassistant.loader] We found a custom integration volkswagencarnet which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-09-13 20:03:09 WARNING (SyncWorker_3) [homeassistant.loader] We found a custom integration aarlo which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-09-13 20:03:14 ERROR (Thread-9) [websocket] error from callback <bound method Client.on_open of <gardena.smart_system.Client object at 0x7f968ed9e790>>: on_open() takes 1 positional argument but 2 were given
+2021-09-13 20:03:14 ERROR (Thread-9) [websocket] error from callback <bound method Client.on_error of <gardena.smart_system.Client object at 0x7f968ed9e790>>: on_error() takes 2 positional arguments but 3 were given
+2021-09-13 20:03:14 ERROR (Thread-9) [root] Uncaught thread exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/websocket/_app.py", line 407, in _callback
+    callback(self, *args)
+TypeError: on_open() takes 1 positional argument but 2 were given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/websocket/_app.py", line 322, in run_forever
+    self._callback(self.on_open)
+  File "/usr/local/lib/python3.9/site-packages/websocket/_app.py", line 412, in _callback
+    self.on_error(self, e)
+TypeError: on_error() takes 2 positional arguments but 3 were given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/websocket/_app.py", line 407, in _callback
+    callback(self, *args)
+TypeError: on_error() takes 2 positional arguments but 3 were given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/threading.py", line 973, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.9/threading.py", line 910, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/lib/python3.9/site-packages/websocket/_app.py", line 371, in run_forever
+    self._callback(self.on_error, e)
+  File "/usr/local/lib/python3.9/site-packages/websocket/_app.py", line 412, in _callback
+    self.on_error(self, e)
+TypeError: on_error() takes 2 positional arguments but 3 were given
+2021-09-13 20:03:14 WARNING (MainThread) [homeassistant.components.webhook] Received message for unregistered webhook e4eb926fc12a605f89a379c699856df988cd1ad6924e5d4f29345f68b9f30015 from cloud
+2021-09-13 20:03:14 WARNING (MainThread) [homeassistant.components.webhook] Received message for unregistered webhook e4eb926fc12a605f89a379c699856df988cd1ad6924e5d4f29345f68b9f30015 from 192.168.86.31
+2021-09-13 20:03:14 WARNING (MainThread) [homeassistant.components.nmap_tracker.device_tracker] Your Nmap Tracker configuration has been imported into the UI, please remove it from configuration.yaml. 
+2021-09-13 20:03:14 ERROR (MainThread) [homeassistant.components.device_tracker] Error setting up platform legacy nmap_tracker
+2021-09-13 20:03:15 WARNING (MainThread) [homeassistant.components.light] Platform netatmo not ready yet: None; Retrying in background in 30 seconds
+2021-09-13 20:03:15 WARNING (MainThread) [homeassistant.components.select] Platform netatmo not ready yet: None; Retrying in background in 30 seconds
+2021-09-13 20:03:33 WARNING (MainThread) [homeassistant.components.camera] The camera entity camera.aarlo_arlozonefront does not support requesting width and height, please open an issue with the integration author
+2021-09-13 20:03:33 WARNING (MainThread) [homeassistant.components.camera] The camera entity camera.aarlo_arlozoneinside does not support requesting width and height, please open an issue with the integration author
+2021-09-13 20:05:59 WARNING (MainThread) [homeassistant.components.cloud.google_config] Error reporting state - 5: Requested entity was not found.
+2021-09-13 20:06:59 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.guest_room_desk
+2021-09-13 20:08:10 WARNING (MainThread) [homeassistant.components.cloud.google_config] Error reporting state - 5: Requested entity was not found.
+2021-09-13 20:12:42 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.guest_room_desk
+2021-09-13 20:14:22 ERROR (MainThread) [homeassistant.components.tplink] Error fetching TP2 - IKEA data: Communication error
+2021-09-13 20:27:22 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.guest_room_desk
+2021-09-13 20:35:18 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.guest_room_desk
+2021-09-13 20:36:31 WARNING (Dummy-688) [openzwave] Z-Wave Notification ValueRemoved for an unknown value ({'id': 72057594093060096}) on node 3
+2021-09-13 20:36:31 WARNING (Dummy-688) [openzwave] Z-Wave Notification ValueRemoved for an unknown value ({'id': 72057594101481476}) on node 3
+2021-09-13 20:36:31 WARNING (Dummy-688) [openzwave] Z-Wave Notification ValueRemoved for an unknown value ({'id': 72057594102382593}) on node 3
+2021-09-13 20:36:31 WARNING (Dummy-688) [openzwave] Z-Wave Notification ValueRemoved for an unknown value ({'id': 72057594102382614}) on node 3
+2021-09-13 20:36:31 WARNING (Dummy-688) [openzwave] Z-Wave Notification ValueRemoved for an unknown value ({'id': 72057594102382630}) on node 3
+2021-09-13 20:36:31 WARNING (Dummy-688) [openzwave] Z-Wave Notification ValueRemoved for an unknown value ({'id': 72057594098483217}) on node 3
+2021-09-13 20:36:31 WARNING (Dummy-688) [openzwave] Z-Wave Notification ValueRemoved for an unknown value ({'id': 72057594098483236}) on node 3
+2021-09-13 20:36:31 WARNING (Dummy-688) [openzwave] Z-Wave Notification ValueRemoved for an unknown value ({'id': 72057594098483249}) on node 3
+2021-09-13 20:36:31 WARNING (Dummy-688) [openzwave] Z-Wave Notification ValueRemoved for an unknown value ({'id': 72057594102726660}) on node 3
+2021-09-13 20:36:31 WARNING (Dummy-688) [openzwave] Z-Wave Notification ValueRemoved for an unknown value ({'id': 72057594102726673}) on node 3
+2021-09-13 20:36:31 WARNING (Dummy-688) [openzwave] Z-Wave Notification ValueRemoved for an unknown value ({'id': 72057594102726696}) on node 3
+2021-09-13 20:36:31 WARNING (Dummy-688) [openzwave] Z-Wave Notification ValueRemoved for an unknown value ({'id': 72057594102726705}) on node 3
+2021-09-13 20:36:31 WARNING (Dummy-688) [openzwave] Z-Wave Notification ValueRemoved for an unknown value ({'id': 72057594102726724}) on node 3
+2021-09-13 20:36:31 WARNING (Dummy-688) [openzwave] Z-Wave Notification ValueRemoved for an unknown value ({'id': 72057594102726742}) on node 3
+2021-09-13 20:36:31 WARNING (Dummy-688) [openzwave] Z-Wave Notification ValueRemoved for an unknown value ({'id': 72057594102726760}) on node 3
+2021-09-13 20:36:31 WARNING (Dummy-688) [openzwave] Z-Wave Notification ValueRemoved for an unknown value ({'id': 72057594102726776}) on node 3
+2021-09-13 20:36:31 WARNING (Dummy-688) [openzwave] Z-Wave Notification ValueRemoved for an unknown value ({'id': 72057594102726788}) on node 3
+2021-09-13 20:36:31 WARNING (Dummy-688) [openzwave] Z-Wave Notification ValueRemoved for an unknown value ({'id': 72057594102726806}) on node 3
+2021-09-13 20:36:31 WARNING (Dummy-688) [openzwave] Z-Wave Notification ValueRemoved for an unknown value ({'id': 72057594102759428}) on node 3
+2021-09-13 20:36:31 WARNING (Dummy-688) [openzwave] Z-Wave Notification ValueRemoved for an unknown value ({'id': 72057594103037959}) on node 3
+2021-09-13 20:36:31 WARNING (Dummy-688) [openzwave] Z-Wave Notification ValueRemoved for an unknown value ({'id': 72057594103037975}) on node 3
+2021-09-13 20:36:31 WARNING (Dummy-688) [openzwave] Z-Wave Notification ValueRemoved for an unknown value ({'id': 72057594103037991}) on node 3
+2021-09-13 20:49:24 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.guest_room_desk
+2021-09-13 21:09:21 WARNING (MainThread) [homeassistant.components.cloud.google_config] Error reporting state - 5: Requested entity was not found.
+2021-09-13 21:11:54 ERROR (MainThread) [homeassistant.config_entries] Error unloading entry 00212E060B6E for light
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/config_entries.py", line 443, in async_unload
+    result = await component.async_unload_entry(hass, self)  # type: ignore
+  File "/usr/src/homeassistant/homeassistant/components/light/__init__.py", line 512, in async_unload_entry
+    return await component.async_unload_entry(entry)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity_component.py", line 183, in async_unload_entry
+    await platform.async_reset()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity_platform.py", line 601, in async_reset
+    await asyncio.gather(*tasks)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 722, in async_remove
+    await self.async_will_remove_from_hass()
+  File "/usr/src/homeassistant/homeassistant/components/deconz/deconz_device.py", line 84, in async_will_remove_from_hass
+    self.gateway.entities[self.TYPE].remove(self.unique_id)
+KeyError: '08:6b:d7:ff:fe:37:14:98-01'
+2021-09-13 21:11:54 ERROR (MainThread) [homeassistant.components.light] Platform deconz does not generate unique IDs. ID 08:6b:d7:ff:fe:37:14:98-01 already exists - ignoring light.albins_bed
+2021-09-13 21:11:56 WARNING (MainThread) [homeassistant.components.cloud.google_config] Error reporting state - 5: Requested entity was not found.
+2021-09-13 21:12:38 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.guest_room_desk
+2021-09-13 22:20:41 WARNING (MainThread) [homeassistant.components.cloud.google_config] Error reporting state - 5: Requested entity was not found.
+2021-09-13 22:33:04 DEBUG (SyncWorker_8) [homeassistant.util.yaml.loader] Loading /config/secrets.yaml
+2021-09-13 22:33:04 DEBUG (SyncWorker_8) [homeassistant.util.yaml.loader] Secret latitude retrieved from secrets.yaml in folder /config
+2021-09-13 22:33:04 DEBUG (SyncWorker_8) [homeassistant.util.yaml.loader] Secret longitude retrieved from secrets.yaml in folder /config
+2021-09-13 22:33:04 DEBUG (SyncWorker_8) [homeassistant.util.yaml.loader] Secret zw_network_key retrieved from secrets.yaml in folder /config
+2021-09-13 22:33:04 DEBUG (SyncWorker_8) [homeassistant.util.yaml.loader] Secret http_trusted_proxy retrieved from secrets.yaml in folder /config
+2021-09-13 22:33:04 DEBUG (SyncWorker_8) [homeassistant.util.yaml.loader] Secret rc_db_url retrieved from secrets.yaml in folder /config
+2021-09-13 22:33:04 DEBUG (SyncWorker_8) [homeassistant.util.yaml.loader] Secret camera_url retrieved from secrets.yaml in folder /config
+2021-09-13 22:33:04 DEBUG (SyncWorker_8) [homeassistant.util.yaml.loader] Secret camera_username retrieved from secrets.yaml in folder /config
+2021-09-13 22:33:04 DEBUG (SyncWorker_8) [homeassistant.util.yaml.loader] Secret camera_pwd retrieved from secrets.yaml in folder /config
+2021-09-13 22:33:04 DEBUG (SyncWorker_8) [homeassistant.util.yaml.loader] Secret pb_api_key retrieved from secrets.yaml in folder /config
+2021-09-13 22:33:04 DEBUG (SyncWorker_8) [homeassistant.util.yaml.loader] Secret tw_phone_no retrieved from secrets.yaml in folder /config
+2021-09-13 22:33:04 DEBUG (SyncWorker_8) [homeassistant.util.yaml.loader] Secret tw_phone_no retrieved from secrets.yaml in folder /config
+2021-09-13 22:33:04 DEBUG (SyncWorker_8) [homeassistant.util.yaml.loader] Secret in_username retrieved from secrets.yaml in folder /config
+2021-09-13 22:33:04 DEBUG (SyncWorker_8) [homeassistant.util.yaml.loader] Secret in_password retrieved from secrets.yaml in folder /config
+2021-09-13 22:33:04 DEBUG (SyncWorker_8) [homeassistant.util.yaml.loader] Secret na_client_id retrieved from secrets.yaml in folder /config
+2021-09-13 22:33:04 DEBUG (SyncWorker_8) [homeassistant.util.yaml.loader] Secret na_client_secret retrieved from secrets.yaml in folder /config
+2021-09-13 22:33:04 DEBUG (SyncWorker_8) [homeassistant.util.yaml.loader] Secret ar_username retrieved from secrets.yaml in folder /config
+2021-09-13 22:33:04 DEBUG (SyncWorker_8) [homeassistant.util.yaml.loader] Secret ar_password retrieved from secrets.yaml in folder /config
+2021-09-13 22:33:04 DEBUG (SyncWorker_8) [homeassistant.util.yaml.loader] Secret tw_account_sid_from_twilio retrieved from secrets.yaml in folder /config
+2021-09-13 22:33:04 DEBUG (SyncWorker_8) [homeassistant.util.yaml.loader] Secret tw_auth_token_from_twilio retrieved from secrets.yaml in folder /config
+2021-09-13 22:33:04 ERROR (MainThread) [homeassistant] Error doing job: Exception in callback EventBus.async_listen_once.<locals>._onetime_listener(<Event homeassistant_stop[L]>) at /usr/src/homeassistant/homeassistant/core.py:820
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "/usr/src/homeassistant/homeassistant/core.py", line 834, in _onetime_listener
+    self._hass.async_run_job(listener, event)
+  File "/usr/src/homeassistant/homeassistant/core.py", line 452, in async_run_job
+    return self.async_run_hass_job(HassJob(target), *args)
+  File "/usr/src/homeassistant/homeassistant/core.py", line 436, in async_run_hass_job
+    return self.async_add_hass_job(hassjob, *args)
+  File "/usr/src/homeassistant/homeassistant/core.py", line 363, in async_add_hass_job
+    task = self.loop.create_task(hassjob.target(*args))
+TypeError: async_logout() takes 1 positional argument but 2 were given
+2021-09-13 22:33:15 ERROR (MainThread) [homeassistant.components.hassio.handler] Timeout on /homeassistant/restart request

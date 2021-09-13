@@ -195,7 +195,7 @@
       scene_id: 14
   action:
   - service: homeassistant.toggle
-    entity_id: switch.telldus_tzwp_100_plug_in_switch_switch
+    entity_id: switch.living_room_corner
 - id: A025
   alias: Badrum on when motion timer
   trigger:
@@ -501,34 +501,6 @@
   - data:
       message: No motion in arbrum
     service: notify.pelles_tfn
-- id: '1550438266481'
-  alias: Allrum on when dark
-  trigger:
-  - below: 6
-    entity_id: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance
-    platform: numeric_state
-  - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor
-    from: 'off'
-    platform: state
-    to: 'on'
-  condition:
-  - after: '15:00'
-    before: '22:00'
-    condition: time
-  action:
-  - data:
-      entity_id: light.play_room_ceiling
-    service: light.turn_on
-- id: '1554619393049'
-  alias: Test Google Pub/Sub
-  trigger:
-  - platform: webhook
-    webhook_id: google-pub-sub
-  condition: []
-  action:
-  - data:
-      message: Webhook triggered
-    service: notify.pelles_tfn
 - id: '1569174049492'
   alias: Flower lights on
   trigger:
@@ -654,7 +626,7 @@
   alias: Pelle - notify when front door not locked
   description: ''
   trigger:
-  - entity_id: binary_sensor.g8441_is_charging
+  - entity_id: binary_sensor.xq_as52_is_charging
     platform: state
     to: 'on'
   condition:

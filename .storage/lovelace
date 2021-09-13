@@ -52,13 +52,10 @@
                                 },
                                 {
                                     "entity": "device_tracker.g8441"
-                                },
-                                {
-                                    "entity": "sensor.marie_velocity"
                                 }
                             ],
                             "show_header_toggle": false,
-                            "title": "Family",
+                            "title": "Location",
                             "type": "entities"
                         },
                         {
@@ -70,7 +67,7 @@
                                     "entity": "binary_sensor.dishwasher_flood_template"
                                 },
                                 {
-                                    "entity": "binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor"
+                                    "entity": "binary_sensor.play_room_sensor_sensor_2"
                                 },
                                 {
                                     "entity": "binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2"
@@ -201,6 +198,21 @@
                             "top_status": false,
                             "top_title": false,
                             "type": "custom:aarlo-glance"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.arteon_charging_cable_connected"
+                                },
+                                {
+                                    "entity": "binary_sensor.arteon_doors_locked"
+                                },
+                                {
+                                    "entity": "sensor.arteon_battery_level"
+                                }
+                            ],
+                            "title": "Arteon - FZJ47U"
                         }
                     ],
                     "path": "default_view",
@@ -211,9 +223,6 @@
                     "cards": [
                         {
                             "entities": [
-                                {
-                                    "entity": "light.bedroom_window"
-                                },
                                 {
                                     "entity": "switch.bedroom_window"
                                 },
@@ -245,7 +254,7 @@
                                     "entity": "light.kitchen_table"
                                 },
                                 {
-                                    "entity": "light.living_room_corner"
+                                    "entity": "switch.living_room_corner"
                                 },
                                 {
                                     "entity": "light.livingroom_sofa"
@@ -367,6 +376,15 @@
                             "entities": [
                                 {
                                     "entity": "input_boolean.cancel_next_goodnight"
+                                },
+                                {
+                                    "entity": "switch.arteon_electric_climatisation"
+                                },
+                                {
+                                    "entity": "switch.arteon_auxiliary_climatisation"
+                                },
+                                {
+                                    "entity": "switch.arteon_window_heater"
                                 }
                             ],
                             "title": "Misc"
@@ -452,10 +470,10 @@
                                     "entity": "sensor.fibaro_system_fgsd002_smoke_sensor_temperature"
                                 },
                                 {
-                                    "entity": "sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance"
+                                    "entity": "sensor.play_room_sensor_luminance_2"
                                 },
                                 {
-                                    "entity": "sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature"
+                                    "entity": "sensor.play_room_sensor_temperature_2"
                                 },
                                 {
                                     "entity": "sensor.attic_temperature"
@@ -716,6 +734,9 @@
                                 },
                                 {
                                     "entity": "sensor.omv_temperature"
+                                },
+                                {
+                                    "entity": "sensor.seagate4tb_temperature"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -743,7 +764,7 @@
                                     "entity": "sensor.smoke_battery"
                                 },
                                 {
-                                    "entity": "sensor.allrum_battery"
+                                    "entity": "sensor.play_room_sensor_battery_level_2"
                                 },
                                 {
                                     "entity": "sensor.frysen_battery"

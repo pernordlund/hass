@@ -410,6 +410,12 @@
     unit_of_measurement: "°C"
     value_template: '{{ value | multiply(0.001) }}'
   - platform: command_line
+    name: Seagate4TB Temperature
+    command: "ssh -F /config/ssh/config pi@192.168.86.249 sudo smartctl -a /dev/sdb| grep Temperature_Celsius | awk '{print $4}'"
+    # If errors occur, remove degree symbol below
+    unit_of_measurement: "°C"
+    value_template: '{{ value | multiply(1) }}'
+  - platform: command_line
     name: WG Pi Temperature
     command: "ssh -F /config/ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'"
     # If errors occur, remove degree symbol below
