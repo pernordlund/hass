@@ -104,6 +104,12 @@
                                 },
                                 {
                                     "entity": "binary_sensor.aqara_motion"
+                                },
+                                {
+                                    "entity": "binary_sensor.ikea_motion"
+                                },
+                                {
+                                    "entity": "binary_sensor.garage_door_opened"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -113,25 +119,32 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.last_trip_allrum"
+                                    "entity": "sensor.aarlo_last_arlozonefront",
+                                    "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "sensor.last_trip_ytterdorr"
+                                    "entity": "sensor.aarlo_last_arlozoneinside",
+                                    "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "sensor.last_trip_alarm"
+                                    "entity": "binary_sensor.garage_door_opened",
+                                    "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "sensor.last_trip_garagedorr"
+                                    "entity": "binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2",
+                                    "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "sensor.aarlo_last_arlozonefront"
+                                    "entity": "binary_sensor.guest_room_motion",
+                                    "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "sensor.aarlo_last_arlozoneinside"
+                                    "entity": "binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor",
+                                    "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "sensor.last_trip_guest_room"
+                                    "entity": "binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2",
+                                    "secondary_info": "last-changed"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -532,6 +545,9 @@
                                 },
                                 {
                                     "entity": "sensor.everspring_st814_temperature_and_humidity_sensor_relative_humidity_3"
+                                },
+                                {
+                                    "entity": "sensor.garage_door_temperature"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -541,31 +557,25 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.bv_outdoor"
-                                },
-                                {
                                     "entity": "sensor.netatmo_outdoor_humidity"
                                 },
                                 {
                                     "entity": "sensor.netatmo_outdoor_temperature"
                                 },
                                 {
+                                    "entity": "sensor.bv_outdoor"
+                                },
+                                {
                                     "entity": "sensor.altan_temperature"
+                                },
+                                {
+                                    "entity": "sensor.arteon_outside_temperature"
                                 },
                                 {
                                     "entity": "sensor.popp_co_popp_z_rain_rain_sensor_rain_rate"
                                 },
                                 {
                                     "entity": "sensor.popp_co_popp_z_rain_rain_sensor_water"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_rain_rain"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_rain_sum_rain_1"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_rain_sum_rain_24"
                                 },
                                 {
                                     "entity": "sensor.blitzortung_lightning_counter"
@@ -1056,6 +1066,9 @@
                                 },
                                 {
                                     "entity": "timer.greenhouse_water"
+                                },
+                                {
+                                    "entity": "input_number.media_room_timer"
                                 }
                             ],
                             "title": "Timers"

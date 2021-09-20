@@ -15,6 +15,12 @@
       arteon_door_unlocked:
         value_template: '{{ is_state("binary_sensor.arteon_doors_locked", "unlocked") }}'
         friendly_name: 'Arteon door unlocked'
+      ikea_motion:
+        value_template: '{{ is_state("binary_sensor.tradfri_motion_sensor", "on") }}'
+        friendly_name: 'IKEA sensor motion'
+      garage_door_opened:
+        value_template: '{{ is_state("binary_sensor.garage_door_open", "on") }}'
+        friendly_name: 'Garage door open'
   - platform: mqtt
     state_topic: "hass/bv/1A01"
     name: "BV-Compressor"

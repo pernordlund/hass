@@ -95,6 +95,6 @@ binary_sensor.aarlo_motion_arlozoneinside:
 light.shapes_eea3_local:
   friendly_name: Albins shapes
 binary_sensor.aqara_motion:
-  friendly_name: Aqara Guest Room Motion
+  friendly_name: Media room motion
   device_class: moving
 switch.bedroom_window: {}
