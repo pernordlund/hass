@@ -79,10 +79,10 @@
         friendly_name: 'Alarm trip'
       last_trip_ytterdorr:
         value_template: >-
-          {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2.last_changed))/3600 > 24 -%}
+          {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.front_door_open.last_changed))/3600 > 24 -%}
             >24hr
           {%- else -%}
-            {{ as_timestamp(states.binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2.last_changed) | timestamp_custom('%H:%M') }}
+            {{ as_timestamp(states.binary_sensor.front_door_open.last_changed) | timestamp_custom('%H:%M') }}
           {%- endif %}
         friendly_name: 'Ytterdorr trip'
       last_trip_garagedorr:
@@ -93,14 +93,6 @@
             {{ as_timestamp(states.binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_2.last_changed) | timestamp_custom('%Y-%m-%d %H:%M') }}
           {%- endif %}
         friendly_name: 'Garagedorr trip'
-      last_trip_flood:
-        value_template: >-
-          {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.dishwasher_flood_template.last_changed))/3600 > 72 -%}
-            >72hr
-          {%- else -%}
-            {{ as_timestamp(states.binary_sensor.dishwasher_flood_template.last_changed) | timestamp_custom('%Y-%m-%d %H:%M') }}
-          {%- endif %}
-        friendly_name: 'Dishwasher trip '
       last_trip_guest_room:
         value_template: >-
           {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.guest_room_motion.last_changed))/3600 > 72 -%}
@@ -127,11 +119,6 @@
       philio_battery:
         friendly_name: 'Philio battery'
         value_template: "{{ state_attr('zwave.philio_technology_corporation_psp05_pir_motion', 'battery_level') }}"
-        unit_of_measurement: '%'
-        device_class: battery
-      smoke_battery:
-        friendly_name: 'Smoke sensor battery'
-        value_template: "{{ state_attr('zwave.fibaro_system_fgsd002_smoke_sensor', 'battery_level') }}"
         unit_of_measurement: '%'
         device_class: battery
       allrum_battery:

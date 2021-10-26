@@ -6,6 +6,7 @@ import time
 import voluptuous as vol
 
 from homeassistant.components.vacuum import (
+    ATTR_STATUS,
     STATE_CLEANING,
     STATE_DOCKED,
     STATE_ERROR,
@@ -22,9 +23,8 @@ from homeassistant.components.vacuum import (
     StateVacuumEntity,
 )
 from homeassistant.helpers import config_validation as cv
-from homeassistant.helpers import entity_platform, service
-from homeassistant.helpers.entity import Entity
-from homeassistant.helpers.update_coordinator import CoordinatorEntity, UpdateFailed
+from homeassistant.helpers import entity_platform
+from homeassistant.helpers.update_coordinator import UpdateFailed
 
 from .const import DOMAIN, ERRORCODES, ICON
 
@@ -42,10 +42,10 @@ _LOGGER = logging.getLogger(__name__)
 
 async def async_setup_entry(hass, entry, async_add_devices):
     """Setup sensor platform."""
-    coordinator = hass.data[DOMAIN][entry.entry_id]
+    session = hass.data[DOMAIN][entry.entry_id]
     async_add_devices(
-        HusqvarnaAutomowerEntity(coordinator, idx)
-        for idx, ent in enumerate(coordinator.data["data"])
+        HusqvarnaAutomowerEntity(session, idx)
+        for idx, ent in enumerate(session.data["data"])
     )
     platform = entity_platform.current_platform.get()
 
@@ -59,59 +59,33 @@ async def async_setup_entry(hass, entry, async_add_devices):
     )
 
 
-class HusqvarnaEntity(Entity):
-    """Defining the Husqvarna Entity."""
-
-    def __init__(self, coordinator):
-        """Pass the coordinator to the class."""
-        self.coordinator = coordinator
-
-    async def async_added_to_hass(self):
-        """Connect to dispatcher listening for entity data notifications."""
-        self.async_on_remove(
-            self.coordinator.async_add_listener(self.async_write_ha_state)
-        )
-
-    async def async_update(self):
-        """Update Brother entity."""
-        await self.coordinator.async_request_refresh()
-
-
-class HusqvarnaAutomowerEntity(HusqvarnaEntity, StateVacuumEntity, CoordinatorEntity):
+class HusqvarnaAutomowerEntity(StateVacuumEntity):
     """Defining each mower Entity."""
 
-    def __init__(self, coordinator, idx):
-        """Pass coordinator to CoordinatorEntity."""
-        super().__init__(coordinator)
+    def __init__(self, session, idx):
+        self.session = session
         self.idx = idx
-        self.mower = self.coordinator.data["data"][self.idx]
-        self.mower_attributes = self.mower["attributes"]
-        self.connected = self.mower_attributes["metadata"]["connected"]
-        self.mower_id = self.mower["id"]
-        self.mower_command = None
-        self.state_time = None
-        self.error_code = None
-        self.error_message = None
-        self.error_time = None
-        self.next_start = None
-        self.attributes = None
-        self.payload = None
-        self.communication_not_possible_already_sent = False
-        self.mower_name = f"{self.mower_attributes['system']['model']}_{self.mower_attributes['system']['name']}"
-        self.model_string_splited = self.mower_attributes["system"]["model"].split(" ")
-        try:
-            self.model = (
-                f"{self.model_string_splited[1]} {self.model_string_splited[2]}"
-            )
-        except IndexError:
-            self.model = self.mower_attributes["system"]["model"]
-        self.mower_name = f"{self.model}_{self.mower_attributes['system']['name']}"
+
+        mower = self.session.data["data"][self.idx]
+        mower_attributes = self.__get_mower_attributes()
+
+        self.mower_id = mower["id"]
+        self.mower_name = mower_attributes["system"]["name"]
+        self.model = mower_attributes["system"]["model"]
+        self._available = None
+
+        self.session.register_cb(
+            lambda _: self.async_write_ha_state(), schedule_immediately=True
+        )
+
+    def __get_mower_attributes(self):
+        return self.session.data["data"][self.idx]["attributes"]
 
     @property
     def device_info(self):
         return {
             "identifiers": {(DOMAIN, self.mower_id)},
-            "name": self.mower_attributes["system"]["name"],
+            "name": self.mower_name,
             "manufacturer": "Husqvarna",
             "model": self.model,
         }
@@ -119,16 +93,24 @@ class HusqvarnaAutomowerEntity(HusqvarnaEntity, StateVacuumEntity, CoordinatorEn
     @property
     def available(self):
         """Return True if the device is available."""
-        self._connected = self.coordinator.data["data"][self.idx]["attributes"][
-            "metadata"
-        ]["connected"]
-        if not self._connected and not self.communication_not_possible_already_sent:
-            self.communication_not_possible_already_sent = True
-            _LOGGER.warning("Connection to %s lost", self.mower_name)
-        if self._connected and self.communication_not_possible_already_sent:
-            self.communication_not_possible_already_sent = False
-            _LOGGER.info("Connected to %s again", self.mower_name)
-        return self._connected
+        available = False
+        try:
+            available = (
+                self.__get_mower_attributes()["metadata"]["connected"]
+                and self.session.data["data"][self.idx]["id"] == self.mower_id
+            )
+        except (IndexError, KeyError):
+            pass
+
+        if self._available != available:
+            if self._available is not None:
+                if available:
+                    _LOGGER.info("Connected to %s again", self.mower_name)
+                else:
+                    _LOGGER.warning("Connection to %s lost", self.mower_name)
+            self._available = available
+
+        return available
 
     @property
     def name(self):
@@ -138,29 +120,29 @@ class HusqvarnaAutomowerEntity(HusqvarnaEntity, StateVacuumEntity, CoordinatorEn
     @property
     def unique_id(self):
         """Return a unique ID to use for this mower."""
-        return self.coordinator.data["data"][self.idx]["id"]
+        return self.session.data["data"][self.idx]["id"]
 
     @property
     def state(self):
         """Return the state of the mower."""
-        self.mower_attributes = self.coordinator.data["data"][self.idx]["attributes"]
-        if self.mower_attributes["mower"]["state"] in ["PAUSED"]:
+        mower_attributes = self.__get_mower_attributes()
+        if mower_attributes["mower"]["state"] in ["PAUSED"]:
             return STATE_PAUSED
-        if self.mower_attributes["mower"]["state"] in [
+        if mower_attributes["mower"]["state"] in [
             "WAIT_UPDATING",
             "WAIT_POWER_UP",
         ]:
             return STATE_IDLE
-        if (self.mower_attributes["mower"]["state"] == "RESTRICTED") or (
-            self.mower_attributes["mower"]["activity"] in ["PARKED_IN_CS", "CHARGING"]
+        if (mower_attributes["mower"]["state"] == "RESTRICTED") or (
+            mower_attributes["mower"]["activity"] in ["PARKED_IN_CS", "CHARGING"]
         ):
             return STATE_DOCKED
-        if self.mower_attributes["mower"]["activity"] in ["MOWING", "LEAVING"]:
+        if mower_attributes["mower"]["activity"] in ["MOWING", "LEAVING"]:
             return STATE_CLEANING
-        if self.mower_attributes["mower"]["activity"] == "GOING_HOME":
+        if mower_attributes["mower"]["activity"] == "GOING_HOME":
             return STATE_RETURNING
         if (
-            self.mower_attributes["mower"]["state"]
+            mower_attributes["mower"]["state"]
             in [
                 "FATAL_ERROR",
                 "ERROR",
@@ -170,12 +152,20 @@ class HusqvarnaAutomowerEntity(HusqvarnaEntity, StateVacuumEntity, CoordinatorEn
                 "STOPPED",
                 "OFF",
             ]
-        ) or self.mower_attributes["mower"]["activity"] in [
+        ) or mower_attributes["mower"]["activity"] in [
             "STOPPED_IN_GARDEN",
             "UNKNOWN",
             "NOT_APPLICABLE",
         ]:
             return STATE_ERROR
+
+    @property
+    def error(self):
+        """An error message if the vacuum is in STATE_ERROR."""
+        if self.state == STATE_ERROR:
+            mower_attributes = self.__get_mower_attributes()
+            return ERRORCODES.get(mower_attributes["mower"]["errorCode"])
+        return ""
 
     @property
     def icon(self):
@@ -194,105 +184,152 @@ class HusqvarnaAutomowerEntity(HusqvarnaEntity, StateVacuumEntity, CoordinatorEn
             0,
             min(
                 100,
-                self.coordinator.data["data"][self.idx]["attributes"]["battery"][
-                    "batteryPercent"
-                ],
+                self.__get_mower_attributes()["battery"]["batteryPercent"],
             ),
         )
+
+    def __get_status(self) -> str:
+        mower_attributes = self.__get_mower_attributes()
+        next_start_short = ""
+        if mower_attributes["planner"]["nextStartTimestamp"] != 0:
+            next_start_short = time.strftime(
+                ", next start: %a %H:%M",
+                time.gmtime((mower_attributes["planner"]["nextStartTimestamp"]) / 1000),
+            )
+        if mower_attributes["mower"]["state"] == "UNKNOWN":
+            return "Unknown"
+        if mower_attributes["mower"]["state"] == "NOT_APPLICABLE":
+            return "Not applicable"
+        if mower_attributes["mower"]["state"] == "PAUSED":
+            return "Paused"
+        if mower_attributes["mower"]["state"] == "IN_OPERATION":
+            if mower_attributes["mower"]["activity"] == "UNKNOWN":
+                return "Unknown"
+            if mower_attributes["mower"]["activity"] == "NOT_APPLICABLE":
+                return "Not applicable"
+            if mower_attributes["mower"]["activity"] == "MOWING":
+                return "Mowing"
+            if mower_attributes["mower"]["activity"] == "GOING_HOME":
+                return "Going to charging station"
+            if mower_attributes["mower"]["activity"] == "CHARGING":
+                return f"Charging{next_start_short}"
+            if mower_attributes["mower"]["activity"] == "LEAVING":
+                return "Leaving charging station"
+            if mower_attributes["mower"]["activity"] == "PARKED_IN_CS":
+                return "Parked"
+            if mower_attributes["mower"]["activity"] == "STOPPED_IN_GARDEN":
+                return "Stopped"
+        if mower_attributes["mower"]["state"] == "WAIT_UPDATING":
+            return "Updating"
+        if mower_attributes["mower"]["state"] == "WAIT_POWER_UP":
+            return "Powering up"
+        if mower_attributes["mower"]["state"] == "RESTRICTED":
+            if mower_attributes["planner"]["restrictedReason"] == "WEEK_SCHEDULE":
+                return f"Schedule{next_start_short}"
+            if mower_attributes["planner"]["restrictedReason"] == "PARK_OVERRIDE":
+                return "Park override"
+            if mower_attributes["planner"]["restrictedReason"] == "SENSOR":
+                return "Weather timer"
+            if mower_attributes["planner"]["restrictedReason"] == "DAILY_LIMIT":
+                return "Daily limit"
+            if mower_attributes["planner"]["restrictedReason"] == "NOT_APPLICABLE":
+                return "Parked until further notice"
+        if mower_attributes["mower"]["state"] == "OFF":
+            return "Off"
+        if mower_attributes["mower"]["state"] == "STOPPED":
+            return "Stopped"
+        if mower_attributes["mower"]["state"] in [
+            "ERROR",
+            "FATAL_ERROR",
+            "ERROR_AT_POWER_UP",
+        ]:
+            return ERRORCODES.get(mower_attributes["mower"]["errorCode"])
+        return "Unknown"
 
     @property
     def extra_state_attributes(self):
         """Return the specific state attributes of this mower."""
-        self.mower_attributes = self.coordinator.data["data"][self.idx]["attributes"]
-        self.state_time = time.strftime(
+        mower_attributes = self.__get_mower_attributes()
+        state_time = time.strftime(
             "%Y-%m-%d %H:%M:%S",
-            time.localtime(
-                (self.mower_attributes["metadata"]["statusTimestamp"]) / 1000
-            ),
+            time.localtime((mower_attributes["metadata"]["statusTimestamp"]) / 1000),
         )
-        if self.mower_attributes["mower"]["errorCode"] != 0:
-            self.error_message = ERRORCODES.get(
-                self.mower_attributes["mower"]["errorCode"]
-            )
-            self.error_time = time.strftime(
+        error_message = None
+        error_time = None
+        if mower_attributes["mower"]["state"] in [
+            "ERROR",
+            "FATAL_ERROR",
+            "ERROR_AT_POWER_UP",
+        ]:
+            error_message = ERRORCODES.get(mower_attributes["mower"]["errorCode"])
+            error_time = time.strftime(
                 "%Y-%m-%d %H:%M:%S",
-                time.gmtime(
-                    (self.mower_attributes["mower"]["errorCodeTimestamp"]) / 1000
-                ),
+                time.gmtime((mower_attributes["mower"]["errorCodeTimestamp"]) / 1000),
             )
-        if self.mower_attributes["mower"]["errorCode"] == 0:
-            self.error_message = None
-            self.error_time = None
 
-        if self.mower_attributes["planner"]["nextStartTimestamp"] != 0:
-            self.next_start = time.strftime(
+        next_start = None
+        if mower_attributes["planner"]["nextStartTimestamp"] != 0:
+            next_start = time.strftime(
                 "%Y-%m-%d %H:%M:%S",
-                time.gmtime(
-                    (self.mower_attributes["planner"]["nextStartTimestamp"]) / 1000
-                ),
+                time.gmtime((mower_attributes["planner"]["nextStartTimestamp"]) / 1000),
             )
-        if self.mower_attributes["planner"]["nextStartTimestamp"] == 0:
-            self.next_start = None
 
-        self.attributes = {
-            "mode": self.mower_attributes["mower"]["mode"],
-            "activity": self.mower_attributes["mower"]["activity"],
-            "state": self.mower_attributes["mower"]["state"],
-            "errorMessage": self.error_message,
-            "errorTime": self.error_time,
-            "nextStart": self.next_start,
-            "action": self.mower_attributes["planner"]["override"]["action"],
-            "restrictedReason": self.mower_attributes["planner"]["restrictedReason"],
-            "statusTimestamp": self.state_time
-            # "all_data": self.coordinator.data
+        return {
+            ATTR_STATUS: self.__get_status(),
+            "mode": mower_attributes["mower"]["mode"],
+            "activity": mower_attributes["mower"]["activity"],
+            "state": mower_attributes["mower"]["state"],
+            "errorMessage": error_message,
+            "errorTime": error_time,
+            "nextStart": next_start,
+            "action": mower_attributes["planner"]["override"]["action"],
+            "restrictedReason": mower_attributes["planner"]["restrictedReason"],
+            "statusTimestamp": state_time
+            # "all_data": self.session.data
         }
-
-        return self.attributes
 
     async def async_start(self):
         """Resume schedule."""
-        self.payload = '{"data": {"type": "ResumeSchedule"}}'
+        payload = '{"data": {"type": "ResumeSchedule"}}'
         try:
-            await self.coordinator.async_send_command(self.payload, self.mower_id)
+            await self.session.action(self.mower_id, payload)
         except Exception as exception:
             raise UpdateFailed(exception) from exception
 
     async def async_pause(self):
         """Pauses the mower."""
-        self.payload = '{"data": {"type": "Pause"}}'
+        payload = '{"data": {"type": "Pause"}}'
         try:
-            await self.coordinator.async_send_command(self.payload, self.mower_id)
+            await self.session.action(self.mower_id, payload)
         except Exception as exception:
             raise UpdateFailed(exception) from exception
 
     async def async_stop(self, **kwargs):
         """Parks the mower until next schedule."""
-        self.payload = '{"data": {"type": "ParkUntilNextSchedule"}}'
+        payload = '{"data": {"type": "ParkUntilNextSchedule"}}'
         try:
-            await self.coordinator.async_send_command(self.payload, self.mower_id)
+            await self.session.action(self.mower_id, payload)
         except Exception as exception:
             raise UpdateFailed(exception) from exception
 
     async def async_return_to_base(self, **kwargs):
         """Parks the mower until further notice."""
-        self.payload = '{"data": {"type": "ParkUntilFurtherNotice"}}'
+        payload = '{"data": {"type": "ParkUntilFurtherNotice"}}'
         try:
-            await self.coordinator.async_send_command(self.payload, self.mower_id)
+            await self.session.action(self.mower_id, payload)
         except Exception as exception:
             raise UpdateFailed(exception) from exception
 
     async def async_custom_command(self, command, duration, **kwargs):
         """Parks the mower until further notice."""
-        self.command = command
-        self.duration = duration
-        self.string = {
+        string = {
             "data": {
-                "type": self.command,
-                "attributes": {"duration": self.duration},
+                "type": command,
+                "attributes": {"duration": duration},
             }
         }
-        self.payload = json.dumps(self.string)
+        payload = json.dumps(string)
         try:
-            await self.coordinator.async_send_command(self.payload, self.mower_id)
+            await self.session.action(self.mower_id, payload)
         except Exception as exception:
             raise UpdateFailed(exception) from exception

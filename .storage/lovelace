@@ -6,6 +6,9 @@
             "title": "Nordlunds",
             "views": [
                 {
+                    "path": "default_view",
+                    "title": "",
+                    "icon": "mdi:home-assistant",
                     "badges": [],
                     "cards": [
                         {
@@ -17,14 +20,17 @@
                                     "entity": "sensor.time"
                                 },
                                 {
-                                    "entity": "sensor.time_to_work"
+                                    "entity": "binary_sensor.updater"
                                 },
                                 {
-                                    "entity": "binary_sensor.updater"
+                                    "entity": "binary_sensor.backups_stale"
+                                },
+                                {
+                                    "entity": "sensor.backup_state"
                                 }
                             ],
                             "show_header_toggle": false,
-                            "title": "Welcome",
+                            "title": "Systems status",
                             "type": "entities"
                         },
                         {
@@ -61,77 +67,19 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor"
-                                },
-                                {
-                                    "entity": "binary_sensor.dishwasher_flood_template"
-                                },
-                                {
-                                    "entity": "binary_sensor.play_room_sensor_sensor_2"
-                                },
-                                {
-                                    "entity": "binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2"
-                                },
-                                {
-                                    "entity": "binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_2"
-                                },
-                                {
-                                    "entity": "binary_sensor.guest_room_motion"
-                                },
-                                {
-                                    "entity": "binary_sensor.upstairs_bathroom_motion"
-                                },
-                                {
-                                    "entity": "binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor"
-                                },
-                                {
-                                    "entity": "binary_sensor.fridge_temp_high"
-                                },
-                                {
-                                    "entity": "binary_sensor.aarlo_motion_arlozonefront"
-                                },
-                                {
-                                    "entity": "binary_sensor.aarlo_motion_arlozoneinside"
-                                },
-                                {
-                                    "entity": "binary_sensor.front_door_unlocked"
-                                },
-                                {
-                                    "entity": "binary_sensor.arteon_door_unlocked"
-                                },
-                                {
-                                    "entity": "binary_sensor.garage_door_unlocked"
-                                },
-                                {
-                                    "entity": "binary_sensor.aqara_motion"
-                                },
-                                {
-                                    "entity": "binary_sensor.ikea_motion"
-                                },
-                                {
-                                    "entity": "binary_sensor.garage_door_opened"
-                                }
-                            ],
-                            "show_header_toggle": true,
-                            "title": "Security",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.aarlo_last_arlozonefront",
+                                    "entity": "binary_sensor.alarm_not_activated",
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "sensor.aarlo_last_arlozoneinside",
+                                    "entity": "binary_sensor.dishwasher_flood_alarm",
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "binary_sensor.garage_door_opened",
+                                    "entity": "binary_sensor.play_room_motion",
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2",
+                                    "entity": "binary_sensor.front_door_open",
                                     "secondary_info": "last-changed"
                                 },
                                 {
@@ -139,35 +87,56 @@
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor",
+                                    "entity": "binary_sensor.upstairs_bathroom_motion",
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2",
+                                    "entity": "binary_sensor.smoke_detected",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.fridge_temp_high",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.aarlo_motion_arlozonefront",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.aarlo_motion_arlozoneinside",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.front_door_unlocked",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.front_door_open_lock",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.arteon_door_unlocked",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.garage_door_unlocked",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.aqara_motion",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.ikea_motion",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.garage_door_opened",
                                     "secondary_info": "last-changed"
                                 }
                             ],
-                            "show_header_toggle": false,
-                            "title": "Security last trip",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "alert.front_door_open_long"
-                                },
-                                {
-                                    "entity": "alert.garage_door_open_long"
-                                },
-                                {
-                                    "entity": "alert.husdata_offline"
-                                },
-                                {
-                                    "entity": "alert.fridge_temp_high"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Alerts",
+                            "show_header_toggle": true,
+                            "title": "Security",
                             "type": "entities"
                         },
                         {
@@ -223,15 +192,32 @@
                                 },
                                 {
                                     "entity": "sensor.arteon_battery_level"
+                                },
+                                {
+                                    "entity": "sensor.time_to_work"
                                 }
                             ],
                             "title": "Arteon - FZJ47U"
+                        },
+                        {
+                            "type": "gauge",
+                            "entity": "sensor.power_savsangarvagen_54a",
+                            "min": 0,
+                            "name": "Energy consumption",
+                            "needle": true,
+                            "severity": {
+                                "green": 0,
+                                "yellow": 2000,
+                                "red": 4000
+                            },
+                            "max": 8000
                         }
-                    ],
-                    "path": "default_view",
-                    "title": "Overview"
+                    ]
                 },
                 {
+                    "path": "control",
+                    "title": "Control",
+                    "icon": "mdi:toggle-switch",
                     "badges": [],
                     "cards": [
                         {
@@ -249,7 +235,8 @@
                                     "entity": "light.entrance_ceiling"
                                 },
                                 {
-                                    "entity": "light.guest_room_ceiling"
+                                    "entity": "light.guest_room_ceiling",
+                                    "secondary_info": "last-changed"
                                 },
                                 {
                                     "entity": "light.guest_room_desk_2"
@@ -295,10 +282,10 @@
                                     "entity": "light.attic"
                                 },
                                 {
-                                    "entity": "light.bathroom_ceiling"
+                                    "entity": "switch.bathroom_ceiling"
                                 },
                                 {
-                                    "entity": "light.sauna"
+                                    "entity": "switch.bathroom_sauna"
                                 },
                                 {
                                     "entity": "light.media_room_ceiling"
@@ -332,10 +319,10 @@
                                     "entity": "light.garage_ceiling"
                                 },
                                 {
-                                    "entity": "switch.flower_lights"
+                                    "entity": "switch.arc_b1"
                                 },
                                 {
-                                    "entity": "switch.arc_b1"
+                                    "entity": "light.garage_extra"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -409,13 +396,7 @@
                                     "entity": "lock.id_lock_150_locked"
                                 },
                                 {
-                                    "entity": "lock.poly_control_danalock_v3_btze_locked"
-                                },
-                                {
-                                    "entity": "zwave.poly_control_danalock_v3_btze"
-                                },
-                                {
-                                    "entity": "zwave.id_lock_150"
+                                    "entity": "lock.z_wave_controlled_door_lock_with_bluetooth_smart"
                                 },
                                 {
                                     "entity": "lock.arteon_door_locked"
@@ -464,11 +445,12 @@
                                 "vacuum.automower_r_310_roger"
                             ]
                         }
-                    ],
-                    "path": "control",
-                    "title": "Control"
+                    ]
                 },
                 {
+                    "path": "climate",
+                    "title": "",
+                    "icon": "mdi:home-thermometer",
                     "badges": [],
                     "cards": [
                         {
@@ -480,13 +462,13 @@
                                     "entity": "sensor.thgr810_thgn800_55_01_humidity"
                                 },
                                 {
-                                    "entity": "sensor.fibaro_system_fgsd002_smoke_sensor_temperature"
+                                    "entity": "sensor.smoke_detector_air_temperature"
                                 },
                                 {
-                                    "entity": "sensor.play_room_sensor_luminance_2"
+                                    "entity": "sensor.motion_sensor_air_temperature"
                                 },
                                 {
-                                    "entity": "sensor.play_room_sensor_temperature_2"
+                                    "entity": "sensor.motion_sensor_illuminance"
                                 },
                                 {
                                     "entity": "sensor.attic_temperature"
@@ -538,13 +520,10 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.fibaro_system_fgk101_door_opening_sensor_temperature"
-                                },
-                                {
                                     "entity": "sensor.everspring_st814_temperature_and_humidity_sensor_temperature_2"
                                 },
                                 {
-                                    "entity": "sensor.everspring_st814_temperature_and_humidity_sensor_relative_humidity_3"
+                                    "entity": "sensor.everspring_st814_temperature_and_humidity_relative_humidity"
                                 },
                                 {
                                     "entity": "sensor.garage_door_temperature"
@@ -570,12 +549,6 @@
                                 },
                                 {
                                     "entity": "sensor.arteon_outside_temperature"
-                                },
-                                {
-                                    "entity": "sensor.popp_co_popp_z_rain_rain_sensor_rain_rate"
-                                },
-                                {
-                                    "entity": "sensor.popp_co_popp_z_rain_rain_sensor_water"
                                 },
                                 {
                                     "entity": "sensor.blitzortung_lightning_counter"
@@ -671,11 +644,12 @@
                             "refresh_interval": 0,
                             "hours_to_show": 72
                         }
-                    ],
-                    "path": "climate",
-                    "title": "Climate"
+                    ]
                 },
                 {
+                    "path": "systems",
+                    "title": "",
+                    "icon": "mdi:server-network",
                     "badges": [],
                     "cards": [
                         {
@@ -771,7 +745,7 @@
                                     "entity": "sensor.philio_battery"
                                 },
                                 {
-                                    "entity": "sensor.smoke_battery"
+                                    "entity": "sensor.smoke_detector_battery_level"
                                 },
                                 {
                                     "entity": "sensor.play_room_sensor_battery_level_2"
@@ -789,7 +763,7 @@
                                     "entity": "sensor.flood_battery"
                                 },
                                 {
-                                    "entity": "sensor.garage_vind_battery"
+                                    "entity": "sensor.everspring_st814_temperature_and_humidity_sensor_battery_level_3"
                                 },
                                 {
                                     "entity": "sensor.garage_door_battery"
@@ -944,11 +918,12 @@
                             "title": "NUC7 values",
                             "show_header_toggle": false
                         }
-                    ],
-                    "path": "systems",
-                    "title": "Systems"
+                    ]
                 },
                 {
+                    "path": "media",
+                    "title": "",
+                    "icon": "mdi:cast",
                     "badges": [],
                     "cards": [
                         {
@@ -974,15 +949,17 @@
                         {
                             "entity": "media_player.samsung_tv",
                             "type": "media-control"
+                        },
+                        {
+                            "type": "media-control",
+                            "entity": "media_player.google_tv"
                         }
-                    ],
-                    "panel": false,
-                    "path": "media",
-                    "title": "Media"
+                    ]
                 },
                 {
-                    "title": "Settings",
+                    "title": "",
                     "path": "settings",
+                    "icon": "mdi:cog",
                     "badges": [],
                     "cards": [
                         {
@@ -1016,6 +993,12 @@
                                 },
                                 {
                                     "entity": "input_datetime.flower_lights_on_2"
+                                },
+                                {
+                                    "entity": "input_datetime.guest_room_desk_auto_start"
+                                },
+                                {
+                                    "entity": "input_datetime.guest_room_desk_auto_stop"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -1076,6 +1059,9 @@
                     ]
                 },
                 {
+                    "path": "heater",
+                    "title": "",
+                    "icon": "mdi:transmission-tower",
                     "badges": [],
                     "cards": [
                         {
@@ -1145,12 +1131,48 @@
                                 }
                             ],
                             "show_header_toggle": false,
-                            "title": "Values",
+                            "title": "Heater",
                             "type": "entities"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                "sensor.accumulated_consumption_savsangarvagen_54a",
+                                "sensor.accumulated_consumption_current_hour_savsangarvagen_54a",
+                                "sensor.accumulated_production_savsangarvagen_54a",
+                                "sensor.accumulated_production_current_hour_savsangarvagen_54a",
+                                "sensor.average_power_savsangarvagen_54a",
+                                "sensor.current_l1_savsangarvagen_54a",
+                                "sensor.current_l2_savsangarvagen_54a",
+                                "sensor.current_l3_savsangarvagen_54a",
+                                "sensor.last_meter_consumption_savsangarvagen_54a",
+                                "sensor.last_meter_production_savsangarvagen_54a",
+                                "sensor.max_power_savsangarvagen_54a",
+                                "sensor.min_power_savsangarvagen_54a",
+                                "sensor.power_savsangarvagen_54a",
+                                "sensor.power_factor_savsangarvagen_54a",
+                                "sensor.power_production_savsangarvagen_54a",
+                                "sensor.signal_strength_savsangarvagen_54a",
+                                "sensor.voltage_phase1_savsangarvagen_54a",
+                                "sensor.voltage_phase2_savsangarvagen_54a",
+                                "sensor.voltage_phase3_savsangarvagen_54a"
+                            ],
+                            "title": "Power"
+                        },
+                        {
+                            "type": "gauge",
+                            "entity": "sensor.power_savsangarvagen_54a",
+                            "min": 0,
+                            "name": "Energy consumption",
+                            "needle": true,
+                            "severity": {
+                                "green": 0,
+                                "yellow": 2000,
+                                "red": 4000
+                            },
+                            "max": 8000
                         }
-                    ],
-                    "path": "heater",
-                    "title": "Heater"
+                    ]
                 },
                 {
                     "title": "Car",
@@ -1218,6 +1240,9 @@
                     ]
                 },
                 {
+                    "path": "scripts",
+                    "title": "",
+                    "icon": "mdi:script",
                     "badges": [],
                     "cards": [
                         {
@@ -1296,11 +1321,12 @@
                             "title": "All automations",
                             "type": "entities"
                         }
-                    ],
-                    "path": "scripts",
-                    "title": "Scripts"
+                    ]
                 },
                 {
+                    "theme": "Backend-selected",
+                    "title": "",
+                    "icon": "mdi:test-tube",
                     "badges": [],
                     "cards": [
                         {
@@ -1455,9 +1481,7 @@
                             "aspect_ratio": "1",
                             "background_color": ""
                         }
-                    ],
-                    "theme": "Backend-selected",
-                    "title": "Test UI"
+                    ]
                 }
             ]
         }

@@ -3,7 +3,7 @@
   initial_state: false
   trigger:
     platform: state
-    entity_id: binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2
+    entity_id: binary_sensor.front_door_open
     from: 'off'
     to: 'on'
   action:
@@ -116,7 +116,7 @@
   alias: Flood alarm message
   trigger:
   - platform: state
-    entity_id: binary_sensor.dishwasher_flood_template
+    entity_id: binary_sensor.dishwasher_flood_alarm
     from: 'off'
     to: 'on'
   action:
@@ -135,7 +135,7 @@
   alias: Smoke alarm message
   trigger:
     platform: state
-    entity_id: binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor_27_0
+    entity_id: binary_sensor.smoke_detector_smoke_alarm_smoke_detected
     from: 'off'
     to: 'on'
   action:
@@ -337,7 +337,7 @@
 - id: A042
   alias: Entre on when door opens late night
   trigger:
-  - entity_id: binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2
+  - entity_id: binary_sensor.front_door_open
     from: 'off'
     platform: state
     to: 'on'
@@ -443,7 +443,7 @@
 - id: A049
   alias: Ytterdorr open turn on byra
   trigger:
-  - entity_id: binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2
+  - entity_id: binary_sensor.front_door_open
     from: 'off'
     platform: state
     to: 'on'
@@ -463,31 +463,6 @@
   - data:
       entity_id: light.entrance_drawer
     service: light.turn_off
-- id: '1544037641675'
-  alias: Arbrum on motion
-  trigger:
-  - entity_id: binary_sensor.guest_room_motion
-    from: 'off'
-    platform: state
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: timer.arbrum_motion
-    state: idle
-  - after: '14:00'
-    before: '22:00'
-    condition: time
-  action:
-  - data:
-      entity_id: light.guest_room_desk
-    service: homeassistant.turn_on
-  - data:
-      entity_id: timer.arbrum_motion
-    service: timer.start
-  - data:
-      entity_id: light.guest_room_window_hue
-    service: homeassistant.turn_on
-  mode: single
 - id: '1544045540211'
   alias: XX-test-timer-arbrum
   initial_state: false
@@ -893,3 +868,13 @@
       motion_sensor: binary_sensor.aqara_motion
       target_entity: light.media_room_ceiling
       no_motion_wait: input_number.media_room_timer
+- id: '1632200484443'
+  alias: Guest room desk motion
+  description: ''
+  use_blueprint:
+    path: freakshock88/motion_illuminance_activated_entity.yaml
+    input:
+      motion_sensor: binary_sensor.guest_room_motion
+      target_entity: switch.guest_room_desk
+      time_limit_after: input_datetime.guest_room_desk_auto_start
+      time_limit_before: input_datetime.guest_room_desk_auto_stop

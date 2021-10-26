@@ -11,9 +11,15 @@ homeassistant:
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/Stockholm
   #Customize
+
   customize: !include customize.yaml
+  
   auth_providers:
     - type: homeassistant
+
+my:
+
+energy:
 
 zone: !include zones.yaml
 
@@ -29,10 +35,10 @@ config:
 #Enable map
 map:
 
-zwave:
-  usb_path: /dev/serial/by-id/usb-0658_0200-if00
-#  usb_path: /dev/ttyACM0
-  network_key: !secret zw_network_key
+# zwave:
+#   usb_path: /dev/serial/by-id/usb-0658_0200-if00
+# #  usb_path: /dev/ttyACM0
+#   network_key: !secret zw_network_key
 
 group: !include groups.yaml
 
@@ -113,7 +119,7 @@ cloud:
 
 system_log:
 
-climate: !include climate.yaml
+# climate: !include climate.yaml
 
 #automower: !include automower.yaml
 

@@ -24,6 +24,7 @@
       - sensor.speedtest_*
       - sensor.blitzortung_*
       - sensor.popp_co_popp_z_rain_rain_*
+      - sensor.*savsangarvagen*
     entities:
       - zwave.poly_control_danalock_v3_btze
       - sensor.aqara_lightlevel

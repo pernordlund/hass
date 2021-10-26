@@ -1,14 +1,11 @@
   - platform: template
     sensors:
-      dishwasher_flood_template:
-        value_template: '{{ states.sensor.everspring_st812_flood_detector_flood.state != "0" }}'
-        friendly_name: 'Dishwasher flood warning'
       fridge_temp_high:
         value_template: '{{ states("sensor.fridge_temperature") | int > 12 }}'
         friendly_name: 'Fridge temp is high'
-      garage_door_unlocked:
-        value_template: '{{ is_state("lock.poly_control_danalock_v3_btze_locked", "unlocked") }}'
-        friendly_name: 'Garage door unlocked'
+      freezer_temp_high:
+        value_template: '{{ states("sensor.freezer_temperature") | int > -10 }}'
+        friendly_name: 'Freezer temp is high'
       front_door_unlocked:
         value_template: '{{ is_state("lock.id_lock_150_locked", "unlocked") }}'
         friendly_name: 'Front door unlocked'
@@ -21,6 +18,9 @@
       garage_door_opened:
         value_template: '{{ is_state("binary_sensor.garage_door_open", "on") }}'
         friendly_name: 'Garage door open'
+      smoke_detected:
+        value_template: '{{ is_state("binary_sensor.smoke_detector_smoke_alarm_smoke_detected", "on") }}'
+        friendly_name: 'Livingroom smoke detected'
   - platform: mqtt
     state_topic: "hass/bv/1A01"
     name: "BV-Compressor"

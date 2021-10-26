@@ -17,7 +17,7 @@ group.all_automations:
   friendly_name: All automations
 sensor.fibaro_system_fgms001zw5_motion_sensor_luminance_4:
   friendly_name: Ljus allrum
-binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2:
+binary_sensor.front_door_open:
   friendly_name: Ytterdorr oppen
 binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor:
   friendly_name: Avlarmat
@@ -48,10 +48,11 @@ sensor.last_trip_flood:
 sensor.northq_nq92021_power_reader_energy:
   friendly_name: Elmatare
   icon: mdi:flash-red-eye
-binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor:
-  friendly_name: Roksensor
-sensor.fibaro_system_fgsd002_smoke_sensor_temperature:
-  friendly_name: Vardrum temp
+binary_sensor.smoke_detector_smoke_alarm_smoke_detected:
+  friendly_name: Smoke sensor
+  device_class: moving
+sensor.smoke_detector_air_temperature:
+  friendly_name: Livingroom temp
 sensor.pelle_life360:
   entity_picture: /local/pelle.JPG
 sensor.huset:
@@ -98,3 +99,10 @@ binary_sensor.aqara_motion:
   friendly_name: Media room motion
   device_class: moving
 switch.bedroom_window: {}
+switch.guest_room_desk: {}
+binary_sensor.guest_room_motion:
+  device_class: moving
+binary_sensor.front_door_open_lock:
+  device_class: moving
+binary_sensor.play_room_motion:
+  device_class: moving

@@ -1,6 +1,6 @@
   front_door_open_long:
     name: Front door is open
-    entity_id: binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor_2
+    entity_id: binary_sensor.front_door_open
     state: 'on'
     repeat: 
       - 5
@@ -25,6 +25,18 @@
   fridge_temp_high:
     name: Fridge temp is high
     entity_id: binary_sensor.fridge_temp_high
+    state: 'on'
+    repeat: 
+      - 5
+      - 60
+      - 120
+    skip_first: false
+    can_acknowledge: true
+    notifiers:
+      - pelles_tfn
+  freezer_temp_high:
+    name: Freezer temp is high
+    entity_id: binary_sensor.freezer_temp_high
     state: 'on'
     repeat: 
       - 5
