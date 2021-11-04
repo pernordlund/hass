@@ -1,0 +1,63 @@
+blueprint:
+  name: deCONZ - Aqara Wireless Remote
+  description: 'Aqara Wireless Remote Switch Single Rocker control
+
+    '
+  domain: automation
+  input:
+    remote:
+      name: Remote
+      description: Aqara remote
+      selector:
+        device:
+          integration: deconz
+          manufacturer: LUMI
+          model: lumi.remote.b1acn01
+    button_single_press:
+      name: Button - Single press
+      description: Action single press of button
+      default: []
+      selector:
+        action: {}
+    button_double_press:
+      name: Button - Double press
+      description: Action double press of button
+      default: []
+      selector:
+        action: {}
+    button_long:
+      name: Button - Long press
+      description: Action button press long
+      default: []
+      selector:
+        action: {}
+    button_release:
+      name: Button - Release
+      description: Action button release
+      default: []
+      selector:
+        action: {}
+  source_url: https://community.home-assistant.io/t/deconz-aqara-wireless-remote-switch-single-rocker-1-button/256250
+mode: restart
+max_exceeded: silent
+trigger:
+- platform: event
+  event_type: deconz_event
+  event_data:
+    device_id: !input 'remote'
+action:
+- variables:
+    event: '{{ trigger.event.data.event }}'
+- choose:
+  - conditions:
+    - '{{ event == 1001 }}'
+    sequence: !input 'button_long'
+  - conditions:
+    - '{{ event == 1002 }}'
+    sequence: !input 'button_single_press'
+  - conditions:
+    - '{{ event == 1003 }}'
+    sequence: !input 'button_release'
+  - conditions:
+    - '{{ event == 1004 }}'
+    sequence: !input 'button_double_press'

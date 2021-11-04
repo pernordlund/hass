@@ -11,9 +11,6 @@
     name: Cloak room
     entity_id: switch.cloak_room_ceiling
   - platform: switch
-    name: Garage ceiling
-    entity_id: switch.popp_duwi_zw_zsa_3500_plugin_switch_switch
-  - platform: switch
     name: Attic
     entity_id: switch.attic
   - platform: switch

@@ -21,8 +21,6 @@ binary_sensor.front_door_open:
   friendly_name: Ytterdorr oppen
 binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor:
   friendly_name: Avlarmat
-switch.popp_duwi_zw_zsa_3500_plugin_switch_switch:
-  friendly_name: Garage ceiling
 sensor.everspring_st814_temperature_and_humidity_sensor_temperature:
   friendly_name: Garage attic temperature
 sensor.everspring_st814_temperature_and_humidity_sensor_relative_humidity:
@@ -105,4 +103,8 @@ binary_sensor.guest_room_motion:
 binary_sensor.front_door_open_lock:
   device_class: moving
 binary_sensor.play_room_motion:
+  device_class: moving
+binary_sensor.garage_side_door_locked:
+  device_class: moving
+binary_sensor.garage_door_open:
   device_class: moving

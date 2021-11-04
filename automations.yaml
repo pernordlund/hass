@@ -165,10 +165,11 @@
   alias: Arbrum fonsterlampa from wall
   trigger:
   - platform: event
-    event_type: zwave.scene_activated
+    event_type: zwave_js_value_notification
     event_data:
       node_id: 10
-      scene_id: 24
+      property: sceneId
+      value: 24
   action:
   - service: homeassistant.toggle
     entity_id: light.guest_room_window_hue
@@ -177,10 +178,11 @@
   alias: Arbrum fonsterlampa med 2-klick
   trigger:
   - platform: event
-    event_type: zwave.scene_activated
+    event_type: zwave_js_value_notification
     event_data:
       node_id: 10
-      scene_id: 26
+      property: sceneId
+      value: 26
   action:
   - service: homeassistant.toggle
     entity_id: light.guest_room_window_hue
@@ -189,10 +191,11 @@
   alias: Vardrum hornlampan med 3-klick
   trigger:
     platform: event
-    event_type: zwave.scene_activated
+    event_type: zwave_js_value_notification
     event_data:
       node_id: 12
-      scene_id: 14
+      property: sceneId
+      value: 14
   action:
   - service: homeassistant.toggle
     entity_id: switch.living_room_corner
@@ -260,15 +263,6 @@
     data:
       message: Testing WR1/All
   mode: single
-- id: A028
-  alias: Klk off 5 min after on
-  trigger:
-    platform: state
-    entity_id: switch.cloak_room_ceiling
-    to: 'on'
-  action:
-    service: homeassistant.turn_on
-    entity_id: script.timed_klk
 - id: A030
   alias: MQTT toggle
   trigger:
@@ -306,10 +300,11 @@
   alias: Arbrum fonsterlampa med long-klick
   trigger:
   - platform: event
-    event_type: zwave.scene_activated
+    event_type: zwave_js_value_notification
     event_data:
       node_id: 10
-      scene_id: 25
+      property: sceneId
+      value: 25
   action:
   - service: homeassistant.toggle
     entity_id: light.guest_room_window_hue
@@ -394,26 +389,6 @@
   - data_template:
       message: '{{ states("sensor.time") }} - Logged leave OKQ8 - Life'
     service: notify.pelles_tfn
-- id: A046
-  alias: Garage light on when door opens
-  trigger:
-  - entity_id: binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_2
-    platform: state
-    to: 'on'
-  action:
-  - data:
-      entity_id: switch.popp_duwi_zw_zsa_3500_plugin_switch_switch
-    service: homeassistant.turn_on
-- id: A047
-  alias: Garage light off when door closes
-  trigger:
-  - entity_id: binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_2
-    platform: state
-    to: 'off'
-  action:
-  - data:
-      entity_id: switch.popp_duwi_zw_zsa_3500_plugin_switch_switch
-    service: homeassistant.turn_off
 - id: A0471
   alias: X - Log Jenny leaving home - Life
   trigger:
@@ -476,32 +451,6 @@
   - data:
       message: No motion in arbrum
     service: notify.pelles_tfn
-- id: '1569174049492'
-  alias: Flower lights on
-  trigger:
-  - at: input_datetime.flower_lights_on_1
-    platform: time
-  - at: input_datetime.flower_lights_on_2
-    platform: time
-  condition: []
-  action:
-  - data:
-      entity_id: switch.flower_lights
-    service: homeassistant.turn_on
-  mode: single
-- id: '1569174104818'
-  alias: Flower lights off
-  trigger:
-  - at: input_datetime.flower_lights_off_1
-    platform: time
-  - at: input_datetime.flower_lights_off_2
-    platform: time
-  condition: []
-  action:
-  - data:
-      entity_id: switch.flower_lights
-    service: homeassistant.turn_off
-  mode: single
 - id: '1575216792330'
   alias: Kitchen table when drawer on
   description: ''
@@ -635,9 +584,9 @@
     from: idle
   condition: []
   action:
-  - service: zwave.refresh_node
+  - service: zwave_js.refresh_value
     data:
-      node_id: 9
+      entity_id: binary_sensor.front_door_open
   mode: single
 - id: '1603043901780'
   alias: Entrance ceiling when White remote 2 button 3
@@ -724,7 +673,7 @@
   description: ''
   trigger:
   - platform: state
-    entity_id: light.cloak_room
+    entity_id: switch.cloak_room
     to: 'on'
   condition: []
   action:
@@ -743,9 +692,9 @@
       entity_id: timer.cloakroom_timer
   condition: []
   action:
-  - service: light.turn_off
-    data: {}
-    entity_id: light.cloak_room
+  - service: switch.turn_off
+    target:
+      entity_id: switch.cloak_room
   mode: single
 - id: '1608909453602'
   alias: Guest room desk when Lenovo off
@@ -776,7 +725,7 @@
       - service: homeassistant.toggle
         data: {}
         target:
-          entity_id: light.guest_room_desk_2
+          entity_id: switch.guest_room_desk
       light:
         entity_id: light.guest_room_ceiling
 - id: '1610542848014'
@@ -878,3 +827,24 @@
       target_entity: switch.guest_room_desk
       time_limit_after: input_datetime.guest_room_desk_auto_start
       time_limit_before: input_datetime.guest_room_desk_auto_stop
+- id: '1635760453257'
+  alias: deCONZ - Aqara Wireless Remote
+  description: ''
+  use_blueprint:
+    path: custom/deconz-aqara-wireless-remote-switch-single-rocker-1-button.yaml
+    input:
+      remote: e788cfdaa5d7940b36c8c7a253551784
+      button_single_press:
+      - type: toggle
+        device_id: f375e993ee126cde276ea0f857703769
+        entity_id: switch.guest_room_desk
+        domain: switch
+- id: '1636024683504'
+  alias: Garage extra sync with door
+  description: ''
+  use_blueprint:
+    path: custom/binary-sensor-light-sync.yaml
+    input:
+      binary_sensor: binary_sensor.garage_door_open
+      target_light:
+        entity_id: light.garage_extra

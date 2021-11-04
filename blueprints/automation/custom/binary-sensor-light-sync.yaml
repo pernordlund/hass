@@ -1,0 +1,31 @@
+blueprint:
+  name: Sync light with a binary sensor
+  description: Sync light with a binary sensor
+  domain: automation
+  input:
+    binary_sensor:
+      name: Binary Sensor
+      description: This sensor will be synchronized with the entity.
+      selector:
+        entity:
+          domain: binary_sensor
+    target_light:
+      name: Lights
+      description: The light to keep in sync.
+      selector:
+        target:
+          entity:
+            domain: light
+
+trigger:
+  - platform: state
+    entity_id: !input binary_sensor
+
+action:
+  - service: >
+      {% if trigger.to_state.state == "on" %}
+        light.turn_on
+      {% else %}
+        light.turn_off
+      {% endif %}
+    target: !input target_light

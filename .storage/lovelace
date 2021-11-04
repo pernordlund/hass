@@ -99,6 +99,10 @@
                                     "secondary_info": "last-changed"
                                 },
                                 {
+                                    "entity": "binary_sensor.freezer_temp_high",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
                                     "entity": "binary_sensor.aarlo_motion_arlozonefront",
                                     "secondary_info": "last-changed"
                                 },
@@ -119,10 +123,6 @@
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "binary_sensor.garage_door_unlocked",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
                                     "entity": "binary_sensor.aqara_motion",
                                     "secondary_info": "last-changed"
                                 },
@@ -131,8 +131,11 @@
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "binary_sensor.garage_door_opened",
+                                    "entity": "binary_sensor.garage_side_door_locked",
                                     "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.garage_door_open"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -226,7 +229,7 @@
                                     "entity": "switch.bedroom_window"
                                 },
                                 {
-                                    "entity": "light.cloak_room"
+                                    "entity": "switch.cloak_room"
                                 },
                                 {
                                     "entity": "light.entrance_drawer"
@@ -235,11 +238,10 @@
                                     "entity": "light.entrance_ceiling"
                                 },
                                 {
-                                    "entity": "light.guest_room_ceiling",
-                                    "secondary_info": "last-changed"
+                                    "entity": "light.guest_room_ceiling"
                                 },
                                 {
-                                    "entity": "light.guest_room_desk_2"
+                                    "entity": "switch.guest_room_desk"
                                 },
                                 {
                                     "entity": "light.guest_room_window_hue"
@@ -316,13 +318,13 @@
                                     "entity": "switch.arc_b8"
                                 },
                                 {
-                                    "entity": "light.garage_ceiling"
-                                },
-                                {
                                     "entity": "switch.arc_b1"
                                 },
                                 {
                                     "entity": "light.garage_extra"
+                                },
+                                {
+                                    "entity": "switch.popp_duwi_zw_zsa_3500_plugin_switch_switch"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -396,7 +398,7 @@
                                     "entity": "lock.id_lock_150_locked"
                                 },
                                 {
-                                    "entity": "lock.z_wave_controlled_door_lock_with_bluetooth_smart"
+                                    "entity": "lock.garage_side_door_lock"
                                 },
                                 {
                                     "entity": "lock.arteon_door_locked"
@@ -983,18 +985,6 @@
                                     "entity": "input_datetime.stop_kitchen_table_extra"
                                 },
                                 {
-                                    "entity": "input_datetime.flower_lights_off_1"
-                                },
-                                {
-                                    "entity": "input_datetime.flower_lights_off_2"
-                                },
-                                {
-                                    "entity": "input_datetime.flower_lights_on_1"
-                                },
-                                {
-                                    "entity": "input_datetime.flower_lights_on_2"
-                                },
-                                {
                                     "entity": "input_datetime.guest_room_desk_auto_start"
                                 },
                                 {
@@ -1028,6 +1018,7 @@
                                 "switch.arc_c3",
                                 "switch.attic",
                                 "switch.nexa_1",
+                                "switch.popp_duwi_zw_zsa_3500_plugin_switch_switch",
                                 "switch.tp1",
                                 "switch.water_control"
                             ]
