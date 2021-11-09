@@ -8,9 +8,6 @@
     name: Sauna
     entity_id: switch.sauna
   - platform: switch
-    name: Cloak room
-    entity_id: switch.cloak_room_ceiling
-  - platform: switch
     name: Attic
     entity_id: switch.attic
   - platform: switch

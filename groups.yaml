@@ -3,13 +3,12 @@
     name: Downstairs
     entities:
       - light.guest_room_desk
-      - light.guest_room_desk_2
+      - switch.guest_room_desk_2
       - light.guest_room_window_hue
-      - light.guestroom_red
       - light.guest_room_ceiling
       - light.entrance_ceiling
       - light.entrance_drawer
-      - switch.cloak_room_ceiling
+      - switch.cloak_room
       - light.kitchen_table
       - light.kitchen_bench
       - light.kitchen_ceiling
@@ -50,7 +49,6 @@
       - switch.living_room_corner
       - light.tree
       - light.porch_ball
-      - light.guestroom_red
       - light.livingroom_sofa
   lights_pelle:
     name: Lights Pelle
@@ -63,7 +61,6 @@
     name: Lights alarm on
     entities:
       - light.guest_room_desk
-      - light.guestroom_red
       - light.guest_room_ceiling
       - light.entrance_drawer
       - light.entrance_ceiling
@@ -73,7 +70,7 @@
       - light.bedroom_window
       - light.livingroom_sofa
       - light.living_room_table
-      - light.living_room_corner
+      - switch.living_room_corner
       - light.play_room_ceiling
       - light.bathroom_ceiling
       - light.sauna

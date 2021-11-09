@@ -103,5 +103,5 @@ lights_out:
     target:
       entity_id:
       - lock.id_lock_150_locked
-      - lock.poly_control_danalock_v3_btze_locked
+      - lock.garage_side_door_lock
   mode: single

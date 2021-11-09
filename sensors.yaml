@@ -19,32 +19,6 @@
 #    name: Klisatravagen
   - platform: template
     sensors:
-  # Xiaomi Air Purifier 2S
-      xiaomi_airpurifier_temp:
-        friendly_name: "Temperature"
-        value_template: "{{ state_attr('fan.albins_fan', 'temperature') }}"
-        unit_of_measurement: "°C"
-        device_class: "temperature"
-      xiaomi_airpurifier_humidity:
-        friendly_name: "Humidity"
-        value_template: "{{ state_attr('fan.albins_fan', 'humidity') }}"
-        unit_of_measurement: "%"
-        device_class: "humidity"
-      xiaomi_airpurifier_air_quality_pm25:
-        friendly_name: "Air quality"
-        value_template: "{{ state_attr('fan.albins_fan', 'aqi') }}"
-        unit_of_measurement: "μg/m³"
-        icon_template: "mdi:weather-fog"
-      xiaomi_airpurifier_speed:
-        friendly_name: "Fan speed"
-        value_template: "{{ state_attr('fan.albins_fan', 'motor_speed') }}"
-        unit_of_measurement: "rpm"
-        icon_template: "mdi:speedometer"
-      xiaomi_airpurifier_filter_remaining:
-        friendly_name: "Filter remaining"
-        value_template: "{{ state_attr('fan.albins_fan', 'filter_life_remaining') }}"
-        unit_of_measurement: "%"
-        icon_template: "mdi:heart-outline"
   #VPN sensor
       vpn_simple:
         friendly_name: VPN simple
@@ -61,46 +35,6 @@
             {{'\n'}}
           {%- endfor %}
   #Others
-      last_trip_allrum:
-        value_template: >-
-          {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor.last_changed))/3600 > 24 -%}
-            >24hr
-          {%- else -%}
-            {{ as_timestamp(states.binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor.last_changed) | timestamp_custom('%H:%M') }}
-          {%- endif %}
-        friendly_name: 'Allrum trip'
-      last_trip_alarm:
-        value_template: >-
-          {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor.last_changed))/3600 > 72 -%}
-            >72hr
-          {%- else -%}
-            {{ as_timestamp(states.binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor.last_changed) | timestamp_custom('%Y-%m-%d %H:%M') }}
-          {%- endif %}
-        friendly_name: 'Alarm trip'
-      last_trip_ytterdorr:
-        value_template: >-
-          {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.front_door_open.last_changed))/3600 > 24 -%}
-            >24hr
-          {%- else -%}
-            {{ as_timestamp(states.binary_sensor.front_door_open.last_changed) | timestamp_custom('%H:%M') }}
-          {%- endif %}
-        friendly_name: 'Ytterdorr trip'
-      last_trip_garagedorr:
-        value_template: >-
-          {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_2.last_changed))/3600 > 72 -%}
-            >72hr
-          {%- else -%}
-            {{ as_timestamp(states.binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_2.last_changed) | timestamp_custom('%Y-%m-%d %H:%M') }}
-          {%- endif %}
-        friendly_name: 'Garagedorr trip'
-      last_trip_guest_room:
-        value_template: >-
-          {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.guest_room_motion.last_changed))/3600 > 72 -%}
-            >72hr
-          {%- else -%}
-            {{ as_timestamp(states.binary_sensor.guest_room_motion.last_changed) | timestamp_custom('%Y-%m-%d %H:%M') }}
-          {%- endif %}
-        friendly_name: 'Guest room trip'
       solar_angle:
         value_template: '{{ "%+.1f"|format(states.sun.sun.attributes.elevation) }}'
         friendly_name: 'Sun Angle'
@@ -116,47 +50,14 @@
         value_template: "{{ state_attr('vacuum.roger', 'battery_level') }}"
         unit_of_measurement: '%'
         device_class: battery
-      philio_battery:
-        friendly_name: 'Philio battery'
-        value_template: "{{ state_attr('zwave.philio_technology_corporation_psp05_pir_motion', 'battery_level') }}"
-        unit_of_measurement: '%'
-        device_class: battery
-      allrum_battery:
-        friendly_name: 'Allrum sensor battery'
-        value_template: "{{ state_attr('zwave.fibaro_system_fgms001_zw5_motion_sensor', 'battery_level') }}"
-        unit_of_measurement: '%'
-        device_class: battery
-      flood_battery:
-        friendly_name: 'Flood sensor battery'
-        value_template: "{{ state_attr('zwave.everspring_st812_flood_detector', 'battery_level') }}"
-        unit_of_measurement: '%'
-        device_class: battery
-      garage_vind_battery:
-        friendly_name: 'Garage vind sensor battery'
-        value_template: "{{ state_attr('zwave.everspring_st814_temperature_and_humidity_sensor', 'battery_level') }}"
-        unit_of_measurement: '%'
-        device_class: battery
-      garage_door_battery:
-        friendly_name: 'Garage door sensor battery'
-        value_template: "{{ state_attr('zwave.fibaro_system_fgk101_door_opening_sensor', 'battery_level') }}"
-        unit_of_measurement: '%'
-        device_class: battery
-      id_lock_battery:
-        friendly_name: 'Front door battery'
-        value_template: "{{ state_attr('zwave.id_lock_150', 'battery_level') }}"
-        unit_of_measurement: '%'
-        device_class: battery
-      id_lock_notification:
-        friendly_name: 'ID Lock notification'
-        value_template: "{{ state_attr('lock.id_lock_150_locked', 'notification') }}"
       # pelle_velocity:
       #   friendly_name: 'Pelle velocity'
       #   value_template: '{{ (states.device_tracker.per_per.attributes.velocity * 3.542) | int }}'
       #   unit_of_measurement: 'kmh'
-      marie_velocity:
-        friendly_name: 'Marie velocity'
-        value_template: "{{ state_attr('device_tracker.marie_marie', 'velocity') | int }}"
-        unit_of_measurement: 'kmh'
+      # marie_velocity:
+      #   friendly_name: 'Marie velocity'
+      #   value_template: "{{ state_attr('device_tracker.marie_marie', 'velocity') | int }}"
+      #   unit_of_measurement: 'kmh'
       # frida_velocity:
       #   friendly_name: 'Frida velocity'
       #   value_template: '{{ (states.device_tracker.frida_frida.attributes.velocity * 3.542) | int}}'
@@ -323,22 +224,20 @@
     unit_of_measurement: 'BV'
   - platform: systemmonitor
     resources:
-#      - type: disk_use_percent
-#        arg: /home
+      - type: disk_use_percent
+        arg: /
       - type: disk_free
-        arg: /home
-#      - type: memory_use_percent
+        arg: /
+      - type: memory_use_percent
       - type: memory_free
-#      - type: swap_use_percent
-#      - type: swap_free
       - type: load_1m
       - type: load_5m
       - type: load_15m
       - type: processor_use
-      - type: network_in
-        arg: eth0
-      - type: network_out
-        arg: eth0
+      - type: throughput_network_in
+        arg: hassio
+      - type: throughput_network_out
+        arg: hassio
       - type: last_boot
 #  - platform: glances
 #    host: 192.168.1.30

@@ -119,12 +119,6 @@ cloud:
 
 system_log:
 
-# climate: !include climate.yaml
-
-#automower: !include automower.yaml
-
-# cast: !include cast.yaml
-
 netatmo: !include netatmo.yaml
 
 timer: !include timers.yaml
@@ -147,37 +141,20 @@ system_health:
 
 life360: !include life360.yaml
 
-#panel_custom:
-#  - name: zwavegraph2
-#    sidebar_title: Z-Wave Graph
-#    sidebar_icon: mdi:access-point-network
-#    url_path: zwave
-
-tplink: !include tplink.yaml
+#tplink: !include tplink.yaml
 
 input_boolean: !include input_booleans.yaml
 input_text:
 input_select: !include input_selects.yaml
 input_number: !include input_numbers.yaml
 input_datetime:
+counter:
   
-# fan: !include fans.yaml
-
 ffmpeg:
 
 stream:
 
 svt_play:
-
-# volkswagencarnet:
-#     username: !secret vw_username
-#     password: !secret vw_password
-#     spin: !secret vw_spin
-#     scandinavian_miles: false
-#     scan_interval:
-#         minutes: 2    
-#     name:
-#         wvwzzz3czhe181012: Passat
 
 mobile_app:
 

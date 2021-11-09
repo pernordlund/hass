@@ -135,7 +135,8 @@
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "binary_sensor.garage_door_open"
+                                    "entity": "binary_sensor.garage_door_open",
+                                    "secondary_info": "last-changed"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -241,7 +242,7 @@
                                     "entity": "light.guest_room_ceiling"
                                 },
                                 {
-                                    "entity": "switch.guest_room_desk"
+                                    "entity": "switch.guest_room_desk_2"
                                 },
                                 {
                                     "entity": "light.guest_room_window_hue"
@@ -362,8 +363,14 @@
                                 }
                             ],
                             "show_header_toggle": false,
-                            "title": "Switches",
-                            "type": "entities"
+                            "card": {
+                                "title": "Switches"
+                            },
+                            "type": "entity-filter",
+                            "state_filter": [
+                                "on",
+                                "off"
+                            ]
                         },
                         {
                             "entity": "alarm_control_panel.aarlo_arlozone",
@@ -442,10 +449,17 @@
                             "show_header_toggle": false
                         },
                         {
-                            "type": "entities",
+                            "type": "entity-filter",
                             "entities": [
                                 "vacuum.automower_r_310_roger"
-                            ]
+                            ],
+                            "state_filter": [
+                                "on",
+                                "off"
+                            ],
+                            "card": {
+                                "title": "Roger"
+                            }
                         }
                     ]
                 },
@@ -513,6 +527,12 @@
                                 },
                                 {
                                     "entity": "sensor.aqara_lightlevel"
+                                },
+                                {
+                                    "entity": "sensor.aqara_motion_temperature"
+                                },
+                                {
+                                    "entity": "sensor.switch_21_temperature"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -522,13 +542,17 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.everspring_st814_temperature_and_humidity_sensor_temperature_2"
+                                    "entity": "sensor.garage_door_temperature",
+                                    "secondary_info": "last-updated"
                                 },
                                 {
-                                    "entity": "sensor.everspring_st814_temperature_and_humidity_relative_humidity"
+                                    "entity": "sensor.garage_side_humidity"
                                 },
                                 {
-                                    "entity": "sensor.garage_door_temperature"
+                                    "entity": "sensor.garage_side_pressure"
+                                },
+                                {
+                                    "entity": "sensor.garage_side_temperature"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -569,29 +593,6 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.xiaomi_airpurifier_speed"
-                                },
-                                {
-                                    "entity": "sensor.xiaomi_airpurifier_filter_remaining"
-                                },
-                                {
-                                    "entity": "sensor.xiaomi_airpurifier_air_quality_pm25"
-                                },
-                                {
-                                    "entity": "sensor.xiaomi_airpurifier_temp"
-                                },
-                                {
-                                    "entity": "sensor.xiaomi_airpurifier_humidity"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "theme": "default",
-                            "title": "Albins Air Purifier",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
                                     "entity": "sensor.sensor_ambient_temperature"
                                 },
                                 {
@@ -616,10 +617,36 @@
                                     "entity": "sensor.outside_sensor_soil_humidity"
                                 }
                             ],
-                            "title": "Greenhouse & Garden",
-                            "type": "entities",
+                            "card": {
+                                "title": "Greenhouse & Garden"
+                            },
+                            "type": "entity-filter",
                             "show_header_toggle": false,
-                            "state_color": false
+                            "state_color": false,
+                            "state_filter": [
+                                {
+                                    "operator": "!=",
+                                    "value": null
+                                }
+                            ]
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.xiaomi_air_purifier_2s_humidity",
+                                    "name": "Humidity"
+                                },
+                                {
+                                    "entity": "sensor.xiaomi_air_purifier_2s_pm2_5",
+                                    "name": "PM2.5"
+                                },
+                                {
+                                    "entity": "sensor.xiaomi_air_purifier_2s_temperature",
+                                    "name": "Temperature"
+                                }
+                            ],
+                            "title": "Xiaomi Air Purifier 2S"
                         },
                         {
                             "entity": "weather.smhi_home",
@@ -635,16 +662,6 @@
                             ],
                             "hours_to_show": 72,
                             "refresh_interval": 0
-                        },
-                        {
-                            "type": "history-graph",
-                            "entities": [
-                                {
-                                    "entity": "sensor.popp_co_popp_z_rain_rain_sensor_rain_rate"
-                                }
-                            ],
-                            "refresh_interval": 0,
-                            "hours_to_show": 72
                         }
                     ]
                 },
@@ -656,16 +673,39 @@
                     "cards": [
                         {
                             "entities": [
-                                "sensor.load_1m",
-                                "sensor.load_5m",
-                                "sensor.load_15m",
-                                "sensor.memory_free",
-                                "sensor.processor_use",
-                                "sensor.disk_free_home",
-                                "sensor.network_in_eth0",
-                                "sensor.network_out_eth0",
-                                "sensor.last_boot",
-                                "sensor.cpu_temperature"
+                                {
+                                    "entity": "sensor.load_1m"
+                                },
+                                {
+                                    "entity": "sensor.load_5m"
+                                },
+                                {
+                                    "entity": "sensor.load_15m"
+                                },
+                                {
+                                    "entity": "sensor.memory_free"
+                                },
+                                {
+                                    "entity": "sensor.processor_use"
+                                },
+                                {
+                                    "entity": "sensor.disk_free"
+                                },
+                                {
+                                    "entity": "sensor.disk_use_percent"
+                                },
+                                {
+                                    "entity": "sensor.network_throughput_in_hassio"
+                                },
+                                {
+                                    "entity": "sensor.network_throughput_out_hassio"
+                                },
+                                {
+                                    "entity": "sensor.last_boot"
+                                },
+                                {
+                                    "entity": "sensor.cpu_temperature"
+                                }
                             ],
                             "show_header_toggle": false,
                             "title": "NUC10 values",
@@ -744,13 +784,13 @@
                                     "entity": "sensor.netatmo_rain_battery_percent"
                                 },
                                 {
-                                    "entity": "sensor.philio_battery"
+                                    "entity": "sensor.guest_room_motion_sensor_battery_level"
                                 },
                                 {
                                     "entity": "sensor.smoke_detector_battery_level"
                                 },
                                 {
-                                    "entity": "sensor.play_room_sensor_battery_level_2"
+                                    "entity": "sensor.play_room_sensor_battery_level"
                                 },
                                 {
                                     "entity": "sensor.frysen_battery"
@@ -762,25 +802,19 @@
                                     "entity": "sensor.attic_battery"
                                 },
                                 {
-                                    "entity": "sensor.flood_battery"
+                                    "entity": "sensor.flood_sensor_battery_level"
                                 },
                                 {
-                                    "entity": "sensor.everspring_st814_temperature_and_humidity_sensor_battery_level_3"
-                                },
-                                {
-                                    "entity": "sensor.garage_door_battery"
+                                    "entity": "sensor.garage_door_battery_level"
                                 },
                                 {
                                     "entity": "sensor.kylen_battery"
                                 },
                                 {
-                                    "entity": "sensor.id_lock_battery"
+                                    "entity": "sensor.id_lock_150_battery_level"
                                 },
                                 {
-                                    "entity": "sensor.popp_co_popp_z_rain_rain_sensor_battery_level"
-                                },
-                                {
-                                    "entity": "sensor.poly_control_danalock_v3_btze_battery_level"
+                                    "entity": "sensor.garage_side_door_lock_battery_level"
                                 },
                                 {
                                     "entity": "sensor.media_room_sensor_battery_level"
@@ -796,6 +830,12 @@
                                 },
                                 {
                                     "entity": "sensor.plant_sensor_battery_level"
+                                },
+                                {
+                                    "entity": "sensor.aqara_motion_battery_level"
+                                },
+                                {
+                                    "entity": "sensor.switch_21_battery_level"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -996,8 +1036,28 @@
                             "type": "entities"
                         },
                         {
-                            "entity": "climate.wvwzzz3czhe181012_electric_climatisation",
-                            "type": "thermostat"
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "timer.arbrum_motion"
+                                },
+                                {
+                                    "entity": "timer.bathroom_timer"
+                                },
+                                {
+                                    "entity": "timer.cloakroom_timer"
+                                },
+                                {
+                                    "entity": "timer.outside_water_timer"
+                                },
+                                {
+                                    "entity": "timer.greenhouse_water"
+                                },
+                                {
+                                    "entity": "input_number.media_room_timer"
+                                }
+                            ],
+                            "title": "Timers"
                         },
                         {
                             "type": "custom:scheduler-card",
@@ -1022,30 +1082,6 @@
                                 "switch.tp1",
                                 "switch.water_control"
                             ]
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "timer.arbrum_motion"
-                                },
-                                {
-                                    "entity": "timer.bathroom_timer"
-                                },
-                                {
-                                    "entity": "timer.cloakroom_timer"
-                                },
-                                {
-                                    "entity": "timer.outside_water_timer"
-                                },
-                                {
-                                    "entity": "timer.greenhouse_water"
-                                },
-                                {
-                                    "entity": "input_number.media_room_timer"
-                                }
-                            ],
-                            "title": "Timers"
                         }
                     ]
                 },
@@ -1408,7 +1444,7 @@
                                     "entity": "switch.ac_0c44702_1"
                                 }
                             ],
-                            "title": "RFXtrx"
+                            "title": "RFXtrx-filtered"
                         },
                         {
                             "type": "entities",

@@ -10,7 +10,6 @@
       - lock
       - fan
       - media_player
-#      - sensor
     entity_globs:
       - sensor.glances*
       - sensor.*battery*
@@ -24,43 +23,24 @@
       - sensor.speedtest_*
       - sensor.blitzortung_*
       - sensor.*savsangarvagen*
-      - sensor.*illuminance*
+      - sensor.*luminance*
+      - sensor.*light*
     entities:
-      - zwave.poly_control_danalock_v3_btze
-      - sensor.aqara_lightlevel
-      - sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance
       - sensor.load_1m
       - sensor.load_5m
       - sensor.load_15m
-      - sensor.network_out_eth0
-      - sensor.network_in_eth0
+      - sensor.network_throughput_out_hassio
+      - sensor.network_throughput_in_hassio
       - sensor.memory_free
       - sensor.processor_use
       - sensor.disk_free_home
       - sensor.last_boot
       - sensor.roger_status
       - sensor.time_to_work
-      - sensor.onhub_kbyte_sec_sent
-      - sensor.onhub_packets_sec_received
-      - sensor.power_reader
       - sensor.pelle_velocity
       - sensor.marie_velocity
       - sensor.frida_velocity
       - sensor.jenny_velocity
       - sensor.albin_velocity
-      - sensor.sensor_ambient_temperature
-      - sensor.sensor_battery_level
-      - sensor.sensor_light_intensity
-      # - sensor.sensor_soil_humidity
-      # - sensor.sensor_soil_temperature
-      # - sensor.water_control_battery_level
-      # - sensor.popp_co_popp_z_rain_rain_sensor_rain_rate
-      # - sensor.popp_co_popp_z_rain_rain_sensor_water
-      # - sensor.popp_co_popp_z_rain_rain_sensor_general
-      # - sensor.popp_co_popp_z_rain_rain_sensor_exporting
-      # - sensor.popp_co_popp_z_rain_rain_sensor_battery_level
-      # - sensor.blitzortung_lightning_azimuth
-      # - sensor.blitzortung_lightning_counter
-      # - sensor.blitzortung_lightning_distance
       - sensor.sm_t719_wifi_connection
       - sensor.daylight

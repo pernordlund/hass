@@ -9,10 +9,5 @@
       htpc: 192.168.86.57
       tradfri: 192.168.86.81
       husdata: 192.168.86.79
-#      storstugan: storstugan.dyndns-server.com
       wireguard_pi: 192.168.86.45
       omv: 192.168.86.249
-  - platform: nmap_tracker
-    hosts:
-      - 192.168.86.35
- 

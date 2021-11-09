@@ -75,8 +75,6 @@ zwave.fibaro_system_fgk101_door_opening_sensor:
   friendly_name: Garage Door
 binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_2:
   friendly_name: Garage door open
-binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor:
-  friendly_name: Allrum rorelse
 binary_sensor.philio_technology_corporation_psp05_pir_motion_sensor:
   friendly_name: Guest room motion
 zwave.fibaro_system_fgd211_universal_dimmer_500w:
@@ -97,7 +95,7 @@ binary_sensor.aqara_motion:
   friendly_name: Media room motion
   device_class: moving
 switch.bedroom_window: {}
-switch.guest_room_desk: {}
+switch.guest_room_desk_2: {}
 binary_sensor.guest_room_motion:
   device_class: moving
 binary_sensor.front_door_open_lock:

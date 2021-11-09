@@ -28,7 +28,7 @@
   action:
   - service: homeassistant.toggle
     data:
-      entity_id: light.living_room_corner
+      entity_id: switch.living_room_corner
   mode: single
 - id: A007
   alias: 0 - All lights off when night
@@ -725,7 +725,7 @@
       - service: homeassistant.toggle
         data: {}
         target:
-          entity_id: switch.guest_room_desk
+          entity_id: switch.guest_room_desk_2
       light:
         entity_id: light.guest_room_ceiling
 - id: '1610542848014'
@@ -824,7 +824,7 @@
     path: freakshock88/motion_illuminance_activated_entity.yaml
     input:
       motion_sensor: binary_sensor.guest_room_motion
-      target_entity: switch.guest_room_desk
+      target_entity: switch.guest_room_desk_2
       time_limit_after: input_datetime.guest_room_desk_auto_start
       time_limit_before: input_datetime.guest_room_desk_auto_stop
 - id: '1635760453257'
@@ -837,7 +837,7 @@
       button_single_press:
       - type: toggle
         device_id: f375e993ee126cde276ea0f857703769
-        entity_id: switch.guest_room_desk
+        entity_id: switch.guest_room_desk_2
         domain: switch
 - id: '1636024683504'
   alias: Garage extra sync with door
