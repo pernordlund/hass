@@ -12,7 +12,7 @@
       - pelles_tfn
   garage_door_open_long:
     name: Garage door is open
-    entity_id: binary_sensor.fibaro_system_fgk101_door_opening_sensor_sensor_2
+    entity_id: binary_sensor.garage_door_open
     state: 'on'
     repeat: 
       - 5
@@ -46,18 +46,6 @@
     can_acknowledge: true
     notifiers:
       - pelles_tfn
-#  forrad_door_open_long:
-#    name: Forrad door is open
-#    entity_id: binary_sensor.sensative_strips_sensor
-#    state: 'on'
-#    repeat: 
-#      - 5
-#      - 60
-#      - 120
-#    skip_first: True
-#    can_acknowledge: true
-#    notifiers:
-#      - pelles_tfn
   husdata_offline:
     name: Husdata notreporting
     entity_id: sensor.bv_time

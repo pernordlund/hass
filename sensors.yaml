@@ -1,24 +1,19 @@
-#Config sensors
+  - platform: nordpool
+    region: SE3
+    currency: SEK
   - platform: time_date
     display_options:
       - 'time'
       - 'date'
       - 'date_time'
-  # - platform: yr
-#  - platform: rest
-#    scan_interval: 60
-#    resource: !secret sl_resource
-#    name: Klisatravagen
-#    value_template: >
-#      {% for bus in value_json.ResponseData.Buses %}
-#      {{ bus.Destination|replace(" ", ".") }}-{{ bus.DisplayTime|replace(" ", ".") }} /// 
-#      {% endfor %}
-#  - platform: jsonrest
-#    scan_interval: 60
-#    resource: !secret sl_resource
-#    name: Klisatravagen
   - platform: template
     sensors:
+  #BV energy sensor
+      bv_approx_power:
+        friendly_name: Heat pump power
+        unit_of_measurement: 'W'
+        value_template: >-
+          {{ (0 if states('binary_sensor.bv_compressor') == 'off' else 1) * (states.input_number.bv_compressor_approx_power.state | float) }}
   #VPN sensor
       vpn_simple:
         friendly_name: VPN simple
@@ -41,7 +36,14 @@
         unit_of_measurement: '°'
       sunrise:
         friendly_name: 'Sunrise'
-        value_template: '{{ states.sun.sun.attributes.next_rising[11:16] }}'
+        value_template: >-
+          {{ as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom(' %H:%M') | replace(" 0", "") }}
+        icon_template: mdi:weather-sunset-up
+      sunset:
+        friendly_name: 'Sunset'
+        value_template: >-
+          {{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom(' %H:%M') | replace(" 0", "") }}
+        icon_template: mdi:weather-sunset-down
       roger_status:
         friendly_name: 'Roger status'
         value_template: "{{ state_attr('vacuum.roger', 'status') }}"
@@ -70,107 +72,18 @@
       #   friendly_name: 'Albin velocity'
       #   value_template: '{{ (states.device_tracker.albin_albin.attributes.velocity * 3.542) | int}}'
       #   unit_of_measurement: 'kmh'
-
-#      slussen:
-#        friendly_name: 'Slussenbuss'
-#        entity_id: sensor.klisatravagen
-#        value_template: >
-#          {% if states.sensor.klisatravagen.state == 'TRUNCATED' -%}
-#          {% if states.sensor.klisatravagen.attributes.ResponseData -%}
-#          Time: 
-#          {{ states.sensor.klisatravagen.attributes.ResponseData.LatestUpdate[11:16] }}
-#           -- Coming: 
-#          {% for bus in states.sensor.klisatravagen.attributes.ResponseData.Buses %}
-#          {% if bus.Destination == 'Slussen' -%}{{bus.DisplayTime}} // {%- endif %}{% endfor %}
-#          {%- else -%}Error
-#          {%- endif %}
-#          {%- else -%}N/A
-#          {%- endif %}
+  - platform: integration
+    source: sensor.bv_approx_power
+    name: heat_pump_energy
+    method: left
+    unit_prefix: k
+    round: 2
   - platform: mqtt
     state_topic: "hass/mqttclients/hass"
     name: "Hass mqtt status"
   - platform: mqtt
     state_topic: "hass/intromessage"
     name: "From Hass"
-  # - platform: mqtt
-  #   state_topic: "hass/life360/pelle"
-  #   name: "Pelle Life360"
-  # - platform: mqtt
-  #   state_topic: "hass/life360/home"
-  #   name: "Huset"
-  # - platform: mqtt
-  #   state_topic: "hass/life360/test"
-  #   name: "Life Api"
-  # - platform: mqtt
-  #   state_topic: "/hass/mqttclients/nodered"
-  #   name: "Nodered mqtt status"
-  # - platform: life360
-  #   username: !secret life_username
-  #   password: !secret life_password
-  #   mqtt_topic: hass/life360/test
-  # - platform: mqtt
-  #   state_topic: "hass/majolika/status"
-  #   name: "Maj Batt volt"
-  #   unit_of_measurement: 'V'
-  #   value_template: '{{ value_json.field1 }}'
-  # - platform: mqtt
-  #   state_topic: "hass/majolika/status"
-  #   name: "Maj Batt amps"
-  #   unit_of_measurement: 'A'
-  #   value_template: '{{ value_json.field2 }}'
-  # - platform: mqtt
-  #   state_topic: "hass/majolika/status"
-  #   name: "Maj Solcell volt"
-  #   unit_of_measurement: 'V'
-  #   value_template: '{{ value_json.field3 }}'
-  # - platform: mqtt
-  #   state_topic: "hass/majolika/status"
-  #   name: "Maj Solcell amps"
-  #   unit_of_measurement: 'A'
-  #   value_template: '{{ value_json.field4 }}'
-  # - platform: mqtt
-  #   state_topic: "hass/majolika/status"
-  #   name: "Maj Batt kapac"
-  #   unit_of_measurement: '%'
-  #   value_template: '{{ value_json.field5 }}'
-  # - platform: mqtt
-  #   state_topic: "hass/majolika/status"
-  #   name: "Maj Regulator temp"
-  #   unit_of_measurement: '°C'
-  #   value_template: '{{ value_json.field6 }}'
-  # - platform: mqtt
-  #   state_topic: "hass/majolika/status"
-  #   name: "Maj Batt status"
-  #   value_template: '{{ value_json.field7 }}'
-  # - platform: mqtt
-  #   state_topic: "hass/majolika/status"
-  #   name: "Maj Last amps"
-  #   unit_of_measurement: 'A'
-  #   value_template: '{{ value_json.field8 }}'
-  # - platform: mqtt
-  #   state_topic: "hass/majolika/control"
-  #   name: "Maj Last mode"
-  #   value_template: '{{ value_json.field1 }}'
-  # - platform: mqtt
-  #   state_topic: "hass/majolika/control"
-  #   name: "Maj Enable man contr"
-  #   value_template: '{{ value_json.field2 }}'
-  # - platform: mqtt
-  #   state_topic: "hass/majolika/control"
-  #   name: "Maj enable load test"
-  #   value_template: '{{ value_json.field3 }}'
-  # - platform: mqtt
-  #   state_topic: "hass/majolika/control"
-  #   name: "Maj force load"
-  #   value_template: '{{ value_json.field4 }}'
-  # - platform: mqtt
-  #   state_topic: "hass/majolika/control"
-  #   name: "Maj dag natt"
-  #   value_template: '{{ value_json.field5 }}'
-  # - platform: mqtt
-  #   state_topic: "hass/majolika/control"
-  #   name: "Maj Over temp"
-  #   value_template: '{{ value_json.field6 }}'
   - platform: mqtt
     state_topic: "hass/bv/time"
     name: "BV-time"
@@ -239,44 +152,6 @@
       - type: throughput_network_out
         arg: hassio
       - type: last_boot
-#  - platform: glances
-#    host: 192.168.1.30
-#    name: Rasp-3
-#    resources:
-#      - 'disk_use_percent'
-#      - 'disk_use'
-#      - 'disk_free'
-#      - 'memory_use_percent'
-#      - 'memory_use'
-#      - 'memory_free'
-#      - 'swap_use_percent'
-#      - 'swap_use'
-#      - 'swap_free'
-#      - 'processor_load'
-#      - 'process_running'
-#      - 'process_total'
-#      - 'process_thread'
-#      - 'process_sleeping'
-#  - platform: rest
-#    resource: http://192.168.1.33:1234/status
-#    name: Roger status
-#    value_template: >
-#      {{ value_json.mowerStatus }}
-#  - platform: rest
-#    resource: http://192.168.1.33:1234/status
-#    name: Roger battery
-#    value_template: >
-#      {{ value_json.batteryPercent }}
-#  - platform: rest
-#    resource: http://192.168.1.33:1234/status
-#    name: Roger next src
-#    value_template: >
-#      {{ value_json.nextStartSource }}
-#  - platform: rest
-#    resource: http://192.168.1.33:1234/status
-#    name: Roger next start
-#    value_template: >
-#      {{ value_json.nextStartTimestamp | timestamp_utc }}
   - platform: command_line
     name: CPU Temperature
     command: "ssh -F /config/ssh/config root@192.168.86.254 'cat /sys/class/thermal/thermal_zone2/temp'"
@@ -311,11 +186,6 @@
     name: VPN Clients
     command: "ssh -F /config/ssh/config pi@192.168.86.45 'pivpn -c' | grep 10.6 | sed -r 's/^(\\S*)\\s*(\\S*)\\s*\\S*\\s*\\S*\\s*(\\S*)\\s*(.*$)/\\1--\\2--\\3--\\4--***/g'"
     value_template: '{{ value[:255] }}'
-  # - platform: google_travel_time
-  #   name: Time to work
-  #   api_key: !secret gm_api_key_1
-  #   origin: place_id:ChIJncjNW9x4X0YRAAuGGtz9Snk
-  #   destination: place_id:ChIJWbo6qXOdX0YRhuGHD2V6uck
   - platform: uptime
   - platform: aarlo
     monitored_conditions:

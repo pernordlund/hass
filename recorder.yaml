@@ -25,6 +25,9 @@
       - sensor.*savsangarvagen*
       - sensor.*luminance*
       - sensor.*light*
+      - sensor.*energy*
+      - sensor.*kwh*
+      - sensor.*power*
     entities:
       - sensor.load_1m
       - sensor.load_5m

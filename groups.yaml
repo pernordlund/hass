@@ -22,16 +22,16 @@
       - light.play_room_ceiling
       - light.play_room_sofa
       - switch.bathroom_ceiling
-      - switch.sauna
+      - switch.bathroom_sauna
       - light.media_room_ceiling
       - light.play_room_ceiling_2
-      - light.attic
+      - switch.attic
   outside:
     name: Outside
     entities:
       - light.entre
-      - light.tree
-      - light.porch_ball
+      - switch.arc_b1
+      - switch.arc_b8
   switches:
     name: Switches
     entities:
@@ -47,13 +47,13 @@
       - light.front_door
       - switch.bedroom_window
       - switch.living_room_corner
-      - light.tree
-      - light.porch_ball
+      - switch.arc_b1
+      - switch.arc_b8
       - light.livingroom_sofa
   lights_pelle:
     name: Lights Pelle
     entities:
-      - light.bedroom_window
+      - switch.bedroom_window
       - switch.living_room_corner
       - switch.fibaro_system_fgwpef_wall_plug_switch
       - light.arbrum_fonster
@@ -67,12 +67,12 @@
       - light.cloak_room
       - light.kitchen_table
       - light.kitchen_bench
-      - light.bedroom_window
+      - switch.bedroom_window
       - light.livingroom_sofa
       - light.living_room_table
       - switch.living_room_corner
       - light.play_room_ceiling
-      - light.bathroom_ceiling
-      - light.sauna
+      - switch.bathroom_ceiling
+      - switch.bathroom_sauna
       - light.fridas_room_ceiling
-      - light.attic
+      - switch.attic

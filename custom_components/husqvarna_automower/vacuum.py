@@ -1,8 +1,10 @@
 """Creates a vacuum entity for the mower"""
 import json
 import logging
-import time
+from datetime import datetime
+
 import voluptuous as vol
+from aiohttp import ClientResponseError
 
 from homeassistant.components.vacuum import (
     ATTR_STATUS,
@@ -23,10 +25,13 @@ from homeassistant.components.vacuum import (
     SUPPORT_STOP,
     StateVacuumEntity,
 )
+from homeassistant.core import Config
+from homeassistant.exceptions import ConditionErrorMessage
 from homeassistant.helpers import config_validation as cv
 from homeassistant.helpers import entity_platform
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.update_coordinator import UpdateFailed
+from homeassistant.util import dt as dt_util
 
 from .const import DOMAIN, ERRORCODES, HUSQVARNA_URL, ICON
 
@@ -46,10 +51,11 @@ SUPPORT_STATE_SERVICES = (
 _LOGGER = logging.getLogger(__name__)
 
 
-async def async_setup_entry(hass, entry, async_add_devices) -> None:
+async def async_setup_entry(hass, entry, async_add_entities) -> None:
     """Setup sensor platform."""
+
     session = hass.data[DOMAIN][entry.entry_id]
-    async_add_devices(
+    async_add_entities(
         HusqvarnaAutomowerEntity(session, idx)
         for idx, ent in enumerate(session.data["data"])
     )
@@ -61,7 +67,7 @@ async def async_setup_entry(hass, entry, async_add_devices) -> None:
             vol.Required("command"): cv.string,
             vol.Required("duration"): vol.Coerce(int),
         },
-        "async_custom_command",
+        "async_park_and_start",
     )
 
     platform.async_register_entity_service(
@@ -80,6 +86,15 @@ async def async_setup_entry(hass, entry, async_add_devices) -> None:
         "async_custom_calendar_command",
     )
 
+    platform.async_register_entity_service(
+        "custom_command",
+        {
+            vol.Required("command_type"): cv.string,
+            vol.Required("json_string"): cv.string,
+        },
+        "async_custom_command",
+    )
+
 
 class HusqvarnaAutomowerEntity(StateVacuumEntity):
     """Defining each mower Entity."""
@@ -87,7 +102,6 @@ class HusqvarnaAutomowerEntity(StateVacuumEntity):
     def __init__(self, session, idx) -> None:
         self.session = session
         self.idx = idx
-
         mower = self.session.data["data"][self.idx]
         mower_attributes = self.__get_mower_attributes()
 
@@ -216,10 +230,10 @@ class HusqvarnaAutomowerEntity(StateVacuumEntity):
         mower_attributes = self.__get_mower_attributes()
         next_start_short = ""
         if mower_attributes["planner"]["nextStartTimestamp"] != 0:
-            next_start_short = time.strftime(
-                ", next start: %a %H:%M",
-                time.gmtime((mower_attributes["planner"]["nextStartTimestamp"]) / 1000),
+            next_start_dt_obj = datetime.fromtimestamp(
+                (mower_attributes["planner"]["nextStartTimestamp"]) / 1000
             )
+            next_start_short = next_start_dt_obj.strftime(", next start: %a %H:%M")
         if mower_attributes["mower"]["state"] == "UNKNOWN":
             return "Unknown"
         if mower_attributes["mower"]["state"] == "NOT_APPLICABLE":
@@ -270,6 +284,12 @@ class HusqvarnaAutomowerEntity(StateVacuumEntity):
             return ERRORCODES.get(mower_attributes["mower"]["errorCode"])
         return "Unknown"
 
+    def __datetime_object(self, timestamp) -> datetime:
+        """Converts the mower local timestamp to a UTC datetime object"""
+        self.timestamp = timestamp
+        self.naive = datetime.fromtimestamp(self.timestamp / 1000)
+        return dt_util.as_local(self.naive)
+
     @property
     def extra_state_attributes(self) -> dict:
         """Return the specific state attributes of this mower."""
@@ -282,19 +302,19 @@ class HusqvarnaAutomowerEntity(StateVacuumEntity):
             "ERROR_AT_POWER_UP",
         ]:
             error_message = ERRORCODES.get(mower_attributes["mower"]["errorCode"])
-            error_time = time.strftime(
-                "%Y-%m-%d %H:%M:%S",
-                time.gmtime((mower_attributes["mower"]["errorCodeTimestamp"]) / 1000),
+
+            error_time = self.__datetime_object(
+                mower_attributes["mower"]["errorCodeTimestamp"]
             )
 
         next_start = None
+
         if mower_attributes["planner"]["nextStartTimestamp"] != 0:
-            next_start = time.strftime(
-                "%Y-%m-%d %H:%M:%S",
-                time.gmtime((mower_attributes["planner"]["nextStartTimestamp"]) / 1000),
+            next_start = self.__datetime_object(
+                mower_attributes["planner"]["nextStartTimestamp"]
             )
 
-        attributes = {
+        return {
             ATTR_STATUS: self.__get_status(),
             "mode": mower_attributes["mower"]["mode"],
             "activity": mower_attributes["mower"]["activity"],
@@ -304,13 +324,7 @@ class HusqvarnaAutomowerEntity(StateVacuumEntity):
             "nextStart": next_start,
             "action": mower_attributes["planner"]["override"]["action"],
             "restrictedReason": mower_attributes["planner"]["restrictedReason"],
-            "headlight": mower_attributes["settings"]["headlight"]["mode"],
         }
-
-        if "4" in self.model:
-            attributes["cuttingHeight"] = mower_attributes["settings"]["cuttingHeight"]
-
-        return attributes
 
     async def async_start(self) -> None:
         """Resume schedule."""
@@ -318,8 +332,8 @@ class HusqvarnaAutomowerEntity(StateVacuumEntity):
         payload = '{"data": {"type": "ResumeSchedule"}}'
         try:
             await self.session.action(self.mower_id, payload, command_type)
-        except Exception as exception:
-            raise UpdateFailed(exception) from exception
+        except ClientResponseError as exception:
+            _LOGGER.error("Command couldn't be sent to the command que")
 
     async def async_pause(self) -> None:
         """Pauses the mower."""
@@ -327,8 +341,8 @@ class HusqvarnaAutomowerEntity(StateVacuumEntity):
         payload = '{"data": {"type": "Pause"}}'
         try:
             await self.session.action(self.mower_id, payload, command_type)
-        except Exception as exception:
-            raise UpdateFailed(exception) from exception
+        except ClientResponseError as exception:
+            _LOGGER.error("Command couldn't be sent to the command que")
 
     async def async_stop(self, **kwargs) -> None:
         """Parks the mower until next schedule."""
@@ -336,8 +350,8 @@ class HusqvarnaAutomowerEntity(StateVacuumEntity):
         payload = '{"data": {"type": "ParkUntilNextSchedule"}}'
         try:
             await self.session.action(self.mower_id, payload, command_type)
-        except Exception as exception:
-            raise UpdateFailed(exception) from exception
+        except ClientResponseError as exception:
+            _LOGGER.error("Command couldn't be sent to the command que")
 
     async def async_return_to_base(self, **kwargs) -> None:
         """Parks the mower until further notice."""
@@ -345,10 +359,10 @@ class HusqvarnaAutomowerEntity(StateVacuumEntity):
         payload = '{"data": {"type": "ParkUntilFurtherNotice"}}'
         try:
             await self.session.action(self.mower_id, payload, command_type)
-        except Exception as exception:
-            raise UpdateFailed(exception) from exception
+        except ClientResponseError as exception:
+            _LOGGER.error("Command couldn't be sent to the command que")
 
-    async def async_custom_command(self, command, duration, **kwargs) -> None:
+    async def async_park_and_start(self, command, duration, **kwargs) -> None:
         """Sends a custom command to the mower."""
         command_type = "actions"
         string = {
@@ -360,8 +374,8 @@ class HusqvarnaAutomowerEntity(StateVacuumEntity):
         payload = json.dumps(string)
         try:
             await self.session.action(self.mower_id, payload, command_type)
-        except Exception as exception:
-            raise UpdateFailed(exception) from exception
+        except ClientResponseError as exception:
+            _LOGGER.error("Command couldn't be sent to the command que")
 
     async def async_custom_calendar_command(
         self,
@@ -382,7 +396,8 @@ class HusqvarnaAutomowerEntity(StateVacuumEntity):
         end_in_minutes = end.hour * 60 + end.minute
         _LOGGER.debug("end in minutes: %i", end_in_minutes)
         duration = end_in_minutes - start_in_minutes
-        _LOGGER.debug("duration: %i ", duration)
+        if duration <= 0:
+            raise ConditionErrorMessage("<", "StartingTime must be before EndingTime")
         command_type = "calendar"
         string = {
             "data": {
@@ -407,5 +422,12 @@ class HusqvarnaAutomowerEntity(StateVacuumEntity):
         payload = json.dumps(string)
         try:
             await self.session.action(self.mower_id, payload, command_type)
-        except Exception as exception:
-            raise UpdateFailed(exception) from exception
+        except ClientResponseError as exception:
+            _LOGGER.error("Command couldn't be sent to the command que")
+
+    async def async_custom_command(self, command_type, json_string, **kwargs) -> None:
+        """Sends a custom command to the mower."""
+        try:
+            await self.session.action(self.mower_id, json_string, command_type)
+        except ClientResponseError as exception:
+            _LOGGER.error("Command couldn't be sent to the command que")

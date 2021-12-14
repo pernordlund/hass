@@ -44,9 +44,15 @@ class ArloDevice(object):
         # Activities. Used by camera for now but made available to all.
         self._activities = {}
 
-        # Build initial values... attrs is device state
+        # Build initial values. These can be at the top level or in the
+        # properties dictionary.
         for key in DEVICE_KEYS:
             value = attrs.get(key, None)
+            if value is not None:
+                self._save(key, value)
+        props = attrs.get("properties", {})
+        for key in RESOURCE_KEYS + RESOURCE_UPDATE_KEYS:
+            value = props.get(key, None)
             if value is not None:
                 self._save(key, value)
 
@@ -71,14 +77,7 @@ class ArloDevice(object):
 
         # Find properties. Event either contains a item called properties or it
         # is the whole thing.
-        props = event.get("properties", event)
-
-        # Save out new values.
-        for key in props:
-            if key in RESOURCE_KEYS or key in RESOURCE_UPDATE_KEYS:
-                value = props.get(key, None)
-                if value is not None:
-                    self._save_and_do_callbacks(key, value)
+        self.update_resources(event.get("properties", event))
 
     def _do_callbacks(self, attr, value):
         cbs = []
@@ -102,6 +101,12 @@ class ArloDevice(object):
 
     def _load_matching(self, attr, default=None):
         return self._arlo.st.get_matching(self._to_storage_key(attr), default)
+
+    def update_resources(self, props):
+        for key in RESOURCE_KEYS + RESOURCE_UPDATE_KEYS:
+            value = props.get(key, None)
+            if value is not None:
+                self._save_and_do_callbacks(key, value)
 
     @property
     def entity_id(self):
@@ -146,9 +151,7 @@ class ArloDevice(object):
 
     @property
     def device_type(self):
-        """Returns the Arlo reported device type.
-\
-        """
+        """Returns the Arlo reported device type."""
         return self._device_type
 
     @property

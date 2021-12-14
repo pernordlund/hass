@@ -157,7 +157,7 @@
   - data:
       entity_id:
       - light.entrance_drawer
-      - light.bedroom_window
+      - switch.bedroom_window
       - light.livingroom_sofa
     service: homeassistant.turn_on
   mode: single
@@ -227,7 +227,7 @@
     to: 'on'
   condition:
   - condition: state
-    entity_id: light.sauna
+    entity_id: switch.bathroom_sauna
     state: 'off'
   action:
   - service: homeassistant.turn_on
@@ -642,7 +642,7 @@
   description: ''
   trigger:
   - platform: state
-    entity_id: light.bathroom_ceiling
+    entity_id: switch.bathroom_ceiling
     to: 'on'
   condition: []
   action:
@@ -661,12 +661,12 @@
       entity_id: timer.bathroom_timer
   condition:
   - condition: state
-    entity_id: light.sauna
+    entity_id: switch.bathroom_sauna
     state: 'off'
   action:
-  - service: light.turn_off
+  - service: homeassistant.turn_off
     data: {}
-    entity_id: light.bathroom_ceiling
+    entity_id: switch.bathroom_ceiling
   mode: single
 - id: '1606659412579'
   alias: Cloakroom timer start
@@ -819,7 +819,7 @@
       no_motion_wait: input_number.media_room_timer
 - id: '1632200484443'
   alias: Guest room desk motion
-  description: ''
+  description: guest rom desk motion
   use_blueprint:
     path: freakshock88/motion_illuminance_activated_entity.yaml
     input:

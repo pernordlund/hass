@@ -92,7 +92,7 @@ camera: !include cameras.yaml
 
 switch: !include switches.yaml
 
-light: !include lights.yaml
+#light: !include lights.yaml
 
 automation: !include automations.yaml
 
@@ -161,3 +161,5 @@ mobile_app:
 twilio:
   account_sid: !secret tw_account_sid_from_twilio
   auth_token: !secret tw_auth_token_from_twilio
+
+nordpool:

@@ -46,7 +46,7 @@ calendar:
   fields:
     start:
       name: Starting time
-      description: When the mower should start mowing (seconds will be ignored)
+      description: When the mower should start mowing (must be earlier than the ending time, seconds will be ignored)
       required: true
       example: "11:11:00"
       default: "12:00:00"
@@ -54,7 +54,7 @@ calendar:
         time:
     end:
       name: Ending time
-      description: When the mower should return to the dock (seconds will be ignored)
+      description: When the mower should return to the dock (must be later than the starting time, seconds will be ignored)
       required: true
       example: "17:30:00"
       default: "18:00:00"
@@ -113,7 +113,63 @@ calendar:
       description: Do you wish, that your lawn is mowed on this day?
       required: true
       example: true
-      default: false
       default: true
       selector:
         boolean:
+
+custom_command:
+  name: Custom command
+  description: Send a highly individual command to the mower, like a multiple calendar task or a command for a new feature, which is not implemented yet by this integration.
+  target:
+    entity:
+      integration: "husqvarna_automower"
+      domain: "vacuum"
+  fields:
+    command_type:
+      name: Command Type
+      description: Command type
+      required: true
+      example: "calendar"
+      default: "actions"
+      selector:
+        select:
+          options:
+            - "actions"
+            - "calendar"
+            - "settings"
+    json_string:
+      name: JSON
+      description: "Custom command as JSON. You can get examples from https://developer.husqvarnagroup.cloud/apis/Automower+Connect+API#/swagger"
+      required: true
+      example: >-
+        '{
+          "data":{
+              "type":"calendar",
+              "attributes":{
+                "tasks":[
+                    {
+                      "start":300,
+                      "duration":360,
+                      "monday":false,
+                      "tuesday":true,
+                      "wednesday":false,
+                      "thursday":false,
+                      "friday":false,
+                      "saturday":false,
+                      "sunday":false
+                    },
+                    {
+                      "start":500,
+                      "duration":60,
+                      "monday":true,
+                      "tuesday":false,
+                      "wednesday":false,
+                      "thursday":false,
+                      "friday":false,
+                      "saturday":false,
+                      "sunday":false
+                    }
+                ]
+              }
+          }
+        }'
