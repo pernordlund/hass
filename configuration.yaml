@@ -17,6 +17,8 @@ homeassistant:
   auth_providers:
     - type: homeassistant
 
+default_config:
+
 my:
 
 energy:
@@ -48,7 +50,7 @@ http:
     - !secret http_trusted_proxy
 
 # Checks for available updates
-updater:
+# updater:
 
 # Discover some devices automatically
 discovery:
@@ -85,9 +87,6 @@ media_player: !include media_players.yaml
 
 device_tracker: !include devices.yaml
 
-#mqtt: !include mqtt.yaml
-#mqtt:
-
 camera: !include cameras.yaml
 
 switch: !include switches.yaml
@@ -106,9 +105,6 @@ rest_command: !include rest_commands.yaml
 
 shell_command: !include shell_commands.yaml
 
-tradfri:
-  allow_tradfri_groups: true
-
 influxdb: !include influxdb.yaml
 
 script: !include scripts.yaml
@@ -119,7 +115,7 @@ cloud:
 
 system_log:
 
-netatmo: !include netatmo.yaml
+#netatmo: !include netatmo.yaml
 
 timer: !include timers.yaml
 
@@ -163,3 +159,9 @@ twilio:
   auth_token: !secret tw_auth_token_from_twilio
 
 nordpool:
+
+template: !include templates.yaml
+
+tts:
+  - platform: google_translate
+    service_name: google_say

@@ -7,12 +7,12 @@ from statistics import mean
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
 from homeassistant.components.sensor import PLATFORM_SCHEMA
-from homeassistant.const import CONF_REGION, EVENT_TIME_CHANGED
+from homeassistant.const import CONF_REGION
 from homeassistant.helpers.dispatcher import async_dispatcher_connect
 from homeassistant.helpers.entity import Entity
 from homeassistant.helpers.template import Template, attach
 from homeassistant.util import dt as dt_utils
-from jinja2 import contextfunction
+from jinja2 import pass_context
 
 from . import DOMAIN, EVENT_NEW_DATA
 from .misc import extract_attrs, has_junk, is_new, start_of
@@ -58,7 +58,7 @@ DEFAULT_REGION = "Kr.sand"
 DEFAULT_NAME = "Elspot"
 
 
-DEFAULT_TEMPLATE = "{{0.0}}"
+DEFAULT_TEMPLATE = "{{0.0|float}}"
 
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
@@ -84,7 +84,7 @@ def _dry_setup(hass, config, add_devices, discovery_info=None):
     _LOGGER.debug("Dumping config %r", config)
     _LOGGER.debug("timezone set in ha %r", hass.config.time_zone)
     region = config.get(CONF_REGION)
-    friendly_name = config.get("friendly_name")
+    friendly_name = config.get("friendly_name", "")
     price_type = config.get("price_type")
     precision = config.get("precision")
     low_price_cutoff = config.get("low_price_cutoff")
@@ -137,11 +137,8 @@ class NordpoolSensor(Entity):
         ad_template,
         hass,
     ) -> None:
-        self._friendly_name = friendly_name or "%s %s %s" % (
-            DEFAULT_NAME,
-            price_type,
-            area,
-        )
+        # friendly_name is ignored as it never worked.
+        # rename the sensor in the ui if you dont like the name.
         self._area = area
         self._currency = currency or _REGIONS[area][0]
         self._price_type = price_type
@@ -175,7 +172,13 @@ class NordpoolSensor(Entity):
         # Check incase the sensor was setup using config flow.
         # This blow up if the template isnt valid.
         if not isinstance(self._ad_template, Template):
+            if self._ad_template in (None, ""):
+                self._ad_template = DEFAULT_TEMPLATE
             self._ad_template = cv.template(self._ad_template)
+        # check for yaml setup.
+        else:
+            if self._ad_template.template in ("", None):
+                self._ad_template = cv.template(DEFAULT_TEMPLATE)
 
         attach(self._hass, self._ad_template)
 
@@ -191,10 +194,6 @@ class NordpoolSensor(Entity):
     def should_poll(self):
         """No need to poll. Coordinator notifies entity of updates."""
         return False
-
-    @property
-    def friendly_name(self) -> str:
-        return self._friendly_name
 
     @property
     def icon(self) -> str:
@@ -264,7 +263,7 @@ class NordpoolSensor(Entity):
                 def inner(*args, **kwargs):
                     return fake_dt
 
-                return contextfunction(inner)
+                return pass_context(inner)
 
             template_value = self._ad_template.async_render(now=faker())
         else:
@@ -372,12 +371,12 @@ class NordpoolSensor(Entity):
         ]
 
     @property
-    def device_state_attributes(self) -> dict:
+    def extra_state_attributes(self) -> dict:
         return {
             "current_price": self.current_price,
             "average": self._average,
-            "off peak 1": self._off_peak_1,
-            "off peak 2": self._off_peak_2,
+            "off_peak_1": self._off_peak_1,
+            "off_peak_2": self._off_peak_2,
             "peak": self._peak,
             "min": self._min,
             "max": self._max,
@@ -417,7 +416,7 @@ class NordpoolSensor(Entity):
         return self._api.tomorrow_valid()
 
     async def _update_current_price(self) -> None:
-        """ update the current price (price this hour)"""
+        """update the current price (price this hour)"""
         local_now = dt_utils.now()
 
         data = await self._api.today(self._area, self._currency)

@@ -1,3 +1,7 @@
+  # - platform: mqtt_room
+  #   device_id: ble-9d41000035d6f4ddba60e7bd8dc491c0-33597-63592
+  #   name: Work keys
+  #   state_topic: room-assistant/mqtt-room
   - platform: nordpool
     region: SE3
     currency: SEK
@@ -8,27 +12,43 @@
       - 'date_time'
   - platform: template
     sensors:
+      zigge_distance_bt:
+        friendly_name: Zigge BT distance
+        unit_of_measurement: 'm'
+        value_template: >-
+          {{ 0 if state_attr('sensor.zklvyzim_room_presence', 'distance') is none else "%.1f"|format( states.sensor.zklvyzim_room_presence.attributes.distance) }}
+      pelles_phone_distance_bt:
+        friendly_name: Pelles phone BT distance
+        unit_of_measurement: 'm'
+        value_template: >-
+          {{ 0 if state_attr('sensor.pelles_phone_room_presence', 'distance') is none else "%.1f"|format( states.sensor.pelles_phone_room_presence.attributes.distance) }}
   #BV energy sensor
       bv_approx_power:
         friendly_name: Heat pump power
         unit_of_measurement: 'W'
         value_template: >-
           {{ (0 if states('binary_sensor.bv_compressor') == 'off' else 1) * (states.input_number.bv_compressor_approx_power.state | float) }}
-  #VPN sensor
-      vpn_simple:
-        friendly_name: VPN simple
+  #Car charging energy sensor
+      ar_approx_power:
+        friendly_name: Car charge power
+        unit_of_measurement: 'W'
         value_template: >-
-          {% for row in states.sensor.vpn_clients.state.split('\n') -%}
-            {% for value in row.split('--') -%}
-              {% if loop.index <= 2 -%}
-                {{ value }}
-              {%- endif %}
-              {% if loop.index <= 1 -%}
-                {{ ' ' }}
-              {%- endif %}
-            {%- endfor %}
-            {{'\n'}}
-          {%- endfor %}
+          {{ (0 if states('switch.arteon_charging') == 'off' else 1) * (states.input_number.approx_power_when_charging_car.state | float) }}
+  #VPN sensor
+      # vpn_simple:
+      #   friendly_name: VPN simple
+      #   value_template: >-
+      #     {% for row in states.sensor.vpn_clients.state.split('\n') -%}
+      #       {% for value in row.split('--') -%}
+      #         {% if loop.index <= 2 -%}
+      #           {{ value }}
+      #         {%- endif %}
+      #         {% if loop.index <= 1 -%}
+      #           {{ ' ' }}
+      #         {%- endif %}
+      #       {%- endfor %}
+      #       {{'\n'}}
+      #     {%- endfor %}
   #Others
       solar_angle:
         value_template: '{{ "%+.1f"|format(states.sun.sun.attributes.elevation) }}'
@@ -44,14 +64,17 @@
         value_template: >-
           {{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom(' %H:%M') | replace(" 0", "") }}
         icon_template: mdi:weather-sunset-down
-      roger_status:
-        friendly_name: 'Roger status'
-        value_template: "{{ state_attr('vacuum.roger', 'status') }}"
       roger_battery:
         friendly_name: 'Roger battery level'
-        value_template: "{{ state_attr('vacuum.roger', 'battery_level') }}"
+        value_template: "{{ state_attr('vacuum.automower_r_310_roger', 'battery_level') }}"
         unit_of_measurement: '%'
         device_class: battery
+      wind_bearing:
+        friendly_name: 'Wind direction'
+        value_template: '{{ state_attr("weather.smhi_home", "wind_bearing") }}'
+        unit_of_measurement: '°'
+        icon_template: mdi:weather-windy-variant
+
       # pelle_velocity:
       #   friendly_name: 'Pelle velocity'
       #   value_template: '{{ (states.device_tracker.per_per.attributes.velocity * 3.542) | int }}'
@@ -75,6 +98,12 @@
   - platform: integration
     source: sensor.bv_approx_power
     name: heat_pump_energy
+    method: left
+    unit_prefix: k
+    round: 2
+  - platform: integration
+    source: sensor.ar_approx_power
+    name: arteon_charging_energy
     method: left
     unit_prefix: k
     round: 2
@@ -160,7 +189,7 @@
     value_template: '{{ value | multiply(0.001) }}'
   - platform: command_line
     name: NUC7 Temperature
-    command: "ssh -F /config/ssh/config pelle@192.168.86.76 'cat /sys/class/thermal/thermal_zone2/temp'"
+    command: "ssh -F /config/ssh/config pelle@192.168.86.76 'cat /sys/class/thermal/thermal_zone1/temp'"
     # If errors occur, remove degree symbol below
     unit_of_measurement: "°C"
     value_template: '{{ value | multiply(0.001) }}'
@@ -200,7 +229,18 @@
     - air_quality
   - platform: google_wifi
     host: 192.168.86.1
-
+  - platform: sjofartsverket_viva
+    name: Vind Sandhamn
+    region: 80
+    scan_interval: 120
+  - platform: sjofartsverket_viva
+    name: Vind Söderarm
+    region: 166
+    scan_interval: 120
+  - platform: sjofartsverket_viva
+    name: Vind Landsort
+    region: 2
+    scan_interval: 120
 # HASL Hass SL integration
 #  - platform: hasl
 #    ri4key: !secret sl_ri4_key

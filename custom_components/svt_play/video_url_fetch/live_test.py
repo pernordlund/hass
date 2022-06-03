@@ -3,13 +3,13 @@ import pytest
 
 
 def test_rapport_by_time():
-    id = video_id_by_time('skavlan')
+    id = video_id_by_time('rapport')
     url = video_url_by_video_id(id)
     assert url.startswith('http')
 
 
 def test_rapport_by_suggested():
-    id = suggested_video_id('skavlan')
+    id = suggested_video_id('rapport')
     url = video_url_by_video_id(id)
     assert url.startswith('http')
 
@@ -35,10 +35,10 @@ def test_not_found_channel():
 
 
 def test_random():
-    id = random_video_id('skavlan')
+    id = random_video_id('aktuellt')
     same_counter = 0
     for _ in range(5):
-        new_id = random_video_id('skavlan')
+        new_id = random_video_id('aktuellt')
         print(new_id)
         if id == new_id:
             same_counter += 1

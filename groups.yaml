@@ -5,7 +5,6 @@
       - light.guest_room_desk
       - switch.guest_room_desk_2
       - light.guest_room_window_hue
-      - light.guest_room_ceiling
       - light.entrance_ceiling
       - light.entrance_drawer
       - switch.cloak_room
@@ -61,7 +60,6 @@
     name: Lights alarm on
     entities:
       - light.guest_room_desk
-      - light.guest_room_ceiling
       - light.entrance_drawer
       - light.entrance_ceiling
       - light.cloak_room

@@ -15,3 +15,15 @@
   - name: pelle_twilio_sms
     platform: twilio_sms
     from_number: !secret tw_phone_no
+  - platform: tts
+    name: guest_room
+    tts_service: tts.google_say
+    media_player: media_player.guest_room_speaker
+  - platform: tts
+    name: living_room
+    tts_service: tts.google_say
+    media_player: media_player.living_room_speaker
+  - platform: tts
+    name: kitchen
+    tts_service: tts.google_say
+    media_player: media_player.kitchen_display

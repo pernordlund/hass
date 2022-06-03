@@ -1,0 +1,5 @@
+  - sensor:
+      - name: "Zigge distance"
+        unit_of_measurement: "m"
+        state: >
+          {{ ((distance('device_tracker.zklvyzim_zigge') or 0) | multiply(1000) | int) * (1 if is_state('sensor.zigge_tracker_state', 'operational') else 0) }}

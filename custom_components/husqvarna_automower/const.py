@@ -1,20 +1,26 @@
 """The constants for the Husqvarna Automower integration."""
+from homeassistant.const import Platform
+
 # Base component constants
 NAME = "husqvarna_automower"
 DOMAIN = "husqvarna_automower"
 DOMAIN_DATA = f"{DOMAIN}_data"
-INTEGRATION_VERSION = "2021.12.0"
+INTEGRATION_VERSION = "2022.5.4"
 ISSUE_URL = "https://github.com/Thomas55555/husqvarna_automower"
 HUSQVARNA_URL = "https://developer.husqvarnagroup.cloud/apps"
-
-
-# Icons
-ICON = "mdi:robot-mower"
-
+OAUTH2_AUTHORIZE = "https://api.authentication.husqvarnagroup.dev/v1/oauth2/authorize"
+OAUTH2_TOKEN = "https://api.authentication.husqvarnagroup.dev/v1/oauth2/token"
 
 # Platforms
-PLATFORMS = ["device_tracker", "vacuum", "select", "number", "calendar"]
-
+PLATFORMS = [
+    Platform.DEVICE_TRACKER,
+    Platform.VACUUM,
+    Platform.SELECT,
+    Platform.NUMBER,
+    Platform.CALENDAR,
+    Platform.SENSOR,
+    Platform.BINARY_SENSOR,
+]
 
 # Configuration and options
 CONF_ENABLED = "enabled"
@@ -23,6 +29,7 @@ CONF_PROVIDER = "provider"
 CONF_TOKEN_TYPE = "token_type"
 CONF_REFRESH_TOKEN = "refresh_token"
 ACCESS_TOKEN_RAW = "access_token_raw"
+POSITIONS = "positions"
 
 
 # Defaults

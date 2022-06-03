@@ -1,5 +1,6 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "lovelace",
     "data": {
         "config": {
@@ -20,7 +21,7 @@
                                     "entity": "sensor.time"
                                 },
                                 {
-                                    "entity": "binary_sensor.updater"
+                                    "entity": "update.home_assistant_core_update"
                                 },
                                 {
                                     "entity": "binary_sensor.backups_stale"
@@ -60,10 +61,20 @@
                                     "entity": "device_tracker.work_keys"
                                 },
                                 {
-                                    "entity": "device_tracker.zklvyzim_zigge"
+                                    "entity": "sensor.zigge_battery_level"
                                 },
                                 {
-                                    "entity": "sensor.zigge_battery_level"
+                                    "entity": "sensor.zigge_distance"
+                                },
+                                {
+                                    "entity": "sensor.zklvyzim_room_presence",
+                                    "name": "Zigge room"
+                                },
+                                {
+                                    "entity": "sensor.zigge_distance_bt"
+                                },
+                                {
+                                    "entity": "sensor.pelles_phone_distance_bt"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -251,6 +262,27 @@
                                 }
                             ],
                             "title": "Climate"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                "sensor.citymail_delivery_13837",
+                                "sensor.mail_delivery_13837",
+                                "sensor.postnord_delivery_13837"
+                            ],
+                            "title": "Snail mail"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "vacuum.automower_r_310_roger"
+                                },
+                                {
+                                    "entity": "sensor.roger_battery"
+                                }
+                            ],
+                            "title": "Roger"
                         }
                     ]
                 },
@@ -273,9 +305,6 @@
                                 },
                                 {
                                     "entity": "light.entrance_ceiling"
-                                },
-                                {
-                                    "entity": "light.guest_room_ceiling"
                                 },
                                 {
                                     "entity": "switch.guest_room_desk_2"
@@ -436,6 +465,9 @@
                                 },
                                 {
                                     "entity": "switch.arteon_charging"
+                                },
+                                {
+                                    "entity": "input_datetime.start_arteon_elec_clima"
                                 }
                             ],
                             "title": "Misc"
@@ -469,6 +501,9 @@
                                 },
                                 {
                                     "entity": "automation.greenhouse_water"
+                                },
+                                {
+                                    "entity": "automation.zigge_is_waiting"
                                 }
                             ],
                             "title": "Automations on/off",
@@ -485,6 +520,9 @@
                                 },
                                 {
                                     "entity": "script.where_is_my_family"
+                                },
+                                {
+                                    "entity": "script.daily_midnight"
                                 }
                             ],
                             "title": "Scripts",
@@ -497,7 +535,8 @@
                             ],
                             "state_filter": [
                                 "on",
-                                "off"
+                                "off",
+                                "cleaning"
                             ],
                             "card": {
                                 "title": "Roger"
@@ -695,6 +734,24 @@
                             ],
                             "hours_to_show": 72,
                             "refresh_interval": 0
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.vind_soderarm"
+                                },
+                                {
+                                    "entity": "sensor.vind_sandhamn"
+                                },
+                                {
+                                    "entity": "sensor.vind_landsort"
+                                },
+                                {
+                                    "entity": "sensor.wind_bearing"
+                                }
+                            ],
+                            "title": "Wind"
                         }
                     ]
                 },
@@ -747,6 +804,9 @@
                         {
                             "entities": [
                                 {
+                                    "entity": "device_tracker.tv"
+                                },
+                                {
                                     "entity": "device_tracker.zonestorage"
                                 },
                                 {
@@ -784,6 +844,12 @@
                                 },
                                 {
                                     "entity": "sensor.seagate4tb_temperature"
+                                },
+                                {
+                                    "entity": "sensor.entrance_cluster_size"
+                                },
+                                {
+                                    "entity": "sensor.range_extender_7_node_status"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -1026,6 +1092,10 @@
                         {
                             "type": "media-control",
                             "entity": "media_player.google_tv"
+                        },
+                        {
+                            "type": "media-control",
+                            "entity": "media_player.hemmabio"
                         }
                     ]
                 },
@@ -1060,6 +1130,9 @@
                                 },
                                 {
                                     "entity": "input_datetime.guest_room_desk_auto_stop"
+                                },
+                                {
+                                    "entity": "input_text.ikea_shortcut_last_action"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -1239,6 +1312,9 @@
                             "entities": [
                                 {
                                     "entity": "input_number.bv_compressor_approx_power"
+                                },
+                                {
+                                    "entity": "input_number.approx_power_when_charging_car"
                                 }
                             ],
                             "title": "Energy settings"
@@ -1254,6 +1330,12 @@
                                 },
                                 {
                                     "entity": "sensor.nordpool_kwh_se3_sek_3_10_025"
+                                },
+                                {
+                                    "entity": "sensor.ar_approx_power"
+                                },
+                                {
+                                    "entity": "sensor.arteon_charging_energy"
                                 }
                             ],
                             "title": "Energy sensors"
@@ -1271,6 +1353,46 @@
                             "refresh_interval": 0,
                             "title": "Nordpool",
                             "hours_to_show": 72
+                        },
+                        {
+                            "type": "custom:apexcharts-card",
+                            "experimental": {
+                                "color_threshold": true
+                            },
+                            "graph_span": "24h",
+                            "header": {
+                                "title": "Electricity Price Today",
+                                "show": true
+                            },
+                            "span": {
+                                "start": "day"
+                            },
+                            "now": {
+                                "show": true,
+                                "label": "Now"
+                            },
+                            "series": [
+                                {
+                                    "entity": "sensor.nordpool_kwh_se3_sek_3_10_025",
+                                    "type": "column",
+                                    "data_generator": "return entity.attributes.raw_today.map((start, index) => {\n  return [new Date(start[\"start\"]).getTime(), entity.attributes.raw_today[index][\"value\"]];\n});\n",
+                                    "color_threshold": [
+                                        {
+                                            "value": 0,
+                                            "color": "green",
+                                            "opacity": 1
+                                        },
+                                        {
+                                            "value": 4,
+                                            "color": "yellow"
+                                        },
+                                        {
+                                            "value": 8,
+                                            "color": "red"
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 },
@@ -1340,6 +1462,73 @@
                     ]
                 },
                 {
+                    "icon": "mdi:account-heart",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "map",
+                            "entities": [
+                                {
+                                    "entity": "device_tracker.life360_frida_nordlund"
+                                }
+                            ],
+                            "title": "Frida",
+                            "hours_to_show": 12
+                        },
+                        {
+                            "type": "map",
+                            "entities": [
+                                {
+                                    "entity": "device_tracker.zklvyzim_zigge"
+                                }
+                            ],
+                            "title": "Zigge",
+                            "hours_to_show": 3,
+                            "default_zoom": 17
+                        },
+                        {
+                            "type": "map",
+                            "entities": [
+                                {
+                                    "entity": "device_tracker.life360_per_nordlund"
+                                }
+                            ],
+                            "title": "Pelle",
+                            "hours_to_show": 12
+                        },
+                        {
+                            "type": "map",
+                            "entities": [
+                                {
+                                    "entity": "device_tracker.life360_jenny_nordlund"
+                                }
+                            ],
+                            "title": "Jenny",
+                            "hours_to_show": 12
+                        },
+                        {
+                            "type": "map",
+                            "entities": [
+                                {
+                                    "entity": "device_tracker.life360_albin_nordlund"
+                                }
+                            ],
+                            "title": "Albin",
+                            "hours_to_show": 12
+                        },
+                        {
+                            "type": "map",
+                            "entities": [
+                                {
+                                    "entity": "device_tracker.life360_marie"
+                                }
+                            ],
+                            "title": "Marie",
+                            "hours_to_show": 12
+                        }
+                    ]
+                },
+                {
                     "theme": "Backend-selected",
                     "title": "",
                     "icon": "mdi:test-tube",
@@ -1357,16 +1546,6 @@
                             },
                             "theme": "default",
                             "type": "gauge"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.frysen_temperature"
-                                }
-                            ],
-                            "hours_to_show": 72,
-                            "refresh_interval": 0,
-                            "type": "history-graph"
                         },
                         {
                             "aspect_ratio": "50%",
@@ -1476,44 +1655,44 @@
                             "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "binary_sensor.aqara_motion"
+                                    "entity": "device_tracker.zklvyzim_zigge"
                                 },
                                 {
-                                    "entity": "sensor.aqara_lightlevel"
+                                    "entity": "sensor.zigge_battery_level"
+                                },
+                                {
+                                    "entity": "sensor.zigge_distance",
+                                    "secondary_info": "last-updated"
+                                },
+                                {
+                                    "entity": "sensor.zigge_tracker_state",
+                                    "secondary_info": "last-updated"
+                                },
+                                {
+                                    "entity": "switch.zigge_live_tracking"
                                 }
                             ]
                         },
                         {
-                            "type": "custom:fan-xiaomi",
-                            "name": "Fan",
-                            "entity": "fan.xiaomi_air_purifier_2s",
-                            "aspect_ratio": "1",
-                            "background_color": ""
-                        },
-                        {
-                            "type": "entities",
+                            "type": "map",
                             "entities": [
                                 {
-                                    "entity": "device_tracker.zklvyzim_zigge",
-                                    "secondary_info": "last-updated"
-                                },
-                                {
-                                    "entity": "sensor.zigge_daily_goal"
-                                },
-                                {
-                                    "entity": "sensor.zigge_minutes_active"
+                                    "entity": "device_tracker.life360_albin_nordlund"
                                 }
                             ],
-                            "title": "Tractive (ZKLVYZIM)"
+                            "hours_to_show": 24,
+                            "title": "Albin"
                         },
                         {
-                            "type": "entities",
+                            "type": "map",
                             "entities": [
-                                "switch.zigge_live_tracking",
-                                "switch.zigge_tracker_buzzer",
-                                "switch.zigge_tracker_led"
+                                {
+                                    "entity": "device_tracker.zklvyzim_zigge"
+                                }
                             ],
-                            "title": "Tractive (ZKLVYZIM)"
+                            "title": "Zigge",
+                            "hours_to_show": 3,
+                            "default_zoom": 17
                         }
                     ]
                 }

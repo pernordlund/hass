@@ -9,8 +9,7 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import Config, HomeAssistant
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.dispatcher import async_dispatcher_send
-from homeassistant.helpers.event import (async_call_later,
-                                         async_track_time_change)
+from homeassistant.helpers.event import async_call_later, async_track_time_change
 from homeassistant.util import dt as dt_utils
 from pytz import timezone
 
@@ -19,7 +18,7 @@ from .events import async_track_time_change_in_tz
 
 DOMAIN = "nordpool"
 _LOGGER = logging.getLogger(__name__)
-RANDOM_MINUTE = randint(0, 10)
+RANDOM_MINUTE = randint(10, 30)
 RANDOM_SECOND = randint(0, 59)
 EVENT_NEW_DATA = "nordpool_update"
 _CURRENCY_LIST = ["DKK", "EUR", "NOK", "SEK"]
@@ -29,7 +28,7 @@ CONFIG_SCHEMA = vol.Schema({DOMAIN: vol.Schema({})}, extra=vol.ALLOW_EXTRA)
 
 
 NAME = DOMAIN
-VERSION = "0.0.3"
+VERSION = "0.0.7"
 ISSUEURL = "https://github.com/custom-components/nordpool/issues"
 
 STARTUP = f"""
@@ -70,7 +69,7 @@ class NordpoolData:
             if data:
                 self._data[currency][type_] = data["areas"]
             else:
-                _LOGGER.debug("Some crap happend, retrying request later.")
+                _LOGGER.info("Some crap happend, retrying request later.")
                 async_call_later(hass, 20, partial(self._update, type_=type_, dt=dt))
 
     async def update_today(self, n: datetime):
@@ -181,6 +180,8 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     hass.async_create_task(
         hass.config_entries.async_forward_entry_setup(entry, "sensor")
     )
+
+    # entry.add_update_listener(async_reload_entry)
     return res
 
 

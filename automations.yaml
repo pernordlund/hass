@@ -42,8 +42,8 @@
   - condition: not
     conditions:
     - condition: state
-      entity_id: media_player.samsung_tv
-      state: 'on'
+      entity_id: device_tracker.tv
+      state: home
   action:
   - service: script.lights_out
   mode: single
@@ -323,7 +323,7 @@
   alias: Daily scripts midnight
   trigger:
   - platform: time
-    at: 00:05:00
+    at: 00:05
   action:
   - service: script.turn_on
     data:
@@ -727,7 +727,7 @@
         target:
           entity_id: switch.guest_room_desk_2
       light:
-        entity_id: light.guest_room_ceiling
+        entity_id: light.guest_room_window_hue
 - id: '1610542848014'
   alias: Pelle - notify when VPN status changes
   description: ''
@@ -848,3 +848,143 @@
       binary_sensor: binary_sensor.garage_door_open
       target_light:
         entity_id: light.garage_extra
+- id: '1641985268178'
+  alias: Zigge is waiting
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.tradfri_motion_sensor
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: binary_sensor.front_door_open
+    state: 'off'
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+  action:
+  - delay:
+      hours: 0
+      minutes: 3
+      seconds: 30
+      milliseconds: 0
+  - condition: state
+    entity_id: binary_sensor.front_door_open
+    state: 'off'
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  - service: notify.pelles_tfn
+    data:
+      title: Zigge
+      message: Zigge is waiting
+  - service: notify.guest_room
+    data:
+      message: Ziggee is waiting at the door - maybe
+  - service: notify.kitchen
+    data:
+      message: Ziggee is waiting at the door - maybe
+  mode: single
+- id: '1642499908603'
+  alias: Arteon Electric Climatization
+  description: ''
+  trigger:
+  - platform: time
+    at: input_datetime.start_arteon_elec_clima
+  condition: []
+  action:
+  - service: switch.turn_on
+    target:
+      entity_id: switch.arteon_electric_climatisation
+  - service: notify.pelles_tfn
+    data:
+      message: Arteon clima started
+  mode: single
+- id: '1643286299968'
+  alias: IKEA Button test
+  description: ''
+  use_blueprint:
+    path: EPMatt/ikea_e1812.yaml
+    input:
+      integration: deCONZ
+      controller_device: d87046494e8708fff2724eae213688b1
+      helper_last_controller_event: input_text.ikea_shortcut_last_action
+      action_button_short:
+      - service: light.toggle
+        target:
+          entity_id: light.kitchen_ceiling
+      action_button_long:
+      - service: light.turn_on
+        data:
+          brightness_step: -3
+        target:
+          entity_id: light.kitchen_ceiling
+      button_long_loop: true
+      button_double_press: true
+      action_button_double:
+      - service: light.turn_on
+        data:
+          brightness_pct: 100
+        target:
+          entity_id: light.kitchen_ceiling
+      action_button_release: []
+      helper_double_press_delay: 500
+      button_long_max_loop_repeats: 20
+- id: '1645650515713'
+  alias: Zigge waiting BT
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.zigge_distance_bt
+    above: '0.1'
+    below: '15'
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+    id: 5 minutes
+  - platform: numeric_state
+    entity_id: sensor.zigge_distance_bt
+    for:
+      hours: 0
+      minutes: 15
+      seconds: 0
+    id: 15 minutes
+    above: '0.1'
+    below: '15'
+  - platform: numeric_state
+    entity_id: sensor.zigge_distance_bt
+    for:
+      hours: 0
+      minutes: 45
+      seconds: 0
+    above: '0.1'
+    below: '15'
+    id: 45 minutes
+  condition: []
+  action:
+  - service: notify.pelles_tfn
+    data:
+      message: Zigge has waited {{ trigger.id }}
+  - service: notify.guest_room
+    data:
+      message: Ziggee has waited for {{ trigger.id }}
+  - service: notify.living_room
+    data:
+      message: Ziggee has waited for {{ trigger.id }}
+  - service: light.toggle
+    data: {}
+    target:
+      entity_id: light.kitchen_table
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 3
+      milliseconds: 0
+  - service: light.toggle
+    data: {}
+    target:
+      entity_id: light.kitchen_table
+  mode: single

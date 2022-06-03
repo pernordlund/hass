@@ -28,6 +28,10 @@
       - sensor.*energy*
       - sensor.*kwh*
       - sensor.*power*
+      - sensor.*zigge*
+      - sensor.*room_presence*
+      - sensor.*distance*
+      - sensor.vind*
     entities:
       - sensor.load_1m
       - sensor.load_5m
@@ -47,3 +51,5 @@
       - sensor.albin_velocity
       - sensor.sm_t719_wifi_connection
       - sensor.daylight
+      - sensor.range_extender_7_node_status
+      - sensor.wind_bearing

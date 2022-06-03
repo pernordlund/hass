@@ -4,16 +4,16 @@
   "documentation": "https://github.com/Thomas55555/husqvarna_automower",
   "issue_tracker": "https://github.com/Thomas55555/husqvarna_automower/issues",
   "dependencies": [
-    "http"
+    "auth"
   ],
   "config_flow": true,
   "codeowners": [
     "@Thomas55555"
   ],
   "requirements": [
-    "aioautomower==2021.11.1",
-    "geopy"
+    "aioautomower==2022.5.3",
+    "geopy>=2.1.0"
   ],
   "iot_class": "cloud_push",
-  "version": "2021.12.0"
+  "version": "2022.5.4"
 }
