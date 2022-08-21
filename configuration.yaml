@@ -150,8 +150,6 @@ ffmpeg:
 
 stream:
 
-svt_play:
-
 mobile_app:
 
 twilio:

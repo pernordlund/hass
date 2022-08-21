@@ -12,7 +12,7 @@ from .entity import AutomowerEntity
 async def async_setup_entry(
     hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback
 ) -> None:
-    """Setup device_tracker platform."""
+    """Set up device_tracker platform."""
     session = hass.data[DOMAIN][entry.entry_id]
     async_add_entities(
         AutomowerTracker(session, idx) for idx, ent in enumerate(session.data["data"])
@@ -22,15 +22,10 @@ async def async_setup_entry(
 class AutomowerTracker(TrackerEntity, AutomowerEntity):
     """Defining the Device Tracker Entity."""
 
-    @property
-    def name(self) -> str:
-        """Return the name of the entity."""
-        return self.mower_name
-
-    @property
-    def unique_id(self) -> str:
-        """Return a unique identifier for this entity."""
-        return f"{self.mower_id}_dt"
+    def __init__(self, session, idx):
+        """Initialize AutomowerDeviceTracker."""
+        super().__init__(session, idx)
+        self._attr_unique_id = f"{self.mower_id}_dt"
 
     @property
     def source_type(self) -> str:

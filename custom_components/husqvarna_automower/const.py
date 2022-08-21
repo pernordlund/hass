@@ -5,9 +5,9 @@ from homeassistant.const import Platform
 NAME = "husqvarna_automower"
 DOMAIN = "husqvarna_automower"
 DOMAIN_DATA = f"{DOMAIN}_data"
-INTEGRATION_VERSION = "2022.5.4"
+INTEGRATION_VERSION = "2022.8.1"
 ISSUE_URL = "https://github.com/Thomas55555/husqvarna_automower"
-HUSQVARNA_URL = "https://developer.husqvarnagroup.cloud/apps"
+HUSQVARNA_URL = "https://developer.husqvarnagroup.cloud/applications"
 OAUTH2_AUTHORIZE = "https://api.authentication.husqvarnagroup.dev/v1/oauth2/authorize"
 OAUTH2_TOKEN = "https://api.authentication.husqvarnagroup.dev/v1/oauth2/token"
 
@@ -20,6 +20,7 @@ PLATFORMS = [
     Platform.CALENDAR,
     Platform.SENSOR,
     Platform.BINARY_SENSOR,
+    Platform.CAMERA,
 ]
 
 # Configuration and options
@@ -30,6 +31,13 @@ CONF_TOKEN_TYPE = "token_type"
 CONF_REFRESH_TOKEN = "refresh_token"
 ACCESS_TOKEN_RAW = "access_token_raw"
 POSITIONS = "positions"
+
+# Camera configuration
+ENABLE_CAMERA = "enable_camera"
+GPS_TOP_LEFT = "gps_top_left"
+GPS_BOTTOM_RIGHT = "gps_bottom_right"
+MOWER_IMG_PATH = "mower_img_path"
+MAP_IMG_PATH = "map_img_path"
 
 
 # Defaults
@@ -169,9 +177,27 @@ ERRORCODES = {
     118: "Charging system problem",
     119: "Zone generator problem",
     120: "Internal voltage error",
-    121: "High internal temerature",
+    121: "High internal temperature",
     122: "CAN error",
     123: "Destination not reachable",
+    701: "Connectivity problem",
+    702: "Connectivity settings restored",
+    703: "Connectivity problem",
+    704: "Connectivity problem",
+    705: "Connectivity problem",
+    706: "Poor signal quality",
+    707: "SIM card requires PIN",
+    708: "SIM card locked",
+    709: "SIM card not found",
+    710: "SIM card locked",
+    711: "SIM card locked",
+    712: "SIM card locked",
+    713: "Geofence problem",
+    714: "Geofence problem",
+    715: "Connectivity problem",
+    716: "Connectivity problem",
+    717: "SMS could not be sent",
+    724: "Communication circuit board SW must be updated",
 }
 
 # Headlight modes
@@ -186,4 +212,29 @@ WEEKDAYS = (
     "friday",
     "saturday",
     "sunday",
+)
+
+# Models that support electronic cutting height
+ELECTRONIC_CUTTING_HEIGHT_SUPPORT = [
+    "405",
+    "415",
+    "420",
+    "430",
+    "435",
+    "440",
+    "450",
+    "520",
+    "535",
+    "544",
+    "546",
+    "550",
+    "550 EPOS",
+]
+
+# Models that support electronic cutting height, but are not changeable with this APII
+NO_SUPPORT_FOR_CHANGING_CUTTING_HEIGHT = ["405", "415", "435", "544", "546", "550 EPOS"]
+
+# Models that are able to change the cutting height with this API
+CHANGING_CUTTING_HEIGHT_SUPPORT = list(
+    set(ELECTRONIC_CUTTING_HEIGHT_SUPPORT) - set(NO_SUPPORT_FOR_CHANGING_CUTTING_HEIGHT)
 )

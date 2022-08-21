@@ -752,6 +752,19 @@
                                 }
                             ],
                             "title": "Wind"
+                        },
+                        {
+                            "type": "history-graph",
+                            "entities": [
+                                {
+                                    "entity": "sensor.netatmo_indoor_pressure"
+                                },
+                                {
+                                    "entity": "sensor.garage_side_pressure"
+                                }
+                            ],
+                            "title": "Pressure",
+                            "hours_to_show": 72
                         }
                     ]
                 },
@@ -993,10 +1006,6 @@
                             "entities": [
                                 {
                                     "entity": "sensor.vpn_clients"
-                                },
-                                {
-                                    "entity": "sensor.vpn_simple",
-                                    "secondary_info": "last-changed"
                                 }
                             ],
                             "title": "VPN"
@@ -1056,6 +1065,28 @@
                                 "type": "entities",
                                 "title": "Gardena"
                             }
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.hp_colorlaserjet_mfp_m278_m281_black_cartridge_hp_cf540a",
+                                    "name": "Black Cartridge HP CF540A"
+                                },
+                                {
+                                    "entity": "sensor.hp_colorlaserjet_mfp_m278_m281_cyan_cartridge_hp_cf541a",
+                                    "name": "Cyan Cartridge HP CF541A"
+                                },
+                                {
+                                    "entity": "sensor.hp_colorlaserjet_mfp_m278_m281_magenta_cartridge_hp_cf543a",
+                                    "name": "Magenta Cartridge HP CF543A"
+                                },
+                                {
+                                    "entity": "sensor.hp_colorlaserjet_mfp_m278_m281_yellow_cartridge_hp_cf542a",
+                                    "name": "Yellow Cartridge HP CF542A"
+                                }
+                            ],
+                            "title": "HP ColorLaserJet MFP M278-M281"
                         }
                     ]
                 },

@@ -1,4 +1,4 @@
-"""Creates a vacuum entity for the mower"""
+"""Creates a vacuum entity for the mower."""
 import json
 import logging
 
@@ -42,23 +42,13 @@ _LOGGER = logging.getLogger(__name__)
 async def async_setup_entry(
     hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback
 ) -> None:
-    """Setup vacuum platform."""
-
+    """Set up vacuum platform."""
     session = hass.data[DOMAIN][entry.entry_id]
     async_add_entities(
         HusqvarnaAutomowerEntity(session, idx)
         for idx, ent in enumerate(session.data["data"])
     )
     platform = entity_platform.current_platform.get()
-
-    platform.async_register_entity_service(
-        "park_and_start",
-        {
-            vol.Required("command"): cv.string,
-            vol.Required("duration"): vol.Coerce(int),
-        },
-        "async_park_and_start",
-    )
 
     platform.async_register_entity_service(
         "calendar",
@@ -86,23 +76,8 @@ async def async_setup_entry(
     )
 
 
-class HusqvarnaAutomowerEntity(StateVacuumEntity, AutomowerEntity):
-    """Defining each mower Entity."""
-
-    _attr_device_class = f"{DOMAIN}__mower"
-    _attr_icon = "mdi:robot-mower"
-    _attr_supported_features = SUPPORT_STATE_SERVICES
-
-    def __init__(self, session, idx):
-        super().__init__(session, idx)
-        self._attr_name = self.mower_name
-        self._attr_unique_id = self.session.data["data"][self.idx]["id"]
-
-    @property
-    def available(self) -> bool:
-        """Return True if the device is available."""
-        available = self.get_mower_attributes()["metadata"]["connected"]
-        return available
+class HusqvarnaAutomowerStateMixin(object):
+    """Don't know, what this is."""
 
     @property
     def state(self) -> str:
@@ -115,14 +90,14 @@ class HusqvarnaAutomowerEntity(StateVacuumEntity, AutomowerEntity):
             "WAIT_POWER_UP",
         ]:
             return STATE_IDLE
-        if (mower_attributes["mower"]["state"] == "RESTRICTED") or (
-            mower_attributes["mower"]["activity"] in ["PARKED_IN_CS", "CHARGING"]
-        ):
-            return STATE_DOCKED
         if mower_attributes["mower"]["activity"] in ["MOWING", "LEAVING"]:
             return STATE_CLEANING
         if mower_attributes["mower"]["activity"] == "GOING_HOME":
             return STATE_RETURNING
+        if (mower_attributes["mower"]["state"] == "RESTRICTED") or (
+            mower_attributes["mower"]["activity"] in ["PARKED_IN_CS", "CHARGING"]
+        ):
+            return STATE_DOCKED
         if (
             mower_attributes["mower"]["state"]
             in [
@@ -143,11 +118,32 @@ class HusqvarnaAutomowerEntity(StateVacuumEntity, AutomowerEntity):
 
     @property
     def error(self) -> str:
-        """An error message if the vacuum is in STATE_ERROR."""
+        """Define an error message if the vacuum is in STATE_ERROR."""
         if self.state == STATE_ERROR:
             mower_attributes = AutomowerEntity.get_mower_attributes(self)
             return ERRORCODES.get(mower_attributes["mower"]["errorCode"])
-        return ""
+        return None
+
+
+class HusqvarnaAutomowerEntity(
+    HusqvarnaAutomowerStateMixin, StateVacuumEntity, AutomowerEntity
+):
+    """Defining each mower Entity."""
+
+    _attr_device_class = f"{DOMAIN}__mower"
+    _attr_icon = "mdi:robot-mower"
+    _attr_supported_features = SUPPORT_STATE_SERVICES
+
+    def __init__(self, session, idx):
+        """Set up HusqvarnaAutomowerEntity."""
+        super().__init__(session, idx)
+        self._attr_unique_id = self.session.data["data"][self.idx]["id"]
+
+    @property
+    def available(self) -> bool:
+        """Return True if the device is available."""
+        available = self.get_mower_attributes()["metadata"]["connected"]
+        return available
 
     @property
     def battery_level(self) -> int:
@@ -216,7 +212,7 @@ class HusqvarnaAutomowerEntity(StateVacuumEntity, AutomowerEntity):
             "ERROR_AT_POWER_UP",
         ]:
             return ERRORCODES.get(mower_attributes["mower"]["errorCode"])
-        return "Unknown"
+        return None
 
     @property
     def extra_state_attributes(self) -> dict:
@@ -234,7 +230,7 @@ class HusqvarnaAutomowerEntity(StateVacuumEntity, AutomowerEntity):
         try:
             await self.session.action(self.mower_id, payload, command_type)
         except ClientResponseError as exception:
-            _LOGGER.error("Command couldn't be sent to the command que")
+            _LOGGER.error("Command couldn't be sent to the command que: %s", exception)
 
     async def async_pause(self) -> None:
         """Pauses the mower."""
@@ -243,7 +239,7 @@ class HusqvarnaAutomowerEntity(StateVacuumEntity, AutomowerEntity):
         try:
             await self.session.action(self.mower_id, payload, command_type)
         except ClientResponseError as exception:
-            _LOGGER.error("Command couldn't be sent to the command que")
+            _LOGGER.error("Command couldn't be sent to the command que: %s", exception)
 
     async def async_stop(self, **kwargs) -> None:
         """Parks the mower until next schedule."""
@@ -252,7 +248,7 @@ class HusqvarnaAutomowerEntity(StateVacuumEntity, AutomowerEntity):
         try:
             await self.session.action(self.mower_id, payload, command_type)
         except ClientResponseError as exception:
-            _LOGGER.error("Command couldn't be sent to the command que")
+            _LOGGER.error("Command couldn't be sent to the command que: %s", exception)
 
     async def async_return_to_base(self, **kwargs) -> None:
         """Parks the mower until further notice."""
@@ -261,22 +257,7 @@ class HusqvarnaAutomowerEntity(StateVacuumEntity, AutomowerEntity):
         try:
             await self.session.action(self.mower_id, payload, command_type)
         except ClientResponseError as exception:
-            _LOGGER.error("Command couldn't be sent to the command que")
-
-    async def async_park_and_start(self, command, duration, **kwargs) -> None:
-        """Sends a custom command to the mower."""
-        command_type = "actions"
-        string = {
-            "data": {
-                "type": command,
-                "attributes": {"duration": duration},
-            }
-        }
-        payload = json.dumps(string)
-        try:
-            await self.session.action(self.mower_id, payload, command_type)
-        except ClientResponseError as exception:
-            _LOGGER.error("Command couldn't be sent to the command que")
+            _LOGGER.error("Command couldn't be sent to the command que: %s", exception)
 
     async def async_custom_calendar_command(
         self,
@@ -291,7 +272,7 @@ class HusqvarnaAutomowerEntity(StateVacuumEntity, AutomowerEntity):
         sunday,
         **kwargs,
     ) -> None:
-        """Sends a custom calendar command to the mower."""
+        """Send a custom calendar command to the mower."""
         start_in_minutes = start.hour * 60 + start.minute
         _LOGGER.debug("start in minutes int: %i", start_in_minutes)
         end_in_minutes = end.hour * 60 + end.minute
@@ -324,11 +305,11 @@ class HusqvarnaAutomowerEntity(StateVacuumEntity, AutomowerEntity):
         try:
             await self.session.action(self.mower_id, payload, command_type)
         except ClientResponseError as exception:
-            _LOGGER.error("Command couldn't be sent to the command que")
+            _LOGGER.error("Command couldn't be sent to the command que: %s", exception)
 
     async def async_custom_command(self, command_type, json_string, **kwargs) -> None:
-        """Sends a custom command to the mower."""
+        """Send a custom command to the mower."""
         try:
             await self.session.action(self.mower_id, json_string, command_type)
         except ClientResponseError as exception:
-            _LOGGER.error("Command couldn't be sent to the command que")
+            _LOGGER.error("Command couldn't be sent to the command que: %s", exception)

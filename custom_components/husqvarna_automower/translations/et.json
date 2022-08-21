@@ -1,0 +1,20 @@
+{
+    "config": {
+        "step": {
+            "reauth_confirm": {
+                "description": "Husqvarna Automower sidumine vajab uuesti autentimist Husqvarnaga",
+                "title": "Autendi sidumine uuesti"
+            }
+        },
+        "abort": {
+            "missing_configuration": "Komponent ei ole seadistatud. Palun järgi dokumentatsiooni.",
+            "reauth_successful": "Uuesti autentimine õnnestus",
+            "single_instance_allowed": "Ainult üks Husqvarna Automoweri seadistamine on lubatud."
+        }
+    },
+    "system_health": {
+        "info": {
+            "can_reach_server": "Husqvarna võtmeserver on kättesaadav"
+        }
+    }
+}

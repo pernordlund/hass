@@ -4,11 +4,7 @@ import logging
 
 from geopy.geocoders import Nominatim
 
-from homeassistant.backports.enum import StrEnum
-from homeassistant.components.calendar import (
-    CalendarEntity,
-    CalendarEvent,
-)
+from homeassistant.components.calendar import CalendarEntity, CalendarEvent
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import EntityCategory
@@ -24,7 +20,7 @@ _LOGGER = logging.getLogger(__name__)
 async def async_setup_entry(
     hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback
 ) -> None:
-    """Setup calendar platform."""
+    """Set up calendar platform."""
     _LOGGER.debug("entry: %s", entry)
     session = hass.data[DOMAIN][entry.entry_id]
     async_add_entities(
@@ -35,11 +31,16 @@ async def async_setup_entry(
 class AutomowerCalendar(CalendarEntity, AutomowerEntity):
     """Representation of the Automower Calendar element."""
 
+    _attr_entity_category = EntityCategory.DIAGNOSTIC
+
     def __init__(self, session, idx):
+        """Initialize AutomowerCalendar."""
         super().__init__(session, idx)
         self._event = None
         self._next_event = None
         self.loc = None
+        self.geolocator = Nominatim(user_agent=self.mower_id)
+        self._attr_unique_id = f"{self.mower_id}_calendar"
 
     async def async_get_events_data(
         self, hass: HomeAssistant, start_date: datetime, end_date: datetime
@@ -49,8 +50,7 @@ class AutomowerCalendar(CalendarEntity, AutomowerEntity):
         lat = mower_attributes["positions"][0]["latitude"]
         long = mower_attributes["positions"][0]["longitude"]
         position = f"{lat}, {long}"
-        geolocator = Nominatim(user_agent=self.name)
-        result = await hass.async_add_executor_job(geolocator.reverse, position)
+        result = await hass.async_add_executor_job(self.geolocator.reverse, position)
         try:
             self.loc = f"{result.raw['address']['road']} {result.raw['address']['house_number']}, {result.raw['address']['town']}"
         except Exception:
@@ -85,33 +85,17 @@ class AutomowerCalendar(CalendarEntity, AutomowerEntity):
                 today_as_string = WEEKDAYS[today]
                 if calendar[today_as_string] is True:
                     self._event = CalendarEvent(
-                        summary=f"Mowing schedule {task + 1}",
+                        summary=f"{self.mower_name} Mowing schedule {task + 1}",
                         start=start_mowing + dt_util.dt.timedelta(days=days),
                         end=end_mowing + dt_util.dt.timedelta(days=days),
                         location=self.loc,
                     )
                     if self._event.start < self._next_event.start:
                         self._next_event = self._event
-                        _LOGGER.debug("self._next_event %s", self._next_event)
 
                     event_list.append(self._event)
 
         return event_list, self._next_event
-
-    @property
-    def name(self) -> str:
-        """Return the name of the entity."""
-        return f"{self.mower_name}"
-
-    @property
-    def unique_id(self) -> str:
-        """Return a unique identifier for this entity."""
-        return f"{self.mower_id}_calendar"
-
-    @property
-    def entity_category(self) -> StrEnum:
-        """Return a unique identifier for this entity."""
-        return EntityCategory.DIAGNOSTIC
 
     async def async_get_events(
         self, hass: HomeAssistant, start_date: datetime, end_date: datetime
