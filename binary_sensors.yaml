@@ -21,51 +21,13 @@
       smoke_detected:
         value_template: '{{ is_state("binary_sensor.smoke_detector_smoke_alarm_smoke_detected", "on") }}'
         friendly_name: 'Livingroom smoke detected'
-  - platform: mqtt
-    state_topic: "hass/bv/1A01"
-    name: "BV-Compressor"
-    payload_on: "1"
-    payload_off: "0"
-  - platform: mqtt
-    state_topic: "hass/bv/1A02"
-    name: "BV-Add heat step 1"
-    payload_on: "1"
-    payload_off: "0"
-  - platform: mqtt
-    state_topic: "hass/bv/1A03"
-    name: "BV-Add heat step 2"
-    payload_on: "1"
-    payload_off: "0"
-  - platform: mqtt
-    state_topic: "hass/bv/1A04"
-    name: "BV-Pump Cold circuit"
-    payload_on: "1"
-    payload_off: "0"
-  - platform: mqtt
-    state_topic: "hass/bv/1A05"
-    name: "BV-Pump Heat circuit"
-    payload_on: "1"
-    payload_off: "0"
-  - platform: mqtt
-    state_topic: "hass/bv/1A06"
-    name: "BV-Pump Radiator"
-    payload_on: "1"
-    payload_off: "0"
-  - platform: mqtt
-    state_topic: "hass/bv/1A07"
-    name: "BV-Switch valve 1"
-    payload_on: "1"
-    payload_off: "0"
-  - platform: mqtt
-    state_topic: "hass/bv/1A20"
-    name: "BV-Alarm"
-    payload_on: "1"
-    payload_off: "0"
-#  - platform: mqtt
-#    state_topic: "hass/bv/3104"
-#    name: "BV-Add heat status"
-#    payload_on: "1"
-#    payload_off: "0"
+      bv_making_hot_water:
+        friendly_name: Making hot water
+        value_template: "{{ 'on' if ((states.binary_sensor.bv_switch_valve_1.state == 'on') and (states.binary_sensor.bv_compressor.state == 'on')) else 'off'}}"
+      bv_heating_house:
+        friendly_name: Heating house
+        value_template: "{{ 'on' if ((states.binary_sensor.bv_switch_valve_1.state == 'off') and (states.binary_sensor.bv_compressor.state == 'on')) else 'off'}}"
+        
   - platform: aarlo
     monitored_conditions:
     - motion

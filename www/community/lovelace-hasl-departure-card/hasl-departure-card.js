@@ -11,6 +11,8 @@ class HASLDepartureCard extends HTMLElement {
         this.config.show_cardname ? this.config.show_cardname = true : this.config.show_cardname = this.config.show_cardname;
         this.config.compact ? this.config.compact = false : this.config.compact = this.config.compact;
         if (!this.config.offset) this.config.offset = 0;
+        if (!this.config.replace) this.config.replace = {};
+        if (!this.config.updated_minutes) this.config.updated_minutes = 0;
     }
 
     set hass(hass) {
@@ -50,7 +52,7 @@ class HASLDepartureCard extends HTMLElement {
                 }
                 else {
                     var minutesSinceUpdate = 0;
-                    var updatedDate = new Date(entity_data.last_updated);
+                    var updatedDate = new Date(entity_data.last_refresh);
                     var updatedValue = updatedDate.toLocaleString(culture);
                     var dateTimeNow = new Date();
 
@@ -83,14 +85,16 @@ class HASLDepartureCard extends HTMLElement {
                             if (config.max_departures && maxDepartures > config.max_departures ) {
                                 maxDepartures = config.max_departures;
                             }
+                            var offset_i = 0;
 
-                            for (var j = 0; j < maxDepartures; j++) {
+                            for (var j = 0; j < entity_data.attributes.departures.length; j++) {
                                 var departureInMinutes = entity_data.attributes.departures[j].time - minutesSinceUpdate;
 
                                 if (departureInMinutes - config.offset < 0 && config.hide_departed) {
                                     continue;
                                 }
-
+                                offset_i++;
+                                
                                 var expectedTime = new Date(entity_data.attributes.departures[j].expected);
 
                                 var departureTime = expectedTime.toLocaleTimeString(culture, {
@@ -166,15 +170,23 @@ class HASLDepartureCard extends HTMLElement {
                                         break;
                                 }
 
+                                var destinationName = entity_data.attributes.departures[j].destination;
+                                if (config.replace[destinationName]) {
+                                    destinationName = config.replace[destinationName];
+                                }
+
                                 var spanClass = 'line-icon' + typeClass;
 
                                 html += `
                                     <tr>
                                         <td class="col1 ${config.compact === false ? 'loose-icon' : ''}"><ha-icon icon="${entity_data.attributes.departures[j].icon}"></ha-icon></td>
-                                        <td class="col2 ${config.compact === false ? 'loose-cell loose-padding' : ''}"><span class="${spanClass}">${lineNumber}</span> ${entity_data.attributes.departures[j].destination}</td>
+                                        <td class="col2 ${config.compact === false ? 'loose-cell loose-padding' : ''}"><span class="${spanClass}">${lineNumber}</span> ${destinationName}</td>
                                         <td class="col3 ${config.compact === false ? 'loose-cell' : ''}">${config.timeleft === true ? departureInMinutes : departureTime}</td>
                                     </tr>
                                 `
+                                if (offset_i >= maxDepartures) {
+                                    break;
+                                }
                             }
                         }
                         html += `</table>`;
@@ -214,9 +226,11 @@ class HASLDepartureCard extends HTMLElement {
 
                     // Updated
                     if (config.updated === true) {
-                        html += `<table><tr>
-                                <td class="last-update"><sub><i>${lang[culture].last_updated} ${updatedValue}</i></sub></td>
-                            </tr></table>`;
+                        if (this.config.updated_minutes==0 || this.config.updated_minutes < minutesSinceUpdate ) {
+                            html += `<table><tr>
+                                    <td class="last-update"><sub><i>${lang[culture].last_updated} ${updatedValue}</i></sub></td>
+                                </tr></table>`;
+                        }
                     }
                 }
             }

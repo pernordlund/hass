@@ -89,12 +89,17 @@ lights_out:
   alias: Lights out
   sequence:
   - service: homeassistant.turn_off
-    data:
+    data: {}
+    target:
       entity_id:
       - group.inside_downstairs
-      - light.play_room_ceiling
-      - light.play_room_ceiling_2
-      - light.play_room_sofa
+      device_id:
+      - 996e597345a143f1abd7b18f5acf8e08
+      - 317e218d6455a80dfd78a0eea8931a9a
+      - 69521b9e9be2f3be837a18fa7f710cc8
+      - 59013ed21d94a1c6e3fd9a8d42920ecf
+      - dcc78413aa114add43f3c8a9eab77db3
+      - d8fbaaa1349a50ca734fa17355f3fdd4
   - service: media_player.turn_off
     data:
       entity_id: media_player.samsung_tv

@@ -189,46 +189,6 @@ automower_k_170504968_170332295:
   picture:
   track: true
 
-life360_per_nordlund:
-  hide_if_away: false
-  icon:
-  mac:
-  name: life360 per nordlund
-  picture: https://www.life360.com/img/user_images/87a3c525-a677-4d38-9fde-ae95548b81e3/6882337c-7325-4bb3-9ca8-c921851971f4.jpg?fd=2
-  track: true
-
-life360_marie:
-  hide_if_away: false
-  icon:
-  mac:
-  name: life360 marie
-  picture: https://www.life360.com/img/user_images/bf659291-d56b-40f8-9e49-6c3b3d0e983e/9068a40d-a4cc-4b35-8a3c-b1d8b74fb84f.png?fd=2
-  track: true
-
-life360_albin_nordlund:
-  hide_if_away: false
-  icon:
-  mac:
-  name: life360 albin nordlund
-  picture: https://www.life360.com/img/user_images/f3a73ede-a141-402f-a811-d6153ad25c8d/9ef5454c-25ac-40f5-9a3b-4e6d08d4ee3d.png?fd=2
-  track: true
-
-life360_jenny_nordlund:
-  hide_if_away: false
-  icon:
-  mac:
-  name: life360 jenny nordlund
-  picture: https://www.life360.com/img/user_images/a2fbc2d7-f09f-4634-a1b2-1a56bfcf4d6a/3ef15e7d-5650-4809-b96c-278b4d3f0ceb.jpg?fd=2
-  track: true
-
-life360_frida_nordlund:
-  hide_if_away: false
-  icon:
-  mac:
-  name: life360 frida nordlund
-  picture: https://www.life360.com/img/user_images/327a9c67-2e20-4f61-94bf-75db72cc6f71/64a57853-2793-4de2-884a-d0b2d4e32b3e.jpg?fd=2
-  track: true
-
 passat:
   icon: mdi:car
   mac:
@@ -259,6 +219,13 @@ omv:
 
 automower_none_170504968_170332295:
   name: Roger
+  mac:
+  icon:
+  picture:
+  track: true
+
+pulse:
+  name: pulse
   mac:
   icon:
   picture:

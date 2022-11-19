@@ -76,7 +76,8 @@
   alias: Alarm activation
   trigger:
   - platform: state
-    entity_id: binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor
+    entity_id:
+    - binary_sensor.alarm_not_activated
     from: 'on'
     to: 'off'
   action:
@@ -85,23 +86,51 @@
       message: '{{ states("sensor.time") }} - Palarmning'
   - service: homeassistant.turn_off
     target:
-      area_id:
-      - Guest room
-      - Albins room
-      - Bathroom upstairs
-      - Entrance
-      - Kitchen
-      - Living room
-      - Play room
+      device_id:
+      - 620fc1a1106e498a82ff213648c73f54
+      - c0bee0f73507e9121e9dc516857a2ed2
+      - a1c30a815fae7735120339d9dcefca97
+      - 03497e4584ba4141b942c53d48f791c5
+      - 613c6ab05c8ba3b42e1aaa92fdefe83b
+      - c08fb0268a7dfcc1b283927cf4ce65a8
+      - 532e63e7ea20fbe908bc22813aa6200b
+      - e11f69366db0d5e48cb19329a58414a9
+      - e00f9604763da68d11307d5d441b19c6
+      - 51283864d9b944b29445b55947035bee
+      - c8e450a542b44b9ba5a702e1f1d7c212
+      - ac87bbc4e7f7378eda91cbd24ff99219
+      - 81425e25eeb7fc43e3d6662daa07f352
+      - 2ef82b8ec4a70b03fa54b417c43b3e10
+      - f54bfe0a898ad1e4687fe7b3959fb6f6
+      - 996e597345a143f1abd7b18f5acf8e08
+      - 317e218d6455a80dfd78a0eea8931a9a
+      - 69521b9e9be2f3be837a18fa7f710cc8
+      - 59013ed21d94a1c6e3fd9a8d42920ecf
+      - dcc78413aa114add43f3c8a9eab77db3
+      - d8fbaaa1349a50ca734fa17355f3fdd4
+      - bb7ec4e6029511eb9ece612c17e33fad
+      - b8d242ec16f911eb8363c316bcd9832c
+      - d8c02fe114b58e3906817ee446d737f3
+      - 3e3313f96a23fb6b2094a6bb8a1d5624
+      - dff93e78ccd831c226b78f506d2a1f14
+      - dfcac5e6ebe90e1fe94718e1295ebdcb
+      - 33ff5591ed6b98f5d531ee622432fe41
+      - fde0513ad4e1691db7f82de4d2656a30
+      - 1604c08c4a15c7f79b4181a4d1067ef9
+      entity_id:
+      - light.albins_shapes
+    data: {}
   - service: alarm_control_panel.alarm_arm_away
     data: {}
     entity_id: alarm_control_panel.aarlo_arlozone
+    enabled: false
   mode: single
 - id: A013
   alias: Alarm deactivation
   trigger:
   - platform: state
-    entity_id: binary_sensor.fibaro_system_fgbs001_universal_binary_sensor_sensor
+    entity_id:
+    - binary_sensor.alarm_not_activated
     from: 'off'
     to: 'on'
   action:
@@ -160,32 +189,6 @@
       - switch.bedroom_window
       - light.livingroom_sofa
     service: homeassistant.turn_on
-  mode: single
-- id: A019
-  alias: Arbrum fonsterlampa from wall
-  trigger:
-  - platform: event
-    event_type: zwave_js_value_notification
-    event_data:
-      node_id: 10
-      property: sceneId
-      value: 24
-  action:
-  - service: homeassistant.toggle
-    entity_id: light.guest_room_window_hue
-  mode: single
-- id: A021
-  alias: Arbrum fonsterlampa med 2-klick
-  trigger:
-  - platform: event
-    event_type: zwave_js_value_notification
-    event_data:
-      node_id: 10
-      property: sceneId
-      value: 26
-  action:
-  - service: homeassistant.toggle
-    entity_id: light.guest_room_window_hue
   mode: single
 - id: A022
   alias: Vardrum hornlampan med 3-klick
@@ -263,15 +266,6 @@
     data:
       message: Testing WR1/All
   mode: single
-- id: A030
-  alias: MQTT toggle
-  trigger:
-    platform: mqtt
-    topic: hass/toggle_lamp
-  action:
-  - service: homeassistant.toggle
-    data_template:
-      entity_id: '{{ trigger.payload.split("\"")[3] }}'
 - id: A031
   alias: Roger start
   trigger:
@@ -438,19 +432,6 @@
   - data:
       entity_id: light.entrance_drawer
     service: light.turn_off
-- id: '1544045540211'
-  alias: XX-test-timer-arbrum
-  initial_state: false
-  trigger:
-  - event_data:
-      entity_id: timer.arbrum_motion
-    event_type: timer.finished
-    platform: event
-  condition: []
-  action:
-  - data:
-      message: No motion in arbrum
-    service: notify.pelles_tfn
 - id: '1575216792330'
   alias: Kitchen table when drawer on
   description: ''
@@ -974,17 +955,4 @@
   - service: notify.living_room
     data:
       message: Ziggee has waited for {{ trigger.id }}
-  - service: light.toggle
-    data: {}
-    target:
-      entity_id: light.kitchen_table
-  - delay:
-      hours: 0
-      minutes: 0
-      seconds: 3
-      milliseconds: 0
-  - service: light.toggle
-    data: {}
-    target:
-      entity_id: light.kitchen_table
   mode: single

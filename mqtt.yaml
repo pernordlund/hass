@@ -1,16 +1,80 @@
-#MQTT config
-  broker: 192.168.1.33
-  username: !secret mq_username
-  password: !secret mq_password
-  birth_message:
-    topic: 'hass/mqttclients/hass'
-    payload: 'Hass mqtt online'
-    qos: 2
-    retain: True
-  will_message:
-    topic: 'hass/mqttclients/hass'
-    payload: 'Hass mqtt offline'
-    qos: 2
-    retain: True
-  discovery: true
-  discovery_prefix: hass
+  binary_sensor:
+    - state_topic: "hass/bv/1A01"
+      name: "BV-Compressor"
+      payload_on: "1"
+      payload_off: "0"
+    - state_topic: "hass/bv/1A02"
+      name: "BV-Add heat step 1"
+      payload_on: "1"
+      payload_off: "0"
+    - state_topic: "hass/bv/1A03"
+      name: "BV-Add heat step 2"
+      payload_on: "1"
+      payload_off: "0"
+    - state_topic: "hass/bv/1A04"
+      name: "BV-Pump Cold circuit"
+      payload_on: "1"
+      payload_off: "0"
+    - state_topic: "hass/bv/1A05"
+      name: "BV-Pump Heat circuit"
+      payload_on: "1"
+      payload_off: "0"
+    - state_topic: "hass/bv/1A06"
+      name: "BV-Pump Radiator"
+      payload_on: "1"
+      payload_off: "0"
+    - state_topic: "hass/bv/1A07"
+      name: "BV-Switch valve 1"
+      payload_on: "1"
+      payload_off: "0"
+    - state_topic: "hass/bv/1A20"
+      name: "BV-Alarm"
+      payload_on: "1"
+      payload_off: "0"
+    - state_topic: "hass/bv/3104"
+      name: "BV-Add heat status"
+      payload_on: "1"
+      payload_off: "0"
+  sensor:
+    - state_topic: "hass/mqttclients/hass"
+      name: "Hass mqtt status"
+    - state_topic: "hass/intromessage"
+      name: "From Hass"
+    - state_topic: "hass/bv/time"
+      name: "BV-time"
+    - state_topic: "hass/bv/freemem"
+      name: "BV-free mem"
+      unit_of_measurement: '%'
+    - state_topic: "hass/bv/0001"
+      name: "BV-Radiator Return"
+      unit_of_measurement: '°C'
+    - state_topic: "hass/bv/0003"
+      name: "BV-Heat carrier Return"
+      unit_of_measurement: '°C'
+    - state_topic: "hass/bv/0004"
+      name: "BV-Heat carrier Forwrd"
+      unit_of_measurement: '°C'
+    - state_topic: "hass/bv/0005"
+      name: "BV-Brine in/Evaporator"
+      unit_of_measurement: '°C'
+    - state_topic: "hass/bv/0006"
+      name: "BV-Brine out/Condenser"
+      unit_of_measurement: '°C'
+    - state_topic: "hass/bv/0007"
+      name: "BV-Outdoor"
+      unit_of_measurement: '°C'
+    - state_topic: "hass/bv/0009"
+      name: "BV-Hot water 1 / Top"
+      unit_of_measurement: '°C'
+    - state_topic: "hass/bv/000B"
+      name: "BV-Hot gas / Compr."
+      unit_of_measurement: '°C'
+    - state_topic: "hass/bv/0107"
+      name: "BV-Heating setpoint"
+      unit_of_measurement: '°C'
+    - state_topic: "hass/bv/2205"
+      name: "BV-Heat set 1, CurveL"
+      unit_of_measurement: 'BV'
+    - state_topic: "hass/bv/2207"
+      name: "BV-Heat set 3, Parallel"
+      unit_of_measurement: 'BV'

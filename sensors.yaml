@@ -1,7 +1,3 @@
-  # - platform: mqtt_room
-  #   device_id: ble-9d41000035d6f4ddba60e7bd8dc491c0-33597-63592
-  #   name: Work keys
-  #   state_topic: room-assistant/mqtt-room
   - platform: nordpool
     region: SE3
     currency: SEK
@@ -16,7 +12,7 @@
         friendly_name: Zigge BT distance
         unit_of_measurement: 'm'
         value_template: >-
-          {{ 0 if state_attr('sensor.zklvyzim_room_presence', 'distance') is none else "%.1f"|format( states.sensor.zklvyzim_room_presence.attributes.distance) }}
+          {{ 0 if state_attr('sensor.f5a80a8cb8a5_room_presence', 'distance') is none else "%.1f"|format( states.sensor.f5a80a8cb8a5_room_presence.attributes.distance) }}
       pelles_phone_distance_bt:
         friendly_name: Pelles phone BT distance
         unit_of_measurement: 'm'
@@ -107,63 +103,6 @@
     method: left
     unit_prefix: k
     round: 2
-  - platform: mqtt
-    state_topic: "hass/mqttclients/hass"
-    name: "Hass mqtt status"
-  - platform: mqtt
-    state_topic: "hass/intromessage"
-    name: "From Hass"
-  - platform: mqtt
-    state_topic: "hass/bv/time"
-    name: "BV-time"
-  - platform: mqtt
-    state_topic: "hass/bv/freemem"
-    name: "BV-free mem"
-    unit_of_measurement: '%'
-  - platform: mqtt
-    state_topic: "hass/bv/0001"
-    name: "BV-Radiator Return"
-    unit_of_measurement: '°C'
-  - platform: mqtt
-    state_topic: "hass/bv/0003"
-    name: "BV-Heat carrier Return"
-    unit_of_measurement: '°C'
-  - platform: mqtt
-    state_topic: "hass/bv/0004"
-    name: "BV-Heat carrier Forwrd"
-    unit_of_measurement: '°C'
-  - platform: mqtt
-    state_topic: "hass/bv/0005"
-    name: "BV-Brine in/Evaporator"
-    unit_of_measurement: '°C'
-  - platform: mqtt
-    state_topic: "hass/bv/0006"
-    name: "BV-Brine out/Condenser"
-    unit_of_measurement: '°C'
-  - platform: mqtt
-    state_topic: "hass/bv/0007"
-    name: "BV-Outdoor"
-    unit_of_measurement: '°C'
-  - platform: mqtt
-    state_topic: "hass/bv/0009"
-    name: "BV-Hot water 1 / Top"
-    unit_of_measurement: '°C'
-  - platform: mqtt
-    state_topic: "hass/bv/000B"
-    name: "BV-Hot gas / Compr."
-    unit_of_measurement: '°C'
-  - platform: mqtt
-    state_topic: "hass/bv/0107"
-    name: "BV-Heating setpoint"
-    unit_of_measurement: '°C'
-  - platform: mqtt
-    state_topic: "hass/bv/2205"
-    name: "BV-Heat set 1, CurveL"
-    unit_of_measurement: 'BV'
-  - platform: mqtt
-    state_topic: "hass/bv/2207"
-    name: "BV-Heat set 3, Parallel"
-    unit_of_measurement: 'BV'
   - platform: systemmonitor
     resources:
       - type: disk_use_percent
@@ -183,39 +122,38 @@
       - type: last_boot
   - platform: command_line
     name: CPU Temperature
-    command: "ssh -F /config/ssh/config root@192.168.86.254 'cat /sys/class/thermal/thermal_zone2/temp'"
+    command: "ssh -F /config/.ssh/config root@192.168.86.254 'cat /sys/class/thermal/thermal_zone2/temp'"
     # If errors occur, remove degree symbol below
     unit_of_measurement: "°C"
     value_template: '{{ value | multiply(0.001) }}'
   - platform: command_line
     name: NUC7 Temperature
-    command: "ssh -F /config/ssh/config pelle@192.168.86.76 'cat /sys/class/thermal/thermal_zone1/temp'"
+    command: "ssh -F /config/.ssh/config pelle@192.168.86.76 'cat /sys/class/thermal/thermal_zone1/temp'"
     # If errors occur, remove degree symbol below
     unit_of_measurement: "°C"
     value_template: '{{ value | multiply(0.001) }}'
   - platform: command_line
     name: OMV Temperature
-    command: "ssh -F /config/ssh/config pi@192.168.86.249 'cat /sys/class/thermal/thermal_zone0/temp'"
+    command: "ssh -F /config/.ssh/config pi@192.168.86.249 'cat /sys/class/thermal/thermal_zone0/temp'"
     # If errors occur, remove degree symbol below
     unit_of_measurement: "°C"
     value_template: '{{ value | multiply(0.001) }}'
   - platform: command_line
     name: Seagate4TB Temperature
-    command: "ssh -F /config/ssh/config pi@192.168.86.249 sudo smartctl -a /dev/sdb| grep Temperature_Celsius | awk '{print $4}'"
+    command: "ssh -F /config/.ssh/config pi@192.168.86.249 sudo smartctl -a /dev/sdb| grep Temperature_Celsius | awk '{print $4}'"
     # If errors occur, remove degree symbol below
     unit_of_measurement: "°C"
     value_template: '{{ value | multiply(1) }}'
   - platform: command_line
     name: WG Pi Temperature
-    command: "ssh -F /config/ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'"
+    command: "ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'"
     # If errors occur, remove degree symbol below
     unit_of_measurement: "°C"
     value_template: '{{ value | multiply(0.001) }}'
   - platform: command_line
     name: VPN Clients
-    command: "ssh -F /config/ssh/config pi@192.168.86.45 'pivpn -c' | grep 10.6 | sed -r 's/^(\\S*)\\s*(\\S*)\\s*\\S*\\s*\\S*\\s*(\\S*)\\s*(.*$)/\\1--\\2--\\3--\\4--***/g'"
+    command: "ssh -F /config/.ssh/config pi@192.168.86.45 'pivpn -c' | grep 10.6 | sed -r 's/^(\\S*)\\s*(\\S*)\\s*\\S*\\s*\\S*\\s*(\\S*)\\s*(.*$)/\\1--\\2--\\3--\\4--***/g'"
     value_template: '{{ value[:255] }}'
-  - platform: uptime
   - platform: aarlo
     monitored_conditions:
     - total_cameras
