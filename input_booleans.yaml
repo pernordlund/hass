@@ -1,2 +1,6 @@
   cancel_next_goodnight:
     name: Cancel next Goodnight
+  easee_paused:
+    name: Easee was paused
+  pelle_working_at_home:
+    name: Pelle working at home

@@ -26,9 +26,14 @@ from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers import config_validation as cv
 from requests.exceptions import ConnectTimeout, HTTPError
 
-from .pyaarlo.constant import DEFAULT_AUTH_HOST, DEFAULT_HOST, SIREN_STATE_KEY
+from .pyaarlo.constant import (
+    DEFAULT_AUTH_HOST,
+    DEFAULT_HOST,
+    MQTT_HOST,
+    SIREN_STATE_KEY
+)
 
-__version__ = "0.7.2b11"
+__version__ = "0.7.4b12"
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -70,6 +75,8 @@ CONF_TFA_TYPE = "tfa_type"
 CONF_TFA_HOST = "tfa_host"
 CONF_TFA_USERNAME = "tfa_username"
 CONF_TFA_PASSWORD = "tfa_password"
+CONF_TFA_TIMEOUT = "tfa_timeout"
+CONF_TFA_TOTAL_TIMEOUT = "tfa_total_timeout"
 CONF_LIBRARY_DAYS = "library_days"
 CONF_AUTH_HOST = "auth_host"
 CONF_SERIAL_IDS = "serial_ids"
@@ -82,6 +89,10 @@ CONF_NO_UNICODE_SQUASH = "no_unicode_squash"
 CONF_SAVE_SESSION = "save_session"
 CONF_BACKEND = "backend"
 CONF_DEFAULT_CIPHERS = "default_ciphers"
+CONF_CIPHER_LIST = "cipher_list"
+CONF_MQTT_HOST = "mqtt_host"
+CONF_MQTT_HOSTNAME_CHECK = "mqtt_hostname_check"
+CONF_MQTT_TRANSPORT = "mqtt_transport"
 
 SCAN_INTERVAL = timedelta(seconds=60)
 PACKET_DUMP = False
@@ -112,6 +123,8 @@ DEFAULT_TFA_TYPE = "email"
 DEFAULT_TFA_HOST = "unknown.imap.com"
 DEFAULT_TFA_USERNAME = "unknown@unknown.com"
 DEFAULT_TFA_PASSWORD = "unknown"
+DEFAULT_TFA_TIMEOUT = timedelta(seconds=3)
+DEFAULT_TFA_TOTAL_TIMEOUT = timedelta(seconds=60)
 DEFAULT_LIBRARY_DAYS = 30
 SERIAL_IDS = False
 STREAM_SNAPSHOT = False
@@ -123,6 +136,10 @@ NO_UNICODE_SQUASH = True
 SAVE_SESSION = True
 DEFAULT_BACKEND = "auto"
 DEFAULT_DEFAULT_CIPHERS = False
+DEFAULT_CIPHER_LIST = ""
+DEFAULT_MQTT_HOST = MQTT_HOST
+DEFAULT_MQTT_HOSTNAME_CHECK = True
+DEFAULT_MQTT_TRANSPORT = "tcp"
 
 CONFIG_SCHEMA = vol.Schema(
     {
@@ -185,6 +202,8 @@ CONFIG_SCHEMA = vol.Schema(
                 vol.Optional(
                     CONF_TFA_PASSWORD, default=DEFAULT_TFA_PASSWORD
                 ): cv.string,
+                vol.Optional(CONF_TFA_TIMEOUT, default=DEFAULT_TFA_TIMEOUT): cv.time_period,
+                vol.Optional(CONF_TFA_TOTAL_TIMEOUT, default=DEFAULT_TFA_TOTAL_TIMEOUT): cv.time_period,
                 vol.Optional(
                     CONF_LIBRARY_DAYS, default=DEFAULT_LIBRARY_DAYS
                 ): cv.positive_int,
@@ -203,9 +222,11 @@ CONFIG_SCHEMA = vol.Schema(
                 ): cv.boolean,
                 vol.Optional(CONF_SAVE_SESSION, default=SAVE_SESSION): cv.boolean,
                 vol.Optional(CONF_BACKEND, default=DEFAULT_BACKEND): cv.string,
-                vol.Optional(
-                    CONF_DEFAULT_CIPHERS, default=DEFAULT_DEFAULT_CIPHERS
-                ): cv.boolean,
+                vol.Optional(CONF_DEFAULT_CIPHERS, default=DEFAULT_DEFAULT_CIPHERS): cv.boolean,
+                vol.Optional(CONF_CIPHER_LIST, default=DEFAULT_CIPHER_LIST): cv.string,
+                vol.Optional(CONF_MQTT_HOST, default=DEFAULT_MQTT_HOST): cv.string,
+                vol.Optional(CONF_MQTT_HOSTNAME_CHECK, default=DEFAULT_MQTT_HOSTNAME_CHECK): cv.boolean,
+                vol.Optional(CONF_MQTT_TRANSPORT, default=DEFAULT_MQTT_TRANSPORT): cv.string,
             }
         ),
     },
@@ -374,6 +395,8 @@ def login(hass, conf):
     tfa_host = conf.get(CONF_TFA_HOST)
     tfa_username = conf.get(CONF_TFA_USERNAME)
     tfa_password = conf.get(CONF_TFA_PASSWORD)
+    tfa_timeout = int(conf.get(CONF_TFA_TIMEOUT).total_seconds())
+    tfa_total_timeout = int(conf.get(CONF_TFA_TOTAL_TIMEOUT).total_seconds())
     library_days = conf.get(CONF_LIBRARY_DAYS)
     serial_ids = conf.get(CONF_SERIAL_IDS)
     stream_snapshot = conf.get(CONF_STREAM_SNAPSHOT)
@@ -385,6 +408,10 @@ def login(hass, conf):
     save_session = conf.get(CONF_SAVE_SESSION)
     backend = conf.get(CONF_BACKEND)
     default_ciphers = conf.get(CONF_DEFAULT_CIPHERS)
+    cipher_list = conf.get(CONF_CIPHER_LIST)
+    mqtt_host = conf.get(CONF_MQTT_HOST)
+    mqtt_hostname_check = conf.get(CONF_MQTT_HOSTNAME_CHECK)
+    mqtt_transport = conf.get(CONF_MQTT_TRANSPORT)
 
     # Fix up config
     if conf_dir == "":
@@ -431,6 +458,8 @@ def login(hass, conf):
                 tfa_host=tfa_host,
                 tfa_username=tfa_username,
                 tfa_password=tfa_password,
+                tfa_timeout=tfa_timeout,
+                tfa_total_timeout=tfa_total_timeout,
                 library_days=library_days,
                 serial_ids=serial_ids,
                 stream_snapshot=stream_snapshot,
@@ -442,8 +471,12 @@ def login(hass, conf):
                 save_session=save_session,
                 backend=backend,
                 default_ciphers=default_ciphers,
+                cipher_list=cipher_list,
                 wait_for_initial_setup=False,
                 verbose_debug=verbose_debug,
+                mqtt_host=mqtt_host,
+                mqtt_hostname_check=mqtt_hostname_check,
+                mqtt_transport=mqtt_transport,
             )
 
             if arlo.is_connected:

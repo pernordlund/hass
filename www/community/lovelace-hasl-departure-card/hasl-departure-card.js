@@ -9,7 +9,7 @@ class HASLDepartureCard extends HTMLElement {
         if (!this.config.tap_action) this.config.tap_action = 'info';
         if (!this.config.tap_action_entity) this.config.tap_action_entity = this.config.entities[0];
         this.config.show_cardname ? this.config.show_cardname = true : this.config.show_cardname = this.config.show_cardname;
-        this.config.compact ? this.config.compact = false : this.config.compact = this.config.compact;
+        this.config.compact ? this.config.compact = this.config.compact : this.config.compact = true;
         if (!this.config.offset) this.config.offset = 0;
         if (!this.config.replace) this.config.replace = {};
         if (!this.config.updated_minutes) this.config.updated_minutes = 0;
@@ -33,6 +33,13 @@ class HASLDepartureCard extends HTMLElement {
         const config = this.config;
         const lang = this._lang();
 
+        var replace_names = [];
+        for(var i in config['replace']) {
+            for(var j in config['replace'][i]) {
+                replace_names[j] = config['replace'][i][j];
+            }
+        }
+
         function getEntitiesContent(data) {
             var html = ``;
 
@@ -53,12 +60,21 @@ class HASLDepartureCard extends HTMLElement {
                 else {
                     var minutesSinceUpdate = 0;
                     var updatedDate = new Date(entity_data.last_refresh);
-                    var updatedValue = updatedDate.toLocaleString(culture);
+                    var updatedValue = '';
+                    try {
+                        updatedValue = updatedDate.toLocaleString(culture);
+                    } catch(e) {
+                        updatedValue = (updatedDate.getHours()<10?'0':'') + updatedDate.getHours() + ":" + (updatedDate.getMinutes()<10?'0':'') + updatedDate.getMinutes();
+                    }
                     var dateTimeNow = new Date();
 
                     if (config.adjust_times === true) {
                         minutesSinceUpdate = Math.floor(((dateTimeNow.getTime() - updatedDate.getTime()) / 1000 / 60));
-                        updatedValue = "" + minutesSinceUpdate + " " + lang[culture].min + " (" + updatedDate.toLocaleString(culture) + ")";
+                        try {
+                            updatedValue = "" + minutesSinceUpdate + " " + lang[culture].min + " (" + updatedDate.toLocaleString(culture) + ")";
+                        } catch(e) {
+                            updatedValue = "" + minutesSinceUpdate + " " + lang[culture].min + " (" + (updatedDate.getHours()<10?'0':'') + updatedDate.getHours() + ":" + (updatedDate.getMinutes()<10?'0':'') + updatedDate.getMinutes() + ")";
+                        }
                     }
 
                     if(config.show_cardname === true) {
@@ -171,8 +187,8 @@ class HASLDepartureCard extends HTMLElement {
                                 }
 
                                 var destinationName = entity_data.attributes.departures[j].destination;
-                                if (config.replace[destinationName]) {
-                                    destinationName = config.replace[destinationName];
+                                if (replace_names[destinationName]) {
+                                    destinationName = replace_names[destinationName];
                                 }
 
                                 var spanClass = 'line-icon' + typeClass;
@@ -226,7 +242,7 @@ class HASLDepartureCard extends HTMLElement {
 
                     // Updated
                     if (config.updated === true) {
-                        if (this.config.updated_minutes==0 || this.config.updated_minutes < minutesSinceUpdate ) {
+                        if (config.updated_minutes==0 || config.updated_minutes < minutesSinceUpdate ) {
                             html += `<table><tr>
                                     <td class="last-update"><sub><i>${lang[culture].last_updated} ${updatedValue}</i></sub></td>
                                 </tr></table>`;

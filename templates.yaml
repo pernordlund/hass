@@ -3,3 +3,26 @@
         unit_of_measurement: "m"
         state: >
           {{ ((distance('device_tracker.zklvyzim_zigge') or 0) | multiply(1000) | int) * (1 if is_state('sensor.zigge_tracker_state', 'operational') else 0) }}
+  - sensor:
+      - name: Pelle work status
+        unique_id: 'pelle_work_status'
+        state: >
+          {{
+            ('At OKQ8' if is_state('device_tracker.life360_per_nordlund', 'OKQ8')) or
+            ('At Home' if is_state('input_boolean.pelle_working_at_home', 'on')) or
+            ('Not working')
+          }}
+  - sensor:
+      - name: Stats work hours
+        unique_id: 'stats_work_hours'
+        state_class: total_increasing
+        attributes:         
+          last_reset: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+        state: >
+          {{
+            states('sensor.hours_worked_today')
+          }}
+    trigger:
+      - platform: state
+        entity_id:
+          - sensor.pelle_work_status

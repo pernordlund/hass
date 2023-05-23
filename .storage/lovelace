@@ -62,22 +62,6 @@
                 },
                 {
                   "entity": "device_tracker.car_keys"
-                },
-                {
-                  "entity": "sensor.zigge_battery_level"
-                },
-                {
-                  "entity": "sensor.zigge_distance"
-                },
-                {
-                  "entity": "sensor.f5a80a8cb8a5_room_presence",
-                  "name": "Zigge room"
-                },
-                {
-                  "entity": "sensor.zigge_distance_bt"
-                },
-                {
-                  "entity": "sensor.pelles_phone_distance_bt"
                 }
               ],
               "show_header_toggle": false,
@@ -161,7 +145,8 @@
               ],
               "show_header_toggle": true,
               "title": "Security",
-              "type": "entities"
+              "type": "entities",
+              "state_color": true
             },
             {
               "entity": "camera.generic_camera",
@@ -193,7 +178,7 @@
             },
             {
               "type": "gauge",
-              "entity": "sensor.power_savsangarvagen_54a",
+              "entity": "sensor.power_savsangarvagen_54_a",
               "min": 0,
               "name": "Energy consumption",
               "needle": true,
@@ -202,7 +187,7 @@
                 "yellow": 2000,
                 "red": 5000
               },
-              "max": 8000
+              "max": 9000
             },
             {
               "type": "entities",
@@ -221,6 +206,9 @@
                 },
                 {
                   "entity": "sensor.daylight"
+                },
+                {
+                  "entity": "sensor.roger_battery_level"
                 }
               ],
               "title": "Outside"
@@ -317,6 +305,21 @@
               "top_status": false,
               "top_title": false,
               "type": "custom:aarlo-glance"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "sensor.zigge_distance_bt"
+                },
+                {
+                  "entity": "sensor.zigge_distance"
+                },
+                {
+                  "entity": "sensor.zigge_battery_level"
+                }
+              ],
+              "title": "Zigge"
             }
           ]
         },
@@ -345,6 +348,9 @@
                 },
                 {
                   "entity": "light.guest_room_window_hue"
+                },
+                {
+                  "entity": "switch.attic"
                 },
                 {
                   "entity": "light.kitchen_ceiling"
@@ -376,12 +382,6 @@
                 },
                 {
                   "entity": "light.fridas_room_ceiling"
-                },
-                {
-                  "entity": "light.albins_shapes"
-                },
-                {
-                  "entity": "switch.attic"
                 },
                 {
                   "entity": "switch.bathroom_ceiling"
@@ -499,6 +499,9 @@
                 },
                 {
                   "entity": "input_datetime.start_arteon_elec_clima"
+                },
+                {
+                  "entity": "input_datetime.start_pearl_heating"
                 }
               ],
               "title": "Misc"
@@ -534,7 +537,7 @@
                   "entity": "automation.greenhouse_water"
                 },
                 {
-                  "entity": "automation.zigge_is_waiting"
+                  "entity": "automation.zigge_waiting_bt"
                 }
               ],
               "title": "Automations on/off",
@@ -560,18 +563,16 @@
               "show_header_toggle": false
             },
             {
-              "type": "entity-filter",
+              "type": "entities",
               "entities": [
-                "vacuum.automower_r_310_roger"
+                {
+                  "entity": "vacuum.automower_r_310_roger"
+                },
+                {
+                  "entity": "sensor.roger_battery"
+                }
               ],
-              "state_filter": [
-                "on",
-                "off",
-                "cleaning"
-              ],
-              "card": {
-                "title": "Roger"
-              }
+              "title": "Roger"
             }
           ]
         },
@@ -629,13 +630,13 @@
                   "entity": "sensor.frysen_humidity"
                 },
                 {
-                  "entity": "sensor.media_room_temperature"
+                  "entity": "sensor.guest_room_temperature"
                 },
                 {
-                  "entity": "sensor.media_room_pressure"
+                  "entity": "sensor.guest_room_pressure"
                 },
                 {
-                  "entity": "sensor.media_room_humidity"
+                  "entity": "sensor.guest_room_humidity"
                 },
                 {
                   "entity": "sensor.aqara_lightlevel"
@@ -684,9 +685,6 @@
                 },
                 {
                   "entity": "sensor.altan_temperature"
-                },
-                {
-                  "entity": "sensor.arteon_outside_temperature"
                 }
               ],
               "show_header_toggle": true,
@@ -696,22 +694,16 @@
             {
               "entities": [
                 {
-                  "entity": "sensor.sensor_ambient_temperature"
+                  "entity": "sensor.greenhouse_sensor_ambient_temperature"
                 },
                 {
-                  "entity": "sensor.sensor_light_intensity"
+                  "entity": "sensor.greenhouse_sensor_light_intensity"
                 },
                 {
-                  "entity": "sensor.sensor_soil_temperature"
+                  "entity": "sensor.greenhouse_sensor_soil_humidity"
                 },
                 {
-                  "entity": "sensor.sensor_soil_humidity"
-                },
-                {
-                  "entity": "sensor.outside_sensor_ambient_temperature"
-                },
-                {
-                  "entity": "sensor.outside_sensor_light_intensity"
+                  "entity": "sensor.greenhouse_sensor_soil_temperature"
                 },
                 {
                   "entity": "sensor.outside_sensor_soil_temperature"
@@ -796,6 +788,24 @@
               ],
               "title": "Pressure",
               "hours_to_show": 72
+            },
+            {
+              "type": "custom:compass-card",
+              "header": {
+                "title": {
+                  "value": "Wind"
+                }
+              },
+              "indicator_sensors": [
+                {
+                  "sensor": "sensor.wind_bearing"
+                }
+              ],
+              "value_sensors": [
+                {
+                  "sensor": "sensor.vind_sandhamn"
+                }
+              ]
             }
           ]
         },
@@ -887,32 +897,32 @@
             {
               "type": "entities",
               "entities": [
-                "sensor.accumulated_consumption_savsangarvagen_54a",
-                "sensor.accumulated_consumption_current_hour_savsangarvagen_54a",
-                "sensor.accumulated_production_savsangarvagen_54a",
-                "sensor.accumulated_production_current_hour_savsangarvagen_54a",
-                "sensor.average_power_savsangarvagen_54a",
-                "sensor.current_l1_savsangarvagen_54a",
-                "sensor.current_l2_savsangarvagen_54a",
-                "sensor.current_l3_savsangarvagen_54a",
-                "sensor.last_meter_consumption_savsangarvagen_54a",
-                "sensor.last_meter_production_savsangarvagen_54a",
-                "sensor.max_power_savsangarvagen_54a",
-                "sensor.min_power_savsangarvagen_54a",
-                "sensor.power_savsangarvagen_54a",
-                "sensor.power_factor_savsangarvagen_54a",
-                "sensor.power_production_savsangarvagen_54a",
-                "sensor.signal_strength_savsangarvagen_54a",
-                "sensor.voltage_phase1_savsangarvagen_54a",
-                "sensor.voltage_phase2_savsangarvagen_54a",
-                "sensor.voltage_phase3_savsangarvagen_54a"
+                "sensor.accumulated_consumption_savsangarvagen_54_a",
+                "sensor.accumulated_consumption_current_hour_savsangarvagen_54_a",
+                "sensor.accumulated_production_savsangarvagen_54_a",
+                "sensor.accumulated_production_current_hour_savsangarvagen_54_a",
+                "sensor.average_power_savsangarvagen_54_a",
+                "sensor.current_l1_savsangarvagen_54_a",
+                "sensor.current_l2_savsangarvagen_54_a",
+                "sensor.current_l3_savsangarvagen_54_a",
+                "sensor.last_meter_consumption_savsangarvagen_54_a",
+                "sensor.last_meter_production_savsangarvagen_54_a",
+                "sensor.max_power_savsangarvagen_54_a",
+                "sensor.min_power_savsangarvagen_54_a",
+                "sensor.power_savsangarvagen_54_a",
+                "sensor.power_factor_savsangarvagen_54_a",
+                "sensor.power_production_savsangarvagen_54_a",
+                "sensor.signal_strength_savsangarvagen_54_a",
+                "sensor.voltage_phase1_savsangarvagen_54_a",
+                "sensor.voltage_phase2_savsangarvagen_54_a",
+                "sensor.voltage_phase3_savsangarvagen_54_a"
               ],
               "title": "Tibber",
               "show_header_toggle": false
             },
             {
               "type": "gauge",
-              "entity": "sensor.power_savsangarvagen_54a",
+              "entity": "sensor.power_savsangarvagen_54_a",
               "min": 0,
               "name": "Energy consumption",
               "needle": true,
@@ -1068,7 +1078,7 @@
             },
             {
               "type": "markdown",
-              "content": "# Bergvärme historik\n\n## 2022-11-01\nVärmekurva till 1.7\n\n## 2022-11-16\nVärmekurva till 2.0"
+              "content": "# Bergvärme historik\n\n| Datum | Värmekurva | Finjust |\n| :--- | ---: | ---: |\n| <2022-11-01 | 2.3||\n| 2022-11-01 | 1.7||\n| 2022-11-16 | 2.0||\n|2022-11-20 | 1.9||\n|2022-11-30| 1.8||"
             }
           ]
         },
@@ -1221,7 +1231,7 @@
                   "entity": "sensor.garage_side_door_lock_battery_level"
                 },
                 {
-                  "entity": "sensor.media_room_sensor_battery_level"
+                  "entity": "sensor.guest_room_sensor_battery_level"
                 },
                 {
                   "entity": "sensor.aqara_motion_battery_level"
@@ -1417,10 +1427,6 @@
               "type": "media-control"
             },
             {
-              "entity": "media_player.kitchen_display",
-              "type": "media-control"
-            },
-            {
               "entity": "media_player.guest_room_speaker",
               "type": "media-control"
             },
@@ -1429,20 +1435,12 @@
               "type": "media-control"
             },
             {
-              "entity": "media_player.chromecastultra2387",
-              "type": "media-control"
-            },
-            {
-              "entity": "media_player.samsung_tv",
-              "type": "media-control"
-            },
-            {
               "type": "media-control",
               "entity": "media_player.google_tv"
             },
             {
               "type": "media-control",
-              "entity": "media_player.hemmabio"
+              "entity": "media_player.nesthub7de1"
             }
           ]
         },
@@ -1654,6 +1652,9 @@
               "type": "entities",
               "entities": [
                 {
+                  "entity": "sensor.arteon_battery_level"
+                },
+                {
                   "entity": "sensor.arteon_charger_max_ampere",
                   "name": "Charger max ampere"
                 },
@@ -1758,10 +1759,6 @@
                   "name": "Oil inspection distance"
                 },
                 {
-                  "entity": "sensor.arteon_outside_temperature",
-                  "name": "Outside temperature"
-                },
-                {
                   "entity": "binary_sensor.arteon_parking_light",
                   "name": "Parking light"
                 },
@@ -1833,6 +1830,68 @@
                 }
               ],
               "title": "Arteon"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "switch.ehqyy3ll_cable_locked_permanently",
+                  "name": "Cable locked permanently"
+                },
+                {
+                  "entity": "switch.ehqyy3ll_enable_idle_current",
+                  "name": "Enable idle current"
+                },
+                {
+                  "entity": "switch.ehqyy3ll_smart_charging",
+                  "name": "Smart charging"
+                }
+              ],
+              "title": "Easee control"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "binary_sensor.ehqyy3ll_cable_locked",
+                  "name": "Cable locked"
+                },
+                {
+                  "entity": "sensor.ehqyy3ll_cost_day",
+                  "name": "Cost day"
+                },
+                {
+                  "entity": "sensor.ehqyy3ll_cost_month",
+                  "name": "Cost month"
+                },
+                {
+                  "entity": "sensor.ehqyy3ll_cost_year",
+                  "name": "Cost year"
+                },
+                {
+                  "entity": "sensor.ehqyy3ll_energy_per_hour",
+                  "name": "Energy per hour"
+                },
+                {
+                  "entity": "sensor.ehqyy3ll_lifetime_energy",
+                  "name": "Lifetime energy"
+                },
+                {
+                  "entity": "binary_sensor.ehqyy3ll_online",
+                  "name": "Online"
+                },
+                {
+                  "entity": "sensor.ehqyy3ll_session_energy",
+                  "name": "Session energy"
+                },
+                {
+                  "entity": "sensor.ehqyy3ll_power"
+                },
+                {
+                  "entity": "sensor.ehqyy3ll_status"
+                }
+              ],
+              "title": "Easee status"
             }
           ]
         },
@@ -1842,24 +1901,6 @@
           "icon": "mdi:test-tube",
           "badges": [],
           "cards": [
-            {
-              "entity": "sensor.netatmo_indoor_temperature",
-              "max": 40,
-              "min": 0,
-              "name": "Temp",
-              "severity": {
-                "green": 17,
-                "red": 27,
-                "yellow": 21
-              },
-              "theme": "default",
-              "type": "gauge"
-            },
-            {
-              "aspect_ratio": "50%",
-              "entity": "camera.aarlo_arlozoneinside",
-              "type": "picture-entity"
-            },
             {
               "entities": [
                 {
@@ -1982,37 +2023,35 @@
               ]
             },
             {
-              "type": "map",
-              "entities": [
-                {
-                  "entity": "device_tracker.life360_albin_nordlund"
-                }
-              ],
-              "hours_to_show": 24,
-              "title": "Albin"
-            },
-            {
-              "type": "map",
-              "entities": [
-                {
-                  "entity": "device_tracker.zklvyzim_zigge"
-                }
-              ],
-              "title": "Zigge",
-              "hours_to_show": 3,
-              "default_zoom": 17
-            },
-            {
               "type": "entities",
               "entities": [
                 {
-                  "entity": "vacuum.automower_r_310_roger"
+                  "entity": "device_tracker.life360_per_nordlund"
                 },
                 {
-                  "entity": "sensor.roger_battery"
+                  "entity": "input_boolean.pelle_working_at_home"
+                },
+                {
+                  "entity": "sensor.pelle_work_status"
+                },
+                {
+                  "entity": "sensor.hours_worked_today"
+                },
+                {
+                  "entity": "sensor.stats_work_hours"
                 }
               ],
-              "title": "Roger"
+              "title": "Work log"
+            },
+            {
+              "type": "statistic",
+              "entity": "sensor.hours_worked_today",
+              "period": {
+                "calendar": {
+                  "period": "month"
+                }
+              },
+              "stat_type": "max"
             }
           ]
         }

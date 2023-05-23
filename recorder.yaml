@@ -32,6 +32,7 @@
       - sensor.*room_presence*
       - sensor.*distance*
       - sensor.vind*
+      - sensor.ehqyy3ll*
     entities:
       - sensor.load_1m
       - sensor.load_5m
@@ -53,3 +54,6 @@
       - sensor.daylight
       - sensor.range_extender_7_node_status
       - sensor.wind_bearing
+      - sensor.pelle_work_status
+      - sensor.hours_worked_today
+      - sensor.stats_work_hours

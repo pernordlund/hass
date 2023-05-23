@@ -43,6 +43,9 @@ from .util import days_until, now_strftime, time_to_arlotime, to_b64
 
 # include token and session details
 class ArloBackEnd(object):
+
+    _multi_location = False
+
     def __init__(self, arlo):
 
         self._arlo = arlo
@@ -108,6 +111,14 @@ class ArloBackEnd(object):
         except Exception as e:
             self._arlo.warning("session file not written" + str(e))
 
+    def _transaction_id(self):
+        return 'FE!' + str(uuid.uuid4())
+
+    def _build_url(self, url, tid):
+        sep = "&" if "?" in url else "?"
+        now = time_to_arlotime()
+        return f"{url}{sep}eventId={tid}&time={now}"
+
     def _request(
         self,
         path,
@@ -129,12 +140,12 @@ class ArloBackEnd(object):
             with self._req_lock:
                 if host is None:
                     host = self._arlo.cfg.host
-                url = host + path
+                tid = self._transaction_id()
+                url = self._build_url(host + path, tid)
+                headers['x-transaction-id'] = tid
                 self._arlo.vdebug("request-url={}".format(url))
                 self._arlo.vdebug("request-params=\n{}".format(pprint.pformat(params)))
-                self._arlo.vdebug(
-                    "request-headers=\n{}".format(pprint.pformat(headers))
-                )
+                self._arlo.vdebug("request-headers=\n{}".format(pprint.pformat(headers)))
                 if method == "GET":
                     r = self._session.get(
                         url,
@@ -162,6 +173,7 @@ class ArloBackEnd(object):
             self._arlo.vdebug("request-body=\n{}".format(pprint.pformat(body)))
         except Exception as e:
             self._arlo.warning("body-error={}".format(type(e).__name__))
+            self._arlo.debug(f"request-text={r.text}")
             return None
 
         self._arlo.vdebug("request-end={}".format(r.status_code))
@@ -242,6 +254,13 @@ class ArloBackEnd(object):
             device_id = resource.split("/")[1]
             responses.append((device_id, resource, response))
 
+        # Device status...
+        elif resource == 'devices':
+            for device_id in response.get('devices', {}):
+                self._arlo.debug(f"DEVICES={device_id}")
+                props = response['devices'][device_id]
+                responses.append((device_id, resource, props))
+
         # These are base station responses. Which can be about the base station
         # or devices on it... Check if property is list.
         # Packet number #3/#2
@@ -273,20 +292,17 @@ class ArloBackEnd(object):
         # This a list ditch effort to funnel the answer the correct place...
         #  Check for device_id
         #  Check for unique_id
+        #  Check for locationId
         # If none of those then is unhandled
         # Packet number #?.
         else:
-            device_id = response.get("deviceId", None)
+            device_id = response.get("deviceId",
+                                     response.get("uniqueId",
+                                                  response.get("locationId")))
             if device_id is not None:
                 responses.append((device_id, resource, response))
             else:
-                device_id = response.get("uniqueId", None)
-                if device_id is not None:
-                    responses.append((device_id, resource, response))
-                else:
-                    self._arlo.debug(
-                        "unhandled response {} - {}".format(resource, response)
-                    )
+                self._arlo.debug(f"unhandled response {resource} - {response}")
 
         # Now find something waiting for this/these.
         for device_id, resource, response in responses:
@@ -456,17 +472,22 @@ class ArloBackEnd(object):
 
             # Create and set up the MQTT client.
             self._event_client = mqtt.Client(
-                client_id=self._event_client_id, transport="websockets"
+                client_id=self._event_client_id, transport=self._arlo.cfg.mqtt_transport
             )
             self._event_client.on_log = self._mqtt_on_log
             self._event_client.on_connect = self._mqtt_on_connect
             self._event_client.on_message = self._mqtt_on_message
-            self._event_client.tls_set_context(ssl.create_default_context())
+            ssl_context = ssl.create_default_context()
+            ssl_context.check_hostname = self._arlo.cfg.mqtt_hostname_check
+            self._event_client.tls_set_context(ssl_context)
             self._event_client.username_pw_set(f"{self._user_id}", self._token)
             self._event_client.ws_set_options(path=MQTT_PATH, headers=headers)
+            self._arlo.debug(f"mqtt: host={self._arlo.cfg.mqtt_host}, "
+                             f"check={self._arlo.cfg.mqtt_hostname_check}, "
+                             f"transport={self._arlo.cfg.mqtt_transport}")
 
             # Connect.
-            self._event_client.connect(MQTT_HOST, port=443, keepalive=60)
+            self._event_client.connect(self._arlo.cfg.mqtt_host, port=443, keepalive=60)
             self._event_client.loop_forever()
 
         except Exception as e:
@@ -616,11 +637,15 @@ class ArloBackEnd(object):
     def _auth(self):
         headers = {
             "Accept": "application/json, text/plain, */*",
-            "Accept-Language": "en-US,en;q=0.9",
+            "Accept-Encoding": "gzip, deflate, br",
+            "Accept-Language": "en-GB,en;q=0.9,en-US;q=0.8",
             "Origin": ORIGIN_HOST,
             "Referer": REFERER_HOST,
             "Source": "arloCamWeb",
             "User-Agent": self._user_agent,
+            "x-user-device-id": self._user_id,
+            "x-user-device-automation-name": "QlJPV1NFUg==",
+            "x-user-device-type": "BROWSER",
         }
 
         # Handle 1015 error
@@ -749,12 +774,16 @@ class ArloBackEnd(object):
     def _validate(self):
         headers = {
             "Accept": "application/json, text/plain, */*",
-            "Accept-Language": "en-US,en;q=0.9",
+            "Accept-Encoding": "gzip, deflate, br",
+            "Accept-Language": "en-GB,en;q=0.9,en-US;q=0.8",
             "Authorization": self._token64,
             "Origin": ORIGIN_HOST,
             "Referer": REFERER_HOST,
             "User-Agent": self._user_agent,
             "Source": "arloCamWeb",
+            "x-user-device-id": self._user_id,
+            "x-user-device-automation-name": "QlJPV1NFUg==",
+            "x-user-device-type": "BROWSER",
         }
 
         # Validate it!
@@ -771,6 +800,8 @@ class ArloBackEnd(object):
         if v2_session is None:
             self._arlo.error("session start failed")
             return False
+        self._multi_location = v2_session.get('supportsMultiLocation', False)
+        self._arlo.debug(f"multilocation is {self._multi_location}")
         return True
 
     def _login(self):
@@ -796,7 +827,8 @@ class ArloBackEnd(object):
         # update sessions headers
         headers = {
             "Accept": "application/json",
-            "Accept-Language": "en-US,en;q=0.9",
+            "Accept-Encoding": "gzip, deflate, br",
+            "Accept-Language": "en-GB,en;q=0.9,en-US;q=0.8",
             "Auth-Version": "2",
             "Authorization": self._token,
             "Content-Type": "application/json; charset=utf-8;",
@@ -1014,6 +1046,14 @@ class ArloBackEnd(object):
     def sub_id(self):
         return self._sub_id
 
+    @property
+    def user_id(self):
+        return self._user_id
+
+    @property
+    def multi_location(self):
+        return self._multi_location
+
     def add_listener(self, device, callback):
         with self._lock:
             if device.device_id not in self._callbacks:
@@ -1038,9 +1078,15 @@ class ArloBackEnd(object):
     def user_agent(self, agent):
         """Map `agent` to a real user agent.
 
+        `!real-string` will use the provided string as-is, used when passing user agent
+        from a browser.
+
         User provides a default user agent they want for most interactions but it can be overridden
         for stream operations.
         """
+        if agent.startswith("!"):
+            self._arlo.debug(f"using user supplied user_agent {agent[:70]}")
+            return agent[1:]
         self._arlo.debug(f"looking for user_agent {agent}")
         if agent.lower() == "arlo":
             return (

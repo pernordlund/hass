@@ -701,7 +701,10 @@
       button_left_short:
       - service: homeassistant.toggle
         data: {}
-        entity_id: light.guest_room_window_hue
+        target:
+          entity_id:
+          - light.guest_room_window_hue
+          - switch.attic
       button_right_short:
       - service: homeassistant.toggle
         data: {}
@@ -820,6 +823,11 @@
         device_id: f375e993ee126cde276ea0f857703769
         entity_id: switch.guest_room_desk_2
         domain: switch
+      button_long:
+      - service: input_boolean.toggle
+        data: {}
+        target:
+          entity_id: input_boolean.pelle_working_at_home
 - id: '1636024683504'
   alias: Garage extra sync with door
   description: ''
@@ -920,7 +928,7 @@
   - platform: numeric_state
     entity_id: sensor.zigge_distance_bt
     above: '0.1'
-    below: '15'
+    below: 25
     for:
       hours: 0
       minutes: 5
@@ -934,7 +942,7 @@
       seconds: 0
     id: 15 minutes
     above: '0.1'
-    below: '15'
+    below: 24.9
   - platform: numeric_state
     entity_id: sensor.zigge_distance_bt
     for:
@@ -942,7 +950,7 @@
       minutes: 45
       seconds: 0
     above: '0.1'
-    below: '15'
+    below: 25
     id: 45 minutes
   condition: []
   action:
@@ -955,4 +963,154 @@
   - service: notify.living_room
     data:
       message: Ziggee has waited for {{ trigger.id }}
+  mode: single
+- id: '666'
+  alias: Charger
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.current_l1_savsangarvagen_54_a
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+    above: '31'
+    id: p1High
+  - platform: numeric_state
+    entity_id: sensor.current_l2_savsangarvagen_54_a
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+    above: '31'
+    id: p2High
+  - platform: numeric_state
+    entity_id: sensor.current_l3_savsangarvagen_54_a
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+    above: '31'
+    id: p3High
+  - platform: numeric_state
+    entity_id: sensor.current_l1_savsangarvagen_54_a
+    for:
+      hours: 0
+      minutes: 2
+      seconds: 0
+    below: '18'
+    id: p1Low
+  - platform: numeric_state
+    entity_id: sensor.current_l2_savsangarvagen_54_a
+    for:
+      hours: 0
+      minutes: 2
+      seconds: 0
+    below: '18'
+    id: p2Low
+  - platform: numeric_state
+    entity_id: sensor.current_l3_savsangarvagen_54_a
+    for:
+      hours: 0
+      minutes: 2
+      seconds: 0
+    below: '18'
+    id: p3Low
+  - platform: numeric_state
+    entity_id: input_number.power
+    below: '18'
+    id: tlow
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 10
+  - platform: numeric_state
+    entity_id: input_number.power
+    above: '31'
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 10
+    id: thigh
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: sensor.ehqyy3ll_status
+        state: charging
+      - condition: or
+        conditions:
+        - condition: trigger
+          id: p1High
+        - condition: trigger
+          id: p2High
+        - condition: trigger
+          id: p3High
+        - condition: trigger
+          id: thigh
+      sequence:
+      - service: easee.pause
+        data:
+          charger_id: EHQYY3LL
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.easee_paused
+    - conditions:
+      - condition: state
+        entity_id: input_boolean.easee_paused
+        state: 'on'
+      - condition: and
+        conditions:
+        - condition: numeric_state
+          entity_id: sensor.current_l1_savsangarvagen_54_a
+          below: '18'
+        - condition: numeric_state
+          entity_id: sensor.current_l2_savsangarvagen_54_a
+          below: '18'
+        - condition: numeric_state
+          entity_id: sensor.current_l3_savsangarvagen_54_a
+          below: '18'
+        - condition: numeric_state
+          entity_id: input_number.power
+          below: '18'
+      sequence:
+      - service: easee.resume
+        data:
+          charger_id: EHQYY3LL
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.easee_paused
+  mode: single
+- id: '1670358805251'
+  alias: Pearl heating on datepicker
+  description: ''
+  trigger:
+  - platform: time
+    at: input_datetime.start_pearl_heating
+  condition: []
+  action:
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id: switch.popp_smart_outdoor_plug_ip44_rated
+  - service: notify.pelles_tfn
+    data:
+      message: Pearl heating started
+  mode: single
+- id: '667'
+  alias: Tibber Reload
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.power_savsangarvagen_54_a
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  action:
+  - service: homeassistant.reload_config_entry
+    data:
+      entry_id: 43689e5d33673d46b70c70b6f016ac7f
+  - service: notify.pelles_tfn
+    data:
+      message: Tibber restarted
   mode: single

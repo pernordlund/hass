@@ -86,3 +86,5 @@ sensor.heat_pump_energy:
   meter_type: '1'
   meter_type_name: ELECTRIC
   friendly_name: Approx energy heat pump
+sensor.fridge_temperature:
+  device_class: temperature

@@ -93,6 +93,7 @@ lights_out:
     target:
       entity_id:
       - group.inside_downstairs
+      - switch.attic
       device_id:
       - 996e597345a143f1abd7b18f5acf8e08
       - 317e218d6455a80dfd78a0eea8931a9a

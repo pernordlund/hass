@@ -1,93 +1,278 @@
-2022-11-19 22:52:49.956 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret latitude retrieved from secrets.yaml in folder /config
-2022-11-19 22:52:49.956 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret longitude retrieved from secrets.yaml in folder /config
-2022-11-19 22:52:49.959 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret http_trusted_proxy retrieved from secrets.yaml in folder /config
-2022-11-19 22:52:49.960 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret rc_db_url retrieved from secrets.yaml in folder /config
-2022-11-19 22:52:49.973 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret pb_api_key retrieved from secrets.yaml in folder /config
-2022-11-19 22:52:49.973 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret tw_phone_no retrieved from secrets.yaml in folder /config
-2022-11-19 22:52:49.974 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret tw_phone_no retrieved from secrets.yaml in folder /config
-2022-11-19 22:52:49.975 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret in_username retrieved from secrets.yaml in folder /config
-2022-11-19 22:52:49.975 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret in_password retrieved from secrets.yaml in folder /config
-2022-11-19 22:52:49.999 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret ar_username retrieved from secrets.yaml in folder /config
-2022-11-19 22:52:49.999 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret ar_password retrieved from secrets.yaml in folder /config
-2022-11-19 22:52:49.999 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret ar_gm_user retrieved from secrets.yaml in folder /config
-2022-11-19 22:52:49.999 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret ar_gm_password retrieved from secrets.yaml in folder /config
-2022-11-19 22:52:50.000 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret tw_account_sid_from_twilio retrieved from secrets.yaml in folder /config
-2022-11-19 22:52:50.000 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret tw_auth_token_from_twilio retrieved from secrets.yaml in folder /config
-2022-11-19 22:52:50.050 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration swemail which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2022-11-19 22:52:50.050 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration scheduler which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2022-11-19 22:52:50.050 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration hacs which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2022-11-19 22:52:50.051 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration husqvarna_automower which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2022-11-19 22:52:50.051 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration sjofartsverket_viva which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2022-11-19 22:52:50.051 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration nordpool which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2022-11-19 22:52:50.052 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration xiaomi_miio_airpurifier which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2022-11-19 22:52:50.052 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration volkswagencarnet which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2022-11-19 22:52:50.052 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration aarlo which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2022-11-19 22:52:50.053 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration blitzortung which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2022-11-19 22:52:50.053 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration gardena_smart_system which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2022-11-19 22:52:50.581 WARNING (Recorder) [homeassistant.components.recorder.util] Ended unfinished session (id=721 from 2022-11-19 21:13:47)
-2022-11-19 22:52:52.794 ERROR (SyncWorker_4) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 22:52:58.999 WARNING (MainThread) [homeassistant.config_entries] Config entry 'Shapes EEA3' for nanoleaf integration could not authenticate
-2022-11-19 22:52:59.726 WARNING (MainThread) [homeassistant.config_entries] Config entry 'f9ecbc82-4a49-4efc-b32f-bf45a9dc72a8' for husqvarna_automower integration could not authenticate
-2022-11-19 22:53:00.271 ERROR (MainThread) [tibber.tibber_home] Could not find consumption data.
-2022-11-19 22:53:03.998 WARNING (MainThread) [homeassistant.config_entries] Config entry 'Xiaomi Air Purifier 2S' for xiaomi_miio integration not ready yet: Unable to discover the device 192.168.86.153; Retrying in background
-2022-11-19 22:53:07.112 WARNING (MainThread) [homeassistant.config_entries] Config entry 'TP2 HS110(EU)' for tplink integration not ready yet: Unable to connect to the device: 192.168.86.27: [Errno 113] Connect call failed ('192.168.86.27', 9999); Retrying in background
-2022-11-19 22:53:11.233 WARNING (Recorder) [homeassistant.components.sensor.recorder] The unit of sensor.motion_sensor_illuminance (lx) can not be converted to the unit of previously compiled statistics (Lux). Generation of long term statistics will be suppressed unless the unit changes back to Lux or a compatible unit. Go to https://my.home-assistant.io/redirect/developer_statistics to fix this
-2022-11-19 22:53:53.014 ERROR (SyncWorker_7) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 22:54:53.025 ERROR (SyncWorker_1) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 22:55:53.027 ERROR (SyncWorker_6) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 22:56:53.019 ERROR (SyncWorker_3) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 22:57:53.016 ERROR (SyncWorker_0) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 22:58:53.033 ERROR (SyncWorker_3) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 22:59:53.041 ERROR (SyncWorker_10) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:00:53.020 ERROR (SyncWorker_9) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:01:53.023 ERROR (SyncWorker_4) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:02:53.020 ERROR (SyncWorker_11) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:03:53.055 ERROR (SyncWorker_1) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:04:53.030 ERROR (SyncWorker_1) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:05:53.035 ERROR (SyncWorker_0) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:06:53.036 ERROR (SyncWorker_6) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:07:53.044 ERROR (SyncWorker_3) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:08:53.061 ERROR (SyncWorker_10) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:09:53.044 ERROR (SyncWorker_11) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:10:53.036 ERROR (SyncWorker_2) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:11:53.051 ERROR (SyncWorker_4) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:12:53.042 ERROR (SyncWorker_2) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:13:00.191 ERROR (MainThread) [tibber.tibber_home] Could not find consumption data.
-2022-11-19 23:13:53.096 ERROR (SyncWorker_7) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:14:53.066 ERROR (SyncWorker_10) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:15:53.047 ERROR (SyncWorker_3) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:16:53.097 ERROR (SyncWorker_5) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:17:53.049 ERROR (SyncWorker_3) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:18:07.537 WARNING (MainThread) [homeassistant.helpers.template] Distance:State does not contain valid location: <template TemplateState(<state device_tracker.zklvyzim_zigge=unavailable; icon=mdi:paw, friendly_name=Zigge-Älta Tracker @ 2022-11-19T23:18:07.536069+01:00>)>
-2022-11-19 23:18:07.544 WARNING (MainThread) [homeassistant.helpers.template] Distance:State does not contain valid location: <template TemplateState(<state device_tracker.zklvyzim_zigge=unavailable; icon=mdi:paw, friendly_name=Zigge-Älta Tracker @ 2022-11-19T23:18:07.536069+01:00>)>
-2022-11-19 23:18:53.050 ERROR (SyncWorker_3) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:19:51.292 WARNING (MainThread) [homeassistant.components.media_player] Updating samsungtv media_player took longer than the scheduled update interval 0:00:10
-2022-11-19 23:19:51.293 WARNING (MainThread) [homeassistant.helpers.entity] Update of media_player.samsung_led60_ue60f6300 is taking over 10 seconds
-2022-11-19 23:19:53.069 ERROR (SyncWorker_10) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:20:53.035 ERROR (SyncWorker_4) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:21:53.082 ERROR (SyncWorker_5) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:22:53.046 ERROR (SyncWorker_1) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:23:21.619 WARNING (MainThread) [homeassistant.helpers.template] Distance:State does not contain valid location: <template TemplateState(<state device_tracker.zklvyzim_zigge=unavailable; icon=mdi:paw, friendly_name=Zigge-Älta Tracker @ 2022-11-19T23:23:21.617850+01:00>)>
-2022-11-19 23:23:21.621 WARNING (MainThread) [homeassistant.helpers.template] Distance:State does not contain valid location: <template TemplateState(<state device_tracker.zklvyzim_zigge=unavailable; icon=mdi:paw, friendly_name=Zigge-Älta Tracker @ 2022-11-19T23:23:21.617850+01:00>)>
-2022-11-19 23:23:53.064 ERROR (SyncWorker_5) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:24:53.050 ERROR (SyncWorker_4) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:25:53.070 ERROR (SyncWorker_3) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:26:53.088 ERROR (SyncWorker_3) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:27:53.062 ERROR (SyncWorker_8) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:28:53.071 ERROR (SyncWorker_10) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:29:55.720 WARNING (MainThread) [homeassistant.helpers.template] Distance:State does not contain valid location: <template TemplateState(<state device_tracker.zklvyzim_zigge=unavailable; icon=mdi:paw, friendly_name=Zigge-Älta Tracker @ 2022-11-19T23:29:55.718665+01:00>)>
-2022-11-19 23:29:55.722 WARNING (MainThread) [homeassistant.helpers.template] Distance:State does not contain valid location: <template TemplateState(<state device_tracker.zklvyzim_zigge=unavailable; icon=mdi:paw, friendly_name=Zigge-Älta Tracker @ 2022-11-19T23:29:55.718665+01:00>)>
-2022-11-19 23:30:01.129 WARNING (ArloEventStream) [pyaarlo] event loop timeout
-2022-11-19 23:30:02.231 WARNING (MainThread) [homeassistant.helpers.entity] Update of sensor.nuc7_temperature is taking over 10 seconds
-2022-11-19 23:30:02.241 ERROR (SyncWorker_0) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pelle@192.168.86.76 'cat /sys/class/thermal/thermal_zone1/temp'
-2022-11-19 23:30:02.592 ERROR (MainThread) [homeassistant.components.life360] Error fetching life360 (per.a.nordlund@gmail.com) data: TimeoutError
-2022-11-19 23:30:02.601 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities fan.albins_fan or it is/they are currently not available
-2022-11-19 23:30:02.604 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.albins_shapes or it is/they are currently not available
-2022-11-19 23:30:03.110 WARNING (Thread-11) [pychromecast.socket_client] [Living room speaker(192.168.86.38):8009] Heartbeat timeout, resetting connection
-2022-11-19 23:30:03.112 WARNING (MainThread) [homeassistant.helpers.entity] Update of sensor.google_wifi_current_version is taking over 10 seconds
-2022-11-19 23:30:03.120 WARNING (SyncWorker_2) [homeassistant.components.google_wifi.sensor] Unable to fetch data from Google Wifi
-2022-11-19 23:30:03.552 WARNING (Thread-12) [pychromecast.socket_client] [Guest Room speaker(192.168.86.39):8009] Heartbeat timeout, resetting connection
-2022-11-19 23:30:04.751 WARNING (Thread-9) [pychromecast.socket_client] [Upstairs TV(192.168.86.24):8009] Heartbeat timeout, resetting connection
-2022-11-19 23:30:04.783 ERROR (MainThread) [homeassistant.components.glances] Unable to fetch data from Glances
-2022-11-19 23:30:05.953 ERROR (SyncWorker_2) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
-2022-11-19 23:30:06.396 WARNING (Thread-8) [pychromecast.socket_client] [Google TV(192.168.86.52):8009] Heartbeat timeout, resetting connection
+2023-05-23 20:36:48.580 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret http_trusted_proxy retrieved from secrets.yaml in folder /config
+2023-05-23 20:36:48.580 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret rc_db_url retrieved from secrets.yaml in folder /config
+2023-05-23 20:36:48.596 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret tw_phone_no retrieved from secrets.yaml in folder /config
+2023-05-23 20:36:48.596 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret tw_phone_no retrieved from secrets.yaml in folder /config
+2023-05-23 20:36:48.597 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret in_username retrieved from secrets.yaml in folder /config
+2023-05-23 20:36:48.598 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret in_password retrieved from secrets.yaml in folder /config
+2023-05-23 20:36:48.600 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret ar_username retrieved from secrets.yaml in folder /config
+2023-05-23 20:36:48.600 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret ar_password retrieved from secrets.yaml in folder /config
+2023-05-23 20:36:48.600 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret ar_gm_user retrieved from secrets.yaml in folder /config
+2023-05-23 20:36:48.600 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret ar_gm_password retrieved from secrets.yaml in folder /config
+2023-05-23 20:36:48.601 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret tw_account_sid_from_twilio retrieved from secrets.yaml in folder /config
+2023-05-23 20:36:48.601 DEBUG (SyncWorker_0) [homeassistant.util.yaml.loader] Secret tw_auth_token_from_twilio retrieved from secrets.yaml in folder /config
+2023-05-23 20:36:48.679 WARNING (SyncWorker_1) [homeassistant.loader] We found a custom integration swemail which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2023-05-23 20:36:48.680 WARNING (SyncWorker_1) [homeassistant.loader] We found a custom integration easee which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2023-05-23 20:36:48.681 WARNING (SyncWorker_1) [homeassistant.loader] We found a custom integration scheduler which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2023-05-23 20:36:48.682 WARNING (SyncWorker_1) [homeassistant.loader] We found a custom integration hacs which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2023-05-23 20:36:48.682 WARNING (SyncWorker_1) [homeassistant.loader] We found a custom integration husqvarna_automower which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2023-05-23 20:36:48.683 WARNING (SyncWorker_1) [homeassistant.loader] We found a custom integration sjofartsverket_viva which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2023-05-23 20:36:48.683 WARNING (SyncWorker_1) [homeassistant.loader] We found a custom integration nordpool which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2023-05-23 20:36:48.684 WARNING (SyncWorker_1) [homeassistant.loader] We found a custom integration xiaomi_miio_airpurifier which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2023-05-23 20:36:48.684 WARNING (SyncWorker_1) [homeassistant.loader] We found a custom integration volkswagencarnet which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2023-05-23 20:36:48.685 WARNING (SyncWorker_1) [homeassistant.loader] We found a custom integration aarlo which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2023-05-23 20:36:48.685 WARNING (SyncWorker_1) [homeassistant.loader] We found a custom integration blitzortung which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2023-05-23 20:36:48.686 WARNING (SyncWorker_1) [homeassistant.loader] We found a custom integration gardena_smart_system which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2023-05-23 20:36:51.233 ERROR (SyncWorker_5) [homeassistant.components.command_line.utils] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'
+2023-05-23 20:36:51.236 ERROR (MainThread) [homeassistant.components.sensor] command_line: Error on device update!
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 1625, in multiply
+    return float(value) * amount
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity_platform.py", line 521, in _async_add_entity
+    await entity.async_device_update(warning=False)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 779, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/command_line/sensor.py", line 146, in async_update
+    self._value_template.async_render_with_possible_json_value(
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 716, in async_render_with_possible_json_value
+    return _render_with_context(self.template, compiled, **variables).strip()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 2164, in _render_with_context
+    return template.render(**kwargs)
+  File "/usr/local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/usr/local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<template>", line 1, in top-level template code
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 1629, in multiply
+    raise_no_default("multiply", value)
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 1594, in raise_no_default
+    raise ValueError(
+ValueError: Template error: multiply got invalid input 'None' when rendering template '{{ value | multiply(0.001) }}' but no default was specified
+2023-05-23 20:37:01.972 DEBUG (SyncWorker_6) [homeassistant.util.yaml.loader] Loading /config/secrets.yaml
+2023-05-23 20:37:01.975 DEBUG (SyncWorker_6) [homeassistant.util.yaml.loader] Secret http_trusted_proxy retrieved from secrets.yaml in folder /config
+2023-05-23 20:37:01.975 DEBUG (SyncWorker_6) [homeassistant.util.yaml.loader] Secret rc_db_url retrieved from secrets.yaml in folder /config
+2023-05-23 20:37:01.995 DEBUG (SyncWorker_6) [homeassistant.util.yaml.loader] Secret tw_phone_no retrieved from secrets.yaml in folder /config
+2023-05-23 20:37:01.995 DEBUG (SyncWorker_6) [homeassistant.util.yaml.loader] Secret tw_phone_no retrieved from secrets.yaml in folder /config
+2023-05-23 20:37:01.998 DEBUG (SyncWorker_6) [homeassistant.util.yaml.loader] Secret in_username retrieved from secrets.yaml in folder /config
+2023-05-23 20:37:01.998 DEBUG (SyncWorker_6) [homeassistant.util.yaml.loader] Secret in_password retrieved from secrets.yaml in folder /config
+2023-05-23 20:37:02.006 DEBUG (SyncWorker_6) [homeassistant.util.yaml.loader] Secret ar_username retrieved from secrets.yaml in folder /config
+2023-05-23 20:37:02.007 DEBUG (SyncWorker_6) [homeassistant.util.yaml.loader] Secret ar_password retrieved from secrets.yaml in folder /config
+2023-05-23 20:37:02.007 DEBUG (SyncWorker_6) [homeassistant.util.yaml.loader] Secret ar_gm_user retrieved from secrets.yaml in folder /config
+2023-05-23 20:37:02.007 DEBUG (SyncWorker_6) [homeassistant.util.yaml.loader] Secret ar_gm_password retrieved from secrets.yaml in folder /config
+2023-05-23 20:37:02.016 DEBUG (SyncWorker_6) [homeassistant.util.yaml.loader] Secret tw_account_sid_from_twilio retrieved from secrets.yaml in folder /config
+2023-05-23 20:37:02.017 DEBUG (SyncWorker_6) [homeassistant.util.yaml.loader] Secret tw_auth_token_from_twilio retrieved from secrets.yaml in folder /config
+2023-05-23 20:37:03.186 ERROR (MainThread) [homeassistant.components.sensor] Error adding entities for domain sensor with platform mobile_app
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 579, in state
+    numerical_value = int(value)
+ValueError: invalid literal for int() with base 10: 'discharging'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity_platform.py", line 455, in async_add_entities
+    await asyncio.gather(*tasks)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity_platform.py", line 731, in _async_add_entity
+    await entity.add_to_platform_finish()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 845, in add_to_platform_finish
+    self.async_write_ha_state()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 585, in async_write_ha_state
+    self._async_write_ha_state()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 649, in _async_write_ha_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 591, in _stringify_state
+    if (state := self.state) is None:
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 583, in state
+    raise ValueError(
+ValueError: Sensor sensor.sm_t719_battery_state has device class battery, state class None unit None and suggested precision None thus indicating it has a numeric value; however, it has the non-numeric value: discharging (<class 'str'>)
+2023-05-23 20:37:03.191 ERROR (MainThread) [homeassistant.components.sensor] Error while setting up mobile_app platform for sensor
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 579, in state
+    numerical_value = int(value)
+ValueError: invalid literal for int() with base 10: 'discharging'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity_platform.py", line 312, in _async_setup_platform
+    await asyncio.gather(*pending)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity_platform.py", line 455, in async_add_entities
+    await asyncio.gather(*tasks)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity_platform.py", line 731, in _async_add_entity
+    await entity.add_to_platform_finish()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 845, in add_to_platform_finish
+    self.async_write_ha_state()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 585, in async_write_ha_state
+    self._async_write_ha_state()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 649, in _async_write_ha_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 591, in _stringify_state
+    if (state := self.state) is None:
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 583, in state
+    raise ValueError(
+ValueError: Sensor sensor.sm_t719_battery_state has device class battery, state class None unit None and suggested precision None thus indicating it has a numeric value; however, it has the non-numeric value: discharging (<class 'str'>)
+2023-05-23 20:37:03.607 WARNING (MainThread) [homeassistant.config_entries] Config entry 'Xiaomi Air Purifier 2S' for xiaomi_miio integration not ready yet: Unable to discover the device 192.168.86.153; Retrying in background
+2023-05-23 20:37:10.133 WARNING (MainThread) [homeassistant.config_entries] Config entry 'TP2 HS110(EU)' for tplink integration not ready yet: Unable to connect to the device: 192.168.86.27: [Errno 113] Connect call failed ('192.168.86.27', 9999); Retrying in background
+2023-05-23 20:37:21.174 WARNING (MainThread) [homeassistant.helpers.template] Distance:State does not contain valid location: <template TemplateState(<state device_tracker.zklvyzim_zigge=unavailable; icon=mdi:paw, friendly_name=Zigge-Älta Tracker @ 2023-05-23T20:37:21.167166+02:00>)>
+2023-05-23 20:37:21.180 WARNING (MainThread) [homeassistant.helpers.template] Distance:State does not contain valid location: <template TemplateState(<state device_tracker.zklvyzim_zigge=unavailable; icon=mdi:paw, friendly_name=Zigge-Älta Tracker @ 2023-05-23T20:37:21.167166+02:00>)>
+2023-05-23 20:37:32.800 WARNING (MainThread) [homeassistant.components.google_assistant.helpers] Webhook handler 417b20f89493eceb25b68edc129a4212d0e7ef95fe0b37ace7a5a647135f7ae2 for agent user id 82508ea5-6948-4565-8742-ba3244655b12 is already defined!
+2023-05-23 20:37:32.802 WARNING (MainThread) [homeassistant.components.google_assistant.helpers] Local fulfillment failed to setup, falling back to cloud fulfillment
+2023-05-23 20:37:33.985 WARNING (MainThread) [hass_nabucasa.cloud_api] Fetched https://remotestate.nabucasa.com/request_sync (500)
+2023-05-23 20:37:58.767 ERROR (MainThread) [homeassistant] Error doing job: Task exception was never retrieved
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/netatmo/__init__.py", line 206, in register_webhook
+    webhook_register(
+  File "/usr/src/homeassistant/homeassistant/components/webhook/__init__.py", line 50, in async_register
+    raise ValueError("Handler is already defined!")
+ValueError: Handler is already defined!
+2023-05-23 20:40:10.144 WARNING (Recorder) [homeassistant.components.sensor.recorder] The unit of sensor.last_meter_consumption_savsangarvagen_54_a_cost (SEK) cannot be converted to the unit of previously compiled statistics (EUR). Generation of long term statistics will be suppressed unless the unit changes back to EUR or a compatible unit. Go to https://my.home-assistant.io/redirect/developer_statistics to fix this
+2023-05-23 20:40:10.150 WARNING (Recorder) [homeassistant.components.sensor.recorder] The unit of sensor.motion_sensor_illuminance (lx) cannot be converted to the unit of previously compiled statistics (Lux). Generation of long term statistics will be suppressed unless the unit changes back to Lux or a compatible unit. Go to https://my.home-assistant.io/redirect/developer_statistics to fix this
+2023-05-23 20:47:36.377 DEBUG (SyncWorker_4) [homeassistant.util.yaml.loader] Loading /config/secrets.yaml
+2023-05-23 20:47:36.384 DEBUG (SyncWorker_4) [homeassistant.util.yaml.loader] Secret http_trusted_proxy retrieved from secrets.yaml in folder /config
+2023-05-23 20:47:36.385 DEBUG (SyncWorker_4) [homeassistant.util.yaml.loader] Secret rc_db_url retrieved from secrets.yaml in folder /config
+2023-05-23 20:47:36.406 DEBUG (SyncWorker_4) [homeassistant.util.yaml.loader] Secret tw_phone_no retrieved from secrets.yaml in folder /config
+2023-05-23 20:47:36.406 DEBUG (SyncWorker_4) [homeassistant.util.yaml.loader] Secret tw_phone_no retrieved from secrets.yaml in folder /config
+2023-05-23 20:47:36.409 DEBUG (SyncWorker_4) [homeassistant.util.yaml.loader] Secret in_username retrieved from secrets.yaml in folder /config
+2023-05-23 20:47:36.409 DEBUG (SyncWorker_4) [homeassistant.util.yaml.loader] Secret in_password retrieved from secrets.yaml in folder /config
+2023-05-23 20:47:36.412 DEBUG (SyncWorker_4) [homeassistant.util.yaml.loader] Secret ar_username retrieved from secrets.yaml in folder /config
+2023-05-23 20:47:36.412 DEBUG (SyncWorker_4) [homeassistant.util.yaml.loader] Secret ar_password retrieved from secrets.yaml in folder /config
+2023-05-23 20:47:36.412 DEBUG (SyncWorker_4) [homeassistant.util.yaml.loader] Secret ar_gm_user retrieved from secrets.yaml in folder /config
+2023-05-23 20:47:36.412 DEBUG (SyncWorker_4) [homeassistant.util.yaml.loader] Secret ar_gm_password retrieved from secrets.yaml in folder /config
+2023-05-23 20:47:36.414 DEBUG (SyncWorker_4) [homeassistant.util.yaml.loader] Secret tw_account_sid_from_twilio retrieved from secrets.yaml in folder /config
+2023-05-23 20:47:36.414 DEBUG (SyncWorker_4) [homeassistant.util.yaml.loader] Secret tw_auth_token_from_twilio retrieved from secrets.yaml in folder /config
+2023-05-23 20:47:36.415 ERROR (SyncWorker_4) [homeassistant.util.yaml.loader] mapping values are not allowed here
+  in "/config/templates.yaml", line 17, column 20
+2023-05-23 20:47:36.420 ERROR (MainThread) [homeassistant.components.template] mapping values are not allowed here
+  in "/config/templates.yaml", line 17, column 20
+2023-05-23 20:47:39.691 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.front_door or it is/they are currently not available
+2023-05-23 20:48:11.392 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Loading /config/secrets.yaml
+2023-05-23 20:48:11.395 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret http_trusted_proxy retrieved from secrets.yaml in folder /config
+2023-05-23 20:48:11.395 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret rc_db_url retrieved from secrets.yaml in folder /config
+2023-05-23 20:48:11.413 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret tw_phone_no retrieved from secrets.yaml in folder /config
+2023-05-23 20:48:11.413 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret tw_phone_no retrieved from secrets.yaml in folder /config
+2023-05-23 20:48:11.415 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret in_username retrieved from secrets.yaml in folder /config
+2023-05-23 20:48:11.415 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret in_password retrieved from secrets.yaml in folder /config
+2023-05-23 20:48:11.418 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret ar_username retrieved from secrets.yaml in folder /config
+2023-05-23 20:48:11.418 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret ar_password retrieved from secrets.yaml in folder /config
+2023-05-23 20:48:11.418 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret ar_gm_user retrieved from secrets.yaml in folder /config
+2023-05-23 20:48:11.418 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret ar_gm_password retrieved from secrets.yaml in folder /config
+2023-05-23 20:48:11.419 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret tw_account_sid_from_twilio retrieved from secrets.yaml in folder /config
+2023-05-23 20:48:11.419 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret tw_auth_token_from_twilio retrieved from secrets.yaml in folder /config
+2023-05-23 20:48:11.424 DEBUG (SyncWorker_11) [homeassistant.util.yaml.loader] Loading /config/secrets.yaml
+2023-05-23 20:48:11.426 DEBUG (SyncWorker_11) [homeassistant.util.yaml.loader] Secret http_trusted_proxy retrieved from secrets.yaml in folder /config
+2023-05-23 20:48:11.427 DEBUG (SyncWorker_11) [homeassistant.util.yaml.loader] Secret rc_db_url retrieved from secrets.yaml in folder /config
+2023-05-23 20:48:11.442 DEBUG (SyncWorker_11) [homeassistant.util.yaml.loader] Secret tw_phone_no retrieved from secrets.yaml in folder /config
+2023-05-23 20:48:11.443 DEBUG (SyncWorker_11) [homeassistant.util.yaml.loader] Secret tw_phone_no retrieved from secrets.yaml in folder /config
+2023-05-23 20:48:11.445 DEBUG (SyncWorker_11) [homeassistant.util.yaml.loader] Secret in_username retrieved from secrets.yaml in folder /config
+2023-05-23 20:48:11.445 DEBUG (SyncWorker_11) [homeassistant.util.yaml.loader] Secret in_password retrieved from secrets.yaml in folder /config
+2023-05-23 20:48:11.447 DEBUG (SyncWorker_11) [homeassistant.util.yaml.loader] Secret ar_username retrieved from secrets.yaml in folder /config
+2023-05-23 20:48:11.448 DEBUG (SyncWorker_11) [homeassistant.util.yaml.loader] Secret ar_password retrieved from secrets.yaml in folder /config
+2023-05-23 20:48:11.448 DEBUG (SyncWorker_11) [homeassistant.util.yaml.loader] Secret ar_gm_user retrieved from secrets.yaml in folder /config
+2023-05-23 20:48:11.448 DEBUG (SyncWorker_11) [homeassistant.util.yaml.loader] Secret ar_gm_password retrieved from secrets.yaml in folder /config
+2023-05-23 20:48:11.449 DEBUG (SyncWorker_11) [homeassistant.util.yaml.loader] Secret tw_account_sid_from_twilio retrieved from secrets.yaml in folder /config
+2023-05-23 20:48:11.449 DEBUG (SyncWorker_11) [homeassistant.util.yaml.loader] Secret tw_auth_token_from_twilio retrieved from secrets.yaml in folder /config
+2023-05-23 20:48:11.457 WARNING (MainThread) [homeassistant.components.homeassistant.triggers.numeric_state] Error in 'Zigge waiting BT' trigger: In 'numeric_state' condition: no entity specified
+2023-05-23 20:48:11.462 WARNING (MainThread) [homeassistant.components.homeassistant.triggers.numeric_state] Error in 'Zigge waiting BT' trigger: In 'numeric_state' condition: no entity specified
+2023-05-23 20:48:11.463 WARNING (MainThread) [homeassistant.components.homeassistant.triggers.numeric_state] Error in 'Zigge waiting BT' trigger: In 'numeric_state' condition: no entity specified
+2023-05-23 20:48:11.485 ERROR (MainThread) [homeassistant.helpers.template] Template variable error: 'state' is undefined when rendering '{{
+  state('sensor.hours_worked_today')
+}}'
+2023-05-23 20:48:11.488 ERROR (MainThread) [homeassistant.helpers.event] Error while processing template: Template<template=({{
+  state('sensor.hours_worked_today')
+}}) renders=2>
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 544, in async_render
+    render_result = _render_with_context(self.template, compiled, **kwargs)
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 2164, in _render_with_context
+    return template.render(**kwargs)
+  File "/usr/local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/usr/local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<template>", line 2, in top-level template code
+  File "/usr/local/lib/python3.10/site-packages/jinja2/sandbox.py", line 391, in call
+    if not __self.is_safe_callable(__obj):
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 2496, in is_safe_callable
+    return isinstance(obj, AllStates) or super().is_safe_callable(obj)
+  File "/usr/local/lib/python3.10/site-packages/jinja2/sandbox.py", line 275, in is_safe_callable
+    getattr(obj, "unsafe_callable", False) or getattr(obj, "alters_data", False)
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 2190, in _fail_with_undefined_error
+    raise ex
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 2181, in _fail_with_undefined_error
+    return super()._fail_with_undefined_error(*args, **kwargs)
+jinja2.exceptions.UndefinedError: 'state' is undefined
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 665, in async_render_to_info
+    render_info._result = self.async_render(variables, strict=strict, **kwargs)
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 546, in async_render
+    raise TemplateError(err) from err
+homeassistant.exceptions.TemplateError: UndefinedError: 'state' is undefined
+2023-05-23 20:48:11.489 ERROR (MainThread) [homeassistant.helpers.template] Template variable error: 'state' is undefined when rendering '{{
+  state('sensor.hours_worked_today')
+}}'
+2023-05-23 20:48:11.489 ERROR (MainThread) [homeassistant.helpers.template_entity] TemplateError('UndefinedError: 'state' is undefined') while processing template 'Template<template=({{
+  state('sensor.hours_worked_today')
+}}) renders=4>' for attribute '_attr_native_value' in entity 'sensor.stats_work_hours'
+2023-05-23 20:50:10.201 DEBUG (SyncWorker_7) [homeassistant.util.yaml.loader] Loading /config/secrets.yaml
+2023-05-23 20:50:10.203 DEBUG (SyncWorker_7) [homeassistant.util.yaml.loader] Secret http_trusted_proxy retrieved from secrets.yaml in folder /config
+2023-05-23 20:50:10.204 DEBUG (SyncWorker_7) [homeassistant.util.yaml.loader] Secret rc_db_url retrieved from secrets.yaml in folder /config
+2023-05-23 20:50:10.220 DEBUG (SyncWorker_7) [homeassistant.util.yaml.loader] Secret tw_phone_no retrieved from secrets.yaml in folder /config
+2023-05-23 20:50:10.221 DEBUG (SyncWorker_7) [homeassistant.util.yaml.loader] Secret tw_phone_no retrieved from secrets.yaml in folder /config
+2023-05-23 20:50:10.222 DEBUG (SyncWorker_7) [homeassistant.util.yaml.loader] Secret in_username retrieved from secrets.yaml in folder /config
+2023-05-23 20:50:10.222 DEBUG (SyncWorker_7) [homeassistant.util.yaml.loader] Secret in_password retrieved from secrets.yaml in folder /config
+2023-05-23 20:50:10.226 DEBUG (SyncWorker_7) [homeassistant.util.yaml.loader] Secret ar_username retrieved from secrets.yaml in folder /config
+2023-05-23 20:50:10.226 DEBUG (SyncWorker_7) [homeassistant.util.yaml.loader] Secret ar_password retrieved from secrets.yaml in folder /config
+2023-05-23 20:50:10.226 DEBUG (SyncWorker_7) [homeassistant.util.yaml.loader] Secret ar_gm_user retrieved from secrets.yaml in folder /config
+2023-05-23 20:50:10.226 DEBUG (SyncWorker_7) [homeassistant.util.yaml.loader] Secret ar_gm_password retrieved from secrets.yaml in folder /config
+2023-05-23 20:50:10.227 DEBUG (SyncWorker_7) [homeassistant.util.yaml.loader] Secret tw_account_sid_from_twilio retrieved from secrets.yaml in folder /config
+2023-05-23 20:50:10.227 DEBUG (SyncWorker_7) [homeassistant.util.yaml.loader] Secret tw_auth_token_from_twilio retrieved from secrets.yaml in folder /config
+2023-05-23 20:50:10.232 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Loading /config/secrets.yaml
+2023-05-23 20:50:10.234 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret http_trusted_proxy retrieved from secrets.yaml in folder /config
+2023-05-23 20:50:10.234 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret rc_db_url retrieved from secrets.yaml in folder /config
+2023-05-23 20:50:10.249 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret tw_phone_no retrieved from secrets.yaml in folder /config
+2023-05-23 20:50:10.250 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret tw_phone_no retrieved from secrets.yaml in folder /config
+2023-05-23 20:50:10.251 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret in_username retrieved from secrets.yaml in folder /config
+2023-05-23 20:50:10.252 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret in_password retrieved from secrets.yaml in folder /config
+2023-05-23 20:50:10.254 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret ar_username retrieved from secrets.yaml in folder /config
+2023-05-23 20:50:10.254 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret ar_password retrieved from secrets.yaml in folder /config
+2023-05-23 20:50:10.254 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret ar_gm_user retrieved from secrets.yaml in folder /config
+2023-05-23 20:50:10.254 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret ar_gm_password retrieved from secrets.yaml in folder /config
+2023-05-23 20:50:10.256 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret tw_account_sid_from_twilio retrieved from secrets.yaml in folder /config
+2023-05-23 20:50:10.256 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret tw_auth_token_from_twilio retrieved from secrets.yaml in folder /config
+2023-05-23 20:50:10.264 WARNING (MainThread) [homeassistant.components.homeassistant.triggers.numeric_state] Error in 'Zigge waiting BT' trigger: In 'numeric_state' condition: no entity specified
+2023-05-23 20:50:10.265 WARNING (MainThread) [homeassistant.components.homeassistant.triggers.numeric_state] Error in 'Zigge waiting BT' trigger: In 'numeric_state' condition: no entity specified
+2023-05-23 20:50:10.266 WARNING (MainThread) [homeassistant.components.homeassistant.triggers.numeric_state] Error in 'Zigge waiting BT' trigger: In 'numeric_state' condition: no entity specified
+2023-05-23 20:52:55.526 DEBUG (SyncWorker_7) [homeassistant.util.yaml.loader] Loading /config/secrets.yaml
+2023-05-23 20:52:55.527 DEBUG (SyncWorker_7) [homeassistant.util.yaml.loader] Secret http_trusted_proxy retrieved from secrets.yaml in folder /config
+2023-05-23 20:52:55.528 DEBUG (SyncWorker_7) [homeassistant.util.yaml.loader] Secret rc_db_url retrieved from secrets.yaml in folder /config
+2023-05-23 20:52:55.545 DEBUG (SyncWorker_7) [homeassistant.util.yaml.loader] Secret tw_phone_no retrieved from secrets.yaml in folder /config
+2023-05-23 20:52:55.546 DEBUG (SyncWorker_7) [homeassistant.util.yaml.loader] Secret tw_phone_no retrieved from secrets.yaml in folder /config
+2023-05-23 20:52:55.547 DEBUG (SyncWorker_7) [homeassistant.util.yaml.loader] Secret in_username retrieved from secrets.yaml in folder /config
+2023-05-23 20:52:55.547 DEBUG (SyncWorker_7) [homeassistant.util.yaml.loader] Secret in_password retrieved from secrets.yaml in folder /config
+2023-05-23 20:52:55.550 DEBUG (SyncWorker_7) [homeassistant.util.yaml.loader] Secret ar_username retrieved from secrets.yaml in folder /config
+2023-05-23 20:52:55.550 DEBUG (SyncWorker_7) [homeassistant.util.yaml.loader] Secret ar_password retrieved from secrets.yaml in folder /config
+2023-05-23 20:52:55.551 DEBUG (SyncWorker_7) [homeassistant.util.yaml.loader] Secret ar_gm_user retrieved from secrets.yaml in folder /config
+2023-05-23 20:52:55.551 DEBUG (SyncWorker_7) [homeassistant.util.yaml.loader] Secret ar_gm_password retrieved from secrets.yaml in folder /config
+2023-05-23 20:52:55.553 DEBUG (SyncWorker_7) [homeassistant.util.yaml.loader] Secret tw_account_sid_from_twilio retrieved from secrets.yaml in folder /config
+2023-05-23 20:52:55.553 DEBUG (SyncWorker_7) [homeassistant.util.yaml.loader] Secret tw_auth_token_from_twilio retrieved from secrets.yaml in folder /config
+2023-05-23 20:53:00.647 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Loading /config/secrets.yaml
+2023-05-23 20:53:00.648 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret http_trusted_proxy retrieved from secrets.yaml in folder /config
+2023-05-23 20:53:00.648 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret rc_db_url retrieved from secrets.yaml in folder /config
+2023-05-23 20:53:00.947 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret tw_phone_no retrieved from secrets.yaml in folder /config
+2023-05-23 20:53:00.947 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret tw_phone_no retrieved from secrets.yaml in folder /config
+2023-05-23 20:53:00.949 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret in_username retrieved from secrets.yaml in folder /config
+2023-05-23 20:53:00.949 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret in_password retrieved from secrets.yaml in folder /config
+2023-05-23 20:53:00.952 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret ar_username retrieved from secrets.yaml in folder /config
+2023-05-23 20:53:00.952 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret ar_password retrieved from secrets.yaml in folder /config
+2023-05-23 20:53:00.952 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret ar_gm_user retrieved from secrets.yaml in folder /config
+2023-05-23 20:53:00.952 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret ar_gm_password retrieved from secrets.yaml in folder /config
+2023-05-23 20:53:00.954 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret tw_account_sid_from_twilio retrieved from secrets.yaml in folder /config
+2023-05-23 20:53:00.954 DEBUG (SyncWorker_3) [homeassistant.util.yaml.loader] Secret tw_auth_token_from_twilio retrieved from secrets.yaml in folder /config
+2023-05-23 20:53:18.771 WARNING (MainThread) [homeassistant.runner] Task could not be canceled and was still running after shutdown: <Task pending name='Task-5555' coro=<WebSocketCommonProtocol.close_connection() running at /usr/local/lib/python3.10/site-packages/websockets/legacy/protocol.py:1312> wait_for=<Future pending cb=[shield.<locals>._outer_done_callback() at /usr/local/lib/python3.10/asyncio/tasks.py:864, Task.task_wakeup()]>>

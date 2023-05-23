@@ -192,3 +192,12 @@
 #      direction: 2
 #    # - friendly_name: Trafikstatus
 #    #   sensor_type: status
+  - platform: history_stats
+    name: Hours worked today
+    entity_id: sensor.pelle_work_status
+    state:
+      - 'At OKQ8'
+      - 'At Home'
+    type: time
+    start: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+    end: "{{ now() }}"

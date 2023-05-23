@@ -1,4 +1,4 @@
   log_to_okq8: 'touch /share/to_okq8_{{ as_timestamp(now()) }}'
   log_leave_okq8: 'touch /share/leave_okq8_{{ as_timestamp(now()) }}'
   update_bus: 'python3 /config/python_scripts/get_bus_time.py'
-  restart_husdata: "ssh -F /config/.ssh/config -o 'StrictHostKeyChecking=no' pi@192.168.86.79 'sudo shutdown -r 1'"
+  restart_husdata: 'ssh -F /config/.ssh/config -o "StrictHostKeyChecking=no" pi@192.168.86.79 "sudo shutdown -r +1"'

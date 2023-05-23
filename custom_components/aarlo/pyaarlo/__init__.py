@@ -31,16 +31,20 @@ from .constant import (
     TOTAL_BELLS_KEY,
     TOTAL_CAMERAS_KEY,
     TOTAL_LIGHTS_KEY,
+    LOCATIONS_PATH_FORMAT,
+    LOCATIONS_EMERGENCY_PATH,
 )
 from .doorbell import ArloDoorBell
 from .light import ArloLight
 from .media import ArloMediaLibrary
 from .storage import ArloStorage
+from .location import ArloLocation
+from .sensor import ArloSensor
 from .util import time_to_arlotime
 
 _LOGGER = logging.getLogger("pyaarlo")
 
-__version__ = "0.7.2b11"
+__version__ = "0.7.4b12"
 
 
 class PyArlo(object):
@@ -166,10 +170,12 @@ class PyArlo(object):
             return
 
         self._lock = threading.Condition()
+        self._locations = []
         self._bases = []
         self._cameras = []
         self._lights = []
         self._doorbells = []
+        self._sensors = []
 
         # On day flip we do extra work, record today.
         self._today = datetime.date.today()
@@ -184,9 +190,12 @@ class PyArlo(object):
         self._blank_image = base64.standard_b64decode(BLANK_IMAGE)
 
         # Slow piece.
+        # Get locations for multi location sites.
         # Get devices, fill local db, and create device instance.
         self.info("pyaarlo starting")
         self._started = False
+        if self._be.multi_location:
+            self._refresh_locations()
         self._refresh_devices()
 
         for device in self._devices:
@@ -199,6 +208,7 @@ class PyArlo(object):
             # This needs it's own code now... Does no parent indicate a base station???
             if (
                 dtype == "basestation"
+                or dtype.lower() == 'hub'
                 or device.get("modelId") == "ABC1000"
                 or device.get("modelId").startswith(MODEL_GO)
                 or dtype == "arloq"
@@ -233,6 +243,8 @@ class PyArlo(object):
                 self._doorbells.append(ArloDoorBell(dname, self, device))
             if dtype == "lights":
                 self._lights.append(ArloLight(dname, self, device))
+            if dtype == "sensors":
+                self._sensors.append(ArloSensor(dname, self, device))
 
         # Save out unchanging stats!
         self._st.set(["ARLO", TOTAL_CAMERAS_KEY], len(self._cameras))
@@ -286,33 +298,61 @@ class PyArlo(object):
         # Representation string of object.
         return "<{0}: {1}>".format(self.__class__.__name__, self._cfg.name)
 
+    # Using this to indicate that we're using location-based modes, vs basestation-based modes.
+    # also called Arlo app v4. Open to new ideas for what to call this.
+    @property
+    def _v3_modes(self):
+        return self.cfg.mode_api.lower() == "v3"
+
     def _refresh_devices(self):
+        """Read in the devices list.
+        This returns all devices known to the Arlo system. The newer devices
+        include state information - battery levels etc - while the old devices
+        don't. We update what we can.
+        """
         url = DEVICES_PATH + "?t={}".format(time_to_arlotime())
         self._devices = self._be.get(url)
         if not self._devices:
             self.warning("No devices returned from " + url)
             self._devices = []
-        self.vdebug("devices={}".format(pprint.pformat(self._devices)))
+        self.vdebug(f"devices={pprint.pformat(self._devices)}")
 
         # Newer devices include information in this response. Be sure to update it.
         for device in self._devices:
             device_id = device.get("deviceId", None)
             props = device.get("properties", None)
-            if device_id is None or props is None:
-                continue
-            self.debug(f"updating {device_id} from device refresh")
-            base = self.lookup_base_station_by_id(device_id)
-            if base is not None:
-                base.update_resources(props)
-            camera = self.lookup_camera_by_id(device_id)
-            if camera is not None:
-                camera.update_resources(props)
-            doorbell = self.lookup_doorbell_by_id(device_id)
-            if doorbell is not None:
-                doorbell.update_resources(props)
-            light = self.lookup_light_by_id(device_id)
-            if light is not None:
-                light.update_resources(props)
+            self.vdebug(f"device-id={device_id}")
+            if device_id is not None and props is not None:
+                device = self.lookup_device_by_id(device_id)
+                if device is not None:
+                    self.vdebug(f"updating {device_id} from device refresh")
+                    device.update_resources(props)
+                else:
+                    self.vdebug(f"not updating {device_id} from device refresh")
+
+    def _refresh_locations(self):
+        """Retrieve location list from the backend
+        """
+        self.debug("_refresh_locations")
+        self._locations = []
+
+        elocation_data = self._be.get(LOCATIONS_EMERGENCY_PATH)
+        if elocation_data:
+            self.debug("got something")
+        else:
+            self.debug("got nothing")
+
+        url = LOCATIONS_PATH_FORMAT.format(self.be.user_id)
+        location_data = self._be.get(url)
+        if not location_data:
+            self.warning("No locations returned from " + url)
+        else:
+            for user_location in location_data.get("userLocations", []):
+                self._locations.append(ArloLocation(self, user_location, True))
+            for shared_location in location_data.get("sharedLocations", []):
+                self._locations.append(ArloLocation(self, shared_location, False))
+
+        self.vdebug("locations={}".format(pprint.pformat(self._locations)))
 
     def _refresh_camera_thumbnails(self, wait=False):
         """Request latest camera thumbnails, called at start up."""
@@ -342,42 +382,16 @@ class PyArlo(object):
     def _refresh_bases(self, initial):
         for base in self._bases:
             base.update_modes(initial)
-            if base.has_capability(RESOURCE_CAPABILITY):
-                self._be.notify(
-                    base=base,
-                    body={
-                        "action": "get",
-                        "resource": "cameras",
-                        "publishResponse": False,
-                    },
-                    wait_for="response",
-                )
-                self._be.notify(
-                    base=base,
-                    body={
-                        "action": "get",
-                        "resource": "doorbells",
-                        "publishResponse": False,
-                    },
-                    wait_for="response",
-                )
-                self._be.notify(
-                    base=base,
-                    body={
-                        "action": "get",
-                        "resource": "lights",
-                        "publishResponse": False,
-                    },
-                    wait_for="response",
-                )
-            else:
-                self.vdebug(f"NO resource for {base.device_id}")
+            base.update_states()
 
     def _refresh_modes(self):
         self.vdebug("refresh modes")
         for base in self._bases:
             base.update_modes()
             base.update_mode()
+        for location in self._locations:
+            location.update_modes()
+            location.update_mode()
 
     def _fast_refresh(self):
         self.vdebug("fast refresh")
@@ -531,6 +545,23 @@ class PyArlo(object):
         return self._bases
 
     @property
+    def locations(self):
+        """List of locations..
+
+        :return: a list of locations.
+        :rtype: list(ArloLocation)
+        """
+        return self._locations
+
+    @property
+    def all_devices(self):
+        return self.cameras + self.doorbells + self.lights + self.base_stations + self.locations
+
+    @property
+    def sensors(self):
+        return self._sensors
+
+    @property
     def blank_image(self):
         """Return a binaryy representation of a blank image.
 
@@ -636,6 +667,16 @@ class PyArlo(object):
         if base_station:
             return base_station[0]
         return None
+
+    def lookup_device_by_id(self, device_id):
+        device = self.lookup_base_station_by_id(device_id)
+        if device is None:
+            device = self.lookup_camera_by_id(device_id)
+        if device is None:
+            device = self.lookup_doorbell_by_id(device_id)
+        if device is None:
+            device = self.lookup_light_by_id(device_id)
+        return device
 
     def inject_response(self, response):
         """Inject a test packet into the event stream.

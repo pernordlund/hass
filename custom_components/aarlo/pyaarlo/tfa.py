@@ -49,10 +49,11 @@ class Arlo2FAImap:
 
         try:
             # allow default ciphers to be specified
-            if self._arlo.cfg.default_ciphers:
+            cipher_list = self._arlo.cfg.cipher_list
+            if cipher_list != "":
                 ctx = ssl.create_default_context()
-                ctx.set_ciphers("DEFAULT")
-                self._arlo.debug(f"imap is using DEFAULT ciphers")
+                ctx.set_ciphers(cipher_list)
+                self._arlo.debug(f"imap is using custom ciphers {cipher_list}")
             else:
                 ctx = None
 
@@ -80,7 +81,7 @@ class Arlo2FAImap:
             return False
 
         self._new_ids = self._old_ids
-        self._arlo.debug("old-ids={}".format(self._old_ids))
+        self._arlo.debug("2fa-imap: old-ids={}".format(self._old_ids))
         if res.lower() == "ok":
             return True
 
@@ -91,6 +92,7 @@ class Arlo2FAImap:
 
         # give tfa_total_timeout seconds for email to arrive
         start = time.time()
+        self._arlo.debug(f"2fa-imap: retry-every={self._arlo.cfg.tfa_timeout},up-to={self._arlo.cfg.tfa_total_timeout}")
         while True:
 
             # wait a short while, stop after a total timeout
