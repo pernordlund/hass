@@ -15,7 +15,7 @@
     "issue_tracker": "https://github.com/robinostlund/homeassistant-volkswagencarnet/issues",
     "requirements": [
         "pytz",
-        "volkswagencarnet==4.4.60"
+        "volkswagencarnet==4.4.61"
     ],
-    "version": "v4.4.63"
+    "version": "v4.4.64"
 }

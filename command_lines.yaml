@@ -1,0 +1,30 @@
+  - sensor:
+      name: CPU Temperature
+      command: "ssh -F /config/.ssh/config root@192.168.86.254 'cat /sys/class/thermal/thermal_zone2/temp'"
+      # If errors occur, remove degree symbol below
+      unit_of_measurement: "°C"
+      value_template: '{{ value | multiply(0.001) }}'
+  - sensor:
+      name: NUC7 Temperature
+      command: "ssh -F /config/.ssh/config pelle@192.168.86.76 'cat /sys/class/thermal/thermal_zone1/temp'"
+      # If errors occur, remove degree symbol below
+      unit_of_measurement: "°C"
+      value_template: '{{ value | multiply(0.001) }}'
+  - sensor:
+      name: OMV Temperature
+      command: "ssh -F /config/.ssh/config pi@192.168.86.249 'cat /sys/class/thermal/thermal_zone0/temp'"
+      # If errors occur, remove degree symbol below
+      unit_of_measurement: "°C"
+      value_template: '{{ value | multiply(0.001) }}'
+  - sensor:
+      name: Seagate4TB Temperature
+      command: "ssh -F /config/.ssh/config pi@192.168.86.249 sudo smartctl -a /dev/sda| grep Temperature_Celsius | awk '{print $4}'"
+      # If errors occur, remove degree symbol below
+      unit_of_measurement: "°C"
+      value_template: '{{ value | multiply(1) }}'
+  - sensor:
+      name: WG Pi Temperature
+      command: "ssh -F /config/.ssh/config pi@192.168.86.45 'cat /sys/class/thermal/thermal_zone0/temp'"
+      # If errors occur, remove degree symbol below
+      unit_of_measurement: "°C"
+      value_template: '{{ value | multiply(0.001) }}'

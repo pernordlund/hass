@@ -19,12 +19,14 @@ async def async_setup_entry(
     hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback
 ) -> None:
     """Set up select platform."""
-    session = hass.data[DOMAIN][entry.entry_id]
+    coordinator = hass.data[DOMAIN][entry.entry_id]
     async_add_entities(
-        AutomowerSelect(session, idx)
-        for idx, ent in enumerate(session.data["data"])
-        if not session.data["data"][idx]["attributes"]["system"]["model"]
+        AutomowerSelect(coordinator, idx)
+        for idx, ent in enumerate(coordinator.session.data["data"])
+        if not coordinator.session.data["data"][idx]["attributes"]["system"]["model"]
         in ["550", "Ceora"]
+        and coordinator.session.data["data"][idx]["attributes"]["headlight"]["mode"]
+        is not None
     )
 
 
@@ -34,7 +36,7 @@ class AutomowerSelect(SelectEntity, AutomowerEntity):
     _attr_options = HEADLIGHTMODES
     _attr_icon = "mdi:car-light-high"
     _attr_entity_category = EntityCategory.CONFIG
-    _attr_name = "Headlight mode"
+    _attr_translation_key = "headlight_mode"
 
     def __init__(self, session, idx):
         """Initialize AutomowerSelect."""
@@ -51,7 +53,7 @@ class AutomowerSelect(SelectEntity, AutomowerEntity):
     def current_option(self) -> str:
         """Return a the current option for the entity."""
         mower_attributes = AutomowerEntity.get_mower_attributes(self)
-        return mower_attributes["headlight"]["mode"]
+        return mower_attributes["headlight"]["mode"].lower()
 
     async def async_select_option(self, option: str) -> None:
         """Change the selected option."""
@@ -59,11 +61,11 @@ class AutomowerSelect(SelectEntity, AutomowerEntity):
         string = {
             "data": {
                 "type": "settings",
-                "attributes": {"headlight": {"mode": option}},
+                "attributes": {"headlight": {"mode": option.upper()}},
             }
         }
         payload = json.dumps(string)
         try:
-            await self.session.action(self.mower_id, payload, command_type)
+            await self.coordinator.session.action(self.mower_id, payload, command_type)
         except Exception as exception:
             raise UpdateFailed(exception) from exception

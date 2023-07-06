@@ -17,12 +17,23 @@
             "can_reach_server": "Husqvarna Token Server erreichbar"
         }
     },
-	"entity": {
-		"sensor": {
-			"problem_list": {
-				"state": {
+    "entity": {
+        "select": {
+            "headlight_mode": {
+                "name": "Schweinwerfer Zeitplan",
+                "state": {
+                    "always_on": "Immer an",
+                    "always_off": "Immer aus",
+                    "evening_only": "Nur abends",
+                    "evening_and_night": "Abends und nachts"
+                }
+            }
+        },
+        "sensor": {
+            "problem_list": {
+                "state": {
                     "off": "Aus",
-                    "unknwon": "Unbekannt",
+                    "unknown": "Unbekannt",
                     "stopped": "Angehalten",
                     "stopped_in_garden": "Im Garten angehalten",
                     "not_applicable": "Nicht anwendbar",
@@ -32,18 +43,33 @@
                     "sensor": "Wetter timer",
                     "daily_limit": "Tägliches limit",
                     "fota": "FOTA",
-                    "frost": "Frost"
-				}
-			},
-			"mode_list":{
-				"state": {
+                    "frost": "Frost",
+                    "parked_until_further_notice": "Bis auf weiters geparkt"
+                }
+            },
+            "mode_list": {
+                "state": {
                     "main_area": "Hauptbereich",
                     "secondary_area": "Zweitbereich",
                     "home": "In der Ladestation",
                     "demo": "Demo",
                     "unknown": "Unbekannt"
                 }
-			}
-		}
-	}
+            }
+        },
+        "vacuum": {
+            "mower": {
+                "state": {
+                    "cleaning": "Mähen"
+                }
+            }
+        },
+        "camera": {
+            "mower": {
+                "state": {
+                    "cleaning": "Mähen"
+                }
+            }
+        }
+    }
 }

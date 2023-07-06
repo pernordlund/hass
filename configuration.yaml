@@ -80,7 +80,7 @@ logbook:
 # Track the sun
 sun:
 
-rfxtrx: !include rfxtrx.yaml
+# rfxtrx: !include rfxtrx.yaml
 
 sensor: !include sensors.yaml
 
@@ -108,11 +108,13 @@ rest_command: !include rest_commands.yaml
 
 shell_command: !include shell_commands.yaml
 
+command_line: !include command_lines.yaml
+
 influxdb: !include influxdb.yaml
 
 script: !include scripts.yaml
 
-mqtt: !include mqtt.yaml
+# mqtt: !include mqtt.yaml
 
 python_script:
 

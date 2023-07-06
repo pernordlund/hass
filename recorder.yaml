@@ -7,6 +7,7 @@
       - binary_sensor
       - device_tracker
       - input_number
+      - input_boolean
       - lock
       - fan
       - media_player
@@ -57,3 +58,4 @@
       - sensor.pelle_work_status
       - sensor.hours_worked_today
       - sensor.stats_work_hours
+      - sensor.google_wifi_local_ip

@@ -4,3 +4,7 @@
     name: Easee was paused
   pelle_working_at_home:
     name: Pelle working at home
+  pelle_maybe_working_at_home:
+    name: Pelle maybe working at home
+  pelle_not_working_at_home:
+    name: Pelle not working at home

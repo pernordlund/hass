@@ -40,6 +40,9 @@
                   "entity": "device_tracker.life360_per_nordlund"
                 },
                 {
+                  "entity": "sensor.pelle_work_status"
+                },
+                {
                   "entity": "device_tracker.life360_marie"
                 },
                 {
@@ -573,6 +576,19 @@
                 }
               ],
               "title": "Roger"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "input_boolean.pelle_working_at_home"
+                },
+                {
+                  "entity": "input_boolean.pelle_not_working_at_home"
+                }
+              ],
+              "title": "Work",
+              "show_header_toggle": false
             }
           ]
         },
@@ -810,6 +826,65 @@
           ]
         },
         {
+          "icon": "mdi:briefcase",
+          "badges": [],
+          "cards": [
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "device_tracker.life360_per_nordlund"
+                },
+                {
+                  "entity": "binary_sensor.tradfri_motion_sensor"
+                },
+                {
+                  "entity": "device_tracker.pf305jbk_2"
+                },
+                {
+                  "entity": "device_tracker.pf305jbk"
+                },
+                {
+                  "entity": "input_boolean.pelle_working_at_home"
+                },
+                {
+                  "entity": "input_boolean.pelle_not_working_at_home"
+                },
+                {
+                  "entity": "input_boolean.pelle_maybe_working_at_home"
+                },
+                {
+                  "entity": "sensor.pelle_work_status"
+                },
+                {
+                  "entity": "sensor.hours_worked_today"
+                },
+                {
+                  "entity": "sensor.stats_work_hours"
+                }
+              ],
+              "title": "Work log"
+            },
+            {
+              "type": "shopping-list",
+              "title": "Work notes"
+            },
+            {
+              "chart_type": "bar",
+              "period": "day",
+              "type": "statistics-graph",
+              "entities": [
+                "sensor.stats_work_hours"
+              ],
+              "days_to_show": 45,
+              "title": "Hours worked",
+              "stat_types": [
+                "state"
+              ]
+            }
+          ]
+        },
+        {
           "path": "heater",
           "title": "",
           "icon": "mdi:transmission-tower",
@@ -817,12 +892,6 @@
           "cards": [
             {
               "entities": [
-                {
-                  "entity": "sensor.bv_time"
-                },
-                {
-                  "entity": "sensor.bv_free_mem"
-                },
                 {
                   "entity": "binary_sensor.bv_alarm"
                 },
@@ -851,7 +920,7 @@
                   "entity": "sensor.bv_outdoor"
                 },
                 {
-                  "entity": "binary_sensor.bv_add_heat_status"
+                  "entity": "sensor.bv_add_heat_status"
                 },
                 {
                   "entity": "binary_sensor.bv_add_heat_step_1"
@@ -863,10 +932,10 @@
                   "entity": "binary_sensor.bv_compressor"
                 },
                 {
-                  "entity": "sensor.bv_heat_set_1_curvel"
+                  "entity": "climate.bv_heat_set_1_curvel"
                 },
                 {
-                  "entity": "sensor.bv_heat_set_3_parallel"
+                  "entity": "climate.bv_heat_set_3_parallel"
                 },
                 {
                   "entity": "sensor.bv_heating_setpoint"
@@ -1079,6 +1148,116 @@
             {
               "type": "markdown",
               "content": "# Bergvärme historik\n\n| Datum | Värmekurva | Finjust |\n| :--- | ---: | ---: |\n| <2022-11-01 | 2.3||\n| 2022-11-01 | 1.7||\n| 2022-11-16 | 2.0||\n|2022-11-20 | 1.9||\n|2022-11-30| 1.8||"
+            },
+            {
+              "type": "picture-elements",
+              "elements": [
+                {
+                  "entity": "binary_sensor.bv_compressor",
+                  "style": {
+                    "left": "36%",
+                    "top": "60%"
+                  },
+                  "type": "state-icon"
+                },
+                {
+                  "entity": "binary_sensor.bv_switch_valve_1",
+                  "style": {
+                    "left": "77%",
+                    "top": "36%"
+                  },
+                  "type": "state-icon"
+                },
+                {
+                  "entity": "sensor.bv_radiator_return",
+                  "style": {
+                    "left": "64%",
+                    "top": "13%"
+                  },
+                  "type": "state-label"
+                },
+                {
+                  "entity": "sensor.bv_radiator_forward",
+                  "style": {
+                    "left": "64%",
+                    "top": "23%"
+                  },
+                  "type": "state-label"
+                },
+                {
+                  "entity": "sensor.bv_heat_carrier_forwrd",
+                  "style": {
+                    "left": "69%",
+                    "top": "66%"
+                  },
+                  "type": "state-label"
+                },
+                {
+                  "entity": "sensor.bv_heat_carrier_return",
+                  "style": {
+                    "left": "69%",
+                    "top": "81%"
+                  },
+                  "type": "state-label"
+                },
+                {
+                  "entity": "sensor.bv_brine_in_evaporator",
+                  "style": {
+                    "left": "15%",
+                    "top": "57%"
+                  },
+                  "type": "state-label"
+                },
+                {
+                  "entity": "sensor.bv_brine_out_condenser",
+                  "style": {
+                    "left": "15%",
+                    "top": "80%"
+                  },
+                  "type": "state-label"
+                },
+                {
+                  "entity": "sensor.bv_hot_water_1_top",
+                  "style": {
+                    "left": "87%",
+                    "top": "57%"
+                  },
+                  "type": "state-label"
+                },
+                {
+                  "entity": "sensor.bv_hot_gas_compr",
+                  "style": {
+                    "left": "47%",
+                    "top": "57%"
+                  },
+                  "type": "state-label"
+                },
+                {
+                  "entity": "sensor.bv_indoor",
+                  "style": {
+                    "left": "19%",
+                    "top": "39%"
+                  },
+                  "type": "state-label"
+                },
+                {
+                  "entity": "sensor.bv_outdoor",
+                  "style": {
+                    "left": "8%",
+                    "top": "20%"
+                  },
+                  "type": "state-label"
+                },
+                {
+                  "entity": "sensor.bv_add_heat_status",
+                  "style": {
+                    "left": "57%",
+                    "top": "43%"
+                  },
+                  "type": "state-label"
+                }
+              ],
+              "image": "/local/BV_2_HA.png"
             }
           ]
         },
@@ -1441,6 +1620,18 @@
             {
               "type": "media-control",
               "entity": "media_player.nesthub7de1"
+            },
+            {
+              "type": "entity",
+              "entity": "remote.google_tv"
+            },
+            {
+              "type": "media-control",
+              "entity": "media_player.ue60f6300"
+            },
+            {
+              "type": "media-control",
+              "entity": "media_player.telenor_mediahubb"
             }
           ]
         },
@@ -2021,37 +2212,6 @@
                   "entity": "switch.zigge_live_tracking"
                 }
               ]
-            },
-            {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "device_tracker.life360_per_nordlund"
-                },
-                {
-                  "entity": "input_boolean.pelle_working_at_home"
-                },
-                {
-                  "entity": "sensor.pelle_work_status"
-                },
-                {
-                  "entity": "sensor.hours_worked_today"
-                },
-                {
-                  "entity": "sensor.stats_work_hours"
-                }
-              ],
-              "title": "Work log"
-            },
-            {
-              "type": "statistic",
-              "entity": "sensor.hours_worked_today",
-              "period": {
-                "calendar": {
-                  "period": "month"
-                }
-              },
-              "stat_type": "max"
             }
           ]
         }

@@ -8,8 +8,15 @@
         unique_id: 'pelle_work_status'
         state: >
           {{
-            ('At OKQ8' if is_state('device_tracker.life360_per_nordlund', 'OKQ8')) or
-            ('At Home' if is_state('input_boolean.pelle_working_at_home', 'on')) or
+            ('At OKQ8'     if is_state('device_tracker.life360_per_nordlund', 'OKQ8')) or
+            ('At Home'     if is_state('input_boolean.pelle_working_at_home', 'on')) or
+            ('Not working' if is_state('input_boolean.pelle_not_working_at_home', 'on')) or
+            ('At Home'     if (is_state('input_boolean.pelle_working_at_home', 'off') and
+                               is_state('input_boolean.pelle_not_working_at_home', 'off') and
+                               is_state('input_boolean.pelle_maybe_working_at_home', 'on') and
+                               is_state('device_tracker.life360_per_nordlund', 'home') and 
+                               (is_state('device_tracker.pf305jbk_2', 'home') or
+                                is_state('device_tracker.pf305jbk', 'home')))) or
             ('Not working')
           }}
   - sensor:

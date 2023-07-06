@@ -819,15 +819,31 @@
     input:
       remote: e788cfdaa5d7940b36c8c7a253551784
       button_single_press:
-      - type: toggle
-        device_id: f375e993ee126cde276ea0f857703769
-        entity_id: switch.guest_room_desk_2
-        domain: switch
-      button_long:
-      - service: input_boolean.toggle
+      - service: input_boolean.turn_on
         data: {}
         target:
           entity_id: input_boolean.pelle_working_at_home
+      - service: input_boolean.turn_off
+        data: {}
+        target:
+          entity_id: input_boolean.pelle_not_working_at_home
+      button_long:
+      - service: input_boolean.turn_off
+        data: {}
+        target:
+          entity_id:
+          - input_boolean.pelle_working_at_home
+      - service: input_boolean.turn_on
+        data: {}
+        target:
+          entity_id: input_boolean.pelle_not_working_at_home
+      button_double_press:
+      - service: input_boolean.turn_off
+        data: {}
+        target:
+          entity_id:
+          - input_boolean.pelle_not_working_at_home
+          - input_boolean.pelle_working_at_home
 - id: '1636024683504'
   alias: Garage extra sync with door
   description: ''
@@ -1113,4 +1129,85 @@
   - service: notify.pelles_tfn
     data:
       message: Tibber restarted
+  mode: single
+- id: '1684942335259'
+  alias: X - Working at home ON
+  description: ''
+  trigger:
+  - type: motion
+    platform: device
+    device_id: 6210b45a11d936bd21c011573f2fe07a
+    entity_id: binary_sensor.tradfri_motion_sensor
+    domain: binary_sensor
+  condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: device_tracker.life360_per_nordlund
+      state: home
+  action:
+  - service: input_boolean.turn_on
+    data: {}
+    target:
+      entity_id: input_boolean.pelle_maybe_working_at_home
+  mode: single
+- id: '1684942506243'
+  alias: X - Working at home OFF
+  description: ''
+  trigger:
+  - type: no_motion
+    platform: device
+    device_id: 6210b45a11d936bd21c011573f2fe07a
+    entity_id: binary_sensor.tradfri_motion_sensor
+    domain: binary_sensor
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  condition: []
+  action:
+  - service: input_boolean.turn_off
+    data: {}
+    target:
+      entity_id: input_boolean.pelle_maybe_working_at_home
+  mode: single
+- id: '1684960964652'
+  alias: X - Working at 23:55
+  description: ''
+  trigger:
+  - platform: time
+    at: '23:59:00'
+  - platform: time
+    at: 00:00:02
+  condition:
+  - condition: time
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+  action:
+  - service: input_boolean.toggle
+    data: {}
+    target:
+      entity_id: input_boolean.pelle_working_at_home
+  - service: input_boolean.turn_off
+    data: {}
+    target:
+      entity_id:
+      - input_boolean.pelle_not_working_at_home
+      - input_boolean.pelle_working_at_home
+  mode: single
+- id: '1686163862643'
+  alias: X - Cloudflare DNS update
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.google_wifi_local_ip
+  condition: []
+  action:
+  - service: cloudflare.update_records
+    data: {}
   mode: single

@@ -7,10 +7,9 @@ from homeassistant.components.binary_sensor import (
 )
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
-from homeassistant.helpers.entity import EntityCategory
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from .const import DOMAIN, ERRORCODES
+from .const import DOMAIN, ERROR_STATES, ERRORCODES
 from .entity import AutomowerEntity
 
 _LOGGER = logging.getLogger(__name__)
@@ -20,27 +19,27 @@ async def async_setup_entry(
     hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback
 ) -> None:
     """Set up select platform."""
-    session = hass.data[DOMAIN][entry.entry_id]
+    coordinator = hass.data[DOMAIN][entry.entry_id]
     async_add_entities(
-        AutomowerBatteryChargingBinarySensor(session, idx)
-        for idx, ent in enumerate(session.data["data"])
+        AutomowerBatteryChargingBinarySensor(coordinator, idx)
+        for idx, ent in enumerate(coordinator.session.data["data"])
     )
     async_add_entities(
-        AutomowerLeavingDockBinarySensor(session, idx)
-        for idx, ent in enumerate(session.data["data"])
+        AutomowerLeavingDockBinarySensor(coordinator, idx)
+        for idx, ent in enumerate(coordinator.session.data["data"])
     )
     async_add_entities(
-        AutomowerErrorBinarySensor(session, idx)
-        for idx, ent in enumerate(session.data["data"])
+        AutomowerErrorBinarySensor(coordinator, idx)
+        for idx, ent in enumerate(coordinator.session.data["data"])
     )
 
 
 class AutomowerBatteryChargingBinarySensor(BinarySensorEntity, AutomowerEntity):
-    """Defining the AutomowerProblemSensor Entity."""
+    """Defining the AutomowerBatteryChargingBinarySensor Entity."""
 
     _attr_entity_registry_enabled_default = False
     _attr_device_class = BinarySensorDeviceClass.BATTERY_CHARGING
-    _attr_name = "Battery charging"
+    _attr_translation_key = "battery_charging"
 
     def __init__(self, session, idx):
         """Initialize AutomowerBatteryChargingBinarySensor."""
@@ -53,17 +52,16 @@ class AutomowerBatteryChargingBinarySensor(BinarySensorEntity, AutomowerEntity):
         mower_attributes = AutomowerEntity.get_mower_attributes(self)
         if mower_attributes["mower"]["activity"] == "CHARGING":
             return True
-        if mower_attributes["mower"]["activity"] != "CHARGING":
-            return False
+        return False
 
 
 class AutomowerLeavingDockBinarySensor(BinarySensorEntity, AutomowerEntity):
     """Defining the AutomowerProblemSensor Entity."""
 
     _attr_entity_registry_enabled_default = False
-    _attr_name = "Leaving dock"
+    _attr_translation_key = "leaving_dock"
 
-    def __init__(self, session, idx):
+    def __init__(self, session, idx) -> None:
         """Initialize AutomowerLeavingDockBinarySensor."""
         super().__init__(session, idx)
         self._attr_unique_id = f"{self.mower_id}_leaving_dock"
@@ -74,8 +72,7 @@ class AutomowerLeavingDockBinarySensor(BinarySensorEntity, AutomowerEntity):
         mower_attributes = AutomowerEntity.get_mower_attributes(self)
         if mower_attributes["mower"]["activity"] == "LEAVING":
             return True
-        if mower_attributes["mower"]["activity"] != "LEAVING":
-            return False
+        return False
 
 
 class AutomowerErrorBinarySensor(BinarySensorEntity, AutomowerEntity):
@@ -83,7 +80,7 @@ class AutomowerErrorBinarySensor(BinarySensorEntity, AutomowerEntity):
 
     _attr_entity_registry_enabled_default: bool = False
     _attr_device_class: BinarySensorDeviceClass = BinarySensorDeviceClass.PROBLEM
-    _attr_name = "Error"
+    _attr_translation_key = "error"
 
     def __init__(self, session, idx):
         """Initialize AutomowerErrorBinarySensor."""
@@ -94,19 +91,18 @@ class AutomowerErrorBinarySensor(BinarySensorEntity, AutomowerEntity):
     def is_on(self) -> bool:
         """Return if the mower is in an error status."""
         mower_attributes = AutomowerEntity.get_mower_attributes(self)
-        if mower_attributes["mower"]["state"] in [
-            "ERROR",
-            "FATAL_ERROR",
-            "ERROR_AT_POWER_UP",
-        ]:
+        if mower_attributes["mower"]["state"] in ERROR_STATES:
             return True
         return False
 
     @property
-    def extra_state_attributes(self) -> str:
+    def extra_state_attributes(self) -> dict:
         """Return the specific state attributes of this mower."""
         mower_attributes = AutomowerEntity.get_mower_attributes(self)
         if self.is_on:
-            error = ERRORCODES.get(mower_attributes["mower"]["errorCode"])
-            return {"error": error}
-        return None
+            return {
+                "error_code": int(mower_attributes["mower"]["errorCode"]),
+                "description": ERRORCODES.get(mower_attributes["mower"]["errorCode"]),
+            }
+
+        return {"error_code": -1, "description": "No Error"}
