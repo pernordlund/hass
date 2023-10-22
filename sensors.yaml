@@ -12,7 +12,7 @@
         friendly_name: Zigge BT distance
         unit_of_measurement: 'm'
         value_template: >-
-          {{ 0 if state_attr('sensor.f5a80a8cb8a5_room_presence', 'distance') is none else "%.1f"|format( states.sensor.f5a80a8cb8a5_room_presence.attributes.distance) }}
+          {{ 0 if state_attr('sensor.c4c141327127_room_presence', 'distance') is none else "%.1f"|format( states.sensor.c4c141327127_room_presence.attributes.distance) }}
       pelles_phone_distance_bt:
         friendly_name: Pelles phone BT distance
         unit_of_measurement: 'm'

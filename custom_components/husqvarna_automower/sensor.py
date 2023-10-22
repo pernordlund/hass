@@ -11,7 +11,7 @@ from homeassistant.components.sensor import (
     SensorStateClass,
 )
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import PERCENTAGE, UnitOfTime
+from homeassistant.const import PERCENTAGE, UnitOfLength, UnitOfTime
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import EntityCategory
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
@@ -52,6 +52,8 @@ class AutomowerSensorEntityDescription(
 
 def get_problem(mower_attributes) -> dict:
     """Get the mower attributes of the current mower."""
+    if mower_attributes["mower"]["activity"] == "CHARGING":
+        return "charging"
     if mower_attributes["mower"]["state"] == "RESTRICTED":
         if mower_attributes["planner"]["restrictedReason"] == "NOT_APPLICABLE":
             return "parked_until_further_notice"
@@ -87,6 +89,7 @@ def problem_list() -> list:
         "fota",
         "frost",
         "parked_until_further_notice",
+        "charging",
     ]
     return error_list_low + other_reasons
 
@@ -235,7 +238,7 @@ SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
     AutomowerSensorEntityDescription(
         key="problem_sensor",
         translation_key="problem_list",
-        entity_registry_enabled_default=False,
+        entity_registry_enabled_default=True,
         device_class=SensorDeviceClass.ENUM,
         options=problem_list(),
         value_fn=lambda data: None
@@ -252,6 +255,17 @@ SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
         value_fn=lambda data: data["cuttingHeight"],
         available_fn=lambda data: True,
     ),
+    AutomowerSensorEntityDescription(
+        key="totalDriveDistance",
+        translation_key="total_drive_distance",
+        entity_registry_enabled_default=False,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        state_class=SensorStateClass.TOTAL_INCREASING,
+        device_class=SensorDeviceClass.DISTANCE,
+        native_unit_of_measurement=UnitOfLength.METERS,
+        value_fn=lambda data: data["statistics"]["totalDriveDistance"],
+        available_fn=lambda data: True,
+    ),
 )
 
 
@@ -261,6 +275,8 @@ async def async_setup_entry(
     """Set up select platform."""
     coordinator = hass.data[DOMAIN][entry.entry_id]
     entity_list = []
+
+    # pylint: disable=unused-variable
     for idx, ent in enumerate(coordinator.session.data["data"]):
         if entry.options.get(CONF_ZONES):
             entity_list.append(AutomowerZoneSensor(coordinator, idx, entry))
@@ -325,7 +341,7 @@ class AutomowerZoneSensor(SensorEntity, AutomowerEntity):
 
     def _find_current_zone(self):
         """Find current zone."""
-        if self._is_home and self.home_location:
+        if self.is_home and self.home_location:
             self.zone = {ZONE_NAME: "Home"}
             self.zone_id = "home"
             return

@@ -479,19 +479,6 @@
       entity_id: input_boolean.cancel_next_goodnight
     service: input_boolean.turn_off
   mode: single
-- id: '1588022688533'
-  alias: Pelle - notify when Storstugan online
-  description: ''
-  trigger:
-  - entity_id: device_tracker.storstugan
-    from: not_home
-    platform: state
-    to: home
-  condition: []
-  action:
-  - service: notify.pelles_tfn
-    data_template:
-      message: '{{ states("sensor.time") }} - Storstugan now online'
 - id: '1590615866019'
   alias: Albin leaves home
   description: ''
@@ -606,17 +593,25 @@
     entity_id: switch.arc_b1
   mode: single
 - id: '1603458841523'
-  alias: Marie starts moving
+  alias: Marie leaves work
   description: ''
   trigger:
   - platform: state
-    entity_id: device_tracker.life360_marie
-    to: moving
-  condition: []
+    entity_id:
+    - device_tracker.life360_marie
+    from: Sida
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  condition:
+  - condition: time
+    after: '17:00:00'
+    before: '23:59:00'
   action:
   - service: notify.pelles_tfn
     data:
-      message: '{{ states("sensor.time") }} - Marie on the move'
+      message: '{{ states("sensor.time") }} - Marie leaves work'
   mode: single
 - id: '1604272064775'
   alias: Bathroom timer start
@@ -1211,3 +1206,20 @@
   - service: cloudflare.update_records
     data: {}
   mode: single
+- id: '1694621638894'
+  alias: Entrance 5-button remote
+  description: Good night
+  use_blueprint:
+    path: Bram_Kragten/deconz-ikea-five-button-remote-for-lights.yaml
+    input:
+      remote: 362e9518235541478ee7feebfb3db1df
+      button_right_short:
+      - service: script.lights_out
+        data: {}
+      light:
+        device_id: 33ff5591ed6b98f5d531ee622432fe41
+      button_left_short:
+      - service: homeassistant.toggle
+        data: {}
+        target:
+          device_id: dfcac5e6ebe90e1fe94718e1295ebdcb

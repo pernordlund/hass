@@ -90,6 +90,9 @@
                   "secondary_info": "last-changed"
                 },
                 {
+                  "entity": "binary_sensor.garage_motion_detection"
+                },
+                {
                   "entity": "binary_sensor.dishwasher_flood_alarm",
                   "secondary_info": "last-changed"
                 },
@@ -569,7 +572,7 @@
               "type": "entities",
               "entities": [
                 {
-                  "entity": "vacuum.automower_r_310_roger"
+                  "entity": "vacuum.roger"
                 },
                 {
                   "entity": "sensor.roger_battery"
@@ -682,6 +685,12 @@
                 },
                 {
                   "entity": "sensor.garage_side_temperature"
+                },
+                {
+                  "entity": "sensor.garage_side_illuminance"
+                },
+                {
+                  "entity": "sensor.garage_motion_sensor_air_temperature"
                 }
               ],
               "show_header_toggle": true,
@@ -1147,7 +1156,7 @@
             },
             {
               "type": "markdown",
-              "content": "# Bergvärme historik\n\n| Datum | Värmekurva | Finjust |\n| :--- | ---: | ---: |\n| <2022-11-01 | 2.3||\n| 2022-11-01 | 1.7||\n| 2022-11-16 | 2.0||\n|2022-11-20 | 1.9||\n|2022-11-30| 1.8||"
+              "content": "# Bergvärme historik\n\n| Datum | Värmekurva | Finjust |\n| :--- | ---: | ---: |\n| <2022-11-01 | 2.3||\n| 2022-11-01 | 1.7||\n| 2022-11-16 | 2.0||\n|2022-11-20 | 1.9||\n|2022-11-30| 1.8||\n|2023-09-05| 1.7||\n|2023-10-03| 1.8||\n|2023-10-05| 2.2||\n"
             },
             {
               "type": "picture-elements",
@@ -1399,6 +1408,9 @@
                 },
                 {
                   "entity": "sensor.garage_door_battery_level"
+                },
+                {
+                  "entity": "sensor.garage_motion_sensor_battery_level"
                 },
                 {
                   "entity": "sensor.kylen_battery"

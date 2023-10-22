@@ -75,6 +75,8 @@ binary_sensor.front_door_open_lock:
   device_class: moving
 binary_sensor.play_room_motion:
   device_class: moving
+binary_sensor.garage_motion_detection:
+  device_class: moving
 binary_sensor.garage_side_door_locked:
   device_class: moving
 binary_sensor.garage_door_open:
