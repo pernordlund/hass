@@ -1,4 +1,5 @@
 """Easee Connector class."""
+
 import asyncio
 from datetime import timedelta
 from gc import collect
@@ -7,7 +8,6 @@ import logging
 from random import random
 from sys import getrefcount
 
-from async_timeout import timeout
 from pyeasee import (
     Charger,
     ChargerSchedule,
@@ -22,6 +22,7 @@ from pyeasee import (
 )
 from pyeasee.exceptions import (
     AuthorizationFailedException,
+    BadRequestException,
     NotFoundException,
     ServerFailureException,
     TooManyRequestsException,
@@ -29,7 +30,7 @@ from pyeasee.exceptions import (
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
-from homeassistant.exceptions import ConfigEntryNotReady, Unauthorized
+from homeassistant.exceptions import ConfigEntryAuthFailed, ConfigEntryNotReady
 from homeassistant.helpers import aiohttp_client
 from homeassistant.helpers.event import (
     async_track_time_change,
@@ -38,6 +39,7 @@ from homeassistant.helpers.event import (
 from homeassistant.util import dt as dt_util
 
 from .binary_sensor import ChargerBinarySensor, EqualizerBinarySensor
+from .button import ChargerButton
 from .const import (
     CONF_MONITORED_SITES,
     DOMAIN,
@@ -46,21 +48,26 @@ from .const import (
     OPTIONAL_EASEE_ENTITIES,
     PLATFORMS,
     TIMEOUT,
+    VERSION,
     chargerObservations,
+    equalizerEnergyObservations,
     equalizerObservations,
+    weeklyScheduleLimit,
     weeklyScheduleStartDays,
     weeklyScheduleStopDays,
 )
 from .entity import convert_units_funcs
 from .sensor import ChargerSensor, EqualizerSensor
-from .switch import ChargerSwitch
+from .switch import ChargerSwitch, EqualizerSwitch
 
 ENTITY_TYPES = {
     "sensor": ChargerSensor,
     "binary_sensor": ChargerBinarySensor,
+    "button": ChargerButton,
     "switch": ChargerSwitch,
     "eq_sensor": EqualizerSensor,
     "eq_binary_sensor": EqualizerBinarySensor,
+    "eq_switch": EqualizerSwitch,
 }
 _LOGGER = logging.getLogger(__name__)
 
@@ -105,15 +112,11 @@ class ProductData:
 
     def is_state_polled(self):
         """Check if state is polled."""
-        if self.state is None:
-            return False
-        return True
+        return self.state is not None
 
     def is_config_polled(self):
         """Check if config is polled."""
-        if self.config is None:
-            return False
-        return True
+        return self.config is not None
 
     def is_schedule_polled(self):
         """Check if schedule is polled."""
@@ -164,25 +167,28 @@ class ProductData:
             "Latest Firmware for %s: %s", self.product.id, firmware["latestFirmware"]
         )
 
-    async def async_refresh(self):
+    async def async_refresh(self, poll_observations=None):
         """Poll observations."""
+
+        if poll_observations is None:
+            poll_observations = self.poll_observations
+
         if self.state is None:
             self.state = await self.product.empty_state(raw=True)
+            self.state["voltageNL1"] = None
+            self.state["voltageNL2"] = None
+            self.state["voltageNL3"] = None
+            self.state["voltageL1L2"] = None
+            self.state["voltageL1L3"] = None
+            self.state["voltageL2L3"] = None
+            self.state["internalTemperature"] = None
         if self.config is None:
             self.config = await self.product.empty_config(raw=True)
 
-        self.state["voltageNL1"] = None
-        self.state["voltageNL2"] = None
-        self.state["voltageNL3"] = None
-        self.state["voltageL1L2"] = None
-        self.state["voltageL1L3"] = None
-        self.state["voltageL2L3"] = None
-        self.state["internalTemperature"] = None
-
         _LOGGER.debug(
-            "Polling state for %s using %s", self.product.id, self.poll_observations
+            "Polling state for %s using %s", self.product.id, poll_observations
         )
-        observations = await self.product.get_observations(*self.poll_observations)
+        observations = await self.product.get_observations(*poll_observations)
         for observation in observations["observations"]:
             data_id = observation["id"]
             value = observation["value"]
@@ -190,7 +196,9 @@ class ProductData:
                 name = self.streamdata(data_id).name
             except ValueError:
                 # Unsupported data
-                _LOGGER.debug("Unsupported data id %s %s", data_id, value)
+                _LOGGER.debug(
+                    "Unsupported data id %s %s %s", self.product.id, data_id, value
+                )
                 return False
 
             _LOGGER.debug(
@@ -257,13 +265,14 @@ class ProductData:
                 day = time.weekday()
                 if period[1] != 0:  # Start
                     saved_day = day
-                    self.weekly_schedule[
-                        weeklyScheduleStartDays[saved_day]
-                    ] = time.strftime("%H:%M")
+                    self.weekly_schedule[weeklyScheduleStartDays[saved_day]] = (
+                        time.strftime("%H:%M")
+                    )
+                    self.weekly_schedule[weeklyScheduleLimit[saved_day]] = period[1]
                 else:
-                    self.weekly_schedule[
-                        weeklyScheduleStopDays[saved_day]
-                    ] = time.strftime("%H:%M")
+                    self.weekly_schedule[weeklyScheduleStopDays[saved_day]] = (
+                        time.strftime("%H:%M")
+                    )
         # Delayed or Daily schedule
         elif (kind == "Recurring" and recurrency == "Daily") or kind == "Absolute":
             self.schedule["isEnabled"] = True
@@ -274,6 +283,7 @@ class ProductData:
                 )
                 if period[1] != 0:  # Start
                     self.schedule["chargeStartTime"] = time.strftime("%H:%M")
+                    self.schedule["chargeLimit"] = period[1]
                 else:
                     self.schedule["chargeStopTime"] = time.strftime("%H:%M")
 
@@ -314,7 +324,10 @@ class ProductData:
         ):
             return True
 
-        if abs(reference - value) > abs(reference * MINIMUM_UPDATE):
+        try:
+            if abs(reference - value) > abs(reference * MINIMUM_UPDATE):
+                return True
+        except Exception:  # pylint: disable=broad-except
             return True
 
         return False
@@ -325,7 +338,10 @@ class ProductData:
             return
 
         now = dt_util.utcnow().replace(microsecond=0)
-        elapsed = now - self.state["latestPulse"]
+        try:
+            elapsed = now - self.state["latestPulse"]
+        except KeyError:
+            return
 
         if elapsed.total_seconds() > OFFLINE_DELAY:
             if self.state["isOnline"] is True:
@@ -354,7 +370,9 @@ class ProductData:
             name = self.streamdata(data_id).name
         except ValueError:
             # Unsupported data
-            _LOGGER.debug("Unsupported data id %s %s", data_id, value)
+            _LOGGER.debug(
+                "Unsupported data id %s %s %s", self.product.id, data_id, value
+            )
             return False
 
         _LOGGER.debug(
@@ -362,10 +380,19 @@ class ProductData:
         )
 
         if "_" in name:
-            first, second = name.split("_")
+            try:
+                first, second = name.split("_")
+            except Exception as ex:  # pylint: disable=broad-except
+                _LOGGER.print("Exception %s when splitting %s", ex, name)
+                return False
 
             if first == "state":
-                oldvalue = self.state[second]
+                try:
+                    oldvalue = self.state[second]
+                except KeyError:
+                    _LOGGER.debug("No old value for %s %s", self.product.id, name)
+                    self.state[second] = value
+                    return True
                 self.state[second] = value
                 if second == "lifetimeEnergy" and oldvalue != value:
                     await self.cost_async_refresh()
@@ -374,7 +401,17 @@ class ProductData:
             elif first == "config":
                 if self.config is None:
                     return False
-                if self.config[second] != value:
+                try:
+                    oldvalue = self.config[second]
+                except KeyError:
+                    _LOGGER.debug("No old value for %s %s", self.product.id, name)
+                    self.config[second] = value
+                    return True
+                if second == "surplusCharging":
+                    jsondata = json.loads(value)
+                    self.config["surplusChargingMode"] = jsondata["mode"]
+                    self.config["surplusChargingCurrent"] = jsondata["standbycurrent"]
+                if oldvalue != value:
                     self.config[second] = value
                     return True
             elif first == "schedule":
@@ -383,7 +420,7 @@ class ProductData:
                     value = "{}"
                 self.schedules_interpret(json.loads(value))
             else:
-                _LOGGER.debug("Unkonwn update type: %s", first)
+                _LOGGER.debug("Unknown update type: %s", first)
 
         return False
 
@@ -407,10 +444,12 @@ class Controller:
         self.equalizers: list[Equalizer] = []
         self.equalizers_data: list[ProductData] = []
         self.binary_sensor_entities = []
+        self.button_entities = []
         self.switch_entities = []
         self.sensor_entities = []
         self.equalizer_sensor_entities = []
         self.equalizer_binary_sensor_entities = []
+        self.equalizer_switch_entities = []
         self.diagnostics = {}
         self.trackers = []
         self.monitored_sites = None
@@ -438,12 +477,14 @@ class Controller:
     async def initialize(self):
         """Initialize the session and get initial data."""
         client_session = aiohttp_client.async_get_clientsession(self.hass)
-        self.easee = Easee(self.username, self.password, client_session)
+        self.easee = Easee(
+            self.username, self.password, client_session, f"easee_hass_{VERSION}"
+        )
 
         try:
-            with timeout(TIMEOUT):
+            async with asyncio.timeout(TIMEOUT):
                 await self.easee.connect()
-        except asyncio.TimeoutError as err:
+        except TimeoutError as err:
             _LOGGER.debug("Connection to easee login timed out")
             raise ConfigEntryNotReady from err
         except ServerFailureException as err:
@@ -453,10 +494,16 @@ class Controller:
             _LOGGER.debug("Easee server too many requests")
             raise ConfigEntryNotReady from err
         except AuthorizationFailedException as err:
-            _LOGGER.error("Authorization failed to easee")
-            raise Unauthorized from err
-        except Exception:  # pylint: disable=broad-except
-            _LOGGER.error("Unexpected error creating device")
+            _LOGGER.error("Authorization failed to Easee")
+            raise ConfigEntryAuthFailed from err
+        except BadRequestException as err:
+            if err.args[0]["errorCode"] == 100:
+                _LOGGER.error("Authorization (username/password) failed to Easee")
+                raise ConfigEntryAuthFailed from err
+            else:
+                _LOGGER.error("Bad request %s", err)
+        except Exception as err:  # pylint: disable=broad-except
+            _LOGGER.exception("Unexpected error creating device: %s", err)
             return None
 
         try:
@@ -554,6 +601,7 @@ class Controller:
             + self.binary_sensor_entities
             + self.equalizer_sensor_entities
             + self.equalizer_binary_sensor_entities
+            + self.equalizer_switch_entities
         )
 
         for entity in all_entities:
@@ -616,6 +664,16 @@ class Controller:
             )
         )
 
+        # Add time pattern refresh some random time after each hour mark
+        self.trackers.append(
+            async_track_time_change(
+                self.hass,
+                self.refresh_hour,
+                minute=2,
+                second=int(random() * 59),
+            )
+        )
+
         # Let other tasks run
         await asyncio.sleep(0)
 
@@ -633,6 +691,15 @@ class Controller:
 
         for equalizer in self.equalizers_data:
             await equalizer.firmware_async_refresh()
+
+        self.update_ha_state()
+
+    async def refresh_hour(self, now=None):
+        """Refresh the energy data, if needed."""
+        _LOGGER.debug("Hour refresh started")
+
+        for equalizer in self.equalizers_data:
+            await equalizer.async_refresh(poll_observations=equalizerEnergyObservations)
 
         self.update_ha_state()
 
@@ -683,15 +750,19 @@ class Controller:
         """Get chargers."""
         return self.chargers
 
+    def get_equalizers(self):
+        """Get equalizers."""
+        return self.equalizers
+
     def check_circuit_current(
         self,
         circuit_id,
         current_p1,
         current_p2,
         current_p3,
-        compare_p1,
-        compare_p2,
-        compare_p3,
+        compare_str_p1,
+        compare_str_p2,
+        compare_str_p3,
     ):
         """Check circuit current."""
         if current_p2 is None:
@@ -702,19 +773,33 @@ class Controller:
         for charger_data in self.chargers_data:
             if charger_data.circuit.id == circuit_id:
                 try:
-                    if (
-                        charger_data.state[compare_p1] != current_p1
-                        or charger_data.state[compare_p2] != current_p2
-                        or charger_data.state[compare_p3] != current_p3
-                    ):
-                        return charger_data.circuit
+                    compare_p1 = charger_data.state[compare_str_p1]
                 except KeyError:
-                    if (
-                        charger_data.config[compare_p1] != current_p1
-                        or charger_data.config[compare_p2] != current_p2
-                        or charger_data.config[compare_p3] != current_p3
-                    ):
-                        return charger_data.circuit
+                    try:
+                        compare_p1 = charger_data.config[compare_str_p1]
+                    except KeyError:
+                        compare_p1 = None
+                try:
+                    compare_p2 = charger_data.state[compare_str_p2]
+                except KeyError:
+                    try:
+                        compare_p2 = charger_data.config[compare_str_p2]
+                    except KeyError:
+                        compare_p2 = compare_p1
+                try:
+                    compare_p3 = charger_data.state[compare_str_p3]
+                except KeyError:
+                    try:
+                        compare_p3 = charger_data.config[compare_str_p3]
+                    except KeyError:
+                        compare_p3 = compare_p1
+
+                if (
+                    compare_p1 != current_p1
+                    or compare_p2 != current_p2
+                    or compare_p3 != current_p3
+                ):
+                    return charger_data.circuit
 
                 return False
         return None
@@ -725,9 +810,9 @@ class Controller:
         current_p1,
         current_p2,
         current_p3,
-        compare_p1,
-        compare_p2,
-        compare_p3,
+        compare_str_p1,
+        compare_str_p2,
+        compare_str_p3,
     ):
         """Check charger current."""
         if current_p2 is None:
@@ -738,19 +823,33 @@ class Controller:
         for charger_data in self.chargers_data:
             if charger_data.product.id == charger_id:
                 try:
-                    if (
-                        charger_data.state[compare_p1] != current_p1
-                        or charger_data.state[compare_p2] != current_p2
-                        or charger_data.state[compare_p3] != current_p3
-                    ):
-                        return charger_data.product
+                    compare_p1 = charger_data.state[compare_str_p1]
                 except KeyError:
-                    if (
-                        charger_data.config[compare_p1] != current_p1
-                        or charger_data.config[compare_p2] != current_p2
-                        or charger_data.config[compare_p3] != current_p3
-                    ):
-                        return charger_data.product
+                    try:
+                        compare_p1 = charger_data.config[compare_str_p1]
+                    except KeyError:
+                        compare_p1 = None
+                try:
+                    compare_p2 = charger_data.state[compare_str_p2]
+                except KeyError:
+                    try:
+                        compare_p2 = charger_data.config[compare_str_p2]
+                    except KeyError:
+                        compare_p2 = compare_p1
+                try:
+                    compare_p3 = charger_data.state[compare_str_p3]
+                except KeyError:
+                    try:
+                        compare_p3 = charger_data.config[compare_str_p3]
+                    except KeyError:
+                        compare_p3 = compare_p1
+
+                if (
+                    compare_p1 != current_p1
+                    or compare_p2 != current_p2
+                    or compare_p3 != current_p3
+                ):
+                    return charger_data.product
 
                 return False
         return None
@@ -763,13 +862,17 @@ class Controller:
         """Get binary sensor entities."""
         return self.binary_sensor_entities + self.equalizer_binary_sensor_entities
 
+    def get_button_entities(self):
+        """Get button entities."""
+        return self.button_entities
+
     def get_sensor_entities(self):
         """Get sensor entities."""
         return self.sensor_entities + self.equalizer_sensor_entities
 
     def get_switch_entities(self):
         """Return switch_entities."""
-        return self.switch_entities
+        return self.switch_entities + self.equalizer_switch_entities
 
     def _create_entity(
         self,
@@ -787,19 +890,16 @@ class Controller:
             name=name,
             state_key=data["key"],
             units=data["units"],
-            convert_units_func=convert_units_funcs.get(
-                data["convert_units_func"], None
-            ),
+            convert_units_func=convert_units_funcs.get(data["convert_units_func"]),
             attrs_keys=data["attrs"],
             device_class=data["device_class"],
             translation_key=data.get("translation_key"),
             suggested_display_precision=data.get("suggested_display_precision"),
-            state_class=data.get("state_class", None),
-            icon=data["icon"],
-            state_func=data.get("state_func", None),
-            switch_func=data.get("switch_func", None),
+            state_class=data.get("state_class"),
+            state_func=data.get("state_func"),
+            switch_func=data.get("switch_func"),
             enabled_default=data.get("enabled_default", True),
-            entity_category=data.get("entity_category", None),
+            entity_category=data.get("entity_category"),
         )
         _LOGGER.debug(
             "Adding entity: %s (%s) for product %s, unit %s",
@@ -817,11 +917,17 @@ class Controller:
         elif object_type == "binary_sensor":
             self.binary_sensor_entities.append(entity)
 
+        elif object_type == "button":
+            self.button_entities.append(entity)
+
         elif object_type == "eq_sensor":
             self.equalizer_sensor_entities.append(entity)
 
         elif object_type == "eq_binary_sensor":
             self.equalizer_binary_sensor_entities.append(entity)
+
+        elif object_type == "eq_switch":
+            self.equalizer_switch_entities.append(entity)
 
         return entity
 
@@ -829,8 +935,10 @@ class Controller:
         self.sensor_entities = []
         self.switch_entities = []
         self.binary_sensor_entities = []
+        self.button_entities = []
         self.equalizer_sensor_entities = []
         self.equalizer_binary_sensor_entities = []
+        self.equalizer_switch_entities = []
 
         all_easee_entities = {**MANDATORY_EASEE_ENTITIES, **OPTIONAL_EASEE_ENTITIES}
 

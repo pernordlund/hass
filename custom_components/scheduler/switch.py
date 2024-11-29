@@ -9,7 +9,6 @@ import homeassistant.util.dt as dt_util
 from homeassistant.components.switch import DOMAIN as PLATFORM
 from homeassistant.helpers import entity_platform, config_validation as cv
 from homeassistant.const import (
-    STATE_ALARM_TRIGGERED as STATE_TRIGGERED,
     STATE_OFF,
     STATE_ON,
     STATE_UNAVAILABLE,
@@ -19,7 +18,9 @@ from homeassistant.const import (
     CONF_SERVICE,
     ATTR_SERVICE_DATA,
     CONF_SERVICE_DATA,
+    CONF_CONDITIONS,
 )
+from homeassistant.components.alarm_control_panel import AlarmControlPanelState
 from homeassistant.core import callback
 from homeassistant.helpers.entity import ToggleEntity, EntityCategory
 from homeassistant.helpers.event import (
@@ -38,8 +39,8 @@ _LOGGER = logging.getLogger(__name__)
 
 
 SERVICE_RUN_ACTION = "run_action"
-RUN_ACTION_SCHEMA = vol.Schema(
-    {vol.Required(ATTR_ENTITY_ID): cv.entity_ids, vol.Optional(ATTR_TIME): cv.time}
+RUN_ACTION_SCHEMA = cv.make_entity_service_schema(
+    {vol.Required(ATTR_ENTITY_ID): cv.entity_ids, vol.Optional(ATTR_TIME): cv.time, vol.Optional(const.ATTR_SKIP_CONDITIONS): cv.boolean}
 )
 
 
@@ -205,11 +206,11 @@ class ScheduleEntity(ToggleEntity):
                             self.schedule_id
                         )
                     )
-                    await self.coordinator.async_delete_schedule(self.schedule_id)
+                    self.coordinator.async_delete_schedule(self.schedule_id)
 
         self._current_slot = self._timer_handler.current_slot
 
-        if self._state not in [STATE_OFF, STATE_TRIGGERED]:
+        if self._state not in [STATE_OFF, AlarmControlPanelState.TRIGGERED]:
             if len(self._next_entries) < 1:
                 self._state = STATE_UNAVAILABLE
             else:
@@ -224,7 +225,7 @@ class ScheduleEntity(ToggleEntity):
         if self._init:
             # initial startpoint for timer calculated, fire actions if currently overlapping with timeslot
             if self._current_slot is not None and self._state != STATE_OFF:
-                trigger_actions = True
+                skip_initial_execution = False
                 if self.coordinator.state == const.STATE_INIT and self.coordinator.time_shutdown:
                     # if the date+time of prior shutdown is known, determine which timeslots are already triggered before
                     # calculate the next start of timeslot since the time of shutdown, execute only if this is in the past
@@ -233,22 +234,24 @@ class ScheduleEntity(ToggleEntity):
                     start_time = self.schedule[const.ATTR_TIMESLOTS][self._current_slot][const.ATTR_START]
                     start_of_timeslot = self._timer_handler.calculate_timestamp(start_time, ts_shutdown)
                     if start_of_timeslot > now:
-                        _LOGGER.debug(
-                            "Schedule {} was already executed before shutdown, initial timeslot is skipped.".format(
-                                self.schedule_id
-                            )
-                        )
-                        trigger_actions = False
+                        skip_initial_execution = True
 
-                if trigger_actions:
+                if skip_initial_execution:
+                    _LOGGER.debug(
+                        "Schedule {} was already executed before shutdown, initial timeslot is skipped.".format(
+                            self.schedule_id
+                        )
+                    )
+                else:
                     _LOGGER.debug(
                         "Schedule {} is starting in a timeslot, proceed with actions".format(
                             self.schedule_id
                         )
                     )
-                    await self._action_handler.async_queue_actions(
-                        self.schedule[const.ATTR_TIMESLOTS][self._current_slot]
-                    )
+                await self._action_handler.async_queue_actions(
+                    self.schedule[const.ATTR_TIMESLOTS][self._current_slot],
+                    skip_initial_execution
+                )
             self._init = False
 
         if self.hass is None:
@@ -279,14 +282,14 @@ class ScheduleEntity(ToggleEntity):
         @callback
         async def async_trigger_finished(_now):
             """internal timer is finished, reset the schedule"""
-            if self._state == STATE_TRIGGERED:
+            if self._state == AlarmControlPanelState.TRIGGERED:
                 self._state = STATE_ON
             await self._timer_handler.async_start_timer()
 
         # keep the entity in triggered state for 1 minute, then restart the timer
         self._timer = async_call_later(self.hass, 60, async_trigger_finished)
         if self._state == STATE_ON:
-            self._state = STATE_TRIGGERED
+            self._state = AlarmControlPanelState.TRIGGERED
 
         self.async_write_ha_state()
         self.hass.bus.async_fire(const.EVENT)
@@ -452,14 +455,14 @@ class ScheduleEntity(ToggleEntity):
         """turn off a schedule"""
         if self.schedule[const.ATTR_ENABLED]:
             await self._action_handler.async_empty_queue()
-            await self.coordinator.async_edit_schedule(
+            self.coordinator.async_edit_schedule(
                 self.schedule_id, {const.ATTR_ENABLED: False}
             )
 
     async def async_turn_on(self):
         """turn on a schedule"""
         if not self.schedule[const.ATTR_ENABLED]:
-            await self.coordinator.async_edit_schedule(
+            self.coordinator.async_edit_schedule(
                 self.schedule_id, {const.ATTR_ENABLED: True}
             )
 
@@ -499,7 +502,7 @@ class ScheduleEntity(ToggleEntity):
 
         self.async_write_ha_state()
 
-    async def async_service_run_action(self, time=None):
+    async def async_service_run_action(self, time=None, skip_conditions=False):
         """Manually trigger the execution of the actions of a timeslot"""
 
         now = dt_util.as_local(dt_util.utcnow())
@@ -523,9 +526,14 @@ class ScheduleEntity(ToggleEntity):
             )
             return
 
+        schedule = dict(self.schedule[const.ATTR_TIMESLOTS][slot])
+        if skip_conditions:
+            schedule[CONF_CONDITIONS] = []
+
         _LOGGER.debug(
-            "Executing actions for {}, timeslot {}".format(self.entity_id, slot)
+            "Executing actions for {}, timeslot {}, skip_conditions {}".format(self.entity_id, slot, skip_conditions)
         )
+
         await self._action_handler.async_queue_actions(
-            self.schedule[const.ATTR_TIMESLOTS][slot]
+            schedule
         )

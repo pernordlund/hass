@@ -6,6 +6,7 @@ from awesomeversion import AwesomeVersion
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_PASSWORD, CONF_USERNAME, __version__ as HA_VERSION
 from homeassistant.core import HomeAssistant
+from homeassistant.exceptions import ConfigEntryAuthFailed
 
 from .const import DOMAIN, LISTENER_FN_CLOSE, MIN_HA_VERSION, PLATFORMS, VERSION
 from .controller import Controller
@@ -14,8 +15,8 @@ from .services import async_setup_services
 _LOGGER = logging.getLogger(__name__)
 
 
-async def async_setup(hass: HomeAssistant, config: dict):
-    """Set up the Easee integration component."""
+async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
+    """Set up Easee integration from a config entry."""
     current = AwesomeVersion(HA_VERSION)
     req_min = AwesomeVersion(MIN_HA_VERSION)
     if current < req_min:
@@ -23,11 +24,6 @@ async def async_setup(hass: HomeAssistant, config: dict):
             "Integration requires Home Assistant version %s or later", req_min
         )
         return False
-    return True
-
-
-async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
-    """Set up Easee integration from a config entry."""
     if DOMAIN not in hass.data:
         hass.data[DOMAIN] = {}
     hass.data[DOMAIN]["entities"] = []
@@ -36,8 +32,12 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
     username = entry.data.get(CONF_USERNAME)
     password = entry.data.get(CONF_PASSWORD)
 
-    controller = Controller(username, password, hass, entry)
-    await controller.initialize()
+    try:
+        controller = Controller(username, password, hass, entry)
+        await controller.initialize()
+    except ConfigEntryAuthFailed as err:
+        raise ConfigEntryAuthFailed from err
+
     hass.data[DOMAIN]["controller"] = controller
 
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)

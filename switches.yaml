@@ -1,9 +1,9 @@
-  - platform: aarlo
-    siren: True
-    all_sirens: True
-    snapshot: True
-    siren_volume: 1
-    siren_duration: 10
+  #- platform: aarlo
+  #  siren: True
+#    all_sirens: True
+#    snapshot: True
+#    siren_volume: 1
+  #  siren_duration: 10
   # - platform: wake_on_lan
   #   name: htpc
   #   mac_address: "00-01-80-79-68-A8"

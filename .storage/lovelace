@@ -43,28 +43,19 @@
                   "entity": "sensor.pelle_work_status"
                 },
                 {
-                  "entity": "device_tracker.life360_marie"
-                },
-                {
-                  "entity": "device_tracker.life360_frida_nordlund"
-                },
-                {
-                  "entity": "device_tracker.life360_jenny_nordlund"
-                },
-                {
-                  "entity": "device_tracker.life360_albin_nordlund"
-                },
-                {
                   "entity": "device_tracker.arteon_position"
                 },
                 {
-                  "entity": "device_tracker.pelles_wallet"
+                  "entity": "device_tracker.wallet"
                 },
                 {
                   "entity": "device_tracker.work_keys"
                 },
                 {
                   "entity": "device_tracker.car_keys"
+                },
+                {
+                  "entity": "device_tracker.albins_phone"
                 }
               ],
               "show_header_toggle": false,
@@ -78,16 +69,11 @@
                   "secondary_info": "last-changed"
                 },
                 {
-                  "entity": "binary_sensor.front_door_unlocked",
-                  "secondary_info": "last-changed"
-                },
-                {
-                  "entity": "binary_sensor.garage_side_door_locked",
-                  "secondary_info": "last-changed"
-                },
-                {
                   "entity": "binary_sensor.garage_door_open",
                   "secondary_info": "last-changed"
+                },
+                {
+                  "entity": "binary_sensor.garage_side_door_locked"
                 },
                 {
                   "entity": "binary_sensor.garage_motion_detection"
@@ -122,10 +108,6 @@
                 },
                 {
                   "entity": "binary_sensor.freezer_temp_high",
-                  "secondary_info": "last-changed"
-                },
-                {
-                  "entity": "binary_sensor.front_door_open_lock",
                   "secondary_info": "last-changed"
                 },
                 {
@@ -174,9 +156,6 @@
                   "entity": "sensor.time_to_work"
                 },
                 {
-                  "entity": "sensor.arteon_last_connected"
-                },
-                {
                   "entity": "switch.arteon_charging"
                 }
               ],
@@ -214,7 +193,13 @@
                   "entity": "sensor.daylight"
                 },
                 {
-                  "entity": "sensor.roger_battery_level"
+                  "entity": "lawn_mower.roger"
+                },
+                {
+                  "entity": "sensor.roger_error"
+                },
+                {
+                  "entity": "sensor.roger_battery_2"
                 }
               ],
               "title": "Outside"
@@ -326,6 +311,62 @@
                 }
               ],
               "title": "Zigge"
+            },
+            {
+              "type": "custom:hasl-departure-card",
+              "header": true,
+              "departures": true,
+              "deviations": true,
+              "timeleft": false,
+              "updated": true,
+              "max_departures": 4,
+              "name": "Klisätravägen mot stan",
+              "show_cardname": true,
+              "adjust_times": false,
+              "hide_departed": false,
+              "language": "en-EN",
+              "entities": [
+                "sensor.sl_departure_sensor_4612_sl_departures"
+              ]
+            },
+            {
+              "type": "custom:hasl-departure-card",
+              "header": true,
+              "departures": true,
+              "deviations": true,
+              "timeleft": false,
+              "updated": true,
+              "max_departures": 4,
+              "name": "Slussen mot Älta",
+              "show_cardname": true,
+              "adjust_times": false,
+              "hide_departed": false,
+              "language": "en-EN",
+              "entities": [
+                "sensor.sl_departure_sensor_9194_slussen_buss"
+              ]
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "binary_sensor.diskmaskin_door",
+                  "name": "Door"
+                },
+                {
+                  "entity": "sensor.diskmaskin_operation_state",
+                  "name": "Operation State"
+                },
+                {
+                  "entity": "sensor.diskmaskin_program_progress",
+                  "name": "Program Progress"
+                },
+                {
+                  "entity": "sensor.diskmaskin_remaining_program_time",
+                  "name": "Remaining Program Time"
+                }
+              ],
+              "title": "Diskmaskin"
             }
           ]
         },
@@ -409,6 +450,9 @@
                 },
                 {
                   "entity": "light.play_room_corner"
+                },
+                {
+                  "entity": "light.shapes_eea3"
                 }
               ],
               "show_header_toggle": true,
@@ -464,6 +508,9 @@
                   "entity": "switch.outside_water"
                 },
                 {
+                  "entity": "switch.greenhouse_water"
+                },
+                {
                   "entity": "switch.garage_extra_outlet"
                 }
               ],
@@ -516,9 +563,6 @@
               "type": "entities",
               "entities": [
                 {
-                  "entity": "lock.id_lock_150_locked"
-                },
-                {
                   "entity": "lock.garage_side_door_lock"
                 },
                 {
@@ -544,6 +588,9 @@
                 },
                 {
                   "entity": "automation.zigge_waiting_bt"
+                },
+                {
+                  "entity": "automation.cancel_the_cancel"
                 }
               ],
               "title": "Automations on/off",
@@ -563,22 +610,13 @@
                 },
                 {
                   "entity": "script.daily_midnight"
+                },
+                {
+                  "entity": "script.zigge_notif_1hr_off"
                 }
               ],
               "title": "Scripts",
               "show_header_toggle": false
-            },
-            {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "vacuum.roger"
-                },
-                {
-                  "entity": "sensor.roger_battery"
-                }
-              ],
-              "title": "Roger"
             },
             {
               "type": "entities",
@@ -751,24 +789,6 @@
               ]
             },
             {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "sensor.xiaomi_air_purifier_2s_humidity",
-                  "name": "Humidity"
-                },
-                {
-                  "entity": "sensor.xiaomi_air_purifier_2s_pm2_5",
-                  "name": "PM2.5"
-                },
-                {
-                  "entity": "sensor.xiaomi_air_purifier_2s_temperature",
-                  "name": "Temperature"
-                }
-              ],
-              "title": "Xiaomi Air Purifier 2S"
-            },
-            {
               "entity": "weather.smhi_home",
               "name": "Smhi",
               "type": "weather-forecast"
@@ -842,6 +862,9 @@
               "type": "entities",
               "entities": [
                 {
+                  "entity": "sensor.pelle_work_status"
+                },
+                {
                   "entity": "device_tracker.life360_per_nordlund"
                 },
                 {
@@ -861,9 +884,6 @@
                 },
                 {
                   "entity": "input_boolean.pelle_maybe_working_at_home"
-                },
-                {
-                  "entity": "sensor.pelle_work_status"
                 },
                 {
                   "entity": "sensor.hours_worked_today"
@@ -1156,7 +1176,7 @@
             },
             {
               "type": "markdown",
-              "content": "# Bergvärme historik\n\n| Datum | Värmekurva | Finjust |\n| :--- | ---: | ---: |\n| <2022-11-01 | 2.3||\n| 2022-11-01 | 1.7||\n| 2022-11-16 | 2.0||\n|2022-11-20 | 1.9||\n|2022-11-30| 1.8||\n|2023-09-05| 1.7||\n|2023-10-03| 1.8||\n|2023-10-05| 2.2||\n"
+              "content": "# Bergvärme historik\n\n| Datum | Värmekurva | &nbsp;&nbsp;&nbsp;Finjust |\n| :--- | ---: | ---: |\n| <2022-11-01 | 2.3| 0.9|\n| 2022-11-01 | 1.7|-|\n| 2022-11-16 | 2.0|-|\n|2022-11-20 | 1.9|-|\n|2022-11-30| 1.8|-|\n|2023-09-05| 1.7|-|\n|2023-10-03| 1.8|-|\n|2023-10-05| 2.2|-|\n|2023-11-14| 2.1|-|\n|2024-01-04| 1.9|-|\n|2024-01-25| 2.1|-|\n|2024-04-30| 1.9|-|\n|2024-09-30| 2.2|-|\n"
             },
             {
               "type": "picture-elements",
@@ -1279,46 +1299,6 @@
             {
               "entities": [
                 {
-                  "entity": "sensor.load_1m"
-                },
-                {
-                  "entity": "sensor.load_5m"
-                },
-                {
-                  "entity": "sensor.load_15m"
-                },
-                {
-                  "entity": "sensor.memory_free"
-                },
-                {
-                  "entity": "sensor.processor_use"
-                },
-                {
-                  "entity": "sensor.disk_free"
-                },
-                {
-                  "entity": "sensor.disk_use_percent"
-                },
-                {
-                  "entity": "sensor.network_throughput_in_hassio"
-                },
-                {
-                  "entity": "sensor.network_throughput_out_hassio"
-                },
-                {
-                  "entity": "sensor.last_boot"
-                },
-                {
-                  "entity": "sensor.cpu_temperature"
-                }
-              ],
-              "show_header_toggle": false,
-              "title": "NUC10 values",
-              "type": "entities"
-            },
-            {
-              "entities": [
-                {
                   "entity": "device_tracker.tv"
                 },
                 {
@@ -1359,9 +1339,6 @@
                 },
                 {
                   "entity": "sensor.omv_temperature"
-                },
-                {
-                  "entity": "sensor.seagate4tb_temperature"
                 },
                 {
                   "entity": "sensor.entrance_cluster_size"
@@ -1414,9 +1391,6 @@
                 },
                 {
                   "entity": "sensor.kylen_battery"
-                },
-                {
-                  "entity": "sensor.id_lock_150_battery_level"
                 },
                 {
                   "entity": "sensor.garage_side_door_lock_battery_level"
@@ -1490,76 +1464,30 @@
             {
               "entities": [
                 {
-                  "entity": "binary_sensor.sm_t719_is_charging"
-                },
-                {
-                  "entity": "sensor.sm_t719_battery_level"
-                },
-                {
-                  "entity": "sensor.sm_t719_geocoded_location"
-                },
-                {
-                  "entity": "sensor.sm_t719_wifi_connection"
+                  "entity": "sensor.xq_as52_battery_level"
                 },
                 {
                   "entity": "binary_sensor.xq_as52_is_charging"
                 },
                 {
-                  "entity": "device_tracker.xq_as52"
-                },
-                {
-                  "entity": "sensor.xq_as52_battery_level"
-                },
-                {
                   "entity": "sensor.xq_as52_charger_type"
+                },
+                {
+                  "entity": "sensor.xq_as52_battery_power"
+                },
+                {
+                  "entity": "sensor.sm_t719_battery_level_2"
+                },
+                {
+                  "entity": "device_tracker.sm_t719_2"
+                },
+                {
+                  "entity": "sensor.sm_t719_charger_type_2"
                 }
               ],
               "show_header_toggle": false,
               "type": "entities",
               "title": "Phones Tablets"
-            },
-            {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "sensor.vpn_clients"
-                }
-              ],
-              "title": "VPN"
-            },
-            {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "sensor.nuc7_temperature"
-                },
-                {
-                  "entity": "sensor.glances_containers_active"
-                },
-                {
-                  "entity": "sensor.glances_containers_cpu_used"
-                },
-                {
-                  "entity": "sensor.glances_containers_ram_used"
-                },
-                {
-                  "entity": "sensor.glances_cpu_load"
-                },
-                {
-                  "entity": "sensor.glances_ram_free"
-                },
-                {
-                  "entity": "sensor.glances_ram_used_percent"
-                },
-                {
-                  "entity": "sensor.glances_swap_used"
-                },
-                {
-                  "entity": "sensor.glances_running"
-                }
-              ],
-              "title": "NUC7 values",
-              "show_header_toggle": false
             },
             {
               "type": "entity-filter",
@@ -1604,6 +1532,11 @@
                 }
               ],
               "title": "HP ColorLaserJet MFP M278-M281"
+            },
+            {
+              "type": "markdown",
+              "content": "|Batteri|Datum|\n|-|-|\nID-lock|2024-03-14\nID-lock|2024-10-06\nDanalock|2024-10-06\nDanapad|2024-10-06",
+              "title": "Batteribyten"
             }
           ]
         },
@@ -1681,6 +1614,10 @@
                 },
                 {
                   "entity": "input_text.ikea_shortcut_last_action"
+                },
+                {
+                  "entity": "input_text.albin_styrbar_last_action",
+                  "secondary_info": "last-updated"
                 }
               ],
               "show_header_toggle": false,
@@ -1748,16 +1685,6 @@
               "type": "map",
               "entities": [
                 {
-                  "entity": "device_tracker.life360_frida_nordlund"
-                }
-              ],
-              "title": "Frida",
-              "hours_to_show": 12
-            },
-            {
-              "type": "map",
-              "entities": [
-                {
                   "entity": "device_tracker.zklvyzim_zigge"
                 }
               ],
@@ -1779,31 +1706,10 @@
               "type": "map",
               "entities": [
                 {
-                  "entity": "device_tracker.life360_jenny_nordlund"
+                  "entity": "device_tracker.albins_phone"
                 }
               ],
-              "title": "Jenny",
-              "hours_to_show": 12
-            },
-            {
-              "type": "map",
-              "entities": [
-                {
-                  "entity": "device_tracker.life360_albin_nordlund"
-                }
-              ],
-              "title": "Albin",
-              "hours_to_show": 12
-            },
-            {
-              "type": "map",
-              "entities": [
-                {
-                  "entity": "device_tracker.life360_marie"
-                }
-              ],
-              "title": "Marie",
-              "hours_to_show": 12
+              "title": "Albin"
             }
           ]
         },
@@ -1908,10 +1814,6 @@
                 {
                   "entity": "sensor.arteon_electric_range",
                   "name": "Electric range"
-                },
-                {
-                  "entity": "binary_sensor.arteon_energy_flow",
-                  "name": "Energy flow"
                 },
                 {
                   "entity": "binary_sensor.arteon_external_power",
@@ -2104,6 +2006,11 @@
           "icon": "mdi:test-tube",
           "badges": [],
           "cards": [
+            {
+              "type": "markdown",
+              "content": "- [ ] Battery work keys\n- [ ] Battery Arlo outside",
+              "title": "ToDo's"
+            },
             {
               "entities": [
                 {

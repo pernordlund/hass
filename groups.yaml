@@ -41,7 +41,6 @@
       - switch.popp_duwi_zw_zsa_3500_plugin_switch_switch
   daily_sun:
     entities:
-      - light.play_room_ceiling
       - light.play_room_corner
       - light.front_door
       - switch.bedroom_window

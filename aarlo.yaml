@@ -1,0 +1,4 @@
+version: 1
+aarlo:
+  host: https://my.arlo.com
+  stream_timeout: 60

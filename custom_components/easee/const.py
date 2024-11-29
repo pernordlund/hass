@@ -1,4 +1,6 @@
 """Easee Charger constants."""
+
+# pylint: disable=too-many-lines
 from pyeasee import ChargerStreamData, EqualizerStreamData
 
 from homeassistant.components.binary_sensor import BinarySensorDeviceClass
@@ -15,15 +17,21 @@ from homeassistant.helpers.entity import EntityCategory
 
 DOMAIN = "easee"
 TIMEOUT = 30
-VERSION = "0.9.55"
-MIN_HA_VERSION = "2023.4.0"
+VERSION = "0.9.65"
+MIN_HA_VERSION = "2024.8.0"
 CONF_MONITORED_SITES = "monitored_sites"
 MANUFACTURER = "Easee"
 MODEL_EQUALIZER = "Equalizer"
 MODEL_CHARGING_ROBOT = "Charging Robot"
-PLATFORMS = [Platform.BINARY_SENSOR, Platform.SENSOR, Platform.SWITCH]
+PLATFORMS = [Platform.BUTTON, Platform.BINARY_SENSOR, Platform.SENSOR, Platform.SWITCH]
 LISTENER_FN_CLOSE = "update_listener_close_fn"
-EASEE_PRODUCT_CODES = {1: "Easee Home", 100: "Easee Charge", 2: "Charge Lite"}
+EASEE_PRODUCT_CODES = {
+    1: "Easee Home",
+    100: "Easee Charge",
+    2: "Charge Lite",
+    102: "Charge Core",
+    400: "Charge One",
+}
 
 chargerObservations = {
     ChargerStreamData.config_phaseMode.value,
@@ -38,6 +46,14 @@ chargerObservations = {
     ChargerStreamData.config_circuitMaxCurrentP3.value,
     ChargerStreamData.config_isEnabled.value,
     ChargerStreamData.config_enableIdleCurrent.value,
+    ChargerStreamData.config_localPreAuthorizeEnabled.value,
+    ChargerStreamData.config_localAuthorizeOfflineEnabled.value,
+    ChargerStreamData.config_allowOfflineTxForUnknownId.value,
+    ChargerStreamData.config_detectedPowerGridType.value,
+    ChargerStreamData.config_smartButtonEnabled.value,
+    ChargerStreamData.config_localRadioChannel.value,
+    ChargerStreamData.config_localShortAddress.value,
+    ChargerStreamData.config_localParentAddrOrNumOfNodes.value,
     ChargerStreamData.state_reasonForNoCurrent.value,
     ChargerStreamData.state_lockCablePermanently.value,
     ChargerStreamData.state_smartCharging.value,
@@ -87,8 +103,18 @@ chargerObservations = {
     ChargerStreamData.state_eqAvailableCurrentP2.value,
     ChargerStreamData.state_eqAvailableCurrentP3.value,
     ChargerStreamData.state_tempMax.value,
+    ChargerStreamData.state_chargerOfflineReason.value,
+    ChargerStreamData.state_deratingActive.value,
+    ChargerStreamData.state_errorString.value,
+    ChargerStreamData.state_errorCode.value,
+    ChargerStreamData.state_foundWiFi.value,
+    ChargerStreamData.state_chargerRAT.value,
+    ChargerStreamData.state_fatalErrorCode.value,
+    ChargerStreamData.state_connectedToCloud.value,
+    ChargerStreamData.state_cloudDisconnectReason.value,
     ChargerStreamData.schedule_chargingSchedule.value,
 }
+
 equalizerObservations = {
     EqualizerStreamData.state_currentL1.value,
     EqualizerStreamData.state_currentL2.value,
@@ -117,6 +143,12 @@ equalizerObservations = {
     EqualizerStreamData.state_equalizedChargeCurrentL2.value,
     EqualizerStreamData.state_equalizedChargeCurrentL3.value,
     EqualizerStreamData.state_internalTemperature.value,
+    EqualizerStreamData.state_deviceMode.value,
+    EqualizerStreamData.state_availableCurrentL1.value,
+    EqualizerStreamData.state_availableCurrentL2.value,
+    EqualizerStreamData.state_availableCurrentL3.value,
+    EqualizerStreamData.state_meterEncryptionStatus.value,
+    EqualizerStreamData.config_surplusCharging.value,
     EqualizerStreamData.config_ssid.value,
     EqualizerStreamData.config_equalizerID.value,
     EqualizerStreamData.config_masterBackPlateID.value,
@@ -125,6 +157,13 @@ equalizerObservations = {
     EqualizerStreamData.config_meterType.value,
     EqualizerStreamData.config_gridType.value,
     EqualizerStreamData.config_numPhases.value,
+    EqualizerStreamData.config_childReport.value,
+    EqualizerStreamData.config_currentTransformerConfig.value,
+}
+
+equalizerEnergyObservations = {
+    EqualizerStreamData.state_cumulativeActivePowerImport.value,
+    EqualizerStreamData.state_cumulativeActivePowerExport.value,
 }
 
 weeklyScheduleStartDays = {
@@ -145,6 +184,16 @@ weeklyScheduleStopDays = {
     4: "FridayStopTime",
     5: "SaturdayStopTime",
     6: "SundayStopTime",
+}
+
+weeklyScheduleLimit = {
+    0: "MondayLimit",
+    1: "TuesdayLimit",
+    2: "WednesdayLimit",
+    3: "ThursdayLimit",
+    4: "FridayLimit",
+    5: "SaturdayLimit",
+    6: "SundayLimit",
 }
 
 MANDATORY_EASEE_ENTITIES = {
@@ -169,8 +218,6 @@ MANDATORY_EASEE_ENTITIES = {
         "units": None,
         "convert_units_func": "map_charger_status",
         "device_class": None,
-        # "device_class": "easee__status",
-        "icon": "mdi:ev-station",
         "translation_key": "easee_status",
     },
 }
@@ -183,8 +230,19 @@ OPTIONAL_EASEE_ENTITIES = {
         "convert_units_func": None,
         "translation_key": "smart_charging",
         "device_class": None,
-        "icon": "mdi:auto-fix",
         "switch_func": "smart_charging",
+        "enabled_default": True,
+        "entity_category": EntityCategory.CONFIG,
+    },
+    "enable_smart_button": {
+        "type": "switch",
+        "key": "config.smartButtonEnabled",
+        "attrs": [],
+        "units": None,
+        "convert_units_func": None,
+        "translation_key": "smart_button",
+        "device_class": None,
+        "switch_func": "smartButtonEnabled",
         "enabled_default": True,
         "entity_category": EntityCategory.CONFIG,
     },
@@ -196,7 +254,6 @@ OPTIONAL_EASEE_ENTITIES = {
         "convert_units_func": None,
         "translation_key": "cable_locked",
         "device_class": BinarySensorDeviceClass.LOCK,
-        "icon": None,
         "state_func": lambda state: not bool(state["cableLocked"]),
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
@@ -208,7 +265,6 @@ OPTIONAL_EASEE_ENTITIES = {
         "convert_units_func": None,
         "translation_key": "cable_locked_permanently",
         "device_class": None,
-        "icon": "mdi:lock",
         "switch_func": "lockCablePermanently",
         "enabled_default": True,
         "entity_category": EntityCategory.CONFIG,
@@ -222,7 +278,6 @@ OPTIONAL_EASEE_ENTITIES = {
         "state_class": SensorStateClass.MEASUREMENT,
         "translation_key": "power",
         "suggested_display_precision": 1,
-        "icon": None,
     },
     "session_energy": {
         "key": "state.sessionEnergy",
@@ -232,7 +287,6 @@ OPTIONAL_EASEE_ENTITIES = {
         "suggested_display_precision": 1,
         "translation_key": "session_energy",
         "device_class": SensorDeviceClass.ENERGY,
-        "icon": None,
         "enabled_default": True,
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
@@ -245,7 +299,6 @@ OPTIONAL_EASEE_ENTITIES = {
         "translation_key": "lifetime_energy",
         "device_class": SensorDeviceClass.ENERGY,
         "state_class": SensorStateClass.TOTAL_INCREASING,
-        "icon": "mdi:counter",
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
     "energy_per_hour": {
@@ -256,7 +309,6 @@ OPTIONAL_EASEE_ENTITIES = {
         "suggested_display_precision": 1,
         "translation_key": "energy_per_hour",
         "device_class": SensorDeviceClass.ENERGY,
-        "icon": None,
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
     "cost_day": {
@@ -271,7 +323,6 @@ OPTIONAL_EASEE_ENTITIES = {
         "suggested_display_precision": 2,
         "translation_key": "cost_day",
         "device_class": SensorDeviceClass.MONETARY,
-        "icon": None,
         "enabled_default": True,
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
@@ -287,7 +338,6 @@ OPTIONAL_EASEE_ENTITIES = {
         "suggested_display_precision": 2,
         "translation_key": "cost_month",
         "device_class": SensorDeviceClass.MONETARY,
-        "icon": None,
         "enabled_default": True,
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
@@ -303,7 +353,6 @@ OPTIONAL_EASEE_ENTITIES = {
         "suggested_display_precision": 2,
         "translation_key": "cost_year",
         "device_class": SensorDeviceClass.MONETARY,
-        "icon": None,
         "enabled_default": True,
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
@@ -323,7 +372,6 @@ OPTIONAL_EASEE_ENTITIES = {
         "convert_units_func": None,
         "translation_key": "online",
         "device_class": BinarySensorDeviceClass.CONNECTIVITY,
-        "icon": None,
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
     "output_limit": {
@@ -334,7 +382,6 @@ OPTIONAL_EASEE_ENTITIES = {
         "suggested_display_precision": 1,
         "translation_key": "output_limit",
         "device_class": SensorDeviceClass.CURRENT,
-        "icon": None,
         "enabled_default": False,
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
@@ -352,7 +399,6 @@ OPTIONAL_EASEE_ENTITIES = {
         "translation_key": "current",
         "device_class": SensorDeviceClass.CURRENT,
         "state_class": SensorStateClass.MEASUREMENT,
-        "icon": None,
         "state_func": lambda state: float(
             max(
                 state["inCurrentT2"],
@@ -383,7 +429,6 @@ OPTIONAL_EASEE_ENTITIES = {
         "suggested_display_precision": 1,
         "translation_key": "circuit_current",
         "device_class": SensorDeviceClass.CURRENT,
-        "icon": None,
         "state_func": lambda state: float(
             max(
                 state["circuitTotalPhaseConductorCurrentL1"]
@@ -413,7 +458,6 @@ OPTIONAL_EASEE_ENTITIES = {
         "suggested_display_precision": 0,
         "translation_key": "equalizer_limit",
         "device_class": SensorDeviceClass.CURRENT,
-        "icon": None,
         "state_func": lambda state: float(
             max(
                 state["eqAvailableCurrentP1"],
@@ -422,6 +466,7 @@ OPTIONAL_EASEE_ENTITIES = {
             )
         ),
         "enabled_default": False,
+        "only_master": True,
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
     "dynamic_circuit_limit": {
@@ -439,7 +484,6 @@ OPTIONAL_EASEE_ENTITIES = {
         "convert_units_func": "round_0_dec",
         "translation_key": "dynamic_circuit_limit",
         "device_class": SensorDeviceClass.CURRENT,
-        "icon": None,
         "state_func": lambda state: float(
             max(
                 state["dynamicCircuitCurrentP1"],
@@ -448,6 +492,7 @@ OPTIONAL_EASEE_ENTITIES = {
             )
         ),
         "enabled_default": False,
+        "only_master": True,
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
     "max_circuit_limit": {
@@ -465,7 +510,6 @@ OPTIONAL_EASEE_ENTITIES = {
         "convert_units_func": "round_0_dec",
         "translation_key": "max_circuit_limit",
         "device_class": SensorDeviceClass.CURRENT,
-        "icon": None,
         "state_func": lambda config: float(
             max(
                 config["circuitMaxCurrentP1"],
@@ -474,6 +518,7 @@ OPTIONAL_EASEE_ENTITIES = {
             )
         ),
         "enabled_default": False,
+        "only_master": True,
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
     "dynamic_charger_limit": {
@@ -485,7 +530,6 @@ OPTIONAL_EASEE_ENTITIES = {
         "convert_units_func": "round_0_dec",
         "translation_key": "dynamic_charger_limit",
         "device_class": SensorDeviceClass.CURRENT,
-        "icon": None,
         "enabled_default": False,
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
@@ -505,7 +549,6 @@ OPTIONAL_EASEE_ENTITIES = {
         "suggested_display_precision": 0,
         "translation_key": "offline_circuit_limit",
         "device_class": SensorDeviceClass.CURRENT,
-        "icon": None,
         "state_func": lambda state: float(
             max(
                 state["offlineMaxCircuitCurrentP1"],
@@ -514,6 +557,7 @@ OPTIONAL_EASEE_ENTITIES = {
             )
         ),
         "enabled_default": False,
+        "only_master": True,
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
     "max_charger_limit": {
@@ -525,7 +569,6 @@ OPTIONAL_EASEE_ENTITIES = {
         "convert_units_func": "round_0_dec",
         "translation_key": "max_charger_limit",
         "device_class": SensorDeviceClass.CURRENT,
-        "icon": None,
         "enabled_default": False,
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
@@ -549,7 +592,6 @@ OPTIONAL_EASEE_ENTITIES = {
         "device_class": SensorDeviceClass.VOLTAGE,
         "translation_key": "voltage",
         "state_class": SensorStateClass.MEASUREMENT,
-        "icon": None,
         "enabled_default": False,
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
@@ -559,7 +601,6 @@ OPTIONAL_EASEE_ENTITIES = {
         "units": None,
         "convert_units_func": "map_reason_no_current",
         "device_class": "easee__reason_no_current",
-        "icon": "mdi:alert-circle",
         "enabled_default": False,
         "translation_key": "easee_reason_no_current",
     },
@@ -570,7 +611,6 @@ OPTIONAL_EASEE_ENTITIES = {
         "units": None,
         "convert_units_func": None,
         "device_class": None,
-        "icon": "mdi:power-standby",
         "switch_func": "enable_charger",
         "translation_key": "is_enabled",
     },
@@ -582,7 +622,6 @@ OPTIONAL_EASEE_ENTITIES = {
         "convert_units_func": None,
         "translation_key": "idle_current",
         "device_class": None,
-        "icon": "mdi:current-ac",
         "switch_func": "enable_idle_current",
         "entity_category": EntityCategory.CONFIG,
     },
@@ -597,7 +636,6 @@ OPTIONAL_EASEE_ENTITIES = {
         "convert_units_func": None,
         "translation_key": "update_available",
         "device_class": None,
-        "icon": "mdi:file-download",
         "state_func": lambda state: (
             int(state["chargerFirmware"]) < int(state["latestFirmware"])
         )
@@ -607,49 +645,57 @@ OPTIONAL_EASEE_ENTITIES = {
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
     "basic_schedule": {
-        "type": "binary_sensor",
+        "type": "switch",
         "key": "schedule.isEnabled",
         "attrs": [
             "schedule.isEnabled",
             "schedule.chargeStartTime",
             "schedule.chargeStopTime",
+            "schedule.chargeLimit",
             "schedule.repeat",
         ],
         "units": None,
         "convert_units_func": None,
         "device_class": None,
         "translation_key": "basic_schedule",
-        "icon": "mdi:clock-check",
         "state_func": lambda schedule: bool(schedule.isEnabled) or False,
+        "switch_func": "enable_basic_charge_plan",
         "enabled_default": False,
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
     "weekly_schedule": {
-        "type": "binary_sensor",
+        "type": "switch",
         "key": "weekly_schedule.isEnabled",
         "attrs": [
             "weekly_schedule.isEnabled",
             "weekly_schedule.MondayStartTime",
             "weekly_schedule.MondayStopTime",
+            "weekly_schedule.MondayLimit",
             "weekly_schedule.TuesdayStartTime",
             "weekly_schedule.TuesdayStopTime",
+            "weekly_schedule.TuesdayLimit",
             "weekly_schedule.WednesdayStartTime",
             "weekly_schedule.WednesdayStopTime",
+            "weekly_schedule.WednesdayLimit",
             "weekly_schedule.ThursdayStartTime",
             "weekly_schedule.ThursdayStopTime",
+            "weekly_schedule.ThursdayLimit",
             "weekly_schedule.FridayStartTime",
             "weekly_schedule.FridayStopTime",
+            "weekly_schedule.FridayLimit",
             "weekly_schedule.SaturdayStartTime",
             "weekly_schedule.SaturdayStopTime",
+            "weekly_schedule.SaturdayLimit",
             "weekly_schedule.SundayStartTime",
             "weekly_schedule.SundayStopTime",
+            "weekly_schedule.SundayLimit",
         ],
         "units": None,
         "convert_units_func": None,
         "translation_key": "weekly_schedule",
         "device_class": None,
-        "icon": "mdi:clock-check",
         "state_func": lambda weekly_schedule: bool(weekly_schedule.isEnabled) or False,
+        "switch_func": "enable_weekly_charge_plan",
         "enabled_default": False,
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
@@ -666,7 +712,6 @@ OPTIONAL_EASEE_ENTITIES = {
         "convert_units_func": None,
         "translation_key": "cost_per_kwh",
         "device_class": SensorDeviceClass.MONETARY,
-        "icon": None,
         "enabled_default": False,
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
@@ -679,9 +724,18 @@ OPTIONAL_EASEE_ENTITIES = {
         "translation_key": "internal_temperature",
         "device_class": SensorDeviceClass.TEMPERATURE,
         "state_class": SensorStateClass.MEASUREMENT,
-        "icon": None,
         "enabled_default": True,
         "entity_category": EntityCategory.DIAGNOSTIC,
+    },
+    "override_schedule": {
+        "type": "button",
+        "key": "",
+        "attrs": [],
+        "units": None,
+        "convert_units_func": None,
+        "device_class": None,
+        "switch_func": "override_schedule",
+        "translation_key": "override_schedule",
     },
 }
 
@@ -702,7 +756,6 @@ EASEE_EQ_ENTITIES = {
         "convert_units_func": None,
         "translation_key": "online",
         "device_class": BinarySensorDeviceClass.CONNECTIVITY,
-        "icon": None,
     },
     "import_power": {
         "key": "state.activePowerImport",
@@ -715,7 +768,6 @@ EASEE_EQ_ENTITIES = {
         "translation_key": "import_power",
         "device_class": SensorDeviceClass.POWER,
         "state_class": SensorStateClass.MEASUREMENT,
-        "icon": None,
     },
     "import_reactive_power": {
         "key": "state.reactivePowerImport",
@@ -729,7 +781,6 @@ EASEE_EQ_ENTITIES = {
         # support kVAr, so we can not use it.
         "device_class": SensorDeviceClass.POWER,
         "state_class": SensorStateClass.MEASUREMENT,
-        "icon": None,
     },
     "export_power": {
         "key": "state.activePowerExport",
@@ -740,7 +791,6 @@ EASEE_EQ_ENTITIES = {
         "translation_key": "export_power",
         "device_class": SensorDeviceClass.POWER,
         "state_class": SensorStateClass.MEASUREMENT,
-        "icon": None,
     },
     "export_reactive_power": {
         "key": "state.reactivePowerExport",
@@ -754,7 +804,6 @@ EASEE_EQ_ENTITIES = {
         # support kVAr, so we can not use it.
         "device_class": SensorDeviceClass.POWER,
         "state_class": SensorStateClass.MEASUREMENT,
-        "icon": None,
     },
     "voltage": {
         "key": "state.voltageNL1",
@@ -772,7 +821,6 @@ EASEE_EQ_ENTITIES = {
         "translation_key": "voltage",
         "device_class": SensorDeviceClass.VOLTAGE,
         "state_class": SensorStateClass.MEASUREMENT,
-        "icon": None,
         "state_func": lambda state: float(
             max(
                 state["voltageNL1"] or 0.0,
@@ -799,7 +847,6 @@ EASEE_EQ_ENTITIES = {
         "translation_key": "current",
         "device_class": SensorDeviceClass.CURRENT,
         "state_class": SensorStateClass.MEASUREMENT,
-        "icon": None,
         "state_func": lambda state: float(
             max(
                 state["currentL1"],
@@ -819,7 +866,6 @@ EASEE_EQ_ENTITIES = {
         "translation_key": "import_energy",
         "device_class": SensorDeviceClass.ENERGY,
         "state_class": SensorStateClass.TOTAL_INCREASING,
-        "icon": None,
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
     "import_reactive_energy": {
@@ -833,7 +879,6 @@ EASEE_EQ_ENTITIES = {
         # Note, at the time of writing there is no REACTIVE_ENERGY class
         "device_class": SensorDeviceClass.ENERGY,
         "state_class": SensorStateClass.TOTAL_INCREASING,
-        "icon": None,
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
     "export_energy": {
@@ -845,7 +890,6 @@ EASEE_EQ_ENTITIES = {
         "translation_key": "export_energy",
         "device_class": SensorDeviceClass.ENERGY,
         "state_class": SensorStateClass.TOTAL_INCREASING,
-        "icon": None,
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
     "export_reactive_energy": {
@@ -859,7 +903,6 @@ EASEE_EQ_ENTITIES = {
         # Note, at the time of writing there is no REACTIVE_ENERGY class
         "device_class": SensorDeviceClass.ENERGY,
         "state_class": SensorStateClass.TOTAL_INCREASING,
-        "icon": None,
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
     "temp_max": {
@@ -871,12 +914,27 @@ EASEE_EQ_ENTITIES = {
         "translation_key": "internal_temperature",
         "device_class": SensorDeviceClass.TEMPERATURE,
         "state_class": SensorStateClass.MEASUREMENT,
-        "icon": None,
         "enabled_default": True,
+        "entity_category": EntityCategory.DIAGNOSTIC,
+    },
+    "surplus": {
+        "type": "eq_switch",
+        "key": "config.surplusChargingMode",
+        "state_func": lambda config: bool(config["surplusChargingMode"] == 1),
+        "switch_func": "set_load_balancing",
+        "attrs": [
+            "config.surplusChargingCurrent",
+        ],
+        "units": None,
+        "convert_units_func": None,
+        "translation_key": "surplus",
+        "device_class": SensorDeviceClass.CURRENT,
         "entity_category": EntityCategory.DIAGNOSTIC,
     },
 }
 
+# When adding or modifying this dict remember to update state,
+# device_triggers and device_conditions in en.json
 EASEE_STATUS = {
     1: "disconnected",
     2: "awaiting_start",

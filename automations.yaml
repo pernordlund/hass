@@ -53,19 +53,14 @@
   - platform: sun
     event: sunrise
   action:
-  - type: turn_off
-    device_id: 41391f4613e811eb9646f5c29c4a5405
-    entity_id: light.front_door
-    domain: light
   - service: homeassistant.turn_off
     entity_id: group.daily_sun
   mode: single
 - id: A009
   alias: 0 - Some lights on before sunset
   trigger:
-    platform: sun
+  - platform: sun
     event: sunset
-    offset: -00:45:00
   action:
   - service: homeassistant.turn_on
     entity_id: group.daily_sun
@@ -207,17 +202,9 @@
   trigger:
   - platform: state
     to: 'on'
-    entity_id: binary_sensor.upstairs_bathroom_motion
-  condition:
-  - condition: device
-    type: is_off
-    device_id: c2d030f4d6f8491286e88808301e1a69
-    entity_id: switch.bathroom_ceiling
-    domain: switch
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 10
+    entity_id:
+    - binary_sensor.upstairs_bathroom_motion
+  condition: []
   action:
   - service: homeassistant.turn_on
     entity_id: switch.bathroom_ceiling
@@ -266,30 +253,6 @@
     data:
       message: Testing WR1/All
   mode: single
-- id: A031
-  alias: Roger start
-  trigger:
-    platform: state
-    entity_id: input_select.roger_action
-    to: start
-  action:
-  - service: rest_command.roger_start
-- id: A032
-  alias: Roger park
-  trigger:
-    platform: state
-    entity_id: input_select.roger_action
-    to: park
-  action:
-  - service: rest_command.roger_park
-- id: A033
-  alias: Roger stop
-  trigger:
-    platform: state
-    entity_id: input_select.roger_action
-    to: stop
-  action:
-  - service: rest_command.roger_stop
 - id: A035
   alias: Arbrum fonsterlampa med long-klick
   trigger:
@@ -354,61 +317,6 @@
     data:
       message: '{{ states("sensor.time") }} - Marie left Slussen'
   mode: single
-- id: A044
-  alias: X - Log Pelle to work - Life
-  trigger:
-  - entity_id: device_tracker.life360_per_nordlund
-    platform: state
-    to: OKQ8
-  action:
-  - service: shell_command.log_to_okq8
-  - data: {}
-    data_template:
-      message: '{{ states("sensor.time") }} - Logged to OKQ8 - Life'
-    service: notify.work_log
-  - data_template:
-      message: '{{ states("sensor.time") }} - Logged to OKQ8 - Life'
-    service: notify.pelles_tfn
-- id: A045
-  alias: X - Log Pelle leave work - Life
-  trigger:
-  - entity_id: device_tracker.life360_per_nordlund
-    from: OKQ8
-    platform: state
-  action:
-  - service: shell_command.log_leave_okq8
-  - data_template:
-      message: '{{ states("sensor.time") }} - Logged leave OKQ8 - Life'
-    service: notify.work_log
-  - data_template:
-      message: '{{ states("sensor.time") }} - Logged leave OKQ8 - Life'
-    service: notify.pelles_tfn
-- id: A0471
-  alias: X - Log Jenny leaving home - Life
-  trigger:
-    platform: state
-    entity_id: device_tracker.jenny_jenny
-    from: home
-  action:
-  - service: notify.jenny_log
-    data_template:
-      message: '{{ states("sensor.time") }} - Jenny left home - Life'
-  - service: notify.pelles_tfn
-    data_template:
-      message: '{{ states("sensor.time") }} - Jenny left home - Life'
-- id: A048
-  alias: X - Log Jenny leaving home - WLAN
-  trigger:
-    platform: state
-    entity_id: device_tracker.jenny
-    from: home
-  action:
-  - service: notify.jenny_log
-    data_template:
-      message: '{{ states("sensor.time") }} - Jenny left home - WLAN'
-  - service: notify.pelles_tfn
-    data_template:
-      message: '{{ states("sensor.time") }} - Jenny left home - WLAN'
 - id: A049
   alias: Ytterdorr open turn on byra
   trigger:
@@ -483,7 +391,8 @@
   alias: Albin leaves home
   description: ''
   trigger:
-  - entity_id: device_tracker.life360_albin_nordlund
+  - entity_id:
+    - device_tracker.albins_phone
     from: home
     platform: state
   condition: []
@@ -504,7 +413,8 @@
   alias: Albin comes home
   description: ''
   trigger:
-  - entity_id: device_tracker.life360_albin_nordlund
+  - entity_id:
+    - device_tracker.albins_phone
     platform: state
     to: home
   condition: []
@@ -707,18 +617,6 @@
           entity_id: switch.guest_room_desk_2
       light:
         entity_id: light.guest_room_window_hue
-- id: '1610542848014'
-  alias: Pelle - notify when VPN status changes
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: sensor.vpn_simple
-  condition: []
-  action:
-  - service: notify.pelles_tfn
-    data:
-      message: VPN status updated
-  mode: single
 - id: '1622571786170'
   alias: Outside water start
   description: Turn on watering at specific time if soil dry
@@ -1223,3 +1121,61 @@
         data: {}
         target:
           device_id: dfcac5e6ebe90e1fe94718e1295ebdcb
+- id: '1707399319848'
+  alias: Albin STYRBAR
+  description: ''
+  use_blueprint:
+    path: EPMatt/ikea_e2001_e2002.yaml
+    input:
+      integration: deCONZ
+      controller_device: 8b0f9f4260a02c5399e767e4d88016a5
+      action_button_left_short:
+      - service: light.toggle
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.fridas_room_ceiling
+      action_button_up_short:
+      - service: light.toggle
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.albins_bed
+      helper_last_controller_event: input_text.albin_styrbar_last_action
+      action_button_down_short:
+      - service: light.toggle
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.shapes_eea3
+      action_button_right_short:
+      - service: light.toggle
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.fridas_room_ceiling
+- id: '1724313677346'
+  alias: X - Pelle work status changes
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.pelle_work_status
+  condition: []
+  action:
+  - service: notify.send_message
+    target:
+      entity_id: notify.work_log
+    data:
+      message: '{{ states(''sensor.pelle_work_status'') }}'
+  mode: single
+- id: '1724589879528'
+  alias: Meida room - deCONZ - IKEA two button remote for lights
+  description: ''
+  use_blueprint:
+    path: tactmaster/deCONZ - IKEA 2 button remote.yaml
+    input:
+      remote: b219e3271570412868cad35f023b9809
+      light:
+        device_id: 1e9cc4050e2c5d7bf5d8644597551b28
+      brightness: 94

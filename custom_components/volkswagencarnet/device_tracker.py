@@ -1,9 +1,8 @@
-"""
-Support for Volkswagen WeConnect Platform
-"""
+"""Support for Volkswagen Connect Platform."""
+
 import logging
 
-from homeassistant.components.device_tracker import SOURCE_TYPE_GPS
+from homeassistant.components.device_tracker import SourceType
 from homeassistant.components.device_tracker.config_entry import TrackerEntity
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.dispatcher import async_dispatcher_connect
@@ -16,22 +15,30 @@ _LOGGER = logging.getLogger(__name__)
 
 
 async def async_setup_entry(hass: HomeAssistant, entry, async_add_devices):
+    """Set up the Volkswagen device tracker."""
     data = hass.data[DOMAIN][entry.entry_id][DATA]
     coordinator = data.coordinator
     if coordinator.data is not None:
         async_add_devices(
             VolkswagenDeviceTracker(
-                data=data, vin=coordinator.vin, component=instrument.component, attribute=instrument.attr
+                data=data,
+                vin=coordinator.vin,
+                component=instrument.component,
+                attribute=instrument.attr,
             )
             for instrument in (
-                instrument for instrument in data.instruments if instrument.component == "device_tracker"
+                instrument
+                for instrument in data.instruments
+                if instrument.component == "device_tracker"
             )
         )
 
     return True
 
 
-async def async_setup_scanner(hass, config, async_see, discovery_info=None):
+async def async_setup_scanner(
+    hass: HomeAssistant, config, async_see, discovery_info=None
+):
     """Set up the Volkswagen tracker."""
     if discovery_info is None:
         return
@@ -44,11 +51,11 @@ async def async_setup_scanner(hass, config, async_see, discovery_info=None):
         """Handle the reporting of the vehicle position."""
         host_name = data.vehicle_name(instrument.vehicle)
         dev_id = f"{slugify(host_name)}"
-        _LOGGER.debug("Getting location of %s" % host_name)
+        _LOGGER.debug("Getting location of %s", host_name)
         await async_see(
             dev_id=dev_id,
             host_name=host_name,
-            source_type=SOURCE_TYPE_GPS,
+            source_type=SourceType.GPS,
             gps=instrument.state,
             icon="mdi:car",
         )
@@ -59,6 +66,8 @@ async def async_setup_scanner(hass, config, async_see, discovery_info=None):
 
 
 class VolkswagenDeviceTracker(VolkswagenEntity, TrackerEntity):
+    """Representation of a Volkswagen Device Tracker."""
+
     @property
     def latitude(self) -> float:
         """Return latitude value of the device."""
@@ -72,7 +81,7 @@ class VolkswagenDeviceTracker(VolkswagenEntity, TrackerEntity):
     @property
     def source_type(self):
         """Return the source type, eg gps or router, of the device."""
-        return SOURCE_TYPE_GPS
+        return SourceType.GPS
 
     @property
     def icon(self):

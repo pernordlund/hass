@@ -12,7 +12,7 @@
         friendly_name: Zigge BT distance
         unit_of_measurement: 'm'
         value_template: >-
-          {{ 0 if state_attr('sensor.c4c141327127_room_presence', 'distance') is none else "%.1f"|format( states.sensor.c4c141327127_room_presence.attributes.distance) }}
+          {{ 0 if state_attr('sensor.zigge_zigge_room_presence', 'distance') is none else "%.1f"|format( states.sensor.zigge_zigge_room_presence.attributes.distance) }}
       pelles_phone_distance_bt:
         friendly_name: Pelles phone BT distance
         unit_of_measurement: 'm'
@@ -103,34 +103,17 @@
     method: left
     unit_prefix: k
     round: 2
-  - platform: systemmonitor
-    resources:
-      - type: disk_use_percent
-        arg: /
-      - type: disk_free
-        arg: /
-      - type: memory_use_percent
-      - type: memory_free
-      - type: load_1m
-      - type: load_5m
-      - type: load_15m
-      - type: processor_use
-      - type: throughput_network_in
-        arg: hassio
-      - type: throughput_network_out
-        arg: hassio
-      - type: last_boot
-  - platform: aarlo
-    monitored_conditions:
-    - total_cameras
-    - last_capture
-    - recent_activity
-    - captured_today
-    - battery_level
-    - signal_strength
-    - temperature
-    - humidity
-    - air_quality
+#  - platform: aarlo
+#    monitored_conditions:
+#    - total_cameras
+#    - last_capture
+#    - recent_activity
+#    - captured_today
+#    - battery_level
+#    - signal_strength
+#    - temperature
+#    - humidity
+#    - air_quality
   - platform: google_wifi
     host: 192.168.86.1
   - platform: sjofartsverket_viva

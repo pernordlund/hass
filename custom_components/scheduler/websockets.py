@@ -13,6 +13,18 @@ from .store import ScheduleEntry
 
 _LOGGER = logging.getLogger(__name__)
 
+class SchedulesListView(HomeAssistantView):
+    """Login to Home Assistant cloud."""
+
+    url = "/api/{}/list".format(const.DOMAIN)
+    name = "api:{}:list".format(const.DOMAIN)
+
+    async def get(self, request):
+        hass = request.app["hass"]
+        coordinator = hass.data[const.DOMAIN]["coordinator"]
+        schedules = coordinator.async_get_schedules()
+        return self.json(schedules)
+
 
 class SchedulesAddView(HomeAssistantView):
     """Login to Home Assistant cloud."""
@@ -46,7 +58,7 @@ class SchedulesEditView(HomeAssistantView):
         coordinator = hass.data[const.DOMAIN]["coordinator"]
         schedule_id = data[const.ATTR_SCHEDULE_ID]
         del data[const.ATTR_SCHEDULE_ID]
-        await coordinator.async_edit_schedule(schedule_id, data)
+        coordinator.async_edit_schedule(schedule_id, data)
         return self.json({"success": True})
 
 
@@ -61,7 +73,7 @@ class SchedulesRemoveView(HomeAssistantView):
         """Handle config update request."""
         hass = request.app["hass"]
         coordinator = hass.data[const.DOMAIN]["coordinator"]
-        await coordinator.async_delete_schedule(data[const.ATTR_SCHEDULE_ID])
+        coordinator.async_delete_schedule(data[const.ATTR_SCHEDULE_ID])
         return self.json({"success": True})
 
 
@@ -217,9 +229,11 @@ async def async_register_websockets(hass):
     hass.http.register_view(SchedulesAddView)
     hass.http.register_view(SchedulesEditView)
     hass.http.register_view(SchedulesRemoveView)
+    hass.http.register_view(SchedulesListView)
 
     # pass list of schedules to frontend
-    hass.components.websocket_api.async_register_command(
+    websocket_api.async_register_command(
+        hass,
         const.DOMAIN,
         websocket_get_schedules,
         websocket_api.BASE_COMMAND_MESSAGE_SCHEMA.extend(
@@ -230,7 +244,8 @@ async def async_register_websockets(hass):
     )
 
     # pass single schedule to frontend
-    hass.components.websocket_api.async_register_command(
+    websocket_api.async_register_command(
+        hass,
         "{}/item".format(const.DOMAIN),
         websocket_get_schedule_item,
         websocket_api.BASE_COMMAND_MESSAGE_SCHEMA.extend(
@@ -242,7 +257,8 @@ async def async_register_websockets(hass):
     )
 
     # pass list of tags to frontend
-    hass.components.websocket_api.async_register_command(
+    websocket_api.async_register_command(
+        hass,
         "{}/tags".format(const.DOMAIN),
         websocket_get_tags,
         websocket_api.BASE_COMMAND_MESSAGE_SCHEMA.extend(

@@ -1,4 +1,3 @@
-
 albin:
   hide_if_away: false
   mac:
@@ -6,7 +5,6 @@ albin:
   picture: /local/albin.jpg
   track: true
   vendor:
-
 frida:
   hide_if_away: false
   mac:
@@ -14,7 +12,6 @@ frida:
   picture: /local/frida.JPG
   track: true
   vendor:
-
 marie:
   hide_if_away: false
   mac:
@@ -22,7 +19,6 @@ marie:
   picture: /local/marie.JPG
   track: true
   vendor:
-
 jenny:
   hide_if_away: false
   mac:
@@ -30,7 +26,6 @@ jenny:
   picture: /local/jenny.JPG
   track: true
   vendor:
-
 pelle:
   hide_if_away: false
   mac:
@@ -38,7 +33,6 @@ pelle:
   picture: /local/pelle.JPG
   track: true
   vendor:
-
 stereo:
   hide_if_away: false
   mac:
@@ -46,34 +40,6 @@ stereo:
   picture:
   track: true
   vendor:
-
-camera:
-  hide_if_away: false
-  mac:
-  name: camera
-  consider_home: 180
-  picture:
-  track: true
-  vendor:
-
-zonestorage:
-  hide_if_away: false
-  mac:
-  name: zonestorage
-  consider_home: 180
-  picture:
-  track: true
-  vendor:
-
-tv:
-  hide_if_away: false
-  mac:
-  name: tv
-  consider_home: 180
-  picture:
-  track: true
-  vendor:
-
 htpc:
   hide_if_away: false
   mac:
@@ -82,7 +48,6 @@ htpc:
   picture:
   track: true
   vendor:
-
 storstugan:
   hide_if_away: false
   mac:
@@ -90,7 +55,6 @@ storstugan:
   picture:
   track: true
   vendor:
-
 koksradio:
   hide_if_away: false
   mac:
@@ -98,7 +62,6 @@ koksradio:
   picture:
   track: true
   vendor:
-
 pelle_gps:
   hide_if_away: false
   mac:
@@ -106,7 +69,6 @@ pelle_gps:
   picture: /local/pelle.JPG
   track: true
   vendor:
-
 majolika:
   hide_if_away: false
   mac:
@@ -114,15 +76,6 @@ majolika:
   picture:
   track: true
   vendor:
-
-husdata:
-  hide_if_away: false
-  mac:
-  name: husdata
-  picture:
-  track: true
-  vendor:
-
 per_per:
   hide_if_away: false
   picture: /local/pelle.JPG
@@ -130,7 +83,6 @@ per_per:
   name: Pelle
   track: true
   vendor:
-
 marie_marie:
   hide_if_away: false
   picture: /local/marie.JPG
@@ -138,7 +90,6 @@ marie_marie:
   name: marie
   track: true
   vendor:
-
 albin_albin:
   hide_if_away: false
   picture: /local/albin.jpg
@@ -146,7 +97,6 @@ albin_albin:
   name: albin
   track: true
   vendor:
-
 frida_frida:
   hide_if_away: false
   picture: /local/frida.JPG
@@ -154,7 +104,6 @@ frida_frida:
   name: frida
   track: true
   vendor:
-
 jenny_jenny:
   hide_if_away: false
   picture: /local/jenny.JPG
@@ -162,7 +111,6 @@ jenny_jenny:
   name: jenny
   track: true
   vendor:
-
 automower_k_170504968170332295:
   hide_if_away: false
   icon:
@@ -171,7 +119,6 @@ automower_k_170504968170332295:
   picture:
   track: true
   vendor:
-
 tradfri:
   hide_if_away: false
   icon:
@@ -179,8 +126,6 @@ tradfri:
   name: tradfri
   picture:
   track: true
-
-
 automower_k_170504968_170332295:
   hide_if_away: false
   icon:
@@ -188,44 +133,20 @@ automower_k_170504968_170332295:
   name: Roger
   picture:
   track: true
-
 passat:
   icon: mdi:car
   mac:
   name: Passat
   picture:
   track: true
-
-wireguard_pi:
-  name: wireguard_pi
-  mac:
-  icon:
-  picture:
-  track: true
-
 20j1_lr09d73d_lan:
   name: OKQ8 Lenovo
   mac: 00:E0:4C:A8:D9:BE
   icon:
   picture:
   track: true
-
-omv:
-  name: omv
-  mac:
-  icon:
-  picture:
-  track: true
-
 automower_none_170504968_170332295:
   name: Roger
-  mac:
-  icon:
-  picture:
-  track: true
-
-pulse:
-  name: pulse
   mac:
   icon:
   picture:

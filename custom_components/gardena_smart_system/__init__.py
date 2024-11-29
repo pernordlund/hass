@@ -44,26 +44,27 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         client_id=entry.data[CONF_CLIENT_ID],
         client_secret=entry.data[CONF_CLIENT_SECRET],
     )
-
-    try:
-        await gardena_system.start()
-    except AccessDeniedError as ex:
-        _LOGGER.error('Got Access Denied Error when setting up Gardena Smart System: %s', ex)
-        return False
-    except InvalidClientError as ex:
-        _LOGGER.error('Got Invalid Client Error when setting up Gardena Smart System: %s', ex)
-        return False
-    except MissingTokenError as ex:
-        _LOGGER.error('Got Missing Token Error when setting up Gardena Smart System: %s', ex)
-        return False
+    while True:
+        try:
+            await gardena_system.start()
+            break  # If connection is successful, return True
+        except ConnectionError:
+            await asyncio.sleep(60)  # Wait for 60 seconds before trying to reconnect
+        except AccessDeniedError as ex:
+            _LOGGER.error('Got Access Denied Error when setting up Gardena Smart System: %s', ex)
+            return False
+        except InvalidClientError as ex:
+            _LOGGER.error('Got Invalid Client Error when setting up Gardena Smart System: %s', ex)
+            return False
+        except MissingTokenError as ex:
+            _LOGGER.error('Got Missing Token Error when setting up Gardena Smart System: %s', ex)
+            return False
 
     hass.data[DOMAIN][GARDENA_SYSTEM] = gardena_system
 
     hass.bus.async_listen_once(EVENT_HOMEASSISTANT_STOP, lambda event: hass.async_create_task(gardena_system.stop()))
 
-    for component in PLATFORMS:
-        hass.async_create_task(
-            hass.config_entries.async_forward_entry_setup(entry, component))
+    await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
 
     _LOGGER.debug("Gardena Smart System component setup finished")
     return True

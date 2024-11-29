@@ -2,6 +2,7 @@
 
 Author: Niklas Fondberg<niklas.fondberg@gmail.com>.
 """
+
 from collections.abc import Callable
 from datetime import datetime
 import logging
@@ -78,7 +79,6 @@ class ChargerEntity(Entity):
         convert_units_func: Callable,
         attrs_keys: list[str],
         device_class: str,
-        icon: str,
         state_func=None,
         switch_func=None,
         enabled_default=True,
@@ -102,7 +102,6 @@ class ChargerEntity(Entity):
         self._attr_device_class = device_class
         self._attr_translation_key = translation_key
         self._attr_suggested_display_precision = suggested_display_precision
-        self._attr_icon = icon
         self._attr_should_poll = False
         self._attr_entity_registry_enabled_default = enabled_default
         if translation_key is None:
@@ -119,6 +118,7 @@ class ChargerEntity(Entity):
 
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, self.data.product.id)},
+            serial_number=self.data.product.id,
             name=self.data.product.name,
             manufacturer="Easee",
             model=EASEE_PRODUCT_CODES.get(product_code, f"productCode: {product_code}"),
@@ -177,11 +177,7 @@ class ChargerEntity(Entity):
                     attrs[key] = round_0_dec(self.get_value_from_key(attr_key))
                 elif "current" in key.lower():
                     attrs[key] = round_1_dec(self.get_value_from_key(attr_key))
-                elif "cumulative" in key.lower():
-                    attrs[key] = round_1_dec(
-                        self.get_value_from_key(attr_key), self._units
-                    )
-                elif "power" in key.lower():
+                elif "cumulative" in key.lower() or "power" in key.lower():
                     attrs[key] = round_1_dec(
                         self.get_value_from_key(attr_key), self._units
                     )
@@ -212,7 +208,7 @@ class ChargerEntity(Entity):
                 self.data.schedule[second] = value
         elif first == "weekly_schedule":
             if self.data.weekly_schedule is not None:
-                self.data.weelly_schedule[second] = value
+                self.data.weekly_schedule[second] = value
         else:
             _LOGGER.error("Unknown first part of key: %s", key)
             raise IndexError("Unknown first part of key")
@@ -262,6 +258,7 @@ class ChargerEntity(Entity):
             self.data.product.id,
             self._entity_name,
         )
+        self._state = None
         try:
             self._state = self.get_value_from_key(self._state_key)
             if self._state == "":
@@ -279,7 +276,7 @@ class ChargerEntity(Entity):
                 self._state = self._convert_units_func(self._state, self._units)
 
         except KeyError:
-            self._state = None
+            pass
         except IndexError as exc:
             raise IndexError(f"Wrong key for entity: {self._state_key}") from exc
         except TypeError:

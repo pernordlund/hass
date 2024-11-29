@@ -8,5 +8,5 @@
   #   mjpeg_url: !secret camera_mjpeg_url
   #   username: !secret camera_username
   #   password: !secret camera_pwd
-  - platform: aarlo
+  #- platform: aarlo
     # ffmpeg_arguments: '-pred 1 -q:v 2'

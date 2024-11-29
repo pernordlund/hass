@@ -28,7 +28,7 @@
         friendly_name: Heating house
         value_template: "{{ 'on' if ((states.binary_sensor.bv_switch_valve_1.state == 'off') and (states.binary_sensor.bv_compressor.state == 'on')) else 'off'}}"
         
-  - platform: aarlo
-    monitored_conditions:
-    - motion
-    - sound
+#  - platform: aarlo
+#    monitored_conditions:
+#    - motion
+#    - sound

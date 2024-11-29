@@ -1,4 +1,5 @@
 """Support for Xiaomi Mi Air Purifier and Xiaomi Mi Air Humidifier."""
+
 import asyncio
 from enum import Enum
 from functools import partial
@@ -74,14 +75,7 @@ from miio.integrations.humidifier.deerma.airhumidifier_jsqs import (  # pylint: 
 )
 import voluptuous as vol
 
-from homeassistant.components.fan import (
-    PLATFORM_SCHEMA,
-    SUPPORT_DIRECTION,
-    SUPPORT_OSCILLATE,
-    SUPPORT_PRESET_MODE,
-    SUPPORT_SET_SPEED,
-    FanEntity,
-)
+from homeassistant.components.fan import PLATFORM_SCHEMA, FanEntity, FanEntityFeature
 from homeassistant.const import (
     ATTR_ENTITY_ID,
     ATTR_MODE,
@@ -135,6 +129,7 @@ MODEL_AIRHUMIDIFIER_CB2 = "zhimi.humidifier.cb2"
 MODEL_AIRHUMIDIFIER_MJJSQ = "deerma.humidifier.mjjsq"
 MODEL_AIRHUMIDIFIER_JSQ = "deerma.humidifier.jsq"
 MODEL_AIRHUMIDIFIER_JSQ1 = "deerma.humidifier.jsq1"
+MODEL_AIRHUMIDIFIER_JSQ2W = "deerma.humidifier.jsq2w"
 MODEL_AIRHUMIDIFIER_JSQ3 = "deerma.humidifier.jsq3"
 MODEL_AIRHUMIDIFIER_JSQ5 = "deerma.humidifier.jsq5"
 MODEL_AIRHUMIDIFIER_JSQS = "deerma.humidifier.jsqs"
@@ -195,6 +190,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
                 MODEL_AIRHUMIDIFIER_MJJSQ,
                 MODEL_AIRHUMIDIFIER_JSQ,
                 MODEL_AIRHUMIDIFIER_JSQ1,
+                MODEL_AIRHUMIDIFIER_JSQ2W,
                 MODEL_AIRHUMIDIFIER_JSQ3,
                 MODEL_AIRHUMIDIFIER_JSQ5,
                 MODEL_AIRHUMIDIFIER_JSQS,
@@ -1148,6 +1144,7 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
         air_humidifier = AirHumidifierMjjsq(host, token, model=model)
         device = XiaomiAirHumidifierMjjsq(name, air_humidifier, model, unique_id)
     elif model in [
+        MODEL_AIRHUMIDIFIER_JSQ2W,
         MODEL_AIRHUMIDIFIER_JSQ3,
         MODEL_AIRHUMIDIFIER_JSQ5,
         MODEL_AIRHUMIDIFIER_JSQS,
@@ -1266,7 +1263,11 @@ class XiaomiGenericDevice(FanEntity):
     @property
     def supported_features(self):
         """Flag supported features."""
-        return SUPPORT_PRESET_MODE
+        return (
+            FanEntityFeature.PRESET_MODE
+            | FanEntityFeature.TURN_OFF
+            | FanEntityFeature.TURN_ON
+        )
 
     @property
     def should_poll(self):
@@ -1899,9 +1900,12 @@ class XiaomiAirHumidifierMjjsq(XiaomiAirHumidifier):
             self._device_features = FEATURE_FLAGS_AIRHUMIDIFIER_MJJSQ
             self._available_attributes = AVAILABLE_ATTRIBUTES_AIRHUMIDIFIER_MJJSQ
 
-        self._preset_modes = [mode.name for mode in AirhumidifierMjjsqOperationMode
-                              if self._device_features & FEATURE_SET_WET_PROTECTION != 0
-                              or mode != AirhumidifierMjjsqOperationMode.WetAndProtect]
+        self._preset_modes = [
+            mode.name
+            for mode in AirhumidifierMjjsqOperationMode
+            if self._device_features & FEATURE_SET_WET_PROTECTION != 0
+            or mode != AirhumidifierMjjsqOperationMode.WetAndProtect
+        ]
         self._state_attrs = {ATTR_MODEL: self._model}
         self._state_attrs.update(
             {attribute: None for attribute in self._available_attributes}
@@ -2396,10 +2400,12 @@ class XiaomiFan(XiaomiGenericDevice):
     def supported_features(self) -> int:
         """Supported features."""
         return (
-            SUPPORT_SET_SPEED
-            | SUPPORT_PRESET_MODE
-            | SUPPORT_OSCILLATE
-            | SUPPORT_DIRECTION
+            FanEntityFeature.SET_SPEED
+            | FanEntityFeature.PRESET_MODE
+            | FanEntityFeature.OSCILLATE
+            | FanEntityFeature.DIRECTION
+            | FanEntityFeature.TURN_OFF
+            | FanEntityFeature.TURN_ON
         )
 
     async def async_update(self):
@@ -2410,7 +2416,7 @@ class XiaomiFan(XiaomiGenericDevice):
             return
 
         try:
-            state = await self.hass.async_add_job(self._device.status)
+            state = await self.hass.async_add_executor_job(self._device.status)
             _LOGGER.debug("Got new state: %s", state)
 
             self._available = True
@@ -2626,7 +2632,7 @@ class XiaomiFanP5(XiaomiFan):
             return
 
         try:
-            state = await self.hass.async_add_job(self._device.status)
+            state = await self.hass.async_add_executor_job(self._device.status)
             _LOGGER.debug("Got new state: %s", state)
 
             self._available = True
@@ -2749,7 +2755,13 @@ class XiaomiFanLeshow(XiaomiGenericDevice):
     @property
     def supported_features(self) -> int:
         """Supported features."""
-        return SUPPORT_SET_SPEED | SUPPORT_PRESET_MODE | SUPPORT_OSCILLATE
+        return (
+            FanEntityFeature.SET_SPEED
+            | FanEntityFeature.PRESET_MODE
+            | FanEntityFeature.OSCILLATE
+            | FanEntityFeature.TURN_OFF
+            | FanEntityFeature.TURN_ON
+        )
 
     async def async_update(self):
         """Fetch state from the device."""
@@ -2759,7 +2771,7 @@ class XiaomiFanLeshow(XiaomiGenericDevice):
             return
 
         try:
-            state = await self.hass.async_add_job(self._device.status)
+            state = await self.hass.async_add_executor_job(self._device.status)
             _LOGGER.debug("Got new state: %s", state)
 
             self._available = True
@@ -2882,7 +2894,13 @@ class XiaomiFan1C(XiaomiFan):
     @property
     def supported_features(self) -> int:
         """Supported features."""
-        return SUPPORT_SET_SPEED | SUPPORT_PRESET_MODE | SUPPORT_OSCILLATE
+        return (
+            FanEntityFeature.SET_SPEED
+            | FanEntityFeature.PRESET_MODE
+            | FanEntityFeature.OSCILLATE
+            | FanEntityFeature.TURN_OFF
+            | FanEntityFeature.TURN_ON
+        )
 
     async def async_update(self):
         """Fetch state from the device."""
@@ -2892,7 +2910,7 @@ class XiaomiFan1C(XiaomiFan):
             return
 
         try:
-            state = await self.hass.async_add_job(self._device.status)
+            state = await self.hass.async_add_executor_job(self._device.status)
             _LOGGER.debug("Got new state: %s", state)
 
             self._available = True
@@ -3141,12 +3159,14 @@ class XiaomiAirDog(XiaomiGenericDevice):
             self._preset_modes_to_mode_speed[preset_mode],
         )
 
-        # Following is true on AirDogX5 with firmware 1.3.5_0005. Maybe this is different for other models. Needs testing
+        # Following is true on AirDogX5 with firmware 1.3.5_0005.
+        # Maybe this is different for other models. Needs testing
 
         # It looks like the device was not designed to switch from any arbitrary mode to any other mode.
         # Some of the combinations produce unexpected results
         #
-        # For example, switching from 'Auto' to 'Speed X' switches to Manual mode, but always sets speed to 1, regardless of the speed parameter.
+        # For example, switching from 'Auto' to 'Speed X' switches to Manual mode,
+        # but always sets speed to 1, regardless of the speed parameter.
         #
         # Switching from 'Night mode' to 'Speed X' sets device in Auto mode with speed X.
         # Tihs 'Auto X' state is quite strange and does not seem to be useful.
@@ -3157,31 +3177,32 @@ class XiaomiAirDog(XiaomiGenericDevice):
         # Here is a full table of device behaviour
 
         # FROM          TO              RESULT
-        #'Night mode' ->
+        # 'Night mode' ->
         #               'Auto'          Good
         #               'Speed 1'       'Auto 1' + repeat -> Good
         #               'Speed 2'       'Auto 2' + repeat -> Good
         #               'Speed 3'       'Auto 3' + repeat -> Good
         #               'Speed 4'       'Auto 4' + repeat -> Good
-        #'Speed 1'
+        # 'Speed 1'
         #               'Night mode'    Good
         #               'Auto'    Good
-        #'Speed 2' ->
+        # 'Speed 2' ->
         #               'Night mode'    Good
         #               'Auto'    Good
-        #'Speed 3' ->
+        # 'Speed 3' ->
         #               'Night mode'    Good
         #               'Auto'    Good
-        #'Speed 4' ->
+        # 'Speed 4' ->
         #               'Night mode'    Good
-        #'Auto'->
+        # 'Auto'->
         #               'Night mode'    Good
         #               'Speed 1'       Good
         #               'Speed 2'       'Speed 1' + repeat ->  Good
         #               'Speed 3'       'Speed 1' + repeat ->  Good
         #               'Speed 4'       'Speed 1' + repeat ->  Good
 
-        # To allow switching from any mode to any other mode command is repeated twice when switching is from 'Night mode' or 'Auto' to 'Speed X'.
+        # To allow switching from any mode to any other mode command is repeated
+        # twice when switching is from 'Night mode' or 'Auto' to 'Speed X'.
 
         await self._try_command(
             "Setting preset mode of the miio device failed.",

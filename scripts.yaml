@@ -101,6 +101,7 @@ lights_out:
       - 59013ed21d94a1c6e3fd9a8d42920ecf
       - dcc78413aa114add43f3c8a9eab77db3
       - d8fbaaa1349a50ca734fa17355f3fdd4
+      - 6bc55371321549ea204f4d782e3f8938
   - service: media_player.turn_off
     data:
       entity_id: media_player.samsung_tv
@@ -111,3 +112,23 @@ lights_out:
       - lock.id_lock_150_locked
       - lock.garage_side_door_lock
   mode: single
+zigge_notif_1hr_off:
+  alias: Zigge notif 1hr off
+  sequence:
+  - service: automation.turn_off
+    target:
+      entity_id: automation.zigge_waiting_bt
+    data:
+      stop_actions: true
+  - delay:
+      hours: 1
+      minutes: 0
+      seconds: 0
+      milliseconds: 0
+  - service: automation.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id: automation.zigge_waiting_bt
+  mode: single
+  icon: mdi:cat
