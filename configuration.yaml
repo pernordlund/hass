@@ -26,28 +26,21 @@ my:
 
 energy:
 
-#zone: !include zones.yaml
-
-# Show links to resources in log and frontend
-# introduction:
-
 # Enables the frontend
 frontend:
 
 #Enable config menu
 config:
 
-# zwave:
-#   usb_path: /dev/serial/by-id/usb-0658_0200-if00
-# #  usb_path: /dev/ttyACM0
-#   network_key: !secret zw_network_key
-
 group: !include groups.yaml
 
 http:
   use_x_forwarded_for: true
   trusted_proxies:
-    - !secret http_trusted_proxy
+    - 192.168.86.0/24
+    # - !secret http_trusted_proxy1
+    # - !secret http_trusted_proxy2
+    # - !secret http_trusted_proxy3
 
 # Checks for available updates
 # updater:
@@ -123,28 +116,6 @@ system_log:
 #netatmo: !include netatmo.yaml
 
 timer: !include timers.yaml
-
-aarlo:
-  host: https://my.arlo.com
-  username: !secret ar_username
-  password: !secret ar_password
-  refresh_devices_every: 2
-  stream_timeout: 60
-  # verbose_debug: True
-  tfa_source: imap
-  tfa_type: email
-  tfa_host: imap.gmail.com
-  tfa_username: !secret ar_gm_user
-  tfa_password: !secret ar_gm_password
-  # backend: sse
-
-#alarm_control_panel:
-#  - platform: aarlo
-#    away_mode_name: armed
-#    home_mode_name: Home
-#    night_mode_name: night
-#    trigger_time: 30
-#    alarm_volume: 8
 
 system_health:
 

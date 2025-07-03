@@ -833,9 +833,8 @@
 - id: '1645650515713'
   alias: Zigge waiting BT
   description: ''
-  trigger:
-  - platform: numeric_state
-    entity_id: sensor.zigge_distance_bt
+  triggers:
+  - entity_id: sensor.zigge_distance_bt
     above: '0.1'
     below: 25
     for:
@@ -843,8 +842,8 @@
       minutes: 5
       seconds: 0
     id: 5 minutes
-  - platform: numeric_state
-    entity_id: sensor.zigge_distance_bt
+    trigger: numeric_state
+  - entity_id: sensor.zigge_distance_bt
     for:
       hours: 0
       minutes: 15
@@ -852,8 +851,8 @@
     id: 15 minutes
     above: '0.1'
     below: 24.9
-  - platform: numeric_state
-    entity_id: sensor.zigge_distance_bt
+    trigger: numeric_state
+  - entity_id: sensor.zigge_distance_bt
     for:
       hours: 0
       minutes: 45
@@ -861,17 +860,19 @@
     above: '0.1'
     below: 25
     id: 45 minutes
-  condition: []
-  action:
-  - service: notify.pelles_tfn
-    data:
+    trigger: numeric_state
+  conditions: []
+  actions:
+  - data:
       message: Zigge has waited {{ trigger.id }}
-  - service: notify.guest_room
-    data:
+    action: notify.pelles_tfn
+    enabled: false
+  - data:
       message: Ziggee has waited for {{ trigger.id }}
-  - service: notify.living_room
-    data:
+    action: notify.guest_room
+  - data:
       message: Ziggee has waited for {{ trigger.id }}
+    action: notify.living_room
   mode: single
 - id: '666'
   alias: Charger
@@ -1129,31 +1130,26 @@
     input:
       integration: deCONZ
       controller_device: 8b0f9f4260a02c5399e767e4d88016a5
-      action_button_left_short:
-      - service: light.toggle
-        metadata: {}
-        data: {}
-        target:
-          entity_id: light.fridas_room_ceiling
+      action_button_left_short: []
       action_button_up_short:
-      - service: light.toggle
-        metadata: {}
+      - metadata: {}
         data: {}
         target:
           entity_id: light.albins_bed
+        action: light.toggle
       helper_last_controller_event: input_text.albin_styrbar_last_action
       action_button_down_short:
-      - service: light.toggle
-        metadata: {}
+      - metadata: {}
         data: {}
         target:
           entity_id: light.shapes_eea3
+        action: light.toggle
       action_button_right_short:
-      - service: light.toggle
+      - action: switch.toggle
         metadata: {}
         data: {}
         target:
-          entity_id: light.fridas_room_ceiling
+          entity_id: switch.on_off_plug_in_unit_16
 - id: '1724313677346'
   alias: X - Pelle work status changes
   description: ''

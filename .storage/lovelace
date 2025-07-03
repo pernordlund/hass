@@ -178,6 +178,21 @@
               "type": "entities",
               "entities": [
                 {
+                  "entity": "binary_sensor.bv_making_hot_water"
+                },
+                {
+                  "entity": "binary_sensor.bv_heating_house"
+                },
+                {
+                  "entity": "sensor.ti_current_cost"
+                }
+              ],
+              "title": "Energy"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
                   "entity": "sensor.netatmo_outdoor_humidity"
                 },
                 {
@@ -212,18 +227,6 @@
                 "sensor.postnord_delivery_13837"
               ],
               "title": "Snail mail"
-            },
-            {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "binary_sensor.bv_making_hot_water"
-                },
-                {
-                  "entity": "binary_sensor.bv_heating_house"
-                }
-              ],
-              "title": "Heat pump"
             },
             {
               "type": "custom:apexcharts-card",
@@ -397,7 +400,7 @@
                   "entity": "light.guest_room_window_hue"
                 },
                 {
-                  "entity": "switch.attic"
+                  "entity": "light.nexa_2"
                 },
                 {
                   "entity": "light.kitchen_ceiling"
@@ -428,9 +431,6 @@
                   "entity": "light.albins_bed"
                 },
                 {
-                  "entity": "light.fridas_room_ceiling"
-                },
-                {
                   "entity": "switch.bathroom_ceiling"
                 },
                 {
@@ -453,6 +453,15 @@
                 },
                 {
                   "entity": "light.shapes_eea3"
+                },
+                {
+                  "entity": "light.arc_c1"
+                },
+                {
+                  "entity": "light.nexa_1"
+                },
+                {
+                  "entity": "switch.on_off_plug_in_unit_16"
                 }
               ],
               "show_header_toggle": true,
@@ -890,6 +899,15 @@
                 },
                 {
                   "entity": "sensor.stats_work_hours"
+                },
+                {
+                  "entity": "automation.deconz_aqara_wireless_remote"
+                },
+                {
+                  "entity": "automation.x_work_at_midnight"
+                },
+                {
+                  "entity": "automation.x_pelle_work_status_changes"
                 }
               ],
               "title": "Work log"
@@ -1060,6 +1078,9 @@
                 },
                 {
                   "entity": "sensor.arteon_charging_energy"
+                },
+                {
+                  "entity": "sensor.ti_current_cost"
                 }
               ],
               "title": "Energy sensors"
@@ -1176,7 +1197,7 @@
             },
             {
               "type": "markdown",
-              "content": "# Bergvärme historik\n\n| Datum | Värmekurva | &nbsp;&nbsp;&nbsp;Finjust |\n| :--- | ---: | ---: |\n| <2022-11-01 | 2.3| 0.9|\n| 2022-11-01 | 1.7|-|\n| 2022-11-16 | 2.0|-|\n|2022-11-20 | 1.9|-|\n|2022-11-30| 1.8|-|\n|2023-09-05| 1.7|-|\n|2023-10-03| 1.8|-|\n|2023-10-05| 2.2|-|\n|2023-11-14| 2.1|-|\n|2024-01-04| 1.9|-|\n|2024-01-25| 2.1|-|\n|2024-04-30| 1.9|-|\n|2024-09-30| 2.2|-|\n"
+              "content": "# Bergvärme historik\n\n| Datum | Värmekurva | &nbsp;&nbsp;&nbsp;Finjust |\n| :--- | ---: | ---: |\n| <2022-11-01 | 2.3| 0.9|\n| 2022-11-01 | 1.7|-|\n| 2022-11-16 | 2.0|-|\n|2022-11-20 | 1.9|-|\n|2022-11-30| 1.8|-|\n|2023-09-05| 1.7|-|\n|2023-10-03| 1.8|-|\n|2023-10-05| 2.2|-|\n|2023-11-14| 2.1|-|\n|2024-01-04| 1.9|-|\n|2024-01-25| 2.1|-|\n|2024-04-30| 1.9|-|\n|2024-09-30| 2.2|-|\n|2025-03-31| 1.9|-|"
             },
             {
               "type": "picture-elements",
@@ -1332,19 +1353,22 @@
                   "entity": "device_tracker.wireguard_pi"
                 },
                 {
-                  "entity": "sensor.wg_pi_temperature"
-                },
-                {
                   "entity": "device_tracker.omv"
-                },
-                {
-                  "entity": "sensor.omv_temperature"
                 },
                 {
                   "entity": "sensor.entrance_cluster_size"
                 },
                 {
                   "entity": "sensor.range_extender_7_node_status"
+                },
+                {
+                  "entity": "sensor.omv_temperature"
+                },
+                {
+                  "entity": "sensor.nuc7_temperature"
+                },
+                {
+                  "entity": "sensor.nuc10_temperature"
                 }
               ],
               "show_header_toggle": false,
@@ -1535,7 +1559,7 @@
             },
             {
               "type": "markdown",
-              "content": "|Batteri|Datum|\n|-|-|\nID-lock|2024-03-14\nID-lock|2024-10-06\nDanalock|2024-10-06\nDanapad|2024-10-06",
+              "content": "|Batteri|Datum|Typ\n|:-|:-|:-|\nID-lock|2024-03-14\nID-lock|2024-10-06|Varta Ultra Lithium\nDanalock|2024-10-06\nDanapad|2024-10-06\nID-lock|2025-03-31|Varta Alkaline",
               "title": "Batteribyten"
             }
           ]
@@ -1548,14 +1572,6 @@
           "cards": [
             {
               "entity": "media_player.living_room_speaker",
-              "type": "media-control"
-            },
-            {
-              "entity": "media_player.guest_room_speaker",
-              "type": "media-control"
-            },
-            {
-              "entity": "media_player.chromecast8094",
               "type": "media-control"
             },
             {
@@ -1577,6 +1593,10 @@
             {
               "type": "media-control",
               "entity": "media_player.telenor_mediahubb"
+            },
+            {
+              "type": "media-control",
+              "entity": "media_player.guest_room_speaker"
             }
           ]
         },
@@ -1658,11 +1678,13 @@
                 "light.living_room_corner",
                 "light.living_room_sofa",
                 "light.play_room_corner",
+                "switch.nexa_1",
                 "scene.godnatt",
                 "switch.arc_b1",
                 "switch.arc_b2",
                 "switch.arc_b8",
                 "switch.arc_c3",
+                "switch.arc_d4",
                 "switch.attic",
                 "switch.bathroom_ceiling",
                 "switch.bedroom_window",
@@ -1672,7 +1694,8 @@
                 "switch.popp_duwi_zw_zsa_3500_plugin_switch_switch",
                 "switch.tp1",
                 "switch.tp2",
-                "switch.water_control"
+                "switch.water_control",
+                "switch.indoor_outdoor_wall_plug_switch"
               ]
             }
           ]
@@ -1997,6 +2020,43 @@
                 }
               ],
               "title": "Easee status"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                "select.charge_mode",
+                "button.start_air_conditioner",
+                "button.start_charge",
+                "button.stop_charge"
+              ],
+              "title": "Zoe actions"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                "sensor.admissible_charging_power",
+                "sensor.battery",
+                "sensor.battery_autonomy",
+                "sensor.battery_available_energy",
+                "sensor.battery_temperature",
+                "sensor.charge_state",
+                "binary_sensor.charging",
+                "sensor.charging_remaining_time",
+                "binary_sensor.driver_door",
+                "binary_sensor.hatch",
+                "binary_sensor.hvac",
+                "sensor.hvac_soc_threshold",
+                "binary_sensor.lock",
+                "sensor.mileage",
+                "sensor.outside_temperature",
+                "binary_sensor.passenger_door",
+                "binary_sensor.plug",
+                "sensor.plug_state",
+                "binary_sensor.rear_left_door",
+                "binary_sensor.rear_right_door",
+                "sensor.remote_engine_start"
+              ],
+              "title": "Zoe status"
             }
           ]
         },

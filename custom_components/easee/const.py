@@ -17,14 +17,13 @@ from homeassistant.helpers.entity import EntityCategory
 
 DOMAIN = "easee"
 TIMEOUT = 30
-VERSION = "0.9.65"
+VERSION = "0.9.67"
 MIN_HA_VERSION = "2024.8.0"
 CONF_MONITORED_SITES = "monitored_sites"
 MANUFACTURER = "Easee"
 MODEL_EQUALIZER = "Equalizer"
 MODEL_CHARGING_ROBOT = "Charging Robot"
 PLATFORMS = [Platform.BUTTON, Platform.BINARY_SENSOR, Platform.SENSOR, Platform.SWITCH]
-LISTENER_FN_CLOSE = "update_listener_close_fn"
 EASEE_PRODUCT_CODES = {
     1: "Easee Home",
     100: "Easee Charge",
@@ -661,7 +660,7 @@ OPTIONAL_EASEE_ENTITIES = {
         "state_func": lambda schedule: bool(schedule.isEnabled) or False,
         "switch_func": "enable_basic_charge_plan",
         "enabled_default": False,
-        "entity_category": EntityCategory.DIAGNOSTIC,
+        "entity_category": EntityCategory.CONFIG,
     },
     "weekly_schedule": {
         "type": "switch",
@@ -697,7 +696,7 @@ OPTIONAL_EASEE_ENTITIES = {
         "state_func": lambda weekly_schedule: bool(weekly_schedule.isEnabled) or False,
         "switch_func": "enable_weekly_charge_plan",
         "enabled_default": False,
-        "entity_category": EntityCategory.DIAGNOSTIC,
+        "entity_category": EntityCategory.CONFIG,
     },
     "cost_per_kwh": {
         "key": "site.costPerKWh",

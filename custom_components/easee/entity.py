@@ -20,7 +20,7 @@ _LOGGER = logging.getLogger(__name__)
 """ TODO Quick fix to handle rounding: Cleanup and collapse later """
 
 
-def round_to_dec(value, decimals=None, unit=None):
+def round_to_dec(value, decimals=None, unit=None) -> float | int:
     """Round to selected no of decimals."""
     if unit in (UnitOfPower.WATT, UnitOfEnergy.WATT_HOUR):
         value = value * 1000
@@ -52,7 +52,7 @@ def map_charger_status(value, unit=None):
     return EASEE_STATUS.get(value, f"unknown {value}")
 
 
-def map_reason_no_current(value, unit=None):
+def map_reason_no_current(value, unit=None) -> str:
     """Map reason for no current."""
     return REASON_NO_CURRENT.get(value, f"unknown {value}")
 
@@ -71,7 +71,6 @@ class ChargerEntity(Entity):
 
     def __init__(
         self,
-        controller,
         data,
         name: str,
         state_key: str,
@@ -88,7 +87,6 @@ class ChargerEntity(Entity):
         suggested_display_precision=None,
     ):
         """Initialize the entity."""
-        self.controller = controller
         self.data = data
         self._entity_name = name
         self._state_key = state_key
@@ -128,22 +126,23 @@ class ChargerEntity(Entity):
             ),
         )
 
-    async def async_added_to_hass(self) -> None:
-        """Entity created."""
-
-        self.hass.data[DOMAIN]["entities"].append({self._entity_name: self.entity_id})
-
     async def async_will_remove_from_hass(self) -> None:
         """Disconnect object when removed."""
-        if self in self.controller.sensor_entities:
-            self.controller.sensor_entities.remove(self)
-        if self in self.controller.binary_sensor_entities:
-            self.controller.binary_sensor_entities.remove(self)
-        if self in self.controller.switch_entities:
-            self.controller.switch_entities.remove(self)
-        if self in self.controller.equalizer_sensor_entities:
-            self.controller.equalizer_sensor_entities.remove(self)
-        self.controller = None
+        controller = self.hass.data[DOMAIN]["controller"]
+        if self in controller.sensor_entities:
+            controller.sensor_entities.remove(self)
+        if self in controller.binary_sensor_entities:
+            controller.binary_sensor_entities.remove(self)
+        if self in controller.switch_entities:
+            controller.switch_entities.remove(self)
+        if self in controller.button_entities:
+            controller.button_entities.remove(self)
+        if self in controller.equalizer_sensor_entities:
+            controller.equalizer_sensor_entities.remove(self)
+        if self in controller.equalizer_binary_sensor_entities:
+            controller.equalizer_binary_sensor_entities.remove(self)
+        if self in controller.equalizer_switch_entities:
+            controller.equalizer_switch_entities.remove(self)
         ent_reg = er.async_get(self.hass)
         entity_entry = ent_reg.async_get(self.entity_id)
 
@@ -159,12 +158,12 @@ class ChargerEntity(Entity):
             ent_reg.async_remove(self.entity_id)
 
     @property
-    def available(self):
+    def available(self) -> bool:
         """Return True if entity is available."""
         return True
 
     @property
-    def extra_state_attributes(self):
+    def extra_state_attributes(self) -> dict:
         """Return the extra state attributes."""
         try:
             attrs = {
@@ -251,7 +250,7 @@ class ChargerEntity(Entity):
 
         return value
 
-    async def async_update(self):
+    async def async_update(self) -> None:
         """Get the latest data and update the state."""
         _LOGGER.debug(
             "Entity async_update : %s %s",
@@ -275,11 +274,7 @@ class ChargerEntity(Entity):
             if self._convert_units_func is not None:
                 self._state = self._convert_units_func(self._state, self._units)
 
-        except KeyError:
-            pass
         except IndexError as exc:
             raise IndexError(f"Wrong key for entity: {self._state_key}") from exc
-        except TypeError:
-            pass
-        except AttributeError:
+        except (AttributeError, KeyError, TypeError):
             pass

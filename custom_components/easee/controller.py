@@ -6,7 +6,6 @@ from gc import collect
 import json
 import logging
 from random import random
-from sys import getrefcount
 
 from pyeasee import (
     Charger,
@@ -29,7 +28,7 @@ from pyeasee.exceptions import (
 )
 
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.core import HomeAssistant
+from homeassistant.core import CALLBACK_TYPE, HomeAssistant, callback
 from homeassistant.exceptions import ConfigEntryAuthFailed, ConfigEntryNotReady
 from homeassistant.helpers import aiohttp_client
 from homeassistant.helpers.event import (
@@ -37,6 +36,7 @@ from homeassistant.helpers.event import (
     async_track_time_interval,
 )
 from homeassistant.util import dt as dt_util
+from homeassistant.util.ssl import get_default_context
 
 from .binary_sensor import ChargerBinarySensor, EqualizerBinarySensor
 from .button import ChargerButton
@@ -146,7 +146,7 @@ class ProductData:
         """Mark as dirty."""
         self.dirty = True
 
-    async def firmware_async_refresh(self):
+    async def async_firmware_refresh(self):
         """Poll latest firmware version."""
         if self.state is None:
             return False
@@ -212,16 +212,16 @@ class ProductData:
             if "_" in name:
                 first, second = name.split("_")
 
-            if first == "state":
-                self.state[second] = value
-            elif first == "config":
-                self.config[second] = value
-            elif first == "schedule":
-                if value == "":
-                    value = "{}"
-                self.schedules_interpret(json.loads(value))
+                if first == "state":
+                    self.state[second] = value
+                elif first == "config":
+                    self.config[second] = value
+                elif first == "schedule":
+                    if value == "":
+                        value = "{}"
+                    self.schedules_interpret(json.loads(value))
 
-    async def schedules_async_refresh(self):
+    async def async_schedules_refresh(self):
         """Poll schedule data."""
         self.schedule_polled = True
 
@@ -287,7 +287,7 @@ class ProductData:
                 else:
                     self.schedule["chargeStopTime"] = time.strftime("%H:%M")
 
-    async def cost_async_refresh(self):
+    async def async_cost_refresh(self):
         """Poll cost data."""
         dt_end = dt_util.now().replace(microsecond=0)
         dt_start = dt_util.now().replace(hour=0, minute=0, second=0, microsecond=0)
@@ -356,7 +356,7 @@ class ProductData:
 
         self.state["signalRConnected"] = state
 
-    async def update_stream_data(self, data_type, data_id, value):
+    async def async_update_stream_data(self, data_type, data_id, value):
         """Update data with received data from SignalR stream."""
         if self.state is None:
             return False
@@ -395,7 +395,7 @@ class ProductData:
                     return True
                 self.state[second] = value
                 if second == "lifetimeEnergy" and oldvalue != value:
-                    await self.cost_async_refresh()
+                    await self.async_cost_refresh()
                 if self.check_value(data_type, oldvalue, value):
                     return True
             elif first == "config":
@@ -428,14 +428,20 @@ class ProductData:
 class Controller:
     """Controller class orchestrating the data fetching and entitities."""
 
+    _on_remove: list[CALLBACK_TYPE] | None = None
+
     def __init__(
-        self, username: str, password: str, hass: HomeAssistant, entry: ConfigEntry
+        self,
+        username: str,
+        password: str,
+        hass: HomeAssistant,
+        config_entry: ConfigEntry,
     ):
         """Init the Controller class."""
         self.username = username
         self.password = password
         self.hass = hass
-        self.config = entry
+        self.entry = config_entry
         self.easee: Easee | None = None
         self.sites: list[Site] = []
         self.circuits: list[Circuit] = []
@@ -451,7 +457,6 @@ class Controller:
         self.equalizer_binary_sensor_entities = []
         self.equalizer_switch_entities = []
         self.diagnostics = {}
-        self.trackers = []
         self.monitored_sites = None
         self._init_count = 0
 
@@ -459,26 +464,46 @@ class Controller:
         """Log deletion."""
         _LOGGER.debug("Controller deleted")
 
-    async def cleanup(self):
+    @callback
+    def async_on_remove(self, func: CALLBACK_TYPE) -> None:
+        """Add a function to call when entity is removed or not added."""
+        if self._on_remove is None:
+            self._on_remove = []
+        self._on_remove.append(func)
+
+    def _call_on_remove_callbacks(self) -> None:
+        """Call callbacks registered by async_on_remove."""
+        if self._on_remove is None:
+            return
+        while self._on_remove:
+            self._on_remove.pop()()
+
+    async def async_cleanup(self):
         """Cleanup controller."""
+        if "diagnostics" in self.hass.data[DOMAIN]:
+            self.hass.data[DOMAIN].pop("diagnostics")
+
+        if "sites_to_remove" in self.hass.data[DOMAIN]:
+            self.hass.data[DOMAIN].pop("sites_to_remove")
+
+        self._call_on_remove_callbacks()
+
         if self.easee is not None:
             for equalizer in self.equalizers:
                 await self.easee.sr_unsubscribe(equalizer)
             for charger in self.chargers:
                 await self.easee.sr_unsubscribe(charger)
             await self.easee.close()
-        for tracker in self.trackers:
-            tracker()
-        self.trackers = []
+
+        self.hass.data[DOMAIN].pop("controller")
         collect()
 
-        _LOGGER.debug("Controller refcount after cleanup %d", getrefcount(self))
-
-    async def initialize(self):
+    async def async_initialize(self):
         """Initialize the session and get initial data."""
         client_session = aiohttp_client.async_get_clientsession(self.hass)
+        ssl = get_default_context()
         self.easee = Easee(
-            self.username, self.password, client_session, f"easee_hass_{VERSION}"
+            self.username, self.password, client_session, f"easee_hass_{VERSION}", ssl
         )
 
         try:
@@ -510,7 +535,7 @@ class Controller:
             self.sites: list[Site] = await self.easee.get_account_products()
             self.diagnostics["sites"] = self.sites
 
-            self.monitored_sites = self.config.options.get(
+            self.monitored_sites = self.entry.options.get(
                 CONF_MONITORED_SITES, [site.name for site in self.sites]
             )
 
@@ -566,7 +591,6 @@ class Controller:
 
             self.hass.data[DOMAIN]["diagnostics"] = self.diagnostics
             self._init_count = 0
-            self.trackers = []
 
             self._create_entitites()
 
@@ -574,24 +598,24 @@ class Controller:
             _LOGGER.debug("Easee server failure %s", err)
             raise ConfigEntryNotReady from err
 
-    async def stream_callback(self, idx, data_type, data_id, value):
+    async def async_stream_callback(self, idx, data_type, data_id, value):
         """Handle the he stream callback."""
         all_data = self.chargers_data + self.equalizers_data
 
         for data in all_data:
             if data.product.id == idx:
-                if await data.update_stream_data(data_type, data_id, value):
+                if await data.async_update_stream_data(data_type, data_id, value):
                     _LOGGER.debug("Scheduling update")
                     self.update_ha_state()
                     return
 
-    async def setup_done(self, name):
+    async def async_setup_done(self, name):
         """Entities setup is done."""
         _LOGGER.debug("Entities %s setup done", name)
         self._init_count = self._init_count + 1
 
         if self._init_count >= len(PLATFORMS):
-            await self.add_schedulers()
+            await self.async_add_schedulers()
 
     def update_ha_state(self):
         """Schedule an update for all other included entities."""
@@ -611,53 +635,53 @@ class Controller:
         for entity in all_entities:
             entity.data.mark_clean()
 
-    async def add_schedulers(self):
+    async def async_add_schedulers(self):
         """Add schedules to update data."""
         # first update
-        await self.refresh_sites_state()
-        await self.refresh_equalizers_state()
+        await self.async_refresh_sites_state()
+        await self.async_refresh_equalizers_state()
         await asyncio.gather(
-            *[charger.cost_async_refresh() for charger in self.chargers_data]
+            *[charger.async_cost_refresh() for charger in self.chargers_data]
         )
         await asyncio.gather(
-            *[charger.firmware_async_refresh() for charger in self.chargers_data]
+            *[charger.async_firmware_refresh() for charger in self.chargers_data]
         )
         await asyncio.gather(
-            *[equalizer.firmware_async_refresh() for equalizer in self.equalizers_data]
+            *[equalizer.async_firmware_refresh() for equalizer in self.equalizers_data]
         )
 
         # Add interval refresh for site state interval
-        self.trackers.append(
+        self.async_on_remove(
             async_track_time_interval(
                 self.hass,
-                self.refresh_sites_state,
+                self.async_refresh_sites_state,
                 timedelta(seconds=SCAN_INTERVAL_STATE_SECONDS),
             )
         )
 
         # Add interval refresh for equalizer state interval
-        self.trackers.append(
+        self.async_on_remove(
             async_track_time_interval(
                 self.hass,
-                self.refresh_equalizers_state,
+                self.async_refresh_equalizers_state,
                 timedelta(seconds=SCAN_INTERVAL_EQUALIZERS_SECONDS),
             )
         )
 
         # Add interval refresh for schedules
-        self.trackers.append(
+        self.async_on_remove(
             async_track_time_interval(
                 self.hass,
-                self.refresh_schedules,
+                self.async_refresh_schedules,
                 timedelta(seconds=SCAN_INTERVAL_SCHEDULES_SECONDS),
             )
         )
 
         # Add time pattern refresh some random time after midnight
-        self.trackers.append(
+        self.async_on_remove(
             async_track_time_change(
                 self.hass,
-                self.refresh_midnight,
+                self.async_refresh_midnight,
                 hour=0,
                 minute=int(random() * 9),
                 second=int(random() * 59),
@@ -665,36 +689,33 @@ class Controller:
         )
 
         # Add time pattern refresh some random time after each hour mark
-        self.trackers.append(
+        self.async_on_remove(
             async_track_time_change(
                 self.hass,
-                self.refresh_hour,
+                self.async_refresh_hour,
                 minute=2,
                 second=int(random() * 59),
             )
         )
 
-        # Let other tasks run
-        await asyncio.sleep(0)
-
         for equalizer in self.equalizers:
-            await self.easee.sr_subscribe(equalizer, self.stream_callback)
+            await self.easee.sr_subscribe(equalizer, self.async_stream_callback)
         for charger in self.chargers:
-            await self.easee.sr_subscribe(charger, self.stream_callback)
+            await self.easee.sr_subscribe(charger, self.async_stream_callback)
 
-    async def refresh_midnight(self, now=None):
+    async def async_refresh_midnight(self, now=None):
         """Refresh the cost data."""
         _LOGGER.debug("Midnight refresh started")
         for charger in self.chargers_data:
-            await charger.cost_async_refresh()
-            await charger.firmware_async_refresh()
+            await charger.async_cost_refresh()
+            await charger.async_firmware_refresh()
 
         for equalizer in self.equalizers_data:
-            await equalizer.firmware_async_refresh()
+            await equalizer.async_firmware_refresh()
 
         self.update_ha_state()
 
-    async def refresh_hour(self, now=None):
+    async def async_refresh_hour(self, now=None):
         """Refresh the energy data, if needed."""
         _LOGGER.debug("Hour refresh started")
 
@@ -703,16 +724,16 @@ class Controller:
 
         self.update_ha_state()
 
-    async def refresh_schedules(self, now=None):
+    async def async_refresh_schedules(self, now=None):
         """Refresh the charging schedules data."""
         for charger in self.chargers_data:
             if charger.is_schedule_polled() and self.easee.sr_is_connected():
                 continue
-            await charger.schedules_async_refresh()
+            await charger.async_schedules_refresh()
 
         self.update_ha_state()
 
-    async def refresh_sites_state(self, now=None):
+    async def async_refresh_sites_state(self, now=None):
         """Get site state for all sites and updates the chargers state and config."""
 
         for charger_data in self.chargers_data:
@@ -727,7 +748,7 @@ class Controller:
 
         self.update_ha_state()
 
-    async def refresh_equalizers_state(self, now=None):
+    async def async_refresh_equalizers_state(self, now=None):
         """Get equalizer state for all equalizers."""
 
         for equalizer_data in self.equalizers_data:
@@ -877,7 +898,6 @@ class Controller:
     def _create_entity(
         self,
         object_type,
-        controller,
         product_data,
         name,
         data,
@@ -885,7 +905,6 @@ class Controller:
         entity_type_name = ENTITY_TYPES[object_type]
 
         entity = entity_type_name(
-            controller=controller,
             data=product_data,
             name=name,
             state_key=data["key"],
@@ -951,7 +970,6 @@ class Controller:
                     continue
                 self._create_entity(
                     entity_type,
-                    controller=self,
                     product_data=charger_data,
                     name=key,
                     data=data,
@@ -963,7 +981,6 @@ class Controller:
 
                 self._create_entity(
                     entity_type,
-                    controller=self,
                     product_data=equalizer_data,
                     name=key,
                     data=data,
