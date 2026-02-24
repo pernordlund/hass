@@ -73,19 +73,13 @@ logbook:
 # Track the sun
 sun:
 
-# rfxtrx: !include rfxtrx.yaml
-
 sensor: !include sensors.yaml
-
-binary_sensor: !include binary_sensors.yaml
 
 media_player: !include media_players.yaml
 
 camera: !include cameras.yaml
 
 switch: !include switches.yaml
-
-#light: !include lights.yaml
 
 automation: !include automations.yaml
 
@@ -105,15 +99,11 @@ influxdb: !include influxdb.yaml
 
 script: !include scripts.yaml
 
-# mqtt: !include mqtt.yaml
-
 python_script:
 
 cloud:
 
 system_log:
-
-#netatmo: !include netatmo.yaml
 
 timer: !include timers.yaml
 
@@ -129,11 +119,7 @@ input_select: !include input_selects.yaml
 input_number: !include input_numbers.yaml
 input_datetime:
 counter:
-  
-# ffmpeg:
-
 stream:
-
 mobile_app:
 
 twilio:

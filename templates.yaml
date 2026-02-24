@@ -4,11 +4,18 @@
         state: >
           {{ ((distance('device_tracker.zklvyzim_zigge') or 0) | multiply(1000) | int) * (1 if is_state('sensor.zigge_tracker_state', 'operational') else 0) }}
   - sensor:
+    - unit_of_measurement: m
+      default_entity_id: sensor.zigge_distance_bt
+      name: Zigge BT distance
+      state: '{{ 0 if state_attr(''sensor.zigge_zigge_room_presence_2'', ''distance'')
+        is none else "%.1f"|format( states.sensor.zigge_zigge_room_presence_2.attributes.distance)
+        }}'
+  - sensor:
       - name: Pelle work status
         unique_id: 'pelle_work_status'
         state: >
           {{
-            ('At OKQ8'     if is_state('device_tracker.life360_per_nordlund', 'OKQ8')) or
+            ('At OKQ8'     if is_state('person.pelle', 'OKQ8')) or
             ('At Home'     if is_state('input_boolean.pelle_working_at_home', 'on')) or
             ('Not working' if is_state('input_boolean.pelle_not_working_at_home', 'on')) or
             ('At Home'     if (is_state('input_boolean.pelle_working_at_home', 'off') and
@@ -33,3 +40,105 @@
       - platform: state
         entity_id:
           - sensor.pelle_work_status
+  - binary_sensor:
+    - default_entity_id: binary_sensor.fridge_temp_high
+      name: Fridge temp is high
+      state: '{{ states("sensor.fridge_temperature") | int > 12 }}'
+  - binary_sensor:
+    - default_entity_id: binary_sensor.freezer_temp_high
+      name: Freezer temp is high
+      state: '{{ states("sensor.freezer_temperature") | int > -10 }}'
+  - binary_sensor:
+    - default_entity_id: binary_sensor.front_door_unlocked
+      name: Front door unlocked
+      state: '{{ is_state("lock.id_lock_150_locked", "unlocked") }}'
+  - binary_sensor:
+    - default_entity_id: binary_sensor.arteon_door_unlocked
+      name: Arteon door unlocked
+      state: '{{ is_state("binary_sensor.arteon_doors_locked", "unlocked") }}'
+  - binary_sensor:
+    - default_entity_id: binary_sensor.ikea_motion
+      name: IKEA sensor motion
+      state: '{{ is_state("binary_sensor.tradfri_motion_sensor", "on") }}'
+  - binary_sensor:
+    - default_entity_id: binary_sensor.garage_door_opened
+      name: Garage door open
+      state: '{{ is_state("binary_sensor.garage_door_open", "on") }}'
+  - binary_sensor:
+    - default_entity_id: binary_sensor.smoke_detected
+      name: Livingroom smoke detected
+      state: '{{ is_state("binary_sensor.smoke_detector_smoke_alarm_smoke_detected", "on") }}'
+  - binary_sensor:
+    - default_entity_id: binary_sensor.bv_making_hot_water
+      name: Making hot water
+      state: '{{ ''on'' if ((states.binary_sensor.bv_switch_valve_1.state == ''on'')
+        and (states.binary_sensor.bv_compressor.state == ''on'')) else ''off''}}'
+  - binary_sensor:
+    - default_entity_id: binary_sensor.bv_heating_house
+      name: Heating house
+      state: '{{ ''on'' if ((states.binary_sensor.bv_switch_valve_1.state == ''off'')
+        and (states.binary_sensor.bv_compressor.state == ''on'')) else ''off''}}'
+  - sensor:
+    - unit_of_measurement: m
+      default_entity_id: sensor.pelles_phone_distance_bt
+      name: Pelles phone BT distance
+      state: '{{ 0 if state_attr(''sensor.pelles_phone_room_presence'', ''distance'')
+        is none else "%.1f"|format( states.sensor.pelles_phone_room_presence.attributes.distance)
+        }}'
+  - sensor:
+    - unit_of_measurement: W
+      default_entity_id: sensor.bv_approx_power
+      name: Heat pump power
+      state: '{{ (0 if states(''binary_sensor.bv_compressor'') == ''off'' else 1) *
+        (states.input_number.bv_compressor_approx_power.state | float) }}'
+  - sensor:
+    - unit_of_measurement: W
+      default_entity_id: sensor.ar_approx_power
+      name: Car charge power
+      state: '{{ (0 if states(''switch.arteon_charging'') == ''off'' else 1) * (states.input_number.approx_power_when_charging_car.state
+        | float) }}'
+  - sensor:
+    - unit_of_measurement: SEK
+      default_entity_id: sensor.ti_current_cost
+      name: Current hourly electricity cost
+      state: '{{ "%.2f"|format(states.sensor.power_savsangarvagen_54_a.state|float *
+        states.sensor.electricity_price_savsangarvagen_54_a.state|float / 1000) }}'
+  - sensor:
+    - unit_of_measurement: °
+      default_entity_id: sensor.solar_angle
+      name: Sun Angle
+      state: '{{ "%+.1f"|format(states.sun.sun.attributes.elevation) }}'
+  - sensor:
+    - default_entity_id: sensor.sunrise
+      icon: mdi:weather-sunset-up
+      name: Sunrise
+      state: '{{ as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom(''
+        %H:%M'') | replace(" 0", "") }}'
+  - sensor:
+    - default_entity_id: sensor.sunset
+      icon: mdi:weather-sunset-down
+      name: Sunset
+      state: '{{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom(''
+        %H:%M'') | replace(" 0", "") }}'
+  - sensor:
+    - unit_of_measurement: '%'
+      device_class: battery
+      default_entity_id: sensor.roger_battery
+      name: Roger battery level
+      state: '{{ state_attr(''vacuum.automower_r_310_roger'', ''battery_level'') }}'
+  - sensor:
+    - unit_of_measurement: °
+      default_entity_id: sensor.wind_bearing
+      icon: mdi:weather-windy-variant
+      name: Wind direction
+      state: '{{ state_attr("weather.smhi_home", "wind_bearing") }}'
+
+
+
+
+
+
+
+
+
+

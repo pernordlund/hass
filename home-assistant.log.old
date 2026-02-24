@@ -1,0 +1,567 @@
+2025-12-16 16:59:51.883 DEBUG (SyncWorker_0) [annotatedyaml.loader] Secret rc_db_url retrieved from secrets.yaml in folder /config
+2025-12-16 16:59:51.896 DEBUG (SyncWorker_0) [annotatedyaml.loader] Secret tw_phone_no retrieved from secrets.yaml in folder /config
+2025-12-16 16:59:51.897 DEBUG (SyncWorker_0) [annotatedyaml.loader] Secret tw_phone_no retrieved from secrets.yaml in folder /config
+2025-12-16 16:59:51.900 DEBUG (SyncWorker_0) [annotatedyaml.loader] Secret in_username retrieved from secrets.yaml in folder /config
+2025-12-16 16:59:51.900 DEBUG (SyncWorker_0) [annotatedyaml.loader] Secret in_password retrieved from secrets.yaml in folder /config
+2025-12-16 16:59:51.903 DEBUG (SyncWorker_0) [annotatedyaml.loader] Secret tw_account_sid_from_twilio retrieved from secrets.yaml in folder /config
+2025-12-16 16:59:51.903 DEBUG (SyncWorker_0) [annotatedyaml.loader] Secret tw_auth_token_from_twilio retrieved from secrets.yaml in folder /config
+2025-12-16 16:59:51.950 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration swemail which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-12-16 16:59:51.950 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration easee which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-12-16 16:59:51.952 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration scheduler which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-12-16 16:59:51.953 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration hacs which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-12-16 16:59:51.954 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration sjofartsverket_viva which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-12-16 16:59:51.954 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration hasl3 which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-12-16 16:59:51.955 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration nordpool which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-12-16 16:59:51.956 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration xiaomi_miio_airpurifier which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-12-16 16:59:51.957 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration volkswagencarnet which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-12-16 16:59:51.957 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration aarlo which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-12-16 16:59:51.958 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration blitzortung which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-12-16 16:59:51.959 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration gardena_smart_system which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-12-16 16:59:55.386 ERROR (MainThread) [custom_components.hasl3.core] [setup_entry] Forward entry setup failed
+2025-12-16 16:59:55.386 ERROR (MainThread) [custom_components.hasl3.core] [setup_entry] Forward entry setup failed
+2025-12-16 16:59:55.927 ERROR (MainThread) [homeassistant.components.notify] Error setting up platform file
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/notify/legacy.py", line 112, in async_setup_platform
+    raise HomeAssistantError("Invalid notify platform.")  # noqa: TRY301
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+homeassistant.exceptions.HomeAssistantError: Invalid notify platform.
+2025-12-16 16:59:55.929 ERROR (MainThread) [homeassistant.components.notify] Error setting up platform file
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/notify/legacy.py", line 112, in async_setup_platform
+    raise HomeAssistantError("Invalid notify platform.")  # noqa: TRY301
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+homeassistant.exceptions.HomeAssistantError: Invalid notify platform.
+2025-12-16 16:59:57.286 WARNING (MainThread) [homeassistant.util.loop] Detected blocking call to load_verify_locations with args (<ssl.SSLContext object at 0x7fc6999bccd0>, '/usr/local/lib/python3.13/site-packages/certifi/cacert.pem', None, None) inside the event loop by custom integration 'gardena_smart_system' at custom_components/gardena_smart_system/__init__.py, line 86: await self.smart_system.authenticate() (offender: /usr/local/lib/python3.13/ssl.py, line 717: context.load_verify_locations(cafile, capath, cadata)), please create a bug report at https://github.com/py-smart-gardena/hass-gardena-smart-system/issues
+For developers, please see https://developers.home-assistant.io/docs/asyncio_blocking_operations/#load_verify_locations
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/usr/src/homeassistant/homeassistant/__main__.py", line 229, in <module>
+    sys.exit(main())
+  File "/usr/src/homeassistant/homeassistant/__main__.py", line 215, in main
+    exit_code = runner.run(runtime_conf)
+  File "/usr/src/homeassistant/homeassistant/runner.py", line 271, in run
+    return loop.run_until_complete(setup_and_run_hass(runtime_config))
+  File "/usr/local/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/usr/local/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/usr/local/lib/python3.13/asyncio/base_events.py", line 2050, in _run_once
+    handle._run()
+  File "/usr/local/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/usr/src/homeassistant/homeassistant/setup.py", line 170, in async_setup_component
+    result = await _async_setup_component(hass, domain, config)
+  File "/usr/src/homeassistant/homeassistant/setup.py", line 470, in _async_setup_component
+    await asyncio.gather(
+  File "/usr/src/homeassistant/homeassistant/setup.py", line 472, in <genexpr>
+    create_eager_task(
+  File "/usr/src/homeassistant/homeassistant/util/async_.py", line 44, in create_eager_task
+    return Task(coro, loop=loop, name=name, eager_start=True)
+  File "/usr/src/homeassistant/homeassistant/config_entries.py", line 906, in async_setup_locked
+    await self.async_setup(hass, integration=integration)
+  File "/usr/src/homeassistant/homeassistant/config_entries.py", line 672, in async_setup
+    await self.__async_setup_with_context(hass, integration)
+  File "/usr/src/homeassistant/homeassistant/config_entries.py", line 761, in __async_setup_with_context
+    result = await component.async_setup_entry(hass, self)
+  File "/config/custom_components/gardena_smart_system/__init__.py", line 49, in async_setup_entry
+    await gardena_system.start()
+  File "/config/custom_components/gardena_smart_system/__init__.py", line 86, in start
+    await self.smart_system.authenticate()
+
+2025-12-16 16:59:57.381 DEBUG (SyncWorker_1) [annotatedyaml.loader] Loading /config/secrets.yaml
+2025-12-16 16:59:57.383 DEBUG (SyncWorker_1) [annotatedyaml.loader] Secret rc_db_url retrieved from secrets.yaml in folder /config
+2025-12-16 16:59:57.401 DEBUG (SyncWorker_1) [annotatedyaml.loader] Secret tw_phone_no retrieved from secrets.yaml in folder /config
+2025-12-16 16:59:57.401 DEBUG (SyncWorker_1) [annotatedyaml.loader] Secret tw_phone_no retrieved from secrets.yaml in folder /config
+2025-12-16 16:59:57.403 DEBUG (SyncWorker_1) [annotatedyaml.loader] Secret in_username retrieved from secrets.yaml in folder /config
+2025-12-16 16:59:57.403 DEBUG (SyncWorker_1) [annotatedyaml.loader] Secret in_password retrieved from secrets.yaml in folder /config
+2025-12-16 16:59:57.405 DEBUG (SyncWorker_1) [annotatedyaml.loader] Secret tw_account_sid_from_twilio retrieved from secrets.yaml in folder /config
+2025-12-16 16:59:57.406 DEBUG (SyncWorker_1) [annotatedyaml.loader] Secret tw_auth_token_from_twilio retrieved from secrets.yaml in folder /config
+2025-12-16 16:59:58.066 WARNING (MainThread) [homeassistant.util.loop] Detected blocking call to load_default_certs with args (<ssl.SSLContext object at 0x7fc696a5ead0>, <Purpose.SERVER_AUTH: _ASN1Object(nid=129, shortname='serverAuth', longname='TLS Web Server Authentication', oid='1.3.6.1.5.5.7.3.1')>) in /usr/local/lib/python3.13/ssl.py, line 722: context.load_default_certs(purpose) inside the event loop; This is causing stability issues. Please create a bug report at https://github.com/home-assistant/core/issues?q=is%3Aopen+is%3Aissue
+For developers, please see https://developers.home-assistant.io/docs/asyncio_blocking_operations/#load_default_certs
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/usr/src/homeassistant/homeassistant/__main__.py", line 229, in <module>
+    sys.exit(main())
+  File "/usr/src/homeassistant/homeassistant/__main__.py", line 215, in main
+    exit_code = runner.run(runtime_conf)
+  File "/usr/src/homeassistant/homeassistant/runner.py", line 271, in run
+    return loop.run_until_complete(setup_and_run_hass(runtime_config))
+  File "/usr/local/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/usr/local/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/usr/local/lib/python3.13/asyncio/base_events.py", line 2050, in _run_once
+    handle._run()
+  File "/usr/local/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/usr/local/lib/python3.13/site-packages/gardena/smart_system.py", line 190, in start_ws
+    await self.__launch_websocket_loop(ws_url)
+  File "/usr/local/lib/python3.13/site-packages/gardena/smart_system.py", line 227, in __launch_websocket_loop
+    websocket = await websockets.connect(url, ping_interval=150)
+  File "/usr/local/lib/python3.13/site-packages/websockets/asyncio/client.py", line 541, in __await_impl__
+    self.connection = await self.create_connection()
+  File "/usr/local/lib/python3.13/site-packages/websockets/asyncio/client.py", line 467, in create_connection
+    _, connection = await loop.create_connection(factory, **kwargs)
+  File "/usr/local/lib/python3.13/asyncio/base_events.py", line 1201, in create_connection
+    transport, protocol = await self._create_connection_transport(
+  File "/usr/local/lib/python3.13/asyncio/base_events.py", line 1225, in _create_connection_transport
+    transport = self._make_ssl_transport(
+  File "/usr/local/lib/python3.13/asyncio/selector_events.py", line 83, in _make_ssl_transport
+    ssl_protocol = sslproto.SSLProtocol(
+  File "/usr/local/lib/python3.13/asyncio/sslproto.py", line 295, in __init__
+    sslcontext = _create_transport_context(
+  File "/usr/local/lib/python3.13/asyncio/sslproto.py", line 55, in _create_transport_context
+    sslcontext = ssl.create_default_context()
+  File "/usr/local/lib/python3.13/ssl.py", line 722, in create_default_context
+    context.load_default_certs(purpose)
+
+2025-12-16 16:59:58.067 WARNING (MainThread) [homeassistant.util.loop] Detected blocking call to set_default_verify_paths with args (<ssl.SSLContext object at 0x7fc696a5ead0>,) in /usr/local/lib/python3.13/ssl.py, line 534: self.set_default_verify_paths() inside the event loop; This is causing stability issues. Please create a bug report at https://github.com/home-assistant/core/issues?q=is%3Aopen+is%3Aissue
+For developers, please see https://developers.home-assistant.io/docs/asyncio_blocking_operations/#set_default_verify_paths
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/usr/src/homeassistant/homeassistant/__main__.py", line 229, in <module>
+    sys.exit(main())
+  File "/usr/src/homeassistant/homeassistant/__main__.py", line 215, in main
+    exit_code = runner.run(runtime_conf)
+  File "/usr/src/homeassistant/homeassistant/runner.py", line 271, in run
+    return loop.run_until_complete(setup_and_run_hass(runtime_config))
+  File "/usr/local/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/usr/local/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/usr/local/lib/python3.13/asyncio/base_events.py", line 2050, in _run_once
+    handle._run()
+  File "/usr/local/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/usr/local/lib/python3.13/site-packages/gardena/smart_system.py", line 190, in start_ws
+    await self.__launch_websocket_loop(ws_url)
+  File "/usr/local/lib/python3.13/site-packages/gardena/smart_system.py", line 227, in __launch_websocket_loop
+    websocket = await websockets.connect(url, ping_interval=150)
+  File "/usr/local/lib/python3.13/site-packages/websockets/asyncio/client.py", line 541, in __await_impl__
+    self.connection = await self.create_connection()
+  File "/usr/local/lib/python3.13/site-packages/websockets/asyncio/client.py", line 467, in create_connection
+    _, connection = await loop.create_connection(factory, **kwargs)
+  File "/usr/local/lib/python3.13/asyncio/base_events.py", line 1201, in create_connection
+    transport, protocol = await self._create_connection_transport(
+  File "/usr/local/lib/python3.13/asyncio/base_events.py", line 1225, in _create_connection_transport
+    transport = self._make_ssl_transport(
+  File "/usr/local/lib/python3.13/asyncio/selector_events.py", line 83, in _make_ssl_transport
+    ssl_protocol = sslproto.SSLProtocol(
+  File "/usr/local/lib/python3.13/asyncio/sslproto.py", line 295, in __init__
+    sslcontext = _create_transport_context(
+  File "/usr/local/lib/python3.13/asyncio/sslproto.py", line 55, in _create_transport_context
+    sslcontext = ssl.create_default_context()
+  File "/usr/local/lib/python3.13/ssl.py", line 722, in create_default_context
+    context.load_default_certs(purpose)
+  File "/usr/src/homeassistant/homeassistant/util/loop.py", line 201, in protected_loop_func
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.13/ssl.py", line 534, in load_default_certs
+    self.set_default_verify_paths()
+
+2025-12-16 16:59:58.104 ERROR (MainThread) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.249 'cat /sys/class/thermal/thermal_zone0/temp'
+2025-12-16 16:59:59.269 WARNING (MainThread) [renault_api.kamereon.models] Endpoint cockpit for model X102VE is not documented, using default endpoints. Please help to document it at https://github.com/hacf-fr/renault-api
+2025-12-16 16:59:59.269 WARNING (MainThread) [renault_api.kamereon.models] Endpoint hvac-status for model X102VE is not documented, using default endpoints. Please help to document it at https://github.com/hacf-fr/renault-api
+2025-12-16 16:59:59.269 WARNING (MainThread) [renault_api.kamereon.models] Endpoint location for model X102VE is not documented, using default endpoints. Please help to document it at https://github.com/hacf-fr/renault-api
+2025-12-16 16:59:59.269 WARNING (MainThread) [renault_api.kamereon.models] Endpoint battery-status for model X102VE is not documented, using default endpoints. Please help to document it at https://github.com/hacf-fr/renault-api
+2025-12-16 16:59:59.269 WARNING (MainThread) [renault_api.kamereon.models] Endpoint charge-mode for model X102VE is not documented, using default endpoints. Please help to document it at https://github.com/hacf-fr/renault-api
+2025-12-16 16:59:59.635 WARNING (ImportExecutor_0) [homeassistant.components.vacuum] The deprecated constant STATE_CLEANING was used from gardena_smart_system. It will be removed in HA Core 2026.1. Use VacuumActivity.CLEANING instead, please report it to the author of the 'gardena_smart_system' custom integration
+2025-12-16 16:59:59.639 WARNING (ImportExecutor_0) [homeassistant.components.vacuum] The deprecated constant STATE_DOCKED was used from gardena_smart_system. It will be removed in HA Core 2026.1. Use VacuumActivity.DOCKED instead, please report it to the author of the 'gardena_smart_system' custom integration
+2025-12-16 16:59:59.643 WARNING (ImportExecutor_0) [homeassistant.components.vacuum] The deprecated constant STATE_RETURNING was used from gardena_smart_system. It will be removed in HA Core 2026.1. Use VacuumActivity.RETURNING instead, please report it to the author of the 'gardena_smart_system' custom integration
+2025-12-16 16:59:59.645 WARNING (ImportExecutor_0) [homeassistant.components.vacuum] The deprecated constant STATE_ERROR was used from gardena_smart_system. It will be removed in HA Core 2026.1. Use VacuumActivity.ERROR instead, please report it to the author of the 'gardena_smart_system' custom integration
+2025-12-16 16:59:59.649 WARNING (ImportExecutor_0) [homeassistant.components.vacuum] The deprecated constant STATE_CLEANING was used from gardena_smart_system. It will be removed in HA Core 2026.1. Use VacuumActivity.CLEANING instead, please report it to the author of the 'gardena_smart_system' custom integration
+2025-12-16 16:59:59.652 WARNING (ImportExecutor_0) [homeassistant.components.vacuum] The deprecated constant STATE_DOCKED was used from gardena_smart_system. It will be removed in HA Core 2026.1. Use VacuumActivity.DOCKED instead, please report it to the author of the 'gardena_smart_system' custom integration
+2025-12-16 16:59:59.655 WARNING (ImportExecutor_0) [homeassistant.components.vacuum] The deprecated constant STATE_RETURNING was used from gardena_smart_system. It will be removed in HA Core 2026.1. Use VacuumActivity.RETURNING instead, please report it to the author of the 'gardena_smart_system' custom integration
+2025-12-16 16:59:59.657 WARNING (ImportExecutor_0) [homeassistant.components.vacuum] The deprecated constant STATE_ERROR was used from gardena_smart_system. It will be removed in HA Core 2026.1. Use VacuumActivity.ERROR instead, please report it to the author of the 'gardena_smart_system' custom integration
+2025-12-16 17:00:00.670 INFO (MainThread) [volkswagencarnet.vw_connection] Successfully logged in
+2025-12-16 17:00:14.106 WARNING (SyncWorker_4) [pyaarlo] request-error=ReadTimeout
+2025-12-16 17:00:14.106 WARNING (SyncWorker_4) [pyaarlo] No devices returned from /hmsweb/v2/users/devices?t=1765900799082
+2025-12-16 17:00:14.598 ERROR (ArloEventStream) [pyaarlo] mqtt-error=ValueError
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.13/site-packages/pyaarlo/backend.py", line 602, in _mqtt_main
+    self._event_client.loop_forever()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 2297, in loop_forever
+    rc = self._loop(timeout)
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 1686, in _loop
+    rc = self.loop_read()
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 2100, in loop_read
+    rc = self._packet_read()
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 3142, in _packet_read
+    rc = self._packet_handle()
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 3814, in _packet_handle
+    return self._handle_connack()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 3922, in _handle_connack
+    on_connect(
+    ~~~~~~~~~~^
+        self, self._userdata, flags_dict, result)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/pyaarlo/backend.py", line 544, in _mqtt_on_connect
+    self._mqtt_subscribe()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/pyaarlo/backend.py", line 538, in _mqtt_subscribe
+    self._event_client.subscribe(topics)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 2011, in subscribe
+    raise ValueError('Empty topic list')
+ValueError: Empty topic list
+
+2025-12-16 17:00:21.047 ERROR (ArloEventStream) [pyaarlo] mqtt-error=ValueError
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.13/site-packages/pyaarlo/backend.py", line 602, in _mqtt_main
+    self._event_client.loop_forever()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 2297, in loop_forever
+    rc = self._loop(timeout)
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 1686, in _loop
+    rc = self.loop_read()
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 2100, in loop_read
+    rc = self._packet_read()
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 3142, in _packet_read
+    rc = self._packet_handle()
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 3814, in _packet_handle
+    return self._handle_connack()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 3922, in _handle_connack
+    on_connect(
+    ~~~~~~~~~~^
+        self, self._userdata, flags_dict, result)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/pyaarlo/backend.py", line 544, in _mqtt_on_connect
+    self._mqtt_subscribe()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/pyaarlo/backend.py", line 538, in _mqtt_subscribe
+    self._event_client.subscribe(topics)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 2011, in subscribe
+    raise ValueError('Empty topic list')
+ValueError: Empty topic list
+
+2025-12-16 17:00:27.328 ERROR (ArloEventStream) [pyaarlo] mqtt-error=ValueError
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.13/site-packages/pyaarlo/backend.py", line 602, in _mqtt_main
+    self._event_client.loop_forever()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 2297, in loop_forever
+    rc = self._loop(timeout)
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 1686, in _loop
+    rc = self.loop_read()
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 2100, in loop_read
+    rc = self._packet_read()
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 3142, in _packet_read
+    rc = self._packet_handle()
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 3814, in _packet_handle
+    return self._handle_connack()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 3922, in _handle_connack
+    on_connect(
+    ~~~~~~~~~~^
+        self, self._userdata, flags_dict, result)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/pyaarlo/backend.py", line 544, in _mqtt_on_connect
+    self._mqtt_subscribe()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/pyaarlo/backend.py", line 538, in _mqtt_subscribe
+    self._event_client.subscribe(topics)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 2011, in subscribe
+    raise ValueError('Empty topic list')
+ValueError: Empty topic list
+
+2025-12-16 17:00:33.598 ERROR (ArloEventStream) [pyaarlo] mqtt-error=ValueError
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.13/site-packages/pyaarlo/backend.py", line 602, in _mqtt_main
+    self._event_client.loop_forever()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 2297, in loop_forever
+    rc = self._loop(timeout)
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 1686, in _loop
+    rc = self.loop_read()
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 2100, in loop_read
+    rc = self._packet_read()
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 3142, in _packet_read
+    rc = self._packet_handle()
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 3814, in _packet_handle
+    return self._handle_connack()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 3922, in _handle_connack
+    on_connect(
+    ~~~~~~~~~~^
+        self, self._userdata, flags_dict, result)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/pyaarlo/backend.py", line 544, in _mqtt_on_connect
+    self._mqtt_subscribe()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/pyaarlo/backend.py", line 538, in _mqtt_subscribe
+    self._event_client.subscribe(topics)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 2011, in subscribe
+    raise ValueError('Empty topic list')
+ValueError: Empty topic list
+
+2025-12-16 17:00:39.964 ERROR (ArloEventStream) [pyaarlo] mqtt-error=ValueError
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.13/site-packages/pyaarlo/backend.py", line 602, in _mqtt_main
+    self._event_client.loop_forever()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 2297, in loop_forever
+    rc = self._loop(timeout)
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 1686, in _loop
+    rc = self.loop_read()
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 2100, in loop_read
+    rc = self._packet_read()
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 3142, in _packet_read
+    rc = self._packet_handle()
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 3814, in _packet_handle
+    return self._handle_connack()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 3922, in _handle_connack
+    on_connect(
+    ~~~~~~~~~~^
+        self, self._userdata, flags_dict, result)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/pyaarlo/backend.py", line 544, in _mqtt_on_connect
+    self._mqtt_subscribe()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/pyaarlo/backend.py", line 538, in _mqtt_subscribe
+    self._event_client.subscribe(topics)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 2011, in subscribe
+    raise ValueError('Empty topic list')
+ValueError: Empty topic list
+
+2025-12-16 17:00:40.150 ERROR (MainThread) [homeassistant.components.websocket_api.http.connection] [140490797063424] Error during service call to update.install: Error updating Home Assistant Core: Another job is running for job group home_assistant_core
+2025-12-16 17:00:46.319 ERROR (ArloEventStream) [pyaarlo] mqtt-error=ValueError
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.13/site-packages/pyaarlo/backend.py", line 602, in _mqtt_main
+    self._event_client.loop_forever()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 2297, in loop_forever
+    rc = self._loop(timeout)
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 1686, in _loop
+    rc = self.loop_read()
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 2100, in loop_read
+    rc = self._packet_read()
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 3142, in _packet_read
+    rc = self._packet_handle()
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 3814, in _packet_handle
+    return self._handle_connack()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 3922, in _handle_connack
+    on_connect(
+    ~~~~~~~~~~^
+        self, self._userdata, flags_dict, result)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/pyaarlo/backend.py", line 544, in _mqtt_on_connect
+    self._mqtt_subscribe()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/pyaarlo/backend.py", line 538, in _mqtt_subscribe
+    self._event_client.subscribe(topics)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/paho/mqtt/client.py", line 2011, in subscribe
+    raise ValueError('Empty topic list')
+ValueError: Empty topic list
+
+2025-12-16 17:00:50.968 ERROR (MainThread) [homeassistant.config_entries] Error setting up entry Aarlo for guest.nordlund@gmail.com (imported) for aarlo
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/config_entries.py", line 761, in __async_setup_with_context
+    result = await component.async_setup_entry(hass, self)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/config/custom_components/aarlo/__init__.py", line 246, in async_setup_entry
+    arlo = await hass.async_add_executor_job(login, hass, domain_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/config/custom_components/aarlo/__init__.py", line 415, in login
+    hass.components.persistent_notification.create(
+    ^^^^^^^^^^^^^^^
+AttributeError: 'HomeAssistant' object has no attribute 'components'
+2025-12-16 17:00:53.433 ERROR (MainThread) [homeassistant.components.websocket_api.http.connection] [140490797063424] Error during service call to update.install: Error updating Home Assistant Core: Another job is running for job group home_assistant_core
+2025-12-16 17:00:58.269 ERROR (MainThread) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.249 'cat /sys/class/thermal/thermal_zone0/temp'
+2025-12-16 17:01:00.457 ERROR (ArloEventStream) [pyaarlo] login failed: 429 - possible cloudflare issue
+2025-12-16 17:01:02.598 ERROR (MainThread) [homeassistant.components.websocket_api.http.connection] [140490797063424] Error during service call to update.install: Error updating Home Assistant Core: Another job is running for job group home_assistant_core
+2025-12-16 17:01:06.013 WARNING (MainThread) [homeassistant.core] Something is blocking Home Assistant from wrapping up the start up phase. We're going to continue anyway. Please report the following info at https://github.com/home-assistant/core/issues: pushbullet, remote, husqvarna_automower.event, pushbullet.sensor, zwave_js.fan, search, glances.sensor, home_connect.switch, nmap_tracker.device_tracker, husqvarna_automower.lawn_mower, renault.sensor, automation, tibber.sensor, sjofartsverket_viva.sensor, script, device_automation, nordpool.sensor, tplink.binary_sensor, deconz.cover, repairs, mqtt.binary_sensor, input_button, husqvarna_automower.button, deconz.fan, energy.sensor, frontend, group, hasl3, deconz.switch, hassio.sensor, home_connect.binary_sensor, zwave_js.event, mqtt.device_tracker, tplink.number, cloud, smhi.sensor, gardena_smart_system.sensor, tile.binary_sensor, hacs.switch, deconz.button, uptime.sensor, nanoleaf.button, mqtt.climate, volkswagencarnet, netatmo.climate, cloudflare, notify, speedtestdotnet, zwave_js.lock, mobile_app.binary_sensor, lovelace, shopping_list, tibber.notify, home_connect.number, renault.device_tracker, nordpool, dhcp, my, zwave_js.light, http, husqvarna_automower.calendar, volkswagencarnet.binary_sensor, cast, glances, input_datetime, nanoleaf.light, zwave_js.humidifier, google_translate.tts, usb, backup, influxdb, energy, swemail, gardena_smart_system.switch, lock, ping.sensor, ping.binary_sensor, netatmo.sensor, diagnostics, scheduler.switch, nanoleaf.event, zwave_js.select, webhook, hacs, weather, deconz.sensor, gardena_smart_system, rfxtrx.event, google_assistant, integration.sensor, home_connect.light, hassio.binary_sensor, ssdp, tag, netatmo.cover, go2rtc, netatmo.button, config, analytics, google_travel_time.sensor, tplink.fan, ipp, alarm_control_panel, hassio, hassio.update, deconz.binary_sensor, husqvarna_automower.number, tplink.camera, twilio_sms.notify, tractive, tplink, netatmo, system_log, gardena_smart_system.vacuum, history, netatmo.select, sensor, sun.sensor, input_boolean, network, ffmpeg, bluetooth, smhi, schedule, mqtt, speedtestdotnet.sensor, sun.binary_sensor, renault.binary_sensor, backup.sensor, twilio_call.notify, rfxtrx.cover, deconz.number, volkswagencarnet.climate, husqvarna_automower.device_tracker, tplink.switch, recorder, tplink.siren, netatmo.switch, hacs.update, stream, alert, zwave_js, update, calendar, twilio, uptime, ipp.sensor, command_line, deconz.select, tplink.climate, tplink.vacuum, rfxtrx.binary_sensor, light, auth, pushbullet.notify, netatmo.light, scene, media_player, vacuum, mobile_app, homeassistant, home_connect.button, siren, nmap_tracker, androidtv_remote, command_line.sensor, cloud.tts, smhi.weather, netatmo.binary_sensor, switch_as_x, tts, file.notify, climate, cloud.binary_sensor, zwave_js.climate, zwave_js.sensor, rfxtrx.light, tile, deconz.climate, timer, tplink.sensor, deconz.scene, volkswagencarnet.lock, template.sensor, input_select, husqvarna_automower.select, shell_command, select, tplink.select, file_upload, deconz, samsungtv, mobile_app.device_tracker, time_date.sensor, person, androidtv_remote.media_player, todo, shopping_list.todo, hardware, rfxtrx.siren, hassio.switch, tractive.switch, nanoleaf, logger, lawn_mower, androidtv_remote.remote, renault.button, google_travel_time, onboarding, tts.notify, home_connect.sensor, scheduler, netatmo.camera, template.binary_sensor, template, tibber, zwave_js.update, deconz.light, husqvarna_automower.switch, default_config, trace, tractive.binary_sensor, husqvarna_automower.binary_sensor, gardena_smart_system.binary_sensor, event, homeassistant_alerts, zwave_js.binary_sensor, cloud.stt, zwave_js.siren, humidifier, conversation, blueprint, image_upload, binary_sensor, volkswagencarnet.switch, switch, rfxtrx, netatmo.fan, deconz.alarm_control_panel, rest_command, husqvarna_automower.sensor, renault.select, mobile_app.notify, deconz.siren, tractive.sensor, cast.media_player, media_source, logbook, fan, input_number, mqtt.switch, generic.camera, history_stats.sensor, python_script, ping, husqvarna_automower, button, zone, switch_as_x.light, google_wifi.sensor, swemail.sensor, cover, rfxtrx.sensor, backup.event, zwave_js.switch, assist_pipeline, number, home_connect.select, tplink.light, counter, file, zwave_js.number, rfxtrx.switch, application_credentials, wake_word, mqtt.camera, device_tracker, tplink.button, homeassistant.scene, persistent_notification, samsungtv.media_player, intent, tractive.device_tracker, aarlo, ping.device_tracker, api, input_text, samsungtv.remote, home_connect, mobile_app.sensor, system_health, mqtt.sensor, renault, volkswagencarnet.device_tracker, volkswagencarnet.sensor, zwave_js.cover, zwave_js.button, deconz.lock, zeroconf, camera, websocket_api, tile.device_tracker, usage_prediction, generic, stt, sun The system is waiting for tasks: {<Task pending name='Task-1225' coro=<async_enable_report_state.<locals>.initial_report() running at /usr/src/homeassistant/homeassistant/components/google_assistant/report_state.py:187> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()]> cb=[set.remove()]>, <Task pending name='Task-1186' coro=<AbstractConfig.async_initialize.<locals>.sync_google() running at /usr/src/homeassistant/homeassistant/components/google_assistant/helpers.py:114> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()]> cb=[set.remove()]>}
+2025-12-16 17:01:06.041 ERROR (MainThread) [homeassistant.components.automation.garage_extra_on_remote_press] Got error 'No deconz_event tied to device "Garage extra on/off switch" found' when setting up triggers for Garage extra on remote press
+2025-12-16 17:01:06.041 ERROR (MainThread) [homeassistant.components.automation.garage_extra_on_remote_press] Got error 'No deconz_event tied to device "Garage extra on/off switch" found' when setting up triggers for Garage extra on remote press
+2025-12-16 17:01:06.041 ERROR (MainThread) [homeassistant.components.automation.kitchen_table_on_remote_press] Got error 'No deconz_event tied to device "Kitchen on/off switch" found' when setting up triggers for Kitchen table on remote press
+2025-12-16 17:01:06.041 ERROR (MainThread) [homeassistant.components.automation.kitchen_table_on_remote_press] Got error 'No deconz_event tied to device "Kitchen on/off switch" found' when setting up triggers for Kitchen table on remote press
+2025-12-16 17:01:06.042 ERROR (MainThread) [homeassistant.components.automation.playroom_ceiling_stairs_on_remote_press] Got error 'No deconz_event tied to device "Playroom ceiling stairs on/off" found' when setting up triggers for Playroom ceiling stairs on remote press
+2025-12-16 17:01:06.042 ERROR (MainThread) [homeassistant.components.automation.playroom_ceiling_stairs_on_remote_press] Got error 'No deconz_event tied to device "Playroom ceiling stairs on/off" found' when setting up triggers for Playroom ceiling stairs on remote press
+2025-12-16 17:01:06.044 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.garage_extra are missing or not currently available
+2025-12-16 17:01:06.087 WARNING (Recorder) [homeassistant.components.recorder.db_schema] State attributes for sensor.nordpool_kwh_se3_sek_3_10_025 exceed maximum size of 16384 bytes. This can cause database performance issues; Attributes will not be stored
+2025-12-16 17:01:06.090 WARNING (Recorder) [homeassistant.components.recorder.db_schema] State attributes for sensor.nordpool_kwh_se3_sek_3_10_025 exceed maximum size of 16384 bytes. This can cause database performance issues; Attributes will not be stored
+2025-12-16 17:01:06.226 ERROR (MainThread) [homeassistant.components.google_travel_time.sensor] Error getting travel time: 400 API Key not found. Please pass a valid API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "routes.googleapis.com"
+}
+, locale: "en-US"
+message: "API Key not found. Please pass a valid API key."
+]
+2025-12-16 17:01:06.349 WARNING (Recorder) [homeassistant.components.recorder.db_schema] State attributes for sensor.nordpool_kwh_se3_sek_3_10_025 exceed maximum size of 16384 bytes. This can cause database performance issues; Attributes will not be stored
+2025-12-16 17:01:06.616 WARNING (ImportExecutor_0) [py.warnings] /usr/local/lib/python3.13/site-packages/miio/miot_device.py:23: FutureWarning: functools.partial will be a method descriptor in future Python versions; wrap it in enum.member() if you want to preserve the old behavior
+  Bool = partial(_str2bool)
+
+2025-12-16 17:01:09.616 ERROR (ArloEventStream) [pyaarlo] login failed: 429 - possible cloudflare issue
+2025-12-16 17:01:12.076 WARNING (Recorder) [homeassistant.components.recorder.db_schema] State attributes for sensor.nordpool_kwh_se3_sek_3_10_025 exceed maximum size of 16384 bytes. This can cause database performance issues; Attributes will not be stored
+2025-12-16 17:01:12.699 WARNING (Recorder) [homeassistant.components.sensor.recorder] The unit of sensor.nordpool_kwh_se3_sek_3_10_025 (None) cannot be converted to the unit of previously compiled statistics (SEK/kWh). Generation of long term statistics will be suppressed unless the unit changes back to SEK/kWh or a compatible unit. Go to https://my.home-assistant.io/redirect/developer_statistics to fix this
+2025-12-16 17:01:21.515 ERROR (MainThread) [homeassistant] Error doing job: Task exception was never retrieved (None)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.13/site-packages/aiohttp/client_reqrep.py", line 532, in start
+    message, payload = await protocol.read()  # type: ignore[union-attr]
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiohttp/streams.py", line 672, in read
+    await self._waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.13/site-packages/hass_nabucasa/api.py", line 203, in _call_raw_api
+    resp = await self._cloud.websession.request(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/aiohttp/client.py", line 770, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiohttp/client.py", line 748, in _connect_and_send_request
+    await resp.start(conn)
+  File "/usr/local/lib/python3.13/site-packages/aiohttp/client_reqrep.py", line 527, in start
+    with self._timer:
+         ^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiohttp/helpers.py", line 685, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.13/site-packages/hass_nabucasa/api.py", line 58, in wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/hass_nabucasa/google_report_state.py", line 142, in request_sync
+    resp: CloudApiRawResponse = await self._call_cloud_api(
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/hass_nabucasa/api.py", line 253, in _call_cloud_api
+    resp = await self._call_raw_api(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/hass_nabucasa/api.py", line 212, in _call_raw_api
+    raise CloudApiTimeoutError(
+    ...<2 lines>...
+    ) from err
+hass_nabucasa.api.CloudApiTimeoutError: Timeout reached while calling API
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/google_assistant/helpers.py", line 114, in sync_google
+    await self.async_sync_entities_all()
+  File "/usr/src/homeassistant/homeassistant/components/google_assistant/helpers.py", line 241, in async_sync_entities_all
+    res = await gather(
+          ^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "/usr/src/homeassistant/homeassistant/components/google_assistant/helpers.py", line 231, in async_sync_entities
+    status = await self._async_request_sync_devices(agent_user_id)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/cloud/google_config.py", line 380, in _async_request_sync_devices
+    resp = await self._cloud.google_report_state.request_sync()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/hass_nabucasa/api.py", line 66, in wrapper
+    raise exception(
+    ...<4 lines>...
+    ) from err
+hass_nabucasa.google_report_state.GoogleReportStateError: Timeout reached while calling API
+2025-12-16 17:01:23.821 ERROR (ArloEventStream) [pyaarlo] login failed: 429 - possible cloudflare issue
+2025-12-16 17:01:32.965 ERROR (ArloEventStream) [pyaarlo] login failed: 429 - possible cloudflare issue
+2025-12-16 17:01:47.096 ERROR (ArloEventStream) [pyaarlo] login failed: 429 - possible cloudflare issue
+2025-12-16 17:01:56.238 ERROR (ArloEventStream) [pyaarlo] login failed: 429 - possible cloudflare issue
+2025-12-16 17:01:58.307 ERROR (MainThread) [homeassistant.components.command_line] Command failed (with return code 255): ssh -F /config/.ssh/config pi@192.168.86.249 'cat /sys/class/thermal/thermal_zone0/temp'
+2025-12-16 17:02:08.940 ERROR (Thread-4 (_connect)) [root] Uncaught thread exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.13/threading.py", line 1043, in _bootstrap_inner
+    self.run()
+    ~~~~~~~~^^
+  File "/usr/local/lib/python3.13/threading.py", line 994, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/RFXtrx/__init__.py", line 1046, in _connect
+    self._connect_internal()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/RFXtrx/__init__.py", line 1074, in _connect_internal
+    event = self.transport.receive_blocking()
+  File "/usr/local/lib/python3.13/site-packages/RFXtrx/__init__.py", line 807, in __errors
+    return func(instance, *args, **kargs)
+  File "/usr/local/lib/python3.13/site-packages/RFXtrx/__init__.py", line 845, in receive_blocking
+    return self._receive_packet()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/RFXtrx/__init__.py", line 849, in _receive_packet
+    data = self.serial.read()
+  File "/usr/local/lib/python3.13/site-packages/serial/serialposix.py", line 575, in read
+    buf = os.read(self.fd, size - len(read))
+TypeError: 'NoneType' object cannot be interpreted as an integer
+2025-12-16 17:02:08.962 WARNING (MainThread) [homeassistant.helpers.frame] Detected that custom integration 'gardena_smart_system' calls hass.async_create_task from a thread other than the event loop, which may cause Home Assistant to crash or data to corrupt. For more information, see https://developers.home-assistant.io/docs/asyncio_thread_safety/#hassasync_create_task at custom_components/gardena_smart_system/__init__.py, line 65: hass.bus.async_listen_once(EVENT_HOMEASSISTANT_STOP, lambda event: hass.async_create_task(gardena_system.stop())). Please create a bug report at https://github.com/py-smart-gardena/hass-gardena-smart-system/issues
+2025-12-16 17:02:10.375 ERROR (ArloEventStream) [pyaarlo] login failed: 429 - possible cloudflare issue
+2025-12-16 17:02:10.986 ERROR (MainThread) [homeassistant] Error doing job: Future exception was never retrieved (None)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/config/custom_components/gardena_smart_system/__init__.py", line 65, in <lambda>
+    hass.bus.async_listen_once(EVENT_HOMEASSISTANT_STOP, lambda event: hass.async_create_task(gardena_system.stop()))
+                                                                       ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/core.py", line 806, in async_create_task
+    frame.report_non_thread_safe_operation("hass.async_create_task")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/helpers/frame.py", line 417, in report_non_thread_safe_operation
+    report_usage(
+    ~~~~~~~~~~~~^
+        f"calls {what} from a thread other than the event loop, "
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        custom_integration_behavior=ReportBehavior.ERROR,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/src/homeassistant/homeassistant/helpers/frame.py", line 218, in report_usage
+    future.result()
+    ~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/src/homeassistant/homeassistant/util/async_.py", line 67, in run_callback
+    future.set_result(callback(*args))
+                      ~~~~~~~~^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/helpers/frame.py", line 266, in _report_usage
+    _report_usage_integration_frame(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        hass,
+        ^^^^^
+    ...<4 lines>...
+        integration_behavior is ReportBehavior.ERROR,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/src/homeassistant/homeassistant/helpers/frame.py", line 366, in _report_usage_integration_frame
+    raise RuntimeError(
+    ...<5 lines>...
+    )
+RuntimeError: Detected that custom integration 'gardena_smart_system' calls hass.async_create_task from a thread other than the event loop, which may cause Home Assistant to crash or data to corrupt. For more information, see https://developers.home-assistant.io/docs/asyncio_thread_safety/#hassasync_create_task at custom_components/gardena_smart_system/__init__.py, line 65: hass.bus.async_listen_once(EVENT_HOMEASSISTANT_STOP, lambda event: hass.async_create_task(gardena_system.stop())). Please create a bug report at https://github.com/py-smart-gardena/hass-gardena-smart-system/issues
+2025-12-16 17:02:12.042 WARNING (MainThread) [py.warnings] /config/custom_components/hacs/utils/data.py:123: RuntimeWarning: coroutine 'GardenaSmartSystem.stop' was never awaited
+  if (value := getattr(repository.data, key, default)) != default:
+
+2025-12-16 17:02:17.338 WARNING (MainThread) [homeassistant.runner] Task could not be canceled and was still running after shutdown: <Task cancelling name='Task-308' coro=<SmartSystem.start_ws() running at /usr/local/lib/python3.13/site-packages/gardena/smart_system.py:198> wait_for=<Future pending cb=[Task.task_wakeup()]>>

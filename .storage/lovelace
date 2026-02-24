@@ -37,13 +37,10 @@
             {
               "entities": [
                 {
-                  "entity": "device_tracker.life360_per_nordlund"
+                  "entity": "person.pelle"
                 },
                 {
                   "entity": "sensor.pelle_work_status"
-                },
-                {
-                  "entity": "device_tracker.arteon_position"
                 },
                 {
                   "entity": "device_tracker.wallet"
@@ -56,6 +53,12 @@
                 },
                 {
                   "entity": "device_tracker.albins_phone"
+                },
+                {
+                  "entity": "device_tracker.arteon_position"
+                },
+                {
+                  "entity": "device_tracker.location"
                 }
               ],
               "show_header_toggle": false,
@@ -651,10 +654,10 @@
             {
               "entities": [
                 {
-                  "entity": "sensor.thgr810_thgn800_55_01_temperature"
+                  "entity": "sensor.thgr810_thgn800_84_01_temperature"
                 },
                 {
-                  "entity": "sensor.thgr810_thgn800_55_01_humidity"
+                  "entity": "sensor.thgr810_thgn800_84_01_humidity"
                 },
                 {
                   "entity": "sensor.smoke_detector_air_temperature"
@@ -757,6 +760,9 @@
                 },
                 {
                   "entity": "sensor.altan_temperature"
+                },
+                {
+                  "entity": "sensor.alta_kolarangen_2"
                 }
               ],
               "show_header_toggle": true,
@@ -908,6 +914,9 @@
                 },
                 {
                   "entity": "automation.x_pelle_work_status_changes"
+                },
+                {
+                  "entity": "person.pelle"
                 }
               ],
               "title": "Work log"
@@ -1197,7 +1206,7 @@
             },
             {
               "type": "markdown",
-              "content": "# Bergvärme historik\n\n| Datum | Värmekurva | &nbsp;&nbsp;&nbsp;Finjust |\n| :--- | ---: | ---: |\n| <2022-11-01 | 2.3| 0.9|\n| 2022-11-01 | 1.7|-|\n| 2022-11-16 | 2.0|-|\n|2022-11-20 | 1.9|-|\n|2022-11-30| 1.8|-|\n|2023-09-05| 1.7|-|\n|2023-10-03| 1.8|-|\n|2023-10-05| 2.2|-|\n|2023-11-14| 2.1|-|\n|2024-01-04| 1.9|-|\n|2024-01-25| 2.1|-|\n|2024-04-30| 1.9|-|\n|2024-09-30| 2.2|-|\n|2025-03-31| 1.9|-|"
+              "content": "# Bergvärme historik\n\n| Datum | Värmekurva | &nbsp;&nbsp;&nbsp;Finjust |\n| :--- | ---: | ---: |\n| <2022-11-01 | 2.3| 0.9|\n| 2022-11-01 | 1.7|-|\n| 2022-11-16 | 2.0|-|\n|2022-11-20 | 1.9|-|\n|2022-11-30| 1.8|-|\n|2023-09-05| 1.7|-|\n|2023-10-03| 1.8|-|\n|2023-10-05| 2.2|-|\n|2023-11-14| 2.1|-|\n|2024-01-04| 1.9|-|\n|2024-01-25| 2.1|-|\n|2024-04-30| 1.9|-|\n|2024-09-30| 2.2|-|\n|2025-03-31| 1.9|-|\n|2025-11-01| 2.2|-|\n|2025-12-22| 2.0|-|"
             },
             {
               "type": "picture-elements",
@@ -1399,7 +1408,7 @@
                   "entity": "sensor.frysen_battery"
                 },
                 {
-                  "entity": "sensor.thgr810_thgn800_55_01_battery_numeric"
+                  "entity": "sensor.thgr810_thgn800_84_01_battery"
                 },
                 {
                   "entity": "sensor.attic_battery"
@@ -1439,6 +1448,9 @@
                 },
                 {
                   "entity": "sensor.greenhouse_sensor_battery_level"
+                },
+                {
+                  "entity": "sensor.thc238_268_thn132_thwr288_thrn122_thn122_aw129_131_77_01_battery"
                 }
               ],
               "show_header_toggle": false,
@@ -1488,25 +1500,22 @@
             {
               "entities": [
                 {
-                  "entity": "sensor.xq_as52_battery_level"
-                },
-                {
-                  "entity": "binary_sensor.xq_as52_is_charging"
-                },
-                {
-                  "entity": "sensor.xq_as52_charger_type"
-                },
-                {
-                  "entity": "sensor.xq_as52_battery_power"
-                },
-                {
                   "entity": "sensor.sm_t719_battery_level_2"
                 },
                 {
                   "entity": "device_tracker.sm_t719_2"
                 },
                 {
-                  "entity": "sensor.sm_t719_charger_type_2"
+                  "entity": "sensor.pixel_9a_battery_level"
+                },
+                {
+                  "entity": "device_tracker.pixel_9a"
+                },
+                {
+                  "entity": "sensor.pixel_9a_geocoded_location"
+                },
+                {
+                  "entity": "sensor.pixel_9a_last_reboot"
                 }
               ],
               "show_header_toggle": false,
@@ -1559,7 +1568,7 @@
             },
             {
               "type": "markdown",
-              "content": "|Batteri|Datum|Typ\n|:-|:-|:-|\nID-lock|2024-03-14\nID-lock|2024-10-06|Varta Ultra Lithium\nDanalock|2024-10-06\nDanapad|2024-10-06\nID-lock|2025-03-31|Varta Alkaline",
+              "content": "|Batteri|Datum|Typ\n|:-|:-|:-|\nID-lock|2024-03-14\nID-lock|2024-10-06|Varta Ultra Lithium\nDanalock|2024-10-06\nDanapad|2024-10-06\nID-lock|2025-03-31|Varta Alkaline\nID-lock|2025-11-01|Varta Alkaline",
               "title": "Batteribyten"
             }
           ]

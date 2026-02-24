@@ -64,9 +64,6 @@
   action:
   - service: homeassistant.turn_on
     entity_id: group.daily_sun
-  - service: notify.pelles_tfn
-    data_template:
-      message: '{{ states("sensor.time") }} - Daily sunset triggered'
 - id: A012
   alias: Alarm activation
   trigger:
@@ -239,20 +236,6 @@
     data: {}
     entity_id: media_player.samsung_tv
   mode: single
-- id: A0271
-  alias: White remote 1:ALL triggered notify Pelle
-  trigger:
-  - platform: event
-    event_type: rfxtrx_event
-    event_data:
-      id_string: 0a5b3f2:1
-      values:
-        Command: Group off
-  action:
-  - service: notify.pelles_tfn
-    data:
-      message: Testing WR1/All
-  mode: single
 - id: A035
   alias: Arbrum fonsterlampa med long-klick
   trigger:
@@ -306,17 +289,6 @@
   - delay: 00:10:00
   - entity_id: light.entrance_drawer
     service: light.turn_off
-- id: A043
-  alias: Marie leaving Slussen
-  trigger:
-  - platform: state
-    entity_id: device_tracker.life360_marie
-    from: Slussen
-  action:
-  - service: notify.pelles_tfn
-    data:
-      message: '{{ states("sensor.time") }} - Marie left Slussen'
-  mode: single
 - id: A049
   alias: Ytterdorr open turn on byra
   trigger:
@@ -424,21 +396,6 @@
     target:
       entity_id: fan.albins_fan
   mode: single
-- id: '1600181517063'
-  alias: Pelle - notify when front door not locked
-  description: ''
-  trigger:
-  - entity_id: binary_sensor.xq_as52_is_charging
-    platform: state
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: lock.id_lock_150_locked
-    state: unlocked
-  action:
-  - data:
-      message: Front door not locked
-    service: notify.pelles_tfn
 - id: '1601619813757'
   alias: 0 - Extra good night
   description: ''
@@ -451,20 +408,6 @@
   - service: homeassistant.turn_off
     data: {}
     entity_id: media_player.samsung_tv
-  mode: single
-- id: '1602220465881'
-  alias: Front door refresh
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: alert.front_door_open_long
-    to: 'on'
-    from: idle
-  condition: []
-  action:
-  - service: zwave_js.refresh_value
-    data:
-      entity_id: binary_sensor.front_door_open
   mode: single
 - id: '1603043901780'
   alias: Entrance ceiling when White remote 2 button 3
@@ -501,27 +444,6 @@
   - service: switch.toggle
     data: {}
     entity_id: switch.arc_b1
-  mode: single
-- id: '1603458841523'
-  alias: Marie leaves work
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - device_tracker.life360_marie
-    from: Sida
-    for:
-      hours: 0
-      minutes: 5
-      seconds: 0
-  condition:
-  - condition: time
-    after: '17:00:00'
-    before: '23:59:00'
-  action:
-  - service: notify.pelles_tfn
-    data:
-      message: '{{ states("sensor.time") }} - Marie leaves work'
   mode: single
 - id: '1604272064775'
   alias: Bathroom timer start
@@ -581,19 +503,6 @@
   - service: switch.turn_off
     target:
       entity_id: switch.cloak_room
-  mode: single
-- id: '1608909453602'
-  alias: Guest room desk when Lenovo off
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: device_tracker.20j1_lr09d73d_lan
-    to: not_home
-  condition: []
-  action:
-  - service: homeassistant.turn_off
-    data:
-      entity_id: light.guest_room_desk
   mode: single
 - id: '1610198001486'
   alias: Guest room IKEA remote
@@ -746,45 +655,6 @@
       binary_sensor: binary_sensor.garage_door_open
       target_light:
         entity_id: light.garage_extra
-- id: '1641985268178'
-  alias: Zigge is waiting
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.tradfri_motion_sensor
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: binary_sensor.front_door_open
-    state: 'off'
-    for:
-      hours: 0
-      minutes: 1
-      seconds: 0
-  action:
-  - delay:
-      hours: 0
-      minutes: 3
-      seconds: 30
-      milliseconds: 0
-  - condition: state
-    entity_id: binary_sensor.front_door_open
-    state: 'off'
-    for:
-      hours: 0
-      minutes: 5
-      seconds: 0
-  - service: notify.pelles_tfn
-    data:
-      title: Zigge
-      message: Zigge is waiting
-  - service: notify.guest_room
-    data:
-      message: Ziggee is waiting at the door - maybe
-  - service: notify.kitchen
-    data:
-      message: Ziggee is waiting at the door - maybe
-  mode: single
 - id: '1642499908603'
   alias: Arteon Electric Climatization
   description: ''
@@ -866,7 +736,6 @@
   - data:
       message: Zigge has waited {{ trigger.id }}
     action: notify.pelles_tfn
-    enabled: false
   - data:
       message: Ziggee has waited for {{ trigger.id }}
     action: notify.guest_room
@@ -989,22 +858,6 @@
           charger_id: EHQYY3LL
       - service: input_boolean.turn_off
         entity_id: input_boolean.easee_paused
-  mode: single
-- id: '1670358805251'
-  alias: Pearl heating on datepicker
-  description: ''
-  trigger:
-  - platform: time
-    at: input_datetime.start_pearl_heating
-  condition: []
-  action:
-  - service: switch.turn_on
-    data: {}
-    target:
-      entity_id: switch.popp_smart_outdoor_plug_ip44_rated
-  - service: notify.pelles_tfn
-    data:
-      message: Pearl heating started
   mode: single
 - id: '667'
   alias: Tibber Reload
@@ -1175,3 +1028,86 @@
       light:
         device_id: 1e9cc4050e2c5d7bf5d8644597551b28
       brightness: 94
+- id: '1759585441674'
+  alias: Garage extra on remote press
+  description: ''
+  triggers:
+  - device_id: d2f49f39f8dec755845e08019c1fec88
+    domain: deconz
+    type: remote_button_short_press
+    subtype: turn_on
+    metadata: {}
+    trigger: device
+  - device_id: d2f49f39f8dec755845e08019c1fec88
+    domain: deconz
+    type: remote_button_short_press
+    subtype: turn_off
+    trigger: device
+  conditions: []
+  actions:
+  - action: light.toggle
+    metadata: {}
+    data: {}
+    target:
+      device_id: 6bc55371321549ea204f4d782e3f8938
+  mode: single
+- id: '1759586252580'
+  alias: Kitchen table on remote press
+  description: ''
+  triggers:
+  - device_id: 95a2a8a05ddd7518af0415bd8140df89
+    domain: deconz
+    type: remote_button_short_press
+    subtype: turn_on
+    metadata: {}
+    trigger: device
+  - device_id: 95a2a8a05ddd7518af0415bd8140df89
+    domain: deconz
+    type: remote_button_short_press
+    subtype: turn_off
+    trigger: device
+  conditions: []
+  actions:
+  - action: light.toggle
+    metadata: {}
+    data: {}
+    target:
+      entity_id: light.kitchen_table
+  mode: single
+- id: '1759587170677'
+  alias: Playroom ceiling stairs on remote press
+  description: ''
+  triggers:
+  - device_id: 9cf0f7c7524db49b47bba9d8404c9a78
+    domain: deconz
+    type: remote_button_short_press
+    subtype: turn_on
+    metadata: {}
+    trigger: device
+  - device_id: 9cf0f7c7524db49b47bba9d8404c9a78
+    domain: deconz
+    type: remote_button_short_press
+    subtype: turn_off
+    trigger: device
+  conditions: []
+  actions:
+  - action: light.toggle
+    metadata: {}
+    data: {}
+    target:
+      entity_id: light.play_room_ceiling_2
+  mode: single
+- id: '1769102691443'
+  alias: Temp.nu report
+  description: ''
+  triggers:
+  - trigger: time_pattern
+    minutes: /10
+  conditions: []
+  actions:
+  - action: temperatur_nu.send_temperature
+    metadata: {}
+    data:
+      hash: e2a05cf99f8c09e34b1cfec14dcee4d4
+      sensor: sensor.bv_outdoor
+  mode: single

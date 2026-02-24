@@ -1,0 +1,293 @@
+-== Watchman Report ==- 
+
+-== Congratulations, all 34 actions from your config are available!
+
+-== Missing 182 entity(ies) from 518 found in your config:
++--------------------------------+----------+---------------------------------------------------------------+
+| Entity ID                      | State    | Location                                                      |
++--------------------------------+----------+---------------------------------------------------------------+
+| binary_sensor.garage_door_open | unavail  | 📄 .storage/lovelace:75                                       |
+|                                |          | 📄 .storage/lovelace.lovelace_highlights:59                   |
+|                                |          | 📄 alerts.yaml:15                                             |
+|                                |          | 📄 automations.yaml:655                                       |
+|                                |          | 📄 customize.yaml:82                                          |
+|                                |          | 📄 templates.yaml:66                                          |
+| binary_sensor.aarlo_motion_arl | missing  | 📄 .storage/lovelace:129                                      |
+| ozoneinside                    |          | 📄 customize.yaml:62                                          |
+| binary_sensor.aarlo_motion_arl | missing  | 📄 .storage/lovelace:133                                      |
+| ozonefront                     |          | 📄 customize.yaml:59                                          |
+| sensor.time_to_work            | missing  | 📄 .storage/lovelace:159                                      |
+|                                |          | 📄 recorder.yaml:48                                           |
+| lawn_mower.roger               | unavail  | 📄 .storage/lovelace:214                                      |
+| sensor.roger_error             | unavail  | 📄 .storage/lovelace:217                                      |
+| sensor.roger_battery_2         | unavail  | 📄 .storage/lovelace:220                                      |
+| camera.aarlo_arlozoneinside    | missing  | 📄 .storage/lovelace:269                                      |
+|                                |          | 📄 .storage/lovelace.lovelace_highlights:81                   |
+| camera.aarlo_arlozonefront     | missing  | 📄 .storage/lovelace:288                                      |
+| sensor.sl_departure_sensor_461 | unavail  | 📄 .storage/lovelace:335                                      |
+| 2_sl_departures                |          |                                                               |
+| sensor.sl_departure_sensor_919 | unavail  | 📄 .storage/lovelace:352                                      |
+| 4_slussen_buss                 |          |                                                               |
+| binary_sensor.diskmaskin_door  | unavail  | 📄 .storage/lovelace:359                                      |
+| sensor.diskmaskin_program_prog | unavail  | 📄 .storage/lovelace:367                                      |
+| ress                           |          |                                                               |
+| sensor.diskmaskin_remaining_pr | unavail  | 📄 .storage/lovelace:371                                      |
+| ogram_time                     |          |                                                               |
+| light.play_room_ceiling        | unavail  | 📄 .storage/lovelace:449                                      |
+|                                |          | 📄 groups.yaml:21,71                                          |
+| switch.on_off_plug_in_unit_16  | unavail  | 📄 .storage/lovelace:467                                      |
+|                                |          | 📄 automations.yaml:1005                                      |
+| switch.tp2                     | unavail  | 📄 .storage/lovelace:499,1705                                 |
+| switch.water_control           | missing  | 📄 .storage/lovelace:514,1706                                 |
+|                                |          | 📄 automations.yaml:562,595                                   |
+| fan.albins_fan                 | disabled | 📄 .storage/lovelace:517                                      |
+|                                |          | 📄 automations.yaml:375,397                                   |
+| alarm_control_panel.aarlo_arlo | missing  | 📄 .storage/lovelace:540                                      |
+| zone                           |          | 📄 automations.yaml:117,134                                   |
+| switch.arteon_electric_climati | unavail  | 📄 .storage/lovelace:554,1774                                 |
+| sation                         |          | 📄 automations.yaml:668                                       |
+| switch.arteon_auxiliary_climat | unavail  | 📄 .storage/lovelace:557,1758                                 |
+| isation                        |          |                                                               |
+| automation.marie_starts_moving | unavail  | 📄 .storage/lovelace:590                                      |
+| sensor.aqara_motion_temperatur | unavail  | 📄 .storage/lovelace:714                                      |
+| e                              |          |                                                               |
+| sensor.switch_21_temperature   | unavail  | 📄 .storage/lovelace:717                                      |
+| sensor.garage_door_temperature | unavail  | 📄 .storage/lovelace:727                                      |
+| sensor.garage_side_humidity    | unavail  | 📄 .storage/lovelace:731                                      |
+| sensor.garage_side_pressure    | unavail  | 📄 .storage/lovelace:734,846                                  |
+| sensor.garage_side_temperature | unavail  | 📄 .storage/lovelace:737                                      |
+| sensor.arteon_charging_energy  | missing  | 📄 .storage/lovelace:1089                                     |
+| sensor.power_savsangarvagen_54 | missing  | 📄 .storage/lovelace:1104                                     |
+| a                              |          |                                                               |
+| sensor.aarlo_signal_strength_a | missing  | 📄 .storage/lovelace:1347                                     |
+| rlozonefront                   |          |                                                               |
+| sensor.aarlo_signal_strength_a | missing  | 📄 .storage/lovelace:1350                                     |
+| rlozoneinside                  |          |                                                               |
+| sensor.omv_temperature         | unknown  | 📄 .storage/lovelace:1374                                     |
+| sensor.aarlo_battery_level_arl | missing  | 📄 .storage/lovelace:1390                                     |
+| ozonefront                     |          |                                                               |
+| sensor.aarlo_battery_level_arl | missing  | 📄 .storage/lovelace:1393                                     |
+| ozoneinside                    |          |                                                               |
+| sensor.garage_door_battery_lev | unavail  | 📄 .storage/lovelace:1420                                     |
+| el                             |          |                                                               |
+| sensor.speedtest_download      | unavail  | 📄 .storage/lovelace:1489                                     |
+| sensor.speedtest_upload        | unavail  | 📄 .storage/lovelace:1492                                     |
+| sensor.speedtest_ping          | unavail  | 📄 .storage/lovelace:1495                                     |
+| device_tracker.pixel_9a        | unknown  | 📄 .storage/lovelace:1512                                     |
+| sensor.water_control_battery_l | missing  | 📄 .storage/lovelace:1531                                     |
+| evel                           |          |                                                               |
+| sensor.plant_sensor_battery_le | missing  | 📄 .storage/lovelace:1532                                     |
+| vel                            |          |                                                               |
+| light.guest_room_desk          | unavail  | 📄 .storage/lovelace:1683                                     |
+|                                |          | 📄 groups.yaml:5,61                                           |
+| light.guest_room_window_2      | missing  | 📄 .storage/lovelace:1684                                     |
+| light.guestroom_red            | missing  | 📄 .storage/lovelace:1685                                     |
+| light.living_room_corner       | unavail  | 📄 .storage/lovelace:1687                                     |
+| light.living_room_sofa         | missing  | 📄 .storage/lovelace:1688                                     |
+|                                |          | 📄 google_assistant.yaml:29                                   |
+| scene.godnatt                  | missing  | 📄 .storage/lovelace:1691                                     |
+| switch.arc_b2                  | unavail  | 📄 .storage/lovelace:1693,2104                                |
+| switch.arc_c3                  | missing  | 📄 .storage/lovelace:1695,2119                                |
+| switch.popp_duwi_zw_zsa_3500_p | missing  | 📄 .storage/lovelace:1703                                     |
+| lugin_switch_switch            |          | 📄 groups.yaml:41                                             |
+| switch.tp1                     | missing  | 📄 .storage/lovelace:1704                                     |
+| switch.indoor_outdoor_wall_plu | missing  | 📄 .storage/lovelace:1707                                     |
+| g_switch                       |          |                                                               |
+| sensor.arteon_charger_max_ampe | missing  | 📄 .storage/lovelace:1799                                     |
+| re                             |          |                                                               |
+| sensor.arteon_charging_time_le | unknown  | 📄 .storage/lovelace:1811                                     |
+| ft                             |          |                                                               |
+| sensor.arteon_combined_range   | unavail  | 📄 .storage/lovelace:1819                                     |
+| sensor.arteon_combustion_range | unavail  | 📄 .storage/lovelace:1823                                     |
+| sensor.arteon_electric_range   | unavail  | 📄 .storage/lovelace:1847                                     |
+| sensor.arteon_last_trip_averag | unavail  | 📄 .storage/lovelace:1867                                     |
+| e_electric_engine_consumption  |          |                                                               |
+| sensor.arteon_last_trip_averag | unavail  | 📄 .storage/lovelace:1871                                     |
+| e_fuel_consumption             |          |                                                               |
+| sensor.arteon_last_trip_averag | unavail  | 📄 .storage/lovelace:1875                                     |
+| e_speed                        |          |                                                               |
+| sensor.arteon_last_trip_durati | unavail  | 📄 .storage/lovelace:1879                                     |
+| on                             |          |                                                               |
+| sensor.arteon_last_trip_length | unavail  | 📄 .storage/lovelace:1883                                     |
+| sensor.arteon_odometer         | unavail  | 📄 .storage/lovelace:1887                                     |
+| sensor.arteon_requests_remaini | missing  | 📄 .storage/lovelace:1915                                     |
+| ng                             |          |                                                               |
+| switch.ehqyy3ll_cable_locked_p | disabled | 📄 .storage/lovelace:1975                                     |
+| ermanently                     |          |                                                               |
+| switch.ehqyy3ll_enable_idle_cu | disabled | 📄 .storage/lovelace:1979                                     |
+| rrent                          |          |                                                               |
+| switch.ehqyy3ll_smart_charging | disabled | 📄 .storage/lovelace:1983                                     |
+| binary_sensor.ehqyy3ll_cable_l | disabled | 📄 .storage/lovelace:1993                                     |
+| ocked                          |          |                                                               |
+| sensor.ehqyy3ll_cost_day       | disabled | 📄 .storage/lovelace:1997                                     |
+| sensor.ehqyy3ll_cost_month     | disabled | 📄 .storage/lovelace:2001                                     |
+| sensor.ehqyy3ll_cost_year      | disabled | 📄 .storage/lovelace:2005                                     |
+| sensor.ehqyy3ll_energy_per_hou | disabled | 📄 .storage/lovelace:2009                                     |
+| r                              |          |                                                               |
+| sensor.ehqyy3ll_lifetime_energ | disabled | 📄 .storage/lovelace:2013                                     |
+| y                              |          |                                                               |
+| binary_sensor.ehqyy3ll_online  | disabled | 📄 .storage/lovelace:2017                                     |
+| sensor.ehqyy3ll_session_energy | disabled | 📄 .storage/lovelace:2021                                     |
+| sensor.ehqyy3ll_power          | disabled | 📄 .storage/lovelace:2025                                     |
+| select.charge_mode             | unavail  | 📄 .storage/lovelace:2036                                     |
+| button.start_air_conditioner   | unknown  | 📄 .storage/lovelace:2037                                     |
+| button.start_charge            | unknown  | 📄 .storage/lovelace:2038                                     |
+| button.stop_charge             | unknown  | 📄 .storage/lovelace:2039                                     |
+| sensor.admissible_charging_pow | unknown  | 📄 .storage/lovelace:2046                                     |
+| er                             |          |                                                               |
+| sensor.battery_available_energ | unknown  | 📄 .storage/lovelace:2049                                     |
+| y                              |          |                                                               |
+| sensor.battery_temperature     | unknown  | 📄 .storage/lovelace:2050                                     |
+| binary_sensor.driver_door      | unavail  | 📄 .storage/lovelace:2054                                     |
+| binary_sensor.hatch            | unavail  | 📄 .storage/lovelace:2055                                     |
+| binary_sensor.lock             | unavail  | 📄 .storage/lovelace:2058                                     |
+| sensor.outside_temperature     | unknown  | 📄 .storage/lovelace:2060                                     |
+| binary_sensor.passenger_door   | unavail  | 📄 .storage/lovelace:2061                                     |
+| binary_sensor.rear_left_door   | unavail  | 📄 .storage/lovelace:2064                                     |
+| binary_sensor.rear_right_door  | unavail  | 📄 .storage/lovelace:2065                                     |
+| sensor.remote_engine_start     | unavail  | 📄 .storage/lovelace:2066                                     |
+| switch.arc_b4                  | unavail  | 📄 .storage/lovelace:2107                                     |
+| switch.arc_b6                  | unavail  | 📄 .storage/lovelace:2110                                     |
+| switch.arc_b9                  | unavail  | 📄 .storage/lovelace:2116                                     |
+| switch.ac_06eb2e2_2            | unavail  | 📄 .storage/lovelace:2125                                     |
+| switch.ac_0c44702_1            | unavail  | 📄 .storage/lovelace:2140                                     |
+| sensor.nexa_1_rssi_numeric     | unknown  | 📄 .storage/lovelace:2152                                     |
+| sensor.thgr810_thgn800_55_01_h | missing  | 📄 .storage/lovelace:2163                                     |
+| umidity                        |          |                                                               |
+| sensor.thgr810_thgn800_55_01_h | missing  | 📄 .storage/lovelace:2166                                     |
+| umidity_status                 |          |                                                               |
+| sensor.thgr810_thgn800_55_01_r | missing  | 📄 .storage/lovelace:2169                                     |
+| ssi_numeric                    |          |                                                               |
+| sensor.thgr810_thgn800_55_01_t | missing  | 📄 .storage/lovelace:2172                                     |
+| emperature                     |          | 📄 .storage/lovelace.lovelace_highlights:44                   |
+| sensor.thgr810_thgn800_55_01_b | missing  | 📄 .storage/lovelace:2175                                     |
+| attery_numeric                 |          |                                                               |
+| light.front_door               | missing  | 📄 .storage/lovelace.lovelace_highlights:23                   |
+|                                |          | 📄 groups.yaml:45                                             |
+| sensor.zigge_distance_2        | missing  | 📄 .storage/lovelace.lovelace_highlights:71                   |
+| sensor.bv_time                 | missing  | 📄 alerts.yaml:51                                             |
+| light.albins_shapes            | missing  | 📄 automations.yaml:113,381                                   |
+| script.timed_badrum            | missing  | 📄 automations.yaml:221                                       |
+| media_player.samsung_tv        | missing  | 📄 automations.yaml:237,410                                   |
+|                                |          | 📄 scripts.yaml:13,15,17,19,21,26,28,30,32,34,40,47,108       |
+| light.fridas_room_ceiling      | missing  | 📄 automations.yaml:382                                       |
+|                                |          | 📄 groups.yaml:74                                             |
+| remote.yaml                    | missing  | 📄 automations.yaml:1025                                      |
+| sensor.from_hass               | missing  | 📄 customize.yaml:1                                           |
+| binary_sensor.flood_sensor_4_2 | missing  | 📄 customize.yaml:3                                           |
+| 0                              |          |                                                               |
+| light.entre                    | missing  | 📄 customize.yaml:7                                           |
+|                                |          | 📄 groups.yaml:31                                             |
+| group.all_automations          | missing  | 📄 customize.yaml:9                                           |
+| sensor.fibaro_system_fgms001zw | missing  | 📄 customize.yaml:12                                          |
+| 5_motion_sensor_luminance_4    |          |                                                               |
+| binary_sensor.fibaro_system_fg | missing  | 📄 customize.yaml:16                                          |
+| bs001_universal_binary_sensor_ |          |                                                               |
+| sensor                         |          |                                                               |
+| binary_sensor.garage_door_sens | missing  | 📄 customize.yaml:18                                          |
+| or                             |          |                                                               |
+| sensor.everspring_st812_flood_ | missing  | 📄 customize.yaml:20                                          |
+| detector_flood                 |          |                                                               |
+| sensor.fibaro_system_fgms001zw | missing  | 📄 customize.yaml:22                                          |
+| 5_motion_sensor_temperature_4  |          |                                                               |
+| sensor.pelle_life360           | missing  | 📄 customize.yaml:29                                          |
+| sensor.huset                   | missing  | 📄 customize.yaml:31                                          |
+| sensor.roger_battery           | unknown  | 📄 customize.yaml:33                                          |
+|                                |          | 📄 templates.yaml:126                                         |
+| sensor.roger_next_start        | unavail  | 📄 customize.yaml:35                                          |
+| sensor.roger_next_src          | missing  | 📄 customize.yaml:37                                          |
+| sensor.roger_status            | missing  | 📄 customize.yaml:39                                          |
+|                                |          | 📄 recorder.yaml:47                                           |
+| sensor.load_15m                | missing  | 📄 customize.yaml:41                                          |
+|                                |          | 📄 recorder.yaml:40                                           |
+| sensor.load_5m                 | missing  | 📄 customize.yaml:43                                          |
+|                                |          | 📄 recorder.yaml:39                                           |
+| sensor.load_1m                 | missing  | 📄 customize.yaml:45                                          |
+|                                |          | 📄 recorder.yaml:38                                           |
+| sensor.fibaro_system_fgk101_do | missing  | 📄 customize.yaml:47                                          |
+| or_opening_sensor_temperature  |          |                                                               |
+| binary_sensor.fibaro_system_fg | missing  | 📄 customize.yaml:51                                          |
+| k101_door_opening_sensor_senso |          |                                                               |
+| r_2                            |          |                                                               |
+| binary_sensor.philio_technolog | missing  | 📄 customize.yaml:53                                          |
+| y_corporation_psp05_pir_motion |          |                                                               |
+| _sensor                        |          |                                                               |
+| lock.id_lock_150_locked        | missing  | 📄 customize.yaml:57                                          |
+|                                |          | 📄 scripts.yaml:113                                           |
+|                                |          | 📄 templates.yaml:54                                          |
+| light.shapes_eea3_local        | missing  | 📄 customize.yaml:65                                          |
+| binary_sensor.front_door_open_ | missing  | 📄 customize.yaml:74                                          |
+| lock                           |          |                                                               |
+| light.fibaro_system_fgd211_uni | missing  | 📄 google_assistant.yaml:13                                   |
+| versal_dimmer_500w_level       |          |                                                               |
+| light.fibaro_system_fgd211_uni | missing  | 📄 google_assistant.yaml:15                                   |
+| versal_dimmer_500w_level_6     |          |                                                               |
+| light.frida_skrivbord          | missing  | 📄 google_assistant.yaml:17                                   |
+| light.fibaro_system_fgd211_uni | missing  | 📄 google_assistant.yaml:19                                   |
+| versal_dimmer_500w_level_5     |          |                                                               |
+| light.koksbanken_level         | missing  | 📄 google_assistant.yaml:21                                   |
+| switch.telldus_tzwp100_plugin_ | missing  | 📄 google_assistant.yaml:23                                   |
+| switch_switch                  |          |                                                               |
+| light.fibaro_system_fgd211_uni | missing  | 📄 google_assistant.yaml:25                                   |
+| versal_dimmer_500w_level_2     |          |                                                               |
+| group.guest_room               | missing  | 📄 google_assistant.yaml:37                                   |
+| group.living_room              | missing  | 📄 google_assistant.yaml:41                                   |
+| group.kamera                   | missing  | 📄 google_assistant.yaml:43                                   |
+| switch.frida_at_school         | missing  | 📄 google_assistant.yaml:45                                   |
+| switch.frida_at_home           | missing  | 📄 google_assistant.yaml:47                                   |
+| switch.fibaro_system_fgwpef_wa | missing  | 📄 groups.yaml:37                                             |
+| ll_plug_gen5_switch            |          |                                                               |
+| switch.kamera                  | missing  | 📄 groups.yaml:38                                             |
+| switch.sensor_badrum           | missing  | 📄 groups.yaml:39                                             |
+| switch.fibaro_system_fgwpef_wa | missing  | 📄 groups.yaml:56                                             |
+| ll_plug_switch                 |          |                                                               |
+| light.arbrum_fonster           | missing  | 📄 groups.yaml:57                                             |
+| light.cloak_room               | missing  | 📄 groups.yaml:64                                             |
+| media_player.kitchen_display   | missing  | 📄 notifiers.yaml:26                                          |
+| sensor.network_throughput_out_ | missing  | 📄 recorder.yaml:41                                           |
+| hassio                         |          |                                                               |
+| sensor.network_throughput_in_h | missing  | 📄 recorder.yaml:42                                           |
+| assio                          |          |                                                               |
+| sensor.memory_free             | missing  | 📄 recorder.yaml:43                                           |
+| sensor.processor_use           | missing  | 📄 recorder.yaml:44                                           |
+| sensor.disk_free_home          | unavail  | 📄 recorder.yaml:45                                           |
+| sensor.last_boot               | missing  | 📄 recorder.yaml:46                                           |
+| sensor.pelle_velocity          | missing  | 📄 recorder.yaml:49                                           |
+| sensor.marie_velocity          | missing  | 📄 recorder.yaml:50                                           |
+| sensor.frida_velocity          | missing  | 📄 recorder.yaml:51                                           |
+| sensor.jenny_velocity          | missing  | 📄 recorder.yaml:52                                           |
+| sensor.albin_velocity          | missing  | 📄 recorder.yaml:53                                           |
+| sensor.sm_t719_wifi_connection | missing  | 📄 recorder.yaml:54                                           |
+| media_player.stereo            | missing  | 📄 scripts.yaml:54                                            |
+| device_tracker.life360_marie   | missing  | 📄 scripts.yaml:67                                            |
+| device_tracker.life360_frida_n | missing  | 📄 scripts.yaml:67                                            |
+| ordlund                        |          |                                                               |
+| device_tracker.life360_jenny_n | missing  | 📄 scripts.yaml:67                                            |
+| ordlund                        |          |                                                               |
+| device_tracker.life360_albin_n | missing  | 📄 scripts.yaml:67                                            |
+| ordlund                        |          |                                                               |
+| media_player.chromecastultra23 | missing  | 📄 scripts.yaml:87                                            |
+| 87                             |          |                                                               |
+| sensor.zigge_zigge_room_presen | unavail  | 📄 templates.yaml:10                                          |
+| ce_2                           |          |                                                               |
+| sensor.pelles_phone_room_prese | unavail  | 📄 templates.yaml:85                                          |
+| nce                            |          |                                                               |
+| vacuum.automower_r_310_roger   | missing  | 📄 templates.yaml:128                                         |
+| sensor.fibaro_system_fgwpef_wa | missing  | 📄 zwave_device_config.yaml:1                                 |
+| ll_plug_gen5_alarm_level_2_1   |          |                                                               |
+| sensor.fibaro_system_fgwpef_wa | missing  | 📄 zwave_device_config.yaml:4                                 |
+| ll_plug_gen5_exporting_2_32    |          |                                                               |
+| sensor.fibaro_system_fgwpef_wa | missing  | 📄 zwave_device_config.yaml:7                                 |
+| ll_plug_gen5_sourcenodeid_2_2  |          |                                                               |
+| sensor.fibaro_system_fgwpef_wa | missing  | 📄 zwave_device_config.yaml:10                                |
+| ll_plug_gen5_power_management_ |          |                                                               |
+| 2_11                           |          |                                                               |
+| sensor.fibaro_system_fgwpef_wa | missing  | 📄 zwave_device_config.yaml:13                                |
+| ll_plug_gen5_power_2_8         |          |                                                               |
+| sensor.fibaro_system_fgwpef_wa | missing  | 📄 zwave_device_config.yaml:16                                |
+| ll_plug_gen5_power_2_4         |          |                                                               |
++--------------------------------+----------+---------------------------------------------------------------+
+
+-== Report created on 24 Feb 2026 07:46:08
+-== Parsed 44 files in 0.00s., ignored 0 files 
+-== Generated in: 0.07s. Validated in: 0.00s.

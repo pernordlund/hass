@@ -55,9 +55,10 @@ turn_on_stereo:
 turn_off_tv:
   alias: Turn off TV
   sequence:
-  - data:
-      entity_id: media_player.samusng_tv
-    service: media_player.turn_off
+  - data: {}
+    action: media_player.turn_off
+    target:
+      entity_id: media_player.ue60f6300
 where_is_my_family:
   alias: Where is my family
   sequence:
@@ -88,12 +89,12 @@ where_is_my_family:
 lights_out:
   alias: Lights out
   sequence:
-  - service: homeassistant.turn_off
-    data: {}
+  - data: {}
     target:
       entity_id:
       - group.inside_downstairs
       - switch.attic
+      - group.inside_upstairs
       device_id:
       - 996e597345a143f1abd7b18f5acf8e08
       - 317e218d6455a80dfd78a0eea8931a9a
@@ -102,15 +103,16 @@ lights_out:
       - dcc78413aa114add43f3c8a9eab77db3
       - d8fbaaa1349a50ca734fa17355f3fdd4
       - 6bc55371321549ea204f4d782e3f8938
-  - service: media_player.turn_off
-    data:
+    action: homeassistant.turn_off
+  - data:
       entity_id: media_player.samsung_tv
-  - service: lock.lock
-    data: {}
+    action: media_player.turn_off
+  - data: {}
     target:
       entity_id:
       - lock.id_lock_150_locked
       - lock.garage_side_door_lock
+    action: lock.lock
   mode: single
 zigge_notif_1hr_off:
   alias: Zigge notif 1hr off
