@@ -21,7 +21,7 @@
       - sensor.id_lock_*
       - sensor.speedtest_*
       - sensor.*savsangarvagen*
-      - sensor.*luminance*
+      - sensor.*luminance*''
       - sensor.*light*
       - sensor.*energy*
       - sensor.*kwh*
