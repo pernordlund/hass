@@ -880,43 +880,51 @@
 - id: '1684942335259'
   alias: X - Working at home ON
   description: ''
-  trigger:
-  - type: motion
-    platform: device
-    device_id: 6210b45a11d936bd21c011573f2fe07a
-    entity_id: binary_sensor.tradfri_motion_sensor
-    domain: binary_sensor
-  condition:
+  triggers:
+  - trigger: state
+    entity_id:
+    - binary_sensor.guest_room_motion
+    to:
+    - 'on'
+  conditions:
   - condition: and
     conditions:
     - condition: state
       entity_id: device_tracker.life360_per_nordlund
       state: home
-  action:
-  - service: input_boolean.turn_on
-    data: {}
+    - condition: state
+      entity_id: input_boolean.pelle_maybe_working_at_home
+      state:
+      - 'off'
+  actions:
+  - data: {}
     target:
       entity_id: input_boolean.pelle_maybe_working_at_home
+    action: input_boolean.turn_on
   mode: single
 - id: '1684942506243'
   alias: X - Working at home OFF
   description: ''
-  trigger:
-  - type: no_motion
-    platform: device
-    device_id: 6210b45a11d936bd21c011573f2fe07a
-    entity_id: binary_sensor.tradfri_motion_sensor
-    domain: binary_sensor
+  triggers:
+  - trigger: state
+    entity_id:
+    - binary_sensor.guest_room_motion
+    to:
+    - 'off'
     for:
       hours: 0
-      minutes: 5
+      minutes: 15
       seconds: 0
-  condition: []
-  action:
-  - service: input_boolean.turn_off
-    data: {}
+  conditions:
+  - condition: state
+    entity_id: input_boolean.pelle_maybe_working_at_home
+    state:
+    - 'on'
+  actions:
+  - data: {}
     target:
       entity_id: input_boolean.pelle_maybe_working_at_home
+    action: input_boolean.turn_off
   mode: single
 - id: '1684960964652'
   alias: X - Working at 23:55
@@ -1109,5 +1117,39 @@
     metadata: {}
     data:
       hash: e2a05cf99f8c09e34b1cfec14dcee4d4
-      sensor: sensor.bv_outdoor
+      sensor: sensor.hp_bv_outdoor
+  mode: single
+- id: '1786080745936'
+  alias: Kitchen bench left on
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - light.dimmable_light_8
+    to:
+    - 'on'
+  conditions: []
+  actions:
+  - action: light.turn_on
+    metadata: {}
+    target:
+      entity_id: light.dimmable_light_9
+    data: {}
+  mode: single
+- id: '1786080814462'
+  alias: Kitchen bench left off
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - light.dimmable_light_8
+    to:
+    - 'off'
+  conditions: []
+  actions:
+  - action: light.turn_off
+    metadata: {}
+    target:
+      entity_id: light.dimmable_light_9
+    data: {}
   mode: single

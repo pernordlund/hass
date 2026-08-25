@@ -34,24 +34,6 @@ config:
 
 group: !include groups.yaml
 
-http:
-  use_x_forwarded_for: true
-  trusted_proxies:
-    - 192.168.86.0/24
-    # - !secret http_trusted_proxy1
-    # - !secret http_trusted_proxy2
-    # - !secret http_trusted_proxy3
-
-# Checks for available updates
-# updater:
-
-# Discover some devices automatically
-#discovery:
-
-# Allows you to issue voice commands from the frontend in enabled browsers
-#conversation:
-#dialogflow:
-
 recorder: !include recorder.yaml
 
 # Enables support for tracking state changes over time.

@@ -12,17 +12,14 @@
       - fan
       - media_player
     entity_globs:
-      - sensor.glances*
       - sensor.*battery*
       - sensor.*temperature*
       - sensor.*humidity*
       - sensor.*pressure*
-      - sensor.bv_*
+      - sensor.hp_*
       - sensor.netatmo_*
       - sensor.id_lock_*
-      - sensor.xiaomi_*
       - sensor.speedtest_*
-      - sensor.blitzortung_*
       - sensor.*savsangarvagen*
       - sensor.*luminance*
       - sensor.*light*
@@ -35,23 +32,7 @@
       - sensor.vind*
       - sensor.ehqyy3ll*
     entities:
-      - sensor.load_1m
-      - sensor.load_5m
-      - sensor.load_15m
-      - sensor.network_throughput_out_hassio
-      - sensor.network_throughput_in_hassio
-      - sensor.memory_free
-      - sensor.processor_use
       - sensor.disk_free_home
-      - sensor.last_boot
-      - sensor.roger_status
-      - sensor.time_to_work
-      - sensor.pelle_velocity
-      - sensor.marie_velocity
-      - sensor.frida_velocity
-      - sensor.jenny_velocity
-      - sensor.albin_velocity
-      - sensor.sm_t719_wifi_connection
       - sensor.daylight
       - sensor.range_extender_7_node_status
       - sensor.wind_bearing
@@ -59,3 +40,5 @@
       - sensor.hours_worked_today
       - sensor.stats_work_hours
       - sensor.google_wifi_local_ip
+      - sensor.alta_kolarangen_2
+      - sensor.ti_current_cost

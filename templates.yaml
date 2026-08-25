@@ -21,8 +21,8 @@
             ('At Home'     if (is_state('input_boolean.pelle_working_at_home', 'off') and
                                is_state('input_boolean.pelle_not_working_at_home', 'off') and
                                is_state('input_boolean.pelle_maybe_working_at_home', 'on') and
-                               is_state('device_tracker.life360_per_nordlund', 'home') and 
-                               (is_state('device_tracker.pf305jbk_2', 'home') or
+                               is_state('person.pelle', 'home') and 
+                               (is_state('device_tracker.okq8oapa5ket51y', 'home') or
                                 is_state('device_tracker.pf305jbk', 'home')))) or
             ('Not working')
           }}
@@ -71,13 +71,13 @@
   - binary_sensor:
     - default_entity_id: binary_sensor.bv_making_hot_water
       name: Making hot water
-      state: '{{ ''on'' if ((states.binary_sensor.bv_switch_valve_1.state == ''on'')
-        and (states.binary_sensor.bv_compressor.state == ''on'')) else ''off''}}'
+      state: '{{ ''on'' if ((states.binary_sensor.hp_bv_switch_valve_1.state == ''on'')
+        and (states.binary_sensor.hp_bv_compressor.state == ''on'')) else ''off''}}'
   - binary_sensor:
     - default_entity_id: binary_sensor.bv_heating_house
       name: Heating house
-      state: '{{ ''on'' if ((states.binary_sensor.bv_switch_valve_1.state == ''off'')
-        and (states.binary_sensor.bv_compressor.state == ''on'')) else ''off''}}'
+      state: '{{ ''on'' if ((states.binary_sensor.hp_bv_switch_valve_1.state == ''off'')
+        and (states.binary_sensor.hp_bv_compressor.state == ''on'')) else ''off''}}'
   - sensor:
     - unit_of_measurement: m
       default_entity_id: sensor.pelles_phone_distance_bt

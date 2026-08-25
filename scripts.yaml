@@ -134,3 +134,11 @@ zigge_notif_1hr_off:
       entity_id: automation.zigge_waiting_bt
   mode: single
   icon: mdi:cat
+husdata_force_sendall:
+  sequence:
+  - action: mqtt.publish
+    data:
+      topic: 083a8d016010/HP/CMD
+      payload: GETALL
+  alias: Husdata - Force sendall
+  description: ''
